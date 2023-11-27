@@ -1,10 +1,12 @@
 
 
+import UIKit
+
 protocol CoordinatorProtocol: AnyObject {
     
     var childCoordinators: [CoordinatorProtocol] { get set }
     
-    func start()
+    func start() -> UIViewController
     func showNextScreen()
     
     func addChildCoordinator(_ coordinator: CoordinatorProtocol)

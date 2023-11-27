@@ -13,10 +13,13 @@ final class OnboardingViewController: UIViewController {
         static let pageControllBottom: CGFloat = -128
     }
     
+    // MARK: - Private properties
     private lazy var pages: [OnboardingViewModel] = [OnboardingViewModel(state: .firstPage),
                                                         OnboardingViewModel(state: .secondPage),
                                                         OnboardingViewModel(state: .thirdPage)]
 
+    private var viewModel: OnboardingViewModelProtocol
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,6 +62,17 @@ final class OnboardingViewController: UIViewController {
         return nextButton
     }()
     
+    private var onboardingSlide = OnboardingSlide()
+    
+    // MARK: - Life Cycle
+    init(viewModel: OnboardingViewModelProtocol) {
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -67,6 +81,7 @@ final class OnboardingViewController: UIViewController {
         setupConstraints()
     }
     
+    // MARK: - Private methods
     private func setupView() {
         view.backgroundColor = .white
     }
@@ -81,12 +96,18 @@ final class OnboardingViewController: UIViewController {
     private func setupScrollView() {
         scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(pages.count), height: view.frame.width)
         for i in 0..<pages.count {
-            let onboardingSlide = OnboardingSlide()
-            onboardingSlide.viewModel = pages[i]
+            onboardingSlide.slide = pages[i]
             scrollView.addSubview(onboardingSlide)
             onboardingSlide.frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
         }
     }
+    
+    private func bindingViewModel() {
+        viewModel.stateDidChange {
+            
+        }
+    }
+    
     
     private func setupConstraints() {
         
@@ -129,6 +150,7 @@ final class OnboardingViewController: UIViewController {
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension OnboardingViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x / view.frame.width)

@@ -3,11 +3,11 @@
 import UIKit
 
 protocol OnboardingCoordinatorDelegate: AnyObject {
-    func onboardingCoordinatorDidFinish(_ coordinator: CoordinatorProtocol)
+    func onboardingCoordinatorDidFinish()
 }
 
 
-final class OnboardingCoordinator: CoordinatorProtocol {
+final class OnboardingCoordinator {
     
     weak var delegate: OnboardingCoordinatorDelegate?
     
@@ -33,6 +33,19 @@ final class OnboardingCoordinator: CoordinatorProtocol {
         
     }
     
+}
+
+extension OnboardingCoordinator: CoordinatorProtocol {
+    func start() -> UIViewController {
+        <#code#>
+    }
+    
+}
+
+extension OnboardingCoordinator: OnboardingCoordinatorDelegate {
+    func onboardingCoordinatorDidFinish() {
+        print("Next flow")
+    }
 }
 
 //extension OnboardingCoordinator: OnboardingViewControllerDelegate {

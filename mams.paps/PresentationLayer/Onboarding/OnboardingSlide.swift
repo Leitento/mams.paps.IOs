@@ -4,11 +4,13 @@ import UIKit
 
 final class OnboardingSlide: UIView {
     
-    var viewModel: OnboardingViewModel? {
-        didSet {
-            updateView()
-        }
-    }
+//    var viewModel: OnboardingViewModel? {
+//        didSet {
+//            updateView()
+//        }
+//    }
+    
+    let slide: Slide
     
     private enum Constants {
         static let multiplier: CGFloat = 529/412
@@ -37,6 +39,11 @@ final class OnboardingSlide: UIView {
         setupLayout()
     }
     
+    init(slide: Slide) {
+        self.slide = slide
+        imageView.image = slide.image
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -55,8 +62,8 @@ final class OnboardingSlide: UIView {
         ])
     }
     
-    private func updateView() {
-        guard let viewModel = viewModel else { return }
-        imageView.image = viewModel.image
-    }
+//    private func updateView() {
+//        guard let viewModel = viewModel else { return }
+//        imageView.image = viewModel.image
+//    }
 }

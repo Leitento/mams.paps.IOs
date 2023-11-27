@@ -3,20 +3,35 @@
 
 import UIKit
 
-enum State {
-    case firstPage
-    case secondPage
-    case thirdPage
+protocol OnboardingViewModelProtocol {
+    var stateDidChange: ((OnboardingViewModel.State) -> Void)? { get }
+    func getNextFlow()
 }
 
-struct OnboardingViewModel {
+struct Slide {
+    let image: UIImage
+    let text: String
+}
+
+final class OnboardingViewModel {
+    
+    enum State {
+        case firstPage(slide: Slide)
+        case secondPage(slide: Slide)
+        case thirdPage(slide: Slide)
+    }
+    
     var state: State {
         didSet {
-            StateDidChange?(state)
+            stateDidChange?(state)
         }
     }
     
-    var StateDidChange: ((State) -> Void)?
+    let slides: [Slide] = []
+    
+    private var coordinator: OnboardingCoordinatorDelegate
+    
+    var stateDidChange: ((State) -> Void)?
     
     var image: UIImage? {
         switch state {
@@ -39,4 +54,19 @@ struct OnboardingViewModel {
             return "Локации, которые подходят именно вашей семье".localized
         }
     }
+    
+    init(state: State, coordinator: OnboardingCoordinatorDelegate, stateDidChange: ( (State) -> Void)? = nil) {
+        self.state = state
+        self.coordinator = coordinator
+        self.stateDidChange = stateDidChange
+    }
+    
+}
+
+extension OnboardingViewModel: OnboardingViewModelProtocol {
+    
+    func getNextFlow() {
+        coordinator.onboardingCoordinatorDidFinish()
+    }
+
 }
