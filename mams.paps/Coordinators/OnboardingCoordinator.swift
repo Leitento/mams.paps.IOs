@@ -3,7 +3,7 @@
 import UIKit
 
 protocol OnboardingCoordinatorDelegate: AnyObject {
-    func onboardingCoordinatorDidFinish(_ coordinator: OnboardingCoordinator)
+    func onboardingCoordinatorDidFinish(_ coordinator: CoordinatorProtocol)
 }
 
 
@@ -25,7 +25,7 @@ final class OnboardingCoordinator: CoordinatorProtocol {
     func createNavigationController() {
         let onboardingViewController = OnboardingViewController()
         let onboardingNavigationController = UINavigationController(rootViewController: onboardingViewController)
-        onboardingViewController.delegate = self
+//        onboardingViewController.delegate = self
         navigationController.pushViewController(onboardingNavigationController, animated: true)
     }
     
@@ -35,13 +35,13 @@ final class OnboardingCoordinator: CoordinatorProtocol {
     
 }
 
-extension OnboardingCoordinator: OnboardingViewControllerDelegate {
-    func onboardingViewControllerDidDisappear() {
-        delegate?.onboardingCoordinatorDidFinish(self)
-    }
+//extension OnboardingCoordinator: OnboardingViewControllerDelegate {
+//    func onboardingViewControllerDidDisappear() {
+//        delegate?.onboardingCoordinatorDidFinish(self)
+//    }
     
     
-}
+//}
 
 
 
