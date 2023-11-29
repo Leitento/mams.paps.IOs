@@ -2,59 +2,42 @@
 
 import UIKit
 
+    // MARK: - OnboardingCoordinatorDelegate
 protocol OnboardingCoordinatorDelegate: AnyObject {
     func onboardingCoordinatorDidFinish()
 }
-
 
 final class OnboardingCoordinator {
     
     weak var delegate: OnboardingCoordinatorDelegate?
     
-    let navigationController: UINavigationController
-    
-    var childCoordinators: [CoordinatorProtocol] = []
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    func start() {
-    }
-    
-    func createNavigationController() {
-        let onboardingViewController = OnboardingViewController()
-        let onboardingNavigationController = UINavigationController(rootViewController: onboardingViewController)
-//        onboardingViewController.delegate = self
-        navigationController.pushViewController(onboardingNavigationController, animated: true)
-    }
-    
-    func showNextScreen() {
+    // MARK: - Private methods
+    private func createNavigationController() -> UIViewController {
         
+        let slides: [Slide] = [
+            Slide(image: UIImage(named: "firstPage"), text: "OnboardingFirstPage.text".localized + "!"),
+            Slide(image: UIImage(named: "secondPage"), text: "OnboardingSecondPage.text".localized + "!"),
+            Slide(image: UIImage(named: "thirdPage"), text: "OnboardingThirdPage.text".localized + ".")
+        ]
+        
+        let viewModel = OnboardingViewModel(slides: slides, coordinator: self)
+        
+        let onboardingViewController = OnboardingViewController(viewModel: viewModel)
+        return onboardingViewController
     }
-    
 }
 
+    // MARK: - CoordinatorProtocol
 extension OnboardingCoordinator: CoordinatorProtocol {
     func start() -> UIViewController {
-        <#code#>
+        createNavigationController()
     }
-    
 }
 
+    // MARK: - OnboardingCoordinatorDelegate
 extension OnboardingCoordinator: OnboardingCoordinatorDelegate {
     func onboardingCoordinatorDidFinish() {
-        print("Next flow")
+        delegate?.onboardingCoordinatorDidFinish()
     }
 }
-
-//extension OnboardingCoordinator: OnboardingViewControllerDelegate {
-//    func onboardingViewControllerDidDisappear() {
-//        delegate?.onboardingCoordinatorDidFinish(self)
-//    }
-    
-    
-//}
-
-
 

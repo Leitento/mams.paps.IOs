@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		091630E12B10FAF5007E193E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091630E02B10FAF5007E193E /* Localized.swift */; };
 		091630EA2B10FC2F007E193E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 091630EC2B10FC2F007E193E /* Localizable.strings */; };
-		092EC10B2B131F4200DB0D34 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EC10A2B131F4200DB0D34 /* UIScrollView+.swift */; };
 		0965DA4D2B0FB4F000A457CE /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */; };
 		0965DA4E2B0FB4F000A457CE /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965DA4C2B0FB4EF00A457CE /* ProtocolCoordinator.swift */; };
 		0965DA5C2B0FB50400A457CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0965DA552B0FB50400A457CE /* Assets.xcassets */; };
@@ -25,7 +24,6 @@
 /* Begin PBXFileReference section */
 		091630E02B10FAF5007E193E /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		091630EB2B10FC2F007E193E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		092EC10A2B131F4200DB0D34 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		0965DA4C2B0FB4EF00A457CE /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
 		0965DA552B0FB50400A457CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				091630E02B10FAF5007E193E /* Localized.swift */,
-				092EC10A2B131F4200DB0D34 /* UIScrollView+.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -64,21 +61,11 @@
 		0965DA4A2B0FB4EF00A457CE /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */,
 				0965DA4C2B0FB4EF00A457CE /* ProtocolCoordinator.swift */,
+				0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */,
 				5AA93BA02B14E0F400E2908A /* MainCoordinator.swift */,
 			);
 			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		0965DA4F2B0FB50400A457CE /* PresentationLayer */ = {
-			isa = PBXGroup;
-			children = (
-				09D004172B149C4C00E200A5 /* Onboarding */,
-				0965DA552B0FB50400A457CE /* Assets.xcassets */,
-				0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */,
-			);
-			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		09D004172B149C4C00E200A5 /* Onboarding */ = {
@@ -112,7 +99,9 @@
 			children = (
 				5ADDBD4F2B0FA25400CFA9C3 /* App */,
 				0965DA4A2B0FB4EF00A457CE /* Coordinators */,
-				0965DA4F2B0FB50400A457CE /* PresentationLayer */,
+				09D004172B149C4C00E200A5 /* Onboarding */,
+				0965DA552B0FB50400A457CE /* Assets.xcassets */,
+				0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */,
 				091630DF2B10FAD8007E193E /* Common */,
 				5ADDBD492B0FA24100CFA9C3 /* Info.plist */,
 				091630EC2B10FC2F007E193E /* Localizable.strings */,
@@ -207,7 +196,6 @@
 				5AA93BA12B14E0F400E2908A /* MainCoordinator.swift in Sources */,
 				0965DA4E2B0FB4F000A457CE /* ProtocolCoordinator.swift in Sources */,
 				09D004192B149C6700E200A5 /* OnboardingViewModel.swift in Sources */,
-				092EC10B2B131F4200DB0D34 /* UIScrollView+.swift in Sources */,
 				09D0041D2B149C7E00E200A5 /* OnboardingViewController.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				09D0041B2B149C7200E200A5 /* OnboardingSlide.swift in Sources */,

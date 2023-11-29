@@ -5,7 +5,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var mainCoordinator: MainCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -13,11 +13,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let onboardingViewController = OnboardingViewController()
-        let rootViewController = UINavigationController(rootViewController: onboardingViewController)
+        mainCoordinator = MainCoordinator()
         
-        window?.rootViewController = rootViewController
-        window?.makeKeyAndVisible()
+        if let onboardingViewController = mainCoordinator?.start() {
+            let rootViewController = UINavigationController(rootViewController: onboardingViewController)
+                window?.rootViewController = rootViewController
+                window?.makeKeyAndVisible()            
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

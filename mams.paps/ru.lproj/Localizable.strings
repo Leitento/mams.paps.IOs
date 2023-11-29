@@ -1,12 +1,8 @@
 
 "Onboarding.NextButton" = "Далее";
-"Далее" = "Next";
-"Детям будет" = "Сhildren will be";
 
-"интересно" = "interested";
+"OnboardingFirstPage.text" = "От родителей родителям";
 
-"Локации, которые подходят именно вашей семье" = "Locations that are right for your family";
+"OnboardingSecondPage.text" = "Детям будет интересно";
 
-"От родителей" = "From parents";
-
-"родителям" = "to parents";
+"OnboardingThirdPage.text" = "Локации, которые подходят именно вашей семье";
