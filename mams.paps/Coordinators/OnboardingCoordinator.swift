@@ -2,13 +2,13 @@
 
 import UIKit
 
-    // MARK: - OnboardingCoordinatorDelegate
 protocol OnboardingCoordinatorDelegate: AnyObject {
     func onboardingCoordinatorDidFinish()
 }
 
 final class OnboardingCoordinator {
     
+    // MARK: - Properties
     weak var delegate: OnboardingCoordinatorDelegate?
     
     // MARK: - Private methods

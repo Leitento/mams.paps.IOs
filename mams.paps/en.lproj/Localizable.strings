@@ -7,3 +7,20 @@
 
 "OnboardingThirdPage.text" = "Locations that are right for your family";
 
+"Authorization.welcome" = "Join the MAMS.PAPS";
+
+"Authorization.info" = "Receive notifications about great offers and earn discount points";
+
+"Login.placeholder" = "E-mail";
+
+"Password.placeholder" = "Your password";
+
+"RestorePassword.text" = "Forgot your password?";
+
+"SignUp.text" = "Sign up";
+
+"ContinueButton.text" = "Continue without registration";
+
+"logInButton.text" = "Log In";
+
+

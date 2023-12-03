@@ -6,11 +6,15 @@ final class OnboardingViewController: UIViewController {
 
     private enum Constants {
         static let horizontalSpacing: CGFloat = 16
-        static let verticalSpacing: CGFloat = 44
-        static let textLabelWidth: CGFloat = 280
+        static let verticalSpacingMin: CGFloat = 16
+        static let verticalSpacingMax: CGFloat = 44
+        static let textLabelWidth: CGFloat = 264
+        static let textLabelHeight: CGFloat = 52
         static let nextButtonWidth: CGFloat = 194
         static let nextButtonHeight: CGFloat = 50
         static let pageControllBottom: CGFloat = -128
+        static let pageControlHeight: CGFloat = 12
+        static let aspectRatioMultiplier: CGFloat = 529 / 412
     }
 
     // MARK: - Private properties
@@ -105,23 +109,43 @@ final class OnboardingViewController: UIViewController {
     }
 
     private func setupConstraints() {
+        
+        let imageHeight = view.frame.width * Constants.aspectRatioMultiplier + 48
+        let totalItemsHeight = imageHeight + Constants.nextButtonHeight + Constants.textLabelHeight + Constants.pageControlHeight
+        let availableHeight = view.frame.height - totalItemsHeight
+        let verticalSpacingMin: CGFloat = availableHeight / 4
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.horizontalSpacing),
+            
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: Constants.pageControlHeight),
+            pageControl.topAnchor.constraint(equalTo: view.topAnchor, constant: imageHeight + min(verticalSpacingMin, Constants.verticalSpacingMax)),
+            
+            textLabel.topAnchor.constraint(lessThanOrEqualTo: pageControl.bottomAnchor, constant: min(verticalSpacingMin, Constants.verticalSpacingMax)),
+            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textLabel.widthAnchor.constraint(equalToConstant: Constants.textLabelWidth),
+            textLabel.heightAnchor.constraint(equalToConstant: Constants.textLabelHeight),
+            
+            nextButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: min(verticalSpacingMin, Constants.verticalSpacingMax)),
             nextButton.heightAnchor.constraint(equalToConstant: Constants.nextButtonHeight),
             nextButton.widthAnchor.constraint(equalToConstant: Constants.nextButtonWidth),
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            textLabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -Constants.verticalSpacing),
-            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textLabel.widthAnchor.constraint(equalToConstant: Constants.textLabelWidth),
-
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: Constants.pageControllBottom)
+//            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.horizontalSpacing),
+//            nextButton.heightAnchor.constraint(equalToConstant: Constants.nextButtonHeight),
+//            nextButton.widthAnchor.constraint(equalToConstant: Constants.nextButtonWidth),
+//            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//
+//            textLabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -Constants.verticalSpacing),
+//            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            textLabel.widthAnchor.constraint(equalToConstant: Constants.textLabelWidth),
+//
+//            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: Constants.pageControllBottom)
         ])
     }
     
