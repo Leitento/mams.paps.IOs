@@ -6,8 +6,8 @@ class AppCoordinator {
     
     // MARK: - Properties
     var childCoordinators: [CoordinatorProtocol] = []
-    var window: UIWindow?
-
+    var navigationController: UINavigationController?
+    
     // MARK: - Private methods
     private func showOnboarding() -> UIViewController {
         let onboardingCoordinator = OnboardingCoordinator()
@@ -36,14 +36,13 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
     func onboardingCoordinatorDidFinish() {
         childCoordinators.removeAll()
         let authorizationScreen = showAuthorizationScreen()
-        if let navigationController = window?.rootViewController as? UINavigationController {
-            navigationController.setViewControllers([authorizationScreen], animated: true)
-        }
+        navigationController?.setViewControllers([authorizationScreen], animated: true)
     }
 }
 
     // MARK: - AuthorizationCoordinatorDelegate
 extension AppCoordinator: AuthorizationCoordinatorDelegate {
+    
     func authorizationCoordinatorDidFinish() {
         childCoordinators.removeAll()
         print("Show Main Screen")

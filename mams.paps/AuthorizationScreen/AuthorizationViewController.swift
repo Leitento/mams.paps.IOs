@@ -4,11 +4,14 @@ import UIKit
 
 final class AuthorizationViewController: UIViewController {
     
-    private var keyboardObserver: NSObjectProtocol?
+    // MARK: - Private properties
+    private var viewModel: AuthorizationViewModelProtocol
     private var authorizationView: AuthorizationView
+    private var keyboardObserver: NSObjectProtocol?
     
-    
-    init() {
+    // MARK: - Life Cycle
+    init(viewModel: AuthorizationViewModelProtocol) {
+        self.viewModel = viewModel
         self.authorizationView = AuthorizationView()
         super.init(nibName: nil, bundle: nil)
         authorizationView.delegate = self
@@ -33,6 +36,7 @@ final class AuthorizationViewController: UIViewController {
         removeKeyboardObservers()
     }
     
+    // MARK: - Private methods
     private func setupAuthorizationView() {
         view = authorizationView
         navigationController?.navigationBar.isHidden = true
@@ -45,6 +49,14 @@ final class AuthorizationViewController: UIViewController {
             queue: .main
         ) { [weak self] notification in
             self?.keyboardFrameWillChange(notification)
+        }
+        
+        NotificationCenter.default.addObserver(
+                   forName: UIResponder.keyboardWillHideNotification,
+                   object: nil,
+                   queue: .main
+        ) { [weak self] notification in
+            self?.keyboardWillHide(notification)
         }
     }
     
@@ -70,28 +82,49 @@ final class AuthorizationViewController: UIViewController {
             authorizationView.scrollView.contentInset.bottom = 0
         } else {
             authorizationView.scrollView.contentInset.bottom = intersection.height + 5
+            authorizationView.scrollView.scrollToBottom(animated: true)
         }
         
         authorizationView.scrollView.scrollIndicatorInsets = authorizationView.scrollView.contentInset
     }
+    
+    private func keyboardWillHide(_ notification: Notification) {
+        authorizationView.scrollView.contentInset.bottom = 0
+        authorizationView.scrollView.scrollToTop(animated: true)
+        authorizationView.scrollView.scrollIndicatorInsets = authorizationView.scrollView.contentInset
+    }
 }
 
+    // MARK: - AuthorizationViewDelegate
 extension AuthorizationViewController: AuthorizationViewDelegate {
+
+    
     func forgotPasswordButtonDidTap() {
-        print("forgotPasswordButtonDidTap")
+        viewModel.presentRestorePasswordController()
     }
     
     func signUpButtonDidTap() {
-        print("signUpButtonDidTap")
+        viewModel.presentSignUpController()
     }
     
     func continueWithoutRegistrationButtonDidTap() {
-        print("continueWithoutRegistrationButtonDidTap")
+        viewModel.pushMainController()
     }
     
-    func loginButtonDidTap() {
-        print("loginButtonDidTap")
+    func loginButtonDidTap(login: String, password: String) {
+        viewModel.authenticateUser(user: User(login: login, password: password))
+    }
+}
+
+    // MARK: - UIScrollView extension
+extension UIScrollView {
+    func scrollToBottom(animated: Bool) {
+        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
+        setContentOffset(bottomOffset, animated: animated)
     }
     
-    
+    func scrollToTop(animated: Bool) {
+        let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
+        setContentOffset(desiredOffset, animated: animated)
+    }
 }

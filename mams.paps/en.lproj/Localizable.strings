@@ -7,6 +7,10 @@
 
 "OnboardingThirdPage.text" = "Locations that are right for your family";
 
+"AuthorizationAlert.title" = "Authorization error";
+
+"AuthorizationAlert.message" = "Incorrect login or password";
+
 "Authorization.welcome" = "Join the MAMS.PAPS";
 
 "Authorization.info" = "Receive notifications about great offers and earn discount points";

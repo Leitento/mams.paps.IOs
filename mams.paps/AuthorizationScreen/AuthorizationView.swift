@@ -6,7 +6,7 @@ protocol AuthorizationViewDelegate: AnyObject {
     func forgotPasswordButtonDidTap()
     func signUpButtonDidTap()
     func continueWithoutRegistrationButtonDidTap()
-    func loginButtonDidTap()
+    func loginButtonDidTap(login: String, password: String)
 }
 
 final class AuthorizationView: UIView {
@@ -18,6 +18,7 @@ final class AuthorizationView: UIView {
     
     weak var delegate: AuthorizationViewDelegate?
     
+    // MARK: - Private properties
     private(set) lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
@@ -123,6 +124,7 @@ final class AuthorizationView: UIView {
         return logInButton
     }()
     
+    // MARK: - Life Cycle
     init() {
         super.init(frame: .zero)
         setupView()
@@ -135,6 +137,7 @@ final class AuthorizationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private methods
     private func setupView() {
         backgroundColor = .white
     }
@@ -214,19 +217,24 @@ final class AuthorizationView: UIView {
         logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
-    @objc func forgotPasswordButtonTapped(_ sender: UIButton) {
+    @objc private func forgotPasswordButtonTapped(_ sender: UIButton) {
         delegate?.forgotPasswordButtonDidTap()
     }
     
-    @objc func signUpButtonTapped(_ sender: UIButton) {
+    @objc private func signUpButtonTapped(_ sender: UIButton) {
         delegate?.signUpButtonDidTap()
     }
     
-    @objc func continueButtonTapped(_ sender: UIButton) {
+    @objc private func continueButtonTapped(_ sender: UIButton) {
         delegate?.continueWithoutRegistrationButtonDidTap()
     }
     
-    @objc func logInButtonTapped(_ sender: UIButton) {
-        delegate?.loginButtonDidTap()
+    @objc private func logInButtonTapped(_ sender: UIButton) {
+        guard let login = loginField.text, let password = passwordField.text else {
+            return
+        }
+        delegate?.loginButtonDidTap(login: login, password: password)
     }
 }
+
+
