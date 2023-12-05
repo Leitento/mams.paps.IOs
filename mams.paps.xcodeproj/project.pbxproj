@@ -84,7 +84,6 @@
 				092E66F12B19C8B800FBB04E /* AuthorizationViewController.swift */,
 				092E66F32B19C8C200FBB04E /* AuthorizationView.swift */,
 				095BE7D02B1DFBFD00C6220E /* AuthorizationViewModel.swift */,
-				095BE7D22B1E02CD00C6220E /* AuthorizationService.swift */,
 				095BE7D62B1E0CC800C6220E /* User.swift */,
 			);
 			path = AuthorizationScreen;
@@ -112,6 +111,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		5AA93BB02B1F0E0600E2908A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				095BE7D22B1E02CD00C6220E /* AuthorizationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		5ADDBD2F2B0FA23E00CFA9C3 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +138,7 @@
 		5ADDBD3A2B0FA23F00CFA9C3 /* mams.paps */ = {
 			isa = PBXGroup;
 			children = (
+				5AA93BB02B1F0E0600E2908A /* Services */,
 				5ADDBD4F2B0FA25400CFA9C3 /* App */,
 				0965DA4A2B0FB4EF00A457CE /* Coordinators */,
 				09D004172B149C4C00E200A5 /* Onboarding */,

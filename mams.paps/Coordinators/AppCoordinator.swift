@@ -43,7 +43,7 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
     // MARK: - AuthorizationCoordinatorDelegate
 extension AppCoordinator: AuthorizationCoordinatorDelegate {
     
-    func authorizationCoordinatorDidFinish() {
+    func authorizationCoordinatorDidFinish(user: User?) {
         childCoordinators.removeAll()
         print("Show Main Screen")
     }

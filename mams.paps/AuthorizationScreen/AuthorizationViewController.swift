@@ -24,6 +24,7 @@ final class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAuthorizationView()
+        bindingViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +38,20 @@ final class AuthorizationViewController: UIViewController {
     }
     
     // MARK: - Private methods
+    private func bindingViewModel() {
+        viewModel.stateChanger = { [weak self] state in
+            guard let self else { return }
+            switch state {
+            case .noLogin:
+                ()
+            case .errorLogin(let error):
+                Alert.shared.showAlert(on: self, title: "Ошибка", message: error)
+            case .loginSuccess:
+                viewModel.authSuccess()
+            }
+        }
+    }
+    
     private func setupAuthorizationView() {
         view = authorizationView
         navigationController?.navigationBar.isHidden = true
@@ -112,7 +127,7 @@ extension AuthorizationViewController: AuthorizationViewDelegate {
     }
     
     func loginButtonDidTap(login: String, password: String) {
-        viewModel.authenticateUser(user: User(login: login, password: password))
+        viewModel.authenticateUser(login: login, password: password)
     }
 }
 
