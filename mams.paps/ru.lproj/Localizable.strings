@@ -1,4 +1,6 @@
 
+"AlertTitle.Error" = "Ошибка";
+
 "Onboarding.NextButton" = "Далее";
 
 "OnboardingFirstPage.text" = "От родителей родителям";
@@ -6,3 +8,31 @@
 "OnboardingSecondPage.text" = "Детям будет интересно";
 
 "OnboardingThirdPage.text" = "Локации, которые подходят именно вашей семье";
+
+"AuthorizationAlert.title" = "Ошибка авторизации";
+
+"AuthorizationAlert.message" = "Неправильный логин или пароль";
+
+"Authorization.welcome" = "Присоединяйся к MAMS.PAPS";
+
+"Authorization.info" = "Получай уведомления о выгодных предложениях и копи баллы на скидку";
+
+"AuthorizationError.InvalidCredentials" = "Неправильный логин или пароль";
+
+"AuthorizationError.EmptyLogin" = "Логин не может быть пустым";
+
+"AuthorizationError.EmptyPassword" = "Пароль не может быть пустым";
+
+"Login.placeholder" = "Электронная почта";
+
+"Password.placeholder" = "Ваш пароль";
+
+"RestorePassword.text" = "Забыли пароль?";
+
+"SignUp.text" = "Регистрация";
+
+"ContinueButton.text" = "Продолжить без регистрации";
+
+"logInButton.text" = "Войти";
+
+

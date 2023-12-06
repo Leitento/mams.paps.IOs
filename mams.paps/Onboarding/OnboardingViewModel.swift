@@ -10,12 +10,6 @@ protocol OnboardingViewModelProtocol {
     func getNextFlow()
 }
 
-    // MARK: - Slide
-struct Slide {
-    let image: UIImage?
-    var text: String
-}
-
 final class OnboardingViewModel {
     
     enum State {

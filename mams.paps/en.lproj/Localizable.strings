@@ -1,4 +1,7 @@
 
+
+"AlertTitle.Error" = "Error";
+
 "Onboarding.NextButton" = "Next";
 
 "OnboardingFirstPage.text" = "From parents to parents";
@@ -6,4 +9,32 @@
 "OnboardingSecondPage.text" = "Сhildren will be interested";
 
 "OnboardingThirdPage.text" = "Locations that are right for your family";
+
+"AuthorizationAlert.title" = "Authorization error";
+
+"AuthorizationAlert.message" = "Incorrect login or password";
+
+"Authorization.welcome" = "Join the MAMS.PAPS";
+
+"Authorization.info" = "Receive notifications about great offers and earn discount points";
+
+"AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
+
+"AuthorizationError.EmptyLogin" = "Login cannot be empty";
+
+"AuthorizationError.EmptyPassword" = "Password cannot be empty";
+
+"Login.placeholder" = "E-mail";
+
+"Password.placeholder" = "Your password";
+
+"RestorePassword.text" = "Forgot your password?";
+
+"SignUp.text" = "Sign up";
+
+"ContinueButton.text" = "Continue without registration";
+
+"logInButton.text" = "Log In";
+
+
 
