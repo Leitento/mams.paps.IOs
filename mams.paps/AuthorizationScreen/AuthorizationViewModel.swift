@@ -3,20 +3,35 @@
 import Foundation
 
 protocol AuthorizationViewModelProtocol: AnyObject {
-    func pushMainController()
-    func authenticateUser(user: User)
+    var stateChanger: ((AuthorizationViewModel.State) -> Void)? { get set }
     func presentRestorePasswordController()
     func presentSignUpController()
+    func showMainScreenForGuest()
+    func showMainScreenForUser(for user: User?)
+    func authenticateUser(login: String, password: String)
 }
 
 final class AuthorizationViewModel {
+    
+    enum State {
+        case withoutLogin
+        case errorLogin(error: String)
+        case loginSuccess(user: User)
+    }
     
     //MARK: - Private Properties
     private let coordinator: AuthorizationCoordinatorDelegate
     private let authorizationService: AuthorizationServiceProtocol
     
     //MARK: - Properties
-    var authorizationViewController: AuthorizationViewController?
+    var stateChanger: ((State) -> Void)?
+    
+    private var state: State = .withoutLogin {
+        didSet {
+            self.stateChanger?(state)
+        }
+    }
+    
         
     //MARK: - Life Cycles
     init(coordinator: AuthorizationCoordinatorDelegate, authorizationService: AuthorizationServiceProtocol) {
@@ -27,6 +42,7 @@ final class AuthorizationViewModel {
 
     //MARK: - AuthorizationViewModelProtocol
 extension AuthorizationViewModel: AuthorizationViewModelProtocol {
+    
     func presentRestorePasswordController() {
         print("Показать экран восстановления пароля")
     }
@@ -35,21 +51,23 @@ extension AuthorizationViewModel: AuthorizationViewModelProtocol {
         print("Показать экран регистрации")
     }
     
-    func pushMainController() {
-        coordinator.authorizationCoordinatorDidFinish()
-        print("ShowMainScreen")
+    func showMainScreenForGuest() {
+        coordinator.authorizationCoordinatorDidFinish(user: nil)
     }
     
-    func authenticateUser(user: User) {
-        authorizationService.checkCredentials(login: user.login, password: user.password) { [weak self] isValid in
+    func showMainScreenForUser(for user: User?) {
+        coordinator.authorizationCoordinatorDidFinish(user: user)
+    }
+    
+    func authenticateUser(login: String, password: String) {
+        authorizationService.checkCredentials(login: login, password: password) { [weak self] result in
             guard let self else { return }
-            if isValid {
-                coordinator.authorizationCoordinatorDidFinish()
-            } else {
-                guard let authorizationViewController else { return }
-                Alert().showAlert(on: authorizationViewController, title: "AuthorizationAlert.title".localized, message: "AuthorizationAlert.message".localized)
+            switch result {
+            case .success(let user):
+                self.state = .loginSuccess(user: user)
+            case .failure(let error):
+                self.state = .errorLogin(error: error.description)
             }
         }
     }
 }
-

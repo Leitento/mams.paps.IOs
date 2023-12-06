@@ -1,4 +1,7 @@
 
+
+"AlertTitle.Error" = "Error";
+
 "Onboarding.NextButton" = "Next";
 
 "OnboardingFirstPage.text" = "From parents to parents";
@@ -15,6 +18,12 @@
 
 "Authorization.info" = "Receive notifications about great offers and earn discount points";
 
+"AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
+
+"AuthorizationError.EmptyLogin" = "Login cannot be empty";
+
+"AuthorizationError.EmptyPassword" = "Password cannot be empty";
+
 "Login.placeholder" = "E-mail";
 
 "Password.placeholder" = "Your password";
@@ -26,5 +35,6 @@
 "ContinueButton.text" = "Continue without registration";
 
 "logInButton.text" = "Log In";
+
 
 

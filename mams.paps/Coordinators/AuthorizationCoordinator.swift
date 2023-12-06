@@ -3,7 +3,7 @@
 import UIKit
 
 protocol AuthorizationCoordinatorDelegate: AnyObject {
-    func authorizationCoordinatorDidFinish()
+    func authorizationCoordinatorDidFinish(user: User?)
 }
 
 final class AuthorizationCoordinator {
@@ -18,7 +18,6 @@ final class AuthorizationCoordinator {
         let authorizationService = AuthorizationService()
         let viewModel = AuthorizationViewModel(coordinator: self, authorizationService: authorizationService)
         let authorizationViewController = AuthorizationViewController(viewModel: viewModel)
-        viewModel.authorizationViewController = authorizationViewController
         self.authorizationViewController = authorizationViewController
         return authorizationViewController
     }
@@ -34,7 +33,7 @@ extension AuthorizationCoordinator: CoordinatorProtocol {
     // MARK: - AuthorizationCoordinatorDelegate
 extension AuthorizationCoordinator: AuthorizationCoordinatorDelegate {
     
-    func authorizationCoordinatorDidFinish() {
-        delegate?.authorizationCoordinatorDidFinish()
+    func authorizationCoordinatorDidFinish(user: User?) {
+        delegate?.authorizationCoordinatorDidFinish(user: user)
     }
 }

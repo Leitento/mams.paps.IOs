@@ -14,6 +14,9 @@ final class AuthorizationView: UIView {
     private enum Constants {
         static let aspectRatioMultiplier: CGFloat = 325 / 390
         static let padding: CGFloat = 20
+        static let textFieldHeight: CGFloat = 52
+        static let customButtonHeight: CGFloat = 50
+        static let labelButtonHeight: CGFloat = 21
     }
     
     weak var delegate: AuthorizationViewDelegate?
@@ -35,6 +38,15 @@ final class AuthorizationView: UIView {
         return contentView
     }()
     
+    private lazy var topView: UIView = {
+        let topView = RoundedBottomView()
+        topView.translatesAutoresizingMaskIntoConstraints = false
+        topView.backgroundColor = .white
+        topView.addSubview(imageView)
+        topView.addSubview(welcomeLabel)
+        return topView
+    }()
+    
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "authorizationScreen"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +60,7 @@ final class AuthorizationView: UIView {
         textLabel.font = .systemFont(ofSize: 28, weight: .semibold)
         textLabel.textColor = .black
         textLabel.textAlignment = .center
+        textLabel.adjustsFontSizeToFitWidth = true
         textLabel.numberOfLines = 2
         textLabel.text = "Authorization.welcome".localized
         return textLabel
@@ -73,6 +86,7 @@ final class AuthorizationView: UIView {
     private lazy var passwordField: UITextField = {
         let textField = AuthTextField(placeholder: "Password.placeholder".localized, fontSize: 16, icon: UIImage(systemName: "lock"))
         textField.isSecureTextEntry = true
+        textField.textContentType = .password
         return textField
     }()
     
@@ -165,7 +179,7 @@ final class AuthorizationView: UIView {
     
     private func setupContentOfScrollView() {
 
-        contentView.addSubview(imageView)
+        contentView.addSubview(topView)
         contentView.addSubview(textLabel)
         contentView.addSubview(loginField)
         contentView.addSubview(passwordField)
@@ -175,46 +189,56 @@ final class AuthorizationView: UIView {
         contentView.addSubview(logInButton)
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: Constants.aspectRatioMultiplier),
+            topView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            topView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            topView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            topView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 14),
+            imageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: Constants.padding),
+            imageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: topView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: topView.trailingAnchor),
+            imageView.heightAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.5),
+            
+            welcomeLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: Constants.padding),
+            welcomeLabel.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
+            welcomeLabel.widthAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.5),
+            welcomeLabel.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -Constants.padding),
+            
+            textLabel.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 14),
             textLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
             textLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding),
             
-            loginField.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 20),
-            loginField.heightAnchor.constraint(equalToConstant: 52),
+            loginField.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: Constants.padding),
+            loginField.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
             loginField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
             loginField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding),
             
             passwordField.topAnchor.constraint(equalTo: loginField.bottomAnchor, constant: 16),
-            passwordField.heightAnchor.constraint(equalToConstant: 52),
+            passwordField.heightAnchor.constraint(equalToConstant: Constants.textFieldHeight),
             passwordField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
             passwordField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding),
             
             forgotPasswordButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 18),
-            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 21),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: Constants.labelButtonHeight),
             forgotPasswordButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
             
             signUpButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 18),
-            signUpButton.heightAnchor.constraint(equalToConstant: 21),
+            signUpButton.heightAnchor.constraint(equalToConstant: Constants.labelButtonHeight),
             signUpButton.leadingAnchor.constraint(greaterThanOrEqualTo: forgotPasswordButton.trailingAnchor, constant: 10),
             signUpButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding),
             
             continueButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 39),
             continueButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
             continueButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding),
-            continueButton.heightAnchor.constraint(equalToConstant: 50),
+            continueButton.heightAnchor.constraint(equalToConstant: Constants.customButtonHeight),
             
-            logInButton.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 20),
+            logInButton.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: Constants.padding),
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding),
-            logInButton.heightAnchor.constraint(equalToConstant: 50),
+            logInButton.heightAnchor.constraint(equalToConstant: Constants.customButtonHeight),
         ])
-        logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.padding).isActive = true
     }
     
     @objc private func forgotPasswordButtonTapped(_ sender: UIButton) {

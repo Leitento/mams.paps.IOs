@@ -8,6 +8,7 @@ final class AuthorizationViewController: UIViewController {
     private var viewModel: AuthorizationViewModelProtocol
     private var authorizationView: AuthorizationView
     private var keyboardObserver: NSObjectProtocol?
+    private var user: User?
     
     // MARK: - Life Cycle
     init(viewModel: AuthorizationViewModelProtocol) {
@@ -24,6 +25,7 @@ final class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAuthorizationView()
+        bindingViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +42,20 @@ final class AuthorizationViewController: UIViewController {
     private func setupAuthorizationView() {
         view = authorizationView
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func bindingViewModel() {
+        viewModel.stateChanger = { [weak self] state in
+            guard let self else { return }
+            switch state {
+            case .withoutLogin:
+                viewModel.showMainScreenForGuest()
+            case .errorLogin(let error):
+                Alert.shared.showAlert(on: self, title: "AlertTitle.Error".localized, message: error)
+            case .loginSuccess:
+                viewModel.showMainScreenForUser(for: user)
+            }
+        }
     }
     
     private func setupKeyboardObservers() {
@@ -95,10 +111,9 @@ final class AuthorizationViewController: UIViewController {
     }
 }
 
-    // MARK: - AuthorizationViewDelegate
+    // MARK: - AuthViewDelegate
 extension AuthorizationViewController: AuthorizationViewDelegate {
 
-    
     func forgotPasswordButtonDidTap() {
         viewModel.presentRestorePasswordController()
     }
@@ -108,11 +123,11 @@ extension AuthorizationViewController: AuthorizationViewDelegate {
     }
     
     func continueWithoutRegistrationButtonDidTap() {
-        viewModel.pushMainController()
+        viewModel.showMainScreenForGuest()
     }
     
     func loginButtonDidTap(login: String, password: String) {
-        viewModel.authenticateUser(user: User(login: login, password: password))
+        viewModel.authenticateUser(login: login, password: password)
     }
 }
 

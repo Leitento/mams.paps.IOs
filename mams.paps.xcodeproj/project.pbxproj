@@ -18,6 +18,10 @@
 		095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7D22B1E02CD00C6220E /* AuthorizationService.swift */; };
 		095BE7D52B1E058000C6220E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7D42B1E058000C6220E /* Alert.swift */; };
 		095BE7D72B1E0CC800C6220E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7D62B1E0CC800C6220E /* User.swift */; };
+		095BE7D92B1F01B500C6220E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7D82B1F01B500C6220E /* MainCoordinator.swift */; };
+		095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */; };
+		095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7E72B1F07C200C6220E /* Reusable.swift */; };
+		095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7EA2B203DCF00C6220E /* AuthorizationError.swift */; };
 		0965DA4D2B0FB4F000A457CE /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */; };
 		0965DA4E2B0FB4F000A457CE /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965DA4C2B0FB4EF00A457CE /* ProtocolCoordinator.swift */; };
 		0965DA5C2B0FB50400A457CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0965DA552B0FB50400A457CE /* Assets.xcassets */; };
@@ -42,6 +46,10 @@
 		095BE7D22B1E02CD00C6220E /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		095BE7D42B1E058000C6220E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		095BE7D62B1E0CC800C6220E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		095BE7D82B1F01B500C6220E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedBottomView.swift; sourceTree = "<group>"; };
+		095BE7E72B1F07C200C6220E /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		095BE7EA2B203DCF00C6220E /* AuthorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationError.swift; sourceTree = "<group>"; };
 		0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		0965DA4C2B0FB4EF00A457CE /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
 		0965DA552B0FB50400A457CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +79,8 @@
 		091630DF2B10FAD8007E193E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				095BE7E72B1F07C200C6220E /* Reusable.swift */,
+				095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */,
 				091630E02B10FAF5007E193E /* Localized.swift */,
 				092E66F52B1B166100FBB04E /* AuthTextField.swift */,
 				095BE7D42B1E058000C6220E /* Alert.swift */,
@@ -84,10 +94,18 @@
 				092E66F12B19C8B800FBB04E /* AuthorizationViewController.swift */,
 				092E66F32B19C8C200FBB04E /* AuthorizationView.swift */,
 				095BE7D02B1DFBFD00C6220E /* AuthorizationViewModel.swift */,
-				095BE7D22B1E02CD00C6220E /* AuthorizationService.swift */,
 				095BE7D62B1E0CC800C6220E /* User.swift */,
 			);
 			path = AuthorizationScreen;
+			sourceTree = "<group>";
+		};
+		095BE7E92B20322300C6220E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				095BE7D22B1E02CD00C6220E /* AuthorizationService.swift */,
+				095BE7EA2B203DCF00C6220E /* AuthorizationError.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		0965DA4A2B0FB4EF00A457CE /* Coordinators */ = {
@@ -97,6 +115,7 @@
 				5AA93BA02B14E0F400E2908A /* AppCoordinator.swift */,
 				0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */,
 				092E66F72B1C63BA00FBB04E /* AuthorizationCoordinator.swift */,
+				095BE7D82B1F01B500C6220E /* MainCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -131,6 +150,7 @@
 		5ADDBD3A2B0FA23F00CFA9C3 /* mams.paps */ = {
 			isa = PBXGroup;
 			children = (
+				095BE7E92B20322300C6220E /* Services */,
 				5ADDBD4F2B0FA25400CFA9C3 /* App */,
 				0965DA4A2B0FB4EF00A457CE /* Coordinators */,
 				09D004172B149C4C00E200A5 /* Onboarding */,
@@ -229,17 +249,21 @@
 				092E66F42B19C8C200FBB04E /* AuthorizationView.swift in Sources */,
 				092E66F22B19C8B800FBB04E /* AuthorizationViewController.swift in Sources */,
 				095BE7D52B1E058000C6220E /* Alert.swift in Sources */,
+				095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */,
 				0965DA4D2B0FB4F000A457CE /* OnboardingCoordinator.swift in Sources */,
 				091630E12B10FAF5007E193E /* Localized.swift in Sources */,
 				5AA93BA12B14E0F400E2908A /* AppCoordinator.swift in Sources */,
 				0965DA4E2B0FB4F000A457CE /* ProtocolCoordinator.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
+				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
 				09D004192B149C6700E200A5 /* OnboardingViewModel.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
 				095BE7D12B1DFBFD00C6220E /* AuthorizationViewModel.swift in Sources */,
 				09D0041D2B149C7E00E200A5 /* OnboardingViewController.swift in Sources */,
 				092E66F82B1C63BA00FBB04E /* AuthorizationCoordinator.swift in Sources */,
+				095BE7D92B1F01B500C6220E /* MainCoordinator.swift in Sources */,
 				095BE7D72B1E0CC800C6220E /* User.swift in Sources */,
+				095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				09D0041B2B149C7200E200A5 /* OnboardingSlide.swift in Sources */,
 				092E66EF2B19C0A600FBB04E /* Slide.swift in Sources */,

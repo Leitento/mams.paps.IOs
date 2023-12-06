@@ -22,6 +22,12 @@ class AppCoordinator {
         childCoordinators.append(authorizationCoordinator)
         return authorizationCoordinator.start()
     }
+    
+    private func showMainScreen() -> UIViewController {
+        let mainCoordinator = MainCoordinator()
+        childCoordinators.append(mainCoordinator)
+        return mainCoordinator.start()
+    }
 }
 
     // MARK: - CoordinatorProtocol
@@ -42,10 +48,10 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
 
     // MARK: - AuthorizationCoordinatorDelegate
 extension AppCoordinator: AuthorizationCoordinatorDelegate {
-    
-    func authorizationCoordinatorDidFinish() {
-        childCoordinators.removeAll()
-        print("Show Main Screen")
+    func authorizationCoordinatorDidFinish(user: User?) {
+        print("show Main Screen")
+//        childCoordinators.removeAll()
+//        let mainScreen = showMainScreen()
+//        navigationController?.setViewControllers([mainScreen], animated: true)
     }
 }
-
