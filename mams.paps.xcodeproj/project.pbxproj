@@ -22,6 +22,11 @@
 		095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */; };
 		095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7E72B1F07C200C6220E /* Reusable.swift */; };
 		095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE7EA2B203DCF00C6220E /* AuthorizationError.swift */; };
+		095BE8352B2058D300C6220E /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE8302B2058D300C6220E /* MainMenu.swift */; };
+		095BE8362B2058D300C6220E /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE8312B2058D300C6220E /* MainCollectionViewCell.swift */; };
+		095BE8372B2058D300C6220E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE8322B2058D300C6220E /* MainViewController.swift */; };
+		095BE8382B2058D300C6220E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE8332B2058D300C6220E /* MainViewModel.swift */; };
+		095BE8392B2058D300C6220E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BE8342B2058D300C6220E /* MainView.swift */; };
 		0965DA4D2B0FB4F000A457CE /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */; };
 		0965DA4E2B0FB4F000A457CE /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965DA4C2B0FB4EF00A457CE /* ProtocolCoordinator.swift */; };
 		0965DA5C2B0FB50400A457CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0965DA552B0FB50400A457CE /* Assets.xcassets */; };
@@ -50,6 +55,11 @@
 		095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedBottomView.swift; sourceTree = "<group>"; };
 		095BE7E72B1F07C200C6220E /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		095BE7EA2B203DCF00C6220E /* AuthorizationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationError.swift; sourceTree = "<group>"; };
+		095BE8302B2058D300C6220E /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		095BE8312B2058D300C6220E /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		095BE8322B2058D300C6220E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		095BE8332B2058D300C6220E /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		095BE8342B2058D300C6220E /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0965DA4B2B0FB4EF00A457CE /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		0965DA4C2B0FB4EF00A457CE /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
 		0965DA552B0FB50400A457CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +118,18 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		095BE82F2B2058D300C6220E /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				095BE8322B2058D300C6220E /* MainViewController.swift */,
+				095BE8342B2058D300C6220E /* MainView.swift */,
+				095BE8332B2058D300C6220E /* MainViewModel.swift */,
+				095BE8312B2058D300C6220E /* MainCollectionViewCell.swift */,
+				095BE8302B2058D300C6220E /* MainMenu.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
 		0965DA4A2B0FB4EF00A457CE /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +177,7 @@
 				0965DA4A2B0FB4EF00A457CE /* Coordinators */,
 				09D004172B149C4C00E200A5 /* Onboarding */,
 				092E66F02B19C89F00FBB04E /* AuthorizationScreen */,
+				095BE82F2B2058D300C6220E /* MainScreen */,
 				0965DA552B0FB50400A457CE /* Assets.xcassets */,
 				0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */,
 				091630DF2B10FAD8007E193E /* Common */,
@@ -250,6 +273,7 @@
 				092E66F22B19C8B800FBB04E /* AuthorizationViewController.swift in Sources */,
 				095BE7D52B1E058000C6220E /* Alert.swift in Sources */,
 				095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */,
+				095BE8382B2058D300C6220E /* MainViewModel.swift in Sources */,
 				0965DA4D2B0FB4F000A457CE /* OnboardingCoordinator.swift in Sources */,
 				091630E12B10FAF5007E193E /* Localized.swift in Sources */,
 				5AA93BA12B14E0F400E2908A /* AppCoordinator.swift in Sources */,
@@ -257,12 +281,16 @@
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
 				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
 				09D004192B149C6700E200A5 /* OnboardingViewModel.swift in Sources */,
+				095BE8352B2058D300C6220E /* MainMenu.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
+				095BE8372B2058D300C6220E /* MainViewController.swift in Sources */,
 				095BE7D12B1DFBFD00C6220E /* AuthorizationViewModel.swift in Sources */,
 				09D0041D2B149C7E00E200A5 /* OnboardingViewController.swift in Sources */,
 				092E66F82B1C63BA00FBB04E /* AuthorizationCoordinator.swift in Sources */,
+				095BE8392B2058D300C6220E /* MainView.swift in Sources */,
 				095BE7D92B1F01B500C6220E /* MainCoordinator.swift in Sources */,
 				095BE7D72B1E0CC800C6220E /* User.swift in Sources */,
+				095BE8362B2058D300C6220E /* MainCollectionViewCell.swift in Sources */,
 				095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				09D0041B2B149C7200E200A5 /* OnboardingSlide.swift in Sources */,

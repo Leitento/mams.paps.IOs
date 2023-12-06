@@ -15,9 +15,9 @@ final class OnboardingCoordinator {
     private func createNavigationController() -> UIViewController {
         
         let slides: [Slide] = [
-            Slide(image: UIImage(named: "firstPage"), text: "OnboardingFirstPage.text".localized + "!"),
-            Slide(image: UIImage(named: "secondPage"), text: "OnboardingSecondPage.text".localized + "!"),
-            Slide(image: UIImage(named: "thirdPage"), text: "OnboardingThirdPage.text".localized + ".")
+            Slide(image: UIImage(named: "firstPage"), text: "OnboardingFirstPage.Text".localized + "!"),
+            Slide(image: UIImage(named: "secondPage"), text: "OnboardingSecondPage.Text".localized + "!"),
+            Slide(image: UIImage(named: "thirdPage"), text: "OnboardingThirdPage.Text".localized + ".")
         ]
         
         let viewModel = OnboardingViewModel(slides: slides, coordinator: self)

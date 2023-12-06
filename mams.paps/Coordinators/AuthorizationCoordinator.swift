@@ -10,15 +10,12 @@ final class AuthorizationCoordinator {
     
     // MARK: - Properties
     weak var delegate: AuthorizationCoordinatorDelegate?
-    
-    var authorizationViewController: AuthorizationViewController?
-    
+        
     // MARK: - Private methods
     private func createNavigationController() -> UIViewController {
         let authorizationService = AuthorizationService()
         let viewModel = AuthorizationViewModel(coordinator: self, authorizationService: authorizationService)
         let authorizationViewController = AuthorizationViewController(viewModel: viewModel)
-        self.authorizationViewController = authorizationViewController
         return authorizationViewController
     }
 }

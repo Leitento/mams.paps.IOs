@@ -8,7 +8,6 @@ final class AuthorizationViewController: UIViewController {
     private var viewModel: AuthorizationViewModelProtocol
     private var authorizationView: AuthorizationView
     private var keyboardObserver: NSObjectProtocol?
-    private var user: User?
     
     // MARK: - Life Cycle
     init(viewModel: AuthorizationViewModelProtocol) {
@@ -52,7 +51,7 @@ final class AuthorizationViewController: UIViewController {
                 viewModel.showMainScreenForGuest()
             case .errorLogin(let error):
                 Alert.shared.showAlert(on: self, title: "AlertTitle.Error".localized, message: error)
-            case .loginSuccess:
+            case .loginSuccess(let user):
                 viewModel.showMainScreenForUser(for: user)
             }
         }
