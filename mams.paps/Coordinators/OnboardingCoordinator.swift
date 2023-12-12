@@ -10,6 +10,7 @@ final class OnboardingCoordinator {
     
     // MARK: - Properties
     weak var delegate: OnboardingCoordinatorDelegate?
+    weak var parentCoordinator: AppCoordinatorProtocol?
     
     // MARK: - Private methods
     private func createNavigationController() -> UIViewController {
@@ -25,6 +26,11 @@ final class OnboardingCoordinator {
         let onboardingViewController = OnboardingViewController(viewModel: viewModel)
         return onboardingViewController
     }
+    
+    init(parentCoordinator: AppCoordinatorProtocol?) {
+        self.parentCoordinator = parentCoordinator
+    }
+    
 }
 
     // MARK: - CoordinatorProtocol
@@ -37,7 +43,7 @@ extension OnboardingCoordinator: CoordinatorProtocol {
     // MARK: - OnboardingCoordinatorDelegate
 extension OnboardingCoordinator: OnboardingCoordinatorDelegate {
     func onboardingCoordinatorDidFinish() {
-        delegate?.onboardingCoordinatorDidFinish()
+        parentCoordinator?.switchFlow(from: self)
     }
 }
 

@@ -13,13 +13,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let appCoordinator = AppCoordinator()
-        let rootViewController = UINavigationController(rootViewController: appCoordinator.start())
-        appCoordinator.navigationController = rootViewController
-        self.appCoordinator = appCoordinator
-        
-        window?.rootViewController = rootViewController
+        let rootViewController = UIViewController()
+        let appCoordinator = AppCoordinator(rootViewController: rootViewController)
+        window?.rootViewController = appCoordinator.start()
         window?.makeKeyAndVisible()
+        self.appCoordinator = appCoordinator
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
