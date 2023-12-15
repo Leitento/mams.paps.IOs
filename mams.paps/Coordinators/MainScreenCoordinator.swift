@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol MainCoordinatorDelegate: AnyObject {
+protocol MainScreenCoordinatorDelegate: AnyObject {
     func mainCoordinatorDidFinish()
     func showAuthorizationScreen()
     func pushMapScreen()
@@ -12,13 +12,13 @@ protocol MainCoordinatorDelegate: AnyObject {
     func presentAvailableCities()
 }
 
-final class MainCoordinator {
-    
+final class MainScreenCoordinator {
+        
+    // MARK: - Properties
+    weak var parentCoordinator: AppCoordinatorProtocol?
     var childCoordinators: [CoordinatorProtocol] = []
     var navigationController: UINavigationController?
     
-    // MARK: - Properties
-    weak var delegate: MainCoordinatorDelegate?
     private var user: User?
     
     // MARK: - Private methods
@@ -29,23 +29,23 @@ final class MainCoordinator {
     }
     
     // MARK: - Life Cycle
-    init(user: User?) {
+    init(user: User?, parentCoordinator: AppCoordinatorProtocol) {
         self.user = user
+        self.parentCoordinator = parentCoordinator
     }
 }
 
     // MARK: - CoordinatorProtocol
-extension MainCoordinator: CoordinatorProtocol {
+extension MainScreenCoordinator: CoordinatorProtocol {
     func start() -> UIViewController {
         createNavigationController()
     }
 }
 
     // MARK: - AuthorizationCoordinatorDelegate
-extension MainCoordinator: MainCoordinatorDelegate {
+extension MainScreenCoordinator: MainScreenCoordinatorDelegate {
     
     func mainCoordinatorDidFinish() {
-        delegate?.mainCoordinatorDidFinish()
     }
     
     func showAuthorizationScreen() {

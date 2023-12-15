@@ -15,9 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let rootViewController = UIViewController()
         let appCoordinator = AppCoordinator(rootViewController: rootViewController)
+        self.appCoordinator = appCoordinator
+        
         window?.rootViewController = appCoordinator.start()
         window?.makeKeyAndVisible()
-        self.appCoordinator = appCoordinator
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

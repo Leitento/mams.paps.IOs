@@ -20,9 +20,9 @@ final class MainView: UIView {
     }
     
     weak var delegate: MainViewDelegate?
-    private var mainMenu: [MainMenuItem]
-    private var city: String
-    private var userName: String
+   
+    private let mainMenu: [MainMenuItem]
+    private var currentUser: User?
     
     private lazy var topView: UIView = {
         let topView = RoundedBottomView()
@@ -31,7 +31,7 @@ final class MainView: UIView {
         return topView
     }()
     
-    private lazy var leftStackView: UIStackView = {
+    private lazy var locationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -46,7 +46,7 @@ final class MainView: UIView {
         return stackView
     }()
     
-    private lazy var rightStackView: UIStackView = {
+    private lazy var usernameStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -74,7 +74,7 @@ final class MainView: UIView {
         locationLabel.font = .systemFont(ofSize: 16, weight: .regular)
         locationLabel.textColor = .black
         locationLabel.textAlignment = .left
-        locationLabel.text = city
+        locationLabel.text = currentUser?.city ?? "Текущий город"
         return locationLabel
     }()
     
@@ -85,7 +85,7 @@ final class MainView: UIView {
         userNameLabel.textColor = .black
         userNameLabel.textAlignment = .left
         userNameLabel.numberOfLines = 2
-        userNameLabel.text = userName
+        userNameLabel.text = currentUser?.userName ?? "Гость"
         return userNameLabel
     }()
     
@@ -113,10 +113,9 @@ final class MainView: UIView {
         return collectionView
     }()
     
-    init(mainMenu: [MainMenuItem], city: String, userName: String) {
+    init(user: User?, mainMenu: [MainMenuItem]) {
+        self.currentUser = user
         self.mainMenu = mainMenu
-        self.city = city
-        self.userName = userName
         super.init(frame: .zero)
         setupView()
         setupCollectionView()
@@ -141,8 +140,8 @@ final class MainView: UIView {
     private func addSubviews() {
         addSubview(topView)
         addSubview(collectionView)
-        topView.addSubview(leftStackView)
-        topView.addSubview(rightStackView)
+        topView.addSubview(locationStackView)
+        topView.addSubview(usernameStackView)
         topView.addSubview(imageView)
     }
     
@@ -154,20 +153,20 @@ final class MainView: UIView {
             topView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             topView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.aspectRatioMultiplier, constant: 20),
             
-            leftStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            leftStackView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 20),
-            leftStackView.heightAnchor.constraint(equalToConstant: 24),
+            locationStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            locationStackView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 20),
+            locationStackView.heightAnchor.constraint(equalToConstant: 24),
             
-            rightStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            rightStackView.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -20),
-            rightStackView.leadingAnchor.constraint(greaterThanOrEqualTo: leftStackView.trailingAnchor, constant: -20),
-            rightStackView.heightAnchor.constraint(equalToConstant: 24),
+            usernameStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            usernameStackView.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -20),
+            usernameStackView.leadingAnchor.constraint(greaterThanOrEqualTo: locationStackView.trailingAnchor, constant: -20),
+            usernameStackView.heightAnchor.constraint(equalToConstant: 24),
             
             locationIcon.widthAnchor.constraint(equalToConstant: 20),
             userNameIcon.widthAnchor.constraint(equalToConstant: 24),
             userNameIcon.heightAnchor.constraint(equalToConstant: 24),
             
-            imageView.topAnchor.constraint(equalTo: leftStackView.bottomAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: locationStackView.bottomAnchor, constant: 20),
             imageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
             imageView.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -34),
             
@@ -194,7 +193,9 @@ extension MainView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as! MainCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         cell.setup(with: mainMenu[indexPath.row])
         return cell
     }

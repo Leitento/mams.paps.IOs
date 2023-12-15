@@ -30,10 +30,10 @@ final class OnboardingViewModel {
         }
     }
     
-    private var coordinator: OnboardingCoordinatorDelegate
+    private var coordinator: OnboardingCoordinatorProtocol
 
     // MARK: - Life Cycle
-    init(slides: [Slide], coordinator: OnboardingCoordinatorDelegate, stateDidChange: ((State) -> Void)? = nil) {
+    init(slides: [Slide], coordinator: OnboardingCoordinatorProtocol, stateDidChange: ((State) -> Void)? = nil) {
         self.slides = slides
         self.coordinator = coordinator
     }

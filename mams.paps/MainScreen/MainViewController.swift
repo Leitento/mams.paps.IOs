@@ -11,7 +11,7 @@ final class MainViewController: UIViewController {
     // MARK: - Life Cycle
     init(viewModel: MainViewModelProtocol) {
         self.viewModel = viewModel
-        self.mainView = MainView(mainMenu: viewModel.mainMenu, city: viewModel.currentUser?.city ?? "Город по умолчанию", userName: viewModel.currentUser?.userName ?? "Гость")
+        self.mainView = MainView(user: viewModel.currentUser, mainMenu: viewModel.mainMenu)
         super.init(nibName: nil, bundle: nil)
         mainView.delegate = self
     }

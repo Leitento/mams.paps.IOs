@@ -15,13 +15,8 @@ protocol MainViewModelProtocol: AnyObject {
 
 final class MainViewModel {
     
-    enum State {
-        case guestScreen
-        case userScreen(user: User)
-    }
-    
     //MARK: - Private Properties
-    private let coordinator: MainCoordinatorDelegate
+    private let coordinator: MainScreenCoordinatorDelegate
     
     //MARK: - Properties
     var currentUser: User?
@@ -31,7 +26,7 @@ final class MainViewModel {
     }
                 
     //MARK: - Life Cycles
-    init(user: User?, coordinator: MainCoordinatorDelegate) {
+    init(user: User?, coordinator: MainScreenCoordinatorDelegate) {
         self.currentUser = user
         self.coordinator = coordinator
     }
