@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol MainScreenCoordinatorDelegate: AnyObject {
+protocol MainScreenCoordinatorProtocol: AnyObject {
     func mainCoordinatorDidFinish()
     func showAuthorizationScreen()
     func pushMapScreen()
@@ -19,9 +19,10 @@ final class MainScreenCoordinator {
     var childCoordinators: [CoordinatorProtocol] = []
     var navigationController: UINavigationController?
     
+    // MARK: - Private Properties
     private var user: User?
     
-    // MARK: - Private methods
+    // MARK: - Private method
     private func createNavigationController() -> UIViewController {
         let viewModel = MainViewModel(user: user, coordinator: self)
         let mainViewController = MainViewController(viewModel: viewModel)
@@ -35,15 +36,15 @@ final class MainScreenCoordinator {
     }
 }
 
-    // MARK: - CoordinatorProtocol
+// MARK: - CoordinatorProtocol
 extension MainScreenCoordinator: CoordinatorProtocol {
     func start() -> UIViewController {
         createNavigationController()
     }
 }
 
-    // MARK: - AuthorizationCoordinatorDelegate
-extension MainScreenCoordinator: MainScreenCoordinatorDelegate {
+// MARK: - AuthorizationCoordinatorDelegate
+extension MainScreenCoordinator: MainScreenCoordinatorProtocol {
     
     func mainCoordinatorDidFinish() {
     }

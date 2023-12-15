@@ -3,9 +3,6 @@
 import UIKit
 
 protocol AppCoordinatorProtocol: AnyObject {
-    var childCoordinators: [CoordinatorProtocol] { get set }
-    func addChildCoordinator(_ coordinator: CoordinatorProtocol)
-    func removeChildCoordinator(_ coordinator: CoordinatorProtocol)
     func switchToNextBranch(from coordinator: CoordinatorProtocol)
 }
 
@@ -94,6 +91,16 @@ final class AppCoordinator {
     private func markAppAsLaunched() {
         UserDefaults.standard.set(true, forKey: "isFirstLaunch")
     }
+    
+    private func addChildCoordinator(_ coordinator: CoordinatorProtocol) {
+        childCoordinators.append(coordinator)
+    }
+    
+    private func removeChildCoordinator(_ coordinator: CoordinatorProtocol) {
+        if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
+            childCoordinators.remove(at: index)
+        }
+    }
 }
 
 // MARK: - CoordinatorProtocol
@@ -109,16 +116,6 @@ extension AppCoordinator: CoordinatorProtocol {
 
 // MARK: - AppCoordinatorProtocol
 extension AppCoordinator: AppCoordinatorProtocol {
-    
-    func addChildCoordinator(_ coordinator: CoordinatorProtocol) {
-        childCoordinators.append(coordinator)
-    }
-    
-    func removeChildCoordinator(_ coordinator: CoordinatorProtocol) {
-        if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
-            childCoordinators.remove(at: index)
-        }
-    }
     
     func switchToNextBranch(from coordinator: CoordinatorProtocol) {
         if coordinator === onboardingCoordinator {

@@ -16,7 +16,7 @@ protocol MainViewModelProtocol: AnyObject {
 final class MainViewModel {
     
     //MARK: - Private Properties
-    private let coordinator: MainScreenCoordinatorDelegate
+    private let coordinator: MainScreenCoordinatorProtocol
     
     //MARK: - Properties
     var currentUser: User?
@@ -26,7 +26,7 @@ final class MainViewModel {
     }
                 
     //MARK: - Life Cycles
-    init(user: User?, coordinator: MainScreenCoordinatorDelegate) {
+    init(user: User?, coordinator: MainScreenCoordinatorProtocol) {
         self.currentUser = user
         self.coordinator = coordinator
     }
