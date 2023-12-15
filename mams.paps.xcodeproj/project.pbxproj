@@ -10,11 +10,11 @@
 		091630E12B10FAF5007E193E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091630E02B10FAF5007E193E /* Localized.swift */; };
 		091630EA2B10FC2F007E193E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 091630EC2B10FC2F007E193E /* Localizable.strings */; };
 		092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092E66F52B1B166100FBB04E /* AuthTextField.swift */; };
-		094977792B2C79580089DB13 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977742B2C79580089DB13 /* OnboardingCoordinator.swift */; };
-		0949777A2B2C79580089DB13 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977752B2C79580089DB13 /* AppCoordinator.swift */; };
-		0949777B2B2C79580089DB13 /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977762B2C79580089DB13 /* ProtocolCoordinator.swift */; };
-		0949777C2B2C79580089DB13 /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977772B2C79580089DB13 /* MainScreenCoordinator.swift */; };
-		0949777D2B2C79580089DB13 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977782B2C79580089DB13 /* AuthorizationCoordinator.swift */; };
+		092EB2872B2C7FC900A27CDE /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EB2822B2C7FC900A27CDE /* MainScreenCoordinator.swift */; };
+		092EB2882B2C7FC900A27CDE /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EB2832B2C7FC900A27CDE /* ProtocolCoordinator.swift */; };
+		092EB2892B2C7FC900A27CDE /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EB2842B2C7FC900A27CDE /* AuthorizationCoordinator.swift */; };
+		092EB28A2B2C7FC900A27CDE /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EB2852B2C7FC900A27CDE /* OnboardingCoordinator.swift */; };
+		092EB28B2B2C7FC900A27CDE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092EB2862B2C7FC900A27CDE /* AppCoordinator.swift */; };
 		094977842B2C79700089DB13 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949777F2B2C79700089DB13 /* MainMenu.swift */; };
 		094977852B2C79700089DB13 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977802B2C79700089DB13 /* MainCollectionViewCell.swift */; };
 		094977862B2C79700089DB13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977812B2C79700089DB13 /* MainViewController.swift */; };
@@ -43,11 +43,11 @@
 		091630E02B10FAF5007E193E /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		091630EB2B10FC2F007E193E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		092E66F52B1B166100FBB04E /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
-		094977742B2C79580089DB13 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
-		094977752B2C79580089DB13 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		094977762B2C79580089DB13 /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
-		094977772B2C79580089DB13 /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
-		094977782B2C79580089DB13 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		092EB2822B2C7FC900A27CDE /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
+		092EB2832B2C7FC900A27CDE /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
+		092EB2842B2C7FC900A27CDE /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		092EB2852B2C7FC900A27CDE /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		092EB2862B2C7FC900A27CDE /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0949777F2B2C79700089DB13 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		094977802B2C79700089DB13 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		094977812B2C79700089DB13 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -101,11 +101,11 @@
 		094977732B2C79580089DB13 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				094977742B2C79580089DB13 /* OnboardingCoordinator.swift */,
-				094977752B2C79580089DB13 /* AppCoordinator.swift */,
-				094977762B2C79580089DB13 /* ProtocolCoordinator.swift */,
-				094977772B2C79580089DB13 /* MainScreenCoordinator.swift */,
-				094977782B2C79580089DB13 /* AuthorizationCoordinator.swift */,
+				092EB2832B2C7FC900A27CDE /* ProtocolCoordinator.swift */,
+				092EB2862B2C7FC900A27CDE /* AppCoordinator.swift */,
+				092EB2852B2C7FC900A27CDE /* OnboardingCoordinator.swift */,
+				092EB2842B2C7FC900A27CDE /* AuthorizationCoordinator.swift */,
+				092EB2822B2C7FC900A27CDE /* MainScreenCoordinator.swift */,
 			);
 			name = Coordinators;
 			path = "../../../Проекты/Mams.Paps/Mams.Paps/Coordinators";
@@ -270,28 +270,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ADDBD3C2B0FA24000CFA9C3 /* AppDelegate.swift in Sources */,
+				092EB2892B2C7FC900A27CDE /* AuthorizationCoordinator.swift in Sources */,
 				095BE7D52B1E058000C6220E /* Alert.swift in Sources */,
+				092EB28A2B2C7FC900A27CDE /* OnboardingCoordinator.swift in Sources */,
 				095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */,
 				094977872B2C79700089DB13 /* MainViewModel.swift in Sources */,
+				092EB28B2B2C7FC900A27CDE /* AppCoordinator.swift in Sources */,
+				092EB2872B2C7FC900A27CDE /* MainScreenCoordinator.swift in Sources */,
 				0949779A2B2C799B0089DB13 /* OnboardingViewModel.swift in Sources */,
 				091630E12B10FAF5007E193E /* Localized.swift in Sources */,
-				0949777D2B2C79580089DB13 /* AuthorizationCoordinator.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
 				094977912B2C79920089DB13 /* AuthorizationViewModel.swift in Sources */,
 				094977992B2C799B0089DB13 /* OnboardingSlide.swift in Sources */,
 				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
 				0949778E2B2C79920089DB13 /* AuthorizationViewController.swift in Sources */,
-				0949777C2B2C79580089DB13 /* MainScreenCoordinator.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
 				094977982B2C799B0089DB13 /* OnboardingViewController.swift in Sources */,
-				094977792B2C79580089DB13 /* OnboardingCoordinator.swift in Sources */,
 				094977842B2C79700089DB13 /* MainMenu.swift in Sources */,
-				0949777A2B2C79580089DB13 /* AppCoordinator.swift in Sources */,
 				094977972B2C799B0089DB13 /* Slide.swift in Sources */,
 				094977862B2C79700089DB13 /* MainViewController.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
+				092EB2882B2C7FC900A27CDE /* ProtocolCoordinator.swift in Sources */,
 				094977882B2C79700089DB13 /* MainView.swift in Sources */,
-				0949777B2B2C79580089DB13 /* ProtocolCoordinator.swift in Sources */,
 				094977852B2C79700089DB13 /* MainCollectionViewCell.swift in Sources */,
 				095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
