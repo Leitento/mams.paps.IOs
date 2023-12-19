@@ -2,22 +2,26 @@
 
 import UIKit
 
-protocol OnboardingCoordinatorDelegate: AnyObject {
+protocol OnboardingCoordinatorProtocol: AnyObject {
     func onboardingCoordinatorDidFinish()
 }
 
 final class OnboardingCoordinator {
     
     // MARK: - Properties
-    weak var delegate: OnboardingCoordinatorDelegate?
+    weak var parentCoordinator: AppCoordinatorProtocol?
+    
+    init(parentCoordinator: AppCoordinatorProtocol?) {
+        self.parentCoordinator = parentCoordinator
+    }
     
     // MARK: - Private methods
     private func createNavigationController() -> UIViewController {
         
         let slides: [Slide] = [
-            Slide(image: UIImage(named: "firstPage"), text: "OnboardingFirstPage.text".localized + "!"),
-            Slide(image: UIImage(named: "secondPage"), text: "OnboardingSecondPage.text".localized + "!"),
-            Slide(image: UIImage(named: "thirdPage"), text: "OnboardingThirdPage.text".localized + ".")
+            Slide(image: UIImage(named: "firstPage"), text: "OnboardingFirstPage.Text".localized + "!"),
+            Slide(image: UIImage(named: "secondPage"), text: "OnboardingSecondPage.Text".localized + "!"),
+            Slide(image: UIImage(named: "thirdPage"), text: "OnboardingThirdPage.Text".localized + ".")
         ]
         
         let viewModel = OnboardingViewModel(slides: slides, coordinator: self)
@@ -34,10 +38,10 @@ extension OnboardingCoordinator: CoordinatorProtocol {
     }
 }
 
-    // MARK: - OnboardingCoordinatorDelegate
-extension OnboardingCoordinator: OnboardingCoordinatorDelegate {
+    // MARK: - OnboardingCoordinatorProtocol
+extension OnboardingCoordinator: OnboardingCoordinatorProtocol {
     func onboardingCoordinatorDidFinish() {
-        delegate?.onboardingCoordinatorDidFinish()
+        parentCoordinator?.switchToNextBranch(from: self)
     }
 }
 

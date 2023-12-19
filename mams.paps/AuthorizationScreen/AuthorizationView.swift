@@ -62,7 +62,7 @@ final class AuthorizationView: UIView {
         textLabel.textAlignment = .center
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.numberOfLines = 2
-        textLabel.text = "Authorization.welcome".localized
+        textLabel.text = "Authorization.Welcome".localized
         return textLabel
     }()
     
@@ -73,18 +73,18 @@ final class AuthorizationView: UIView {
         textLabel.textColor = .black
         textLabel.textAlignment = .left
         textLabel.numberOfLines = 2
-        textLabel.text = "Authorization.info".localized
+        textLabel.text = "Authorization.Info".localized
         return textLabel
     }()
     
     private lazy var loginField: UITextField = {
-        let textField = AuthTextField(placeholder: "Login.placeholder".localized, fontSize: 16, icon: UIImage(systemName: "envelope"))
+        let textField = AuthTextField(placeholder: "Login.Placeholder".localized, fontSize: 16, icon: UIImage(systemName: "envelope"))
         textField.keyboardType = .emailAddress
         return textField
     }()
     
     private lazy var passwordField: UITextField = {
-        let textField = AuthTextField(placeholder: "Password.placeholder".localized, fontSize: 16, icon: UIImage(systemName: "lock"))
+        let textField = AuthTextField(placeholder: "Password.Placeholder".localized, fontSize: 16, icon: UIImage(systemName: "lock"))
         textField.isSecureTextEntry = true
         textField.textContentType = .password
         return textField
@@ -93,7 +93,7 @@ final class AuthorizationView: UIView {
     private lazy var forgotPasswordButton: UIButton = {
         let forgotPasswordButton = UIButton(type: .system)
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
-        forgotPasswordButton.setTitle("RestorePassword.text".localized, for: .normal)
+        forgotPasswordButton.setTitle("RestorePassword.Text".localized, for: .normal)
         forgotPasswordButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
         forgotPasswordButton.setTitleColor(.systemBlue, for: .normal)
         forgotPasswordButton.sizeToFit()
@@ -104,7 +104,7 @@ final class AuthorizationView: UIView {
     private lazy var signUpButton: UIButton = {
         let signUpButton = UIButton(type: .system)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        signUpButton.setTitle("SignUp.text".localized, for: .normal)
+        signUpButton.setTitle("SignUp.Text".localized, for: .normal)
         signUpButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
         signUpButton.setTitleColor(.systemBlue, for: .normal)
         signUpButton.sizeToFit()
@@ -115,7 +115,7 @@ final class AuthorizationView: UIView {
     private lazy var continueButton: UIButton = {
         let continueButton = UIButton(type: .system)
         continueButton.translatesAutoresizingMaskIntoConstraints = false
-        continueButton.setTitle("ContinueButton.text".localized, for: .normal)
+        continueButton.setTitle("ContinueButton.Text".localized, for: .normal)
         continueButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
         continueButton.backgroundColor = .clear
         continueButton.layer.borderWidth = 2.0
@@ -129,7 +129,7 @@ final class AuthorizationView: UIView {
     private lazy var logInButton: UIButton = {
         let logInButton = UIButton(type: .system)
         logInButton.translatesAutoresizingMaskIntoConstraints = false
-        logInButton.setTitle("logInButton.text".localized, for: .normal)
+        logInButton.setTitle("logInButton.Text".localized, for: .normal)
         logInButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
         logInButton.backgroundColor = .white
         logInButton.layer.cornerRadius = 24

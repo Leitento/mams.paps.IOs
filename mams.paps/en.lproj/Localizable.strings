@@ -4,19 +4,19 @@
 
 "Onboarding.NextButton" = "Next";
 
-"OnboardingFirstPage.text" = "From parents to parents";
+"OnboardingFirstPage.Text" = "From parents to parents";
 
-"OnboardingSecondPage.text" = "Сhildren will be interested";
+"OnboardingSecondPage.Text" = "Сhildren will be interested";
 
-"OnboardingThirdPage.text" = "Locations that are right for your family";
+"OnboardingThirdPage.Text" = "Locations that are right for your family";
 
-"AuthorizationAlert.title" = "Authorization error";
+"AuthorizationAlert.Title" = "Authorization error";
 
-"AuthorizationAlert.message" = "Incorrect login or password";
+"AuthorizationAlert.Message" = "Incorrect login or password";
 
-"Authorization.welcome" = "Join the MAMS.PAPS";
+"Authorization.Welcome" = "Join the MAMS.PAPS";
 
-"Authorization.info" = "Receive notifications about great offers and earn discount points";
+"Authorization.Info" = "Receive notifications about great offers and earn discount points";
 
 "AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
 
@@ -24,17 +24,23 @@
 
 "AuthorizationError.EmptyPassword" = "Password cannot be empty";
 
-"Login.placeholder" = "E-mail";
+"Login.Placeholder" = "E-mail";
 
-"Password.placeholder" = "Your password";
+"Password.Placeholder" = "Your password";
 
-"RestorePassword.text" = "Forgot your password?";
+"RestorePassword.Text" = "Forgot your password?";
 
-"SignUp.text" = "Sign up";
+"SignUp.Text" = "Sign up";
 
-"ContinueButton.text" = "Continue without registration";
+"ContinueButton.Text" = "Continue without registration";
 
-"logInButton.text" = "Log In";
+"logInButton.Text" = "Log In";
 
+"MainMenuItem.Navigation" = "Navigator for parents";
 
+"MainMenuItem.Events" = "Events and Activities";
+
+"MainMenuItem.Services" = "Services and announcements";
+
+"MainMenuItem.Useful" = "Useful";
 

@@ -20,7 +20,7 @@ final class AuthorizationViewModel {
     }
     
     //MARK: - Private Properties
-    private let coordinator: AuthorizationCoordinatorDelegate
+    private let coordinator: AuthorizationCoordinatorProtocol
     private let authorizationService: AuthorizationServiceProtocol
     
     //MARK: - Properties
@@ -34,7 +34,7 @@ final class AuthorizationViewModel {
     
         
     //MARK: - Life Cycles
-    init(coordinator: AuthorizationCoordinatorDelegate, authorizationService: AuthorizationServiceProtocol) {
+    init(coordinator: AuthorizationCoordinatorProtocol, authorizationService: AuthorizationServiceProtocol) {
         self.coordinator = coordinator
         self.authorizationService = authorizationService
     }
