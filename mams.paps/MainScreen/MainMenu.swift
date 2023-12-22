@@ -8,7 +8,7 @@ struct MainMenuItem {
 }
 
 extension MainMenuItem {
-    public static func make() -> [MainMenuItem] {
+    public static func make() -> [Self] {
         [
             MainMenuItem(imageName: "mainCell1", text: "MainMenuItem.Navigation".localized),
             MainMenuItem(imageName: "mainCell2", text: "MainMenuItem.Events".localized),

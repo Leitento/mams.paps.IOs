@@ -5,7 +5,7 @@ import UIKit
 protocol AuthorizationViewDelegate: AnyObject {
     func forgotPasswordButtonDidTap()
     func signUpButtonDidTap()
-    func continueWithoutRegistrationButtonDidTap()
+    func withoutLoginButtonDidTap()
     func loginButtonDidTap(login: String, password: String)
 }
 
@@ -250,7 +250,7 @@ final class AuthorizationView: UIView {
     }
     
     @objc private func continueButtonTapped(_ sender: UIButton) {
-        delegate?.continueWithoutRegistrationButtonDidTap()
+        delegate?.withoutLoginButtonDidTap()
     }
     
     @objc private func logInButtonTapped(_ sender: UIButton) {

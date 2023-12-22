@@ -48,11 +48,11 @@ final class AuthorizationViewController: UIViewController {
             guard let self else { return }
             switch state {
             case .withoutLogin:
-                viewModel.showMainScreenForGuest()
+                viewModel.showMainScreen()
             case .errorLogin(let error):
                 Alert.shared.showAlert(on: self, title: "AlertTitle.Error".localized, message: error)
-            case .loginSuccess(let user):
-                viewModel.showMainScreenForUser(for: user)
+            case .loginSuccess:
+                viewModel.showMainScreen()
             }
         }
     }
@@ -121,8 +121,8 @@ extension AuthorizationViewController: AuthorizationViewDelegate {
         viewModel.presentSignUpController()
     }
     
-    func continueWithoutRegistrationButtonDidTap() {
-        viewModel.showMainScreenForGuest()
+    func withoutLoginButtonDidTap() {
+        viewModel.showMainScreen()
     }
     
     func loginButtonDidTap(login: String, password: String) {

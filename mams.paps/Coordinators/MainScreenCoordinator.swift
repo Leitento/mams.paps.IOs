@@ -19,8 +19,9 @@ final class MainScreenCoordinator {
     var childCoordinators: [CoordinatorProtocol] = []
     var navigationController: UINavigationController?
     
+    
     // MARK: - Private Properties
-    private var user: User?
+    private var user: UserModel?
     
     // MARK: - Private method
     private func createNavigationController() -> UIViewController {
@@ -30,9 +31,11 @@ final class MainScreenCoordinator {
     }
     
     // MARK: - Life Cycle
-    init(user: User?, parentCoordinator: AppCoordinatorProtocol) {
-        self.user = user
+    init(parentCoordinator: AppCoordinatorProtocol) {
         self.parentCoordinator = parentCoordinator
+        if let username = KeychainService.shared.getUsernameKey() {
+            self.user = CoreDataService.shared.getUser(username: username)
+        }
     }
 }
 

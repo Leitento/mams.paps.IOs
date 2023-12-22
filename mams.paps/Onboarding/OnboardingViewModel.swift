@@ -1,6 +1,6 @@
 
 
-import UIKit
+import Foundation
 
     // MARK: - OnboardingViewModelProtocol
 protocol OnboardingViewModelProtocol {

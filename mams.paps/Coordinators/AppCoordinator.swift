@@ -25,7 +25,7 @@ final class AppCoordinator {
     }()
     
     private lazy var mainScreenCoordinator: CoordinatorProtocol = {
-        let mainScreenCoordinator = MainScreenCoordinator(user: nil, parentCoordinator: self)
+        let mainScreenCoordinator = MainScreenCoordinator(parentCoordinator: self)
         mainScreenCoordinator.navigationController = UINavigationController(rootViewController: mainScreenCoordinator.start())
         return mainScreenCoordinator
     }()
@@ -43,7 +43,6 @@ final class AppCoordinator {
     }
     
     private func showMainScreen(for user: User?) -> UIViewController {
-        let mainScreenCoordinator = MainScreenCoordinator(user: user, parentCoordinator: self)
         addChildCoordinator(mainScreenCoordinator)
         setFlow(to: mainScreenCoordinator.start())
         return rootViewController

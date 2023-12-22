@@ -22,7 +22,7 @@ final class MainView: UIView {
     weak var delegate: MainViewDelegate?
    
     private let mainMenu: [MainMenuItem]
-    private var currentUser: User?
+    private var currentUser: UserModel?
     
     private lazy var topView: UIView = {
         let topView = RoundedBottomView()
@@ -85,7 +85,7 @@ final class MainView: UIView {
         userNameLabel.textColor = .black
         userNameLabel.textAlignment = .left
         userNameLabel.numberOfLines = 2
-        userNameLabel.text = currentUser?.userName ?? "Гость"
+        userNameLabel.text = currentUser?.name ?? "Гость"
         return userNameLabel
     }()
     
@@ -113,7 +113,7 @@ final class MainView: UIView {
         return collectionView
     }()
     
-    init(user: User?, mainMenu: [MainMenuItem]) {
+    init(user: UserModel?, mainMenu: [MainMenuItem]) {
         self.currentUser = user
         self.mainMenu = mainMenu
         super.init(frame: .zero)

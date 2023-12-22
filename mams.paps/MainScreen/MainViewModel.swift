@@ -4,7 +4,7 @@ import Foundation
 
 protocol MainViewModelProtocol: AnyObject {
     var mainMenu: [MainMenuItem] { get }
-    var currentUser: User? { get }
+    var currentUser: UserModel? { get }
     func locationDidTap()
     func userNameDidTap()
     func showMapScreen()
@@ -19,14 +19,14 @@ final class MainViewModel {
     private let coordinator: MainScreenCoordinatorProtocol
     
     //MARK: - Properties
-    var currentUser: User?
+    var currentUser: UserModel?
     
     var mainMenu: [MainMenuItem] {
         MainMenuItem.make()
     }
                 
     //MARK: - Life Cycles
-    init(user: User?, coordinator: MainScreenCoordinatorProtocol) {
+    init(user: UserModel?, coordinator: MainScreenCoordinatorProtocol) {
         self.currentUser = user
         self.coordinator = coordinator
     }
