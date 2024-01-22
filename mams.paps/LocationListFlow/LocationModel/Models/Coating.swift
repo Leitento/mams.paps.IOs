@@ -2,7 +2,15 @@
 //  Coating.swift
 //  mams.paps
 //
-//  Created by Юлия Кагирова on 19.01.2024.
+//  Created by Юлия Кагирова on 21.12.2023.
 //
 
-import Foundation
+import UIKit
+
+struct Coating {
+    let soft: Bool
+    let sand: Bool
+    let pebbles: Bool
+    let asphalt: Bool
+    
+}

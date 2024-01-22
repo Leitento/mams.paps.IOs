@@ -35,5 +35,8 @@ extension AuthorizationCoordinator: CoordinatorProtocol {
 extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
     func authorizationCoordinatorDidFinish(user: User?) {
         parentCoordinator?.switchToNextBranch(from: self)
+//        coordinator.showProfileScreen()
+        parentCoordinator?.switchToNextBranch(from: self)
+        
     }
 }

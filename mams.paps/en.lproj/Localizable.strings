@@ -1,22 +1,21 @@
 
-
 "AlertTitle.Error" = "Error";
 
 "Onboarding.NextButton" = "Next";
 
-"OnboardingFirstPage.Text" = "From parents to parents";
+"OnboardingFirstPage.text" = "From parents to parents";
 
-"OnboardingSecondPage.Text" = "Сhildren will be interested";
+"OnboardingSecondPage.text" = "Сhildren will be interested";
 
-"OnboardingThirdPage.Text" = "Locations that are right for your family";
+"OnboardingThirdPage.text" = "Locations that are right for your family";
 
-"AuthorizationAlert.Title" = "Authorization error";
+"AuthorizationAlert.title" = "Authorization error";
 
-"AuthorizationAlert.Message" = "Incorrect login or password";
+"AuthorizationAlert.message" = "Incorrect login or password";
 
-"Authorization.Welcome" = "Join the MAMS.PAPS";
+"Authorization.welcome" = "Join the MAMS.PAPS";
 
-"Authorization.Info" = "Receive notifications about great offers and earn discount points";
+"Authorization.info" = "Receive notifications about great offers and earn discount points";
 
 "AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
 
@@ -24,23 +23,29 @@
 
 "AuthorizationError.EmptyPassword" = "Password cannot be empty";
 
-"Login.Placeholder" = "E-mail";
+"Login.placeholder" = "E-mail";
 
-"Password.Placeholder" = "Your password";
+"Password.placeholder" = "Your password";
 
-"RestorePassword.Text" = "Forgot your password?";
+"RestorePassword.text" = "Forgot your password?";
 
-"SignUp.Text" = "Sign up";
+"SignUp.text" = "Sign up";
 
-"ContinueButton.Text" = "Continue without registration";
+"ContinueButton.text" = "Continue without registration";
 
-"logInButton.Text" = "Log In";
+"logInButton.text" = "Log In";
 
-"MainMenuItem.Navigation" = "Navigator for parents";
 
-"MainMenuItem.Events" = "Events and Activities";
+//MARK: - Location Cell
 
-"MainMenuItem.Services" = "Services and announcements";
+"LocationCell.title" = "Playground";
 
-"MainMenuItem.Useful" = "Useful";
+"LocationCell.adress" = "Arbatskaya, 34";
 
+"LocationCell.longDescription" = " great place, although sometimes there are a lot of people on weekends...";
+
+"Location.rating" = "4,3";
+
+"LocationCell.timeToWalk" = "14 minutes";
+
+"LocationCell.kilometres" = "1.5 km";

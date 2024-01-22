@@ -2,7 +2,12 @@
 //  Category.swift
 //  mams.paps
 //
-//  Created by Юлия Кагирова on 19.01.2024.
+//  Created by Юлия Кагирова on 21.12.2023.
 //
 
-import Foundation
+import UIKit
+
+struct Category: Hashable {
+    let title: String
+    let image: UIImage
+}

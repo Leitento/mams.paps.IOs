@@ -57,6 +57,11 @@ extension AuthorizationViewModel: AuthorizationViewModelProtocol {
     
     func showMainScreenForUser(for user: User?) {
         coordinator.authorizationCoordinatorDidFinish(user: user)
+        
+//        ProfileCoordinatorProtocol().showProfileScreen()
+//        ProfileScreenCoordinator.showProfileScreen(self)
+//        ProfileScreenViewModelProtocol().showProfileScreen()
+
     }
     
     func authenticateUser(login: String, password: String) {

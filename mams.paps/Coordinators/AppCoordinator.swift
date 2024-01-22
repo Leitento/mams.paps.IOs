@@ -24,11 +24,11 @@ final class AppCoordinator {
         return authorizationCoordinator
     }()
     
-    private lazy var mainScreenCoordinator: CoordinatorProtocol = {
-        let mainScreenCoordinator = MainScreenCoordinator(user: nil, parentCoordinator: self)
-        mainScreenCoordinator.navigationController = UINavigationController(rootViewController: mainScreenCoordinator.start())
-        return mainScreenCoordinator
-    }()
+//    private lazy var mainScreenCoordinator: CoordinatorProtocol = {
+//        let mainScreenCoordinator = MainScreenCoordinator(user: nil, parentCoordinator: self)
+//        mainScreenCoordinator.navigationController = UINavigationController(rootViewController: mainScreenCoordinator.start())
+//        return mainScreenCoordinator
+//    }()
     
     // MARK: - Life Cycle
     init(rootViewController: UIViewController) {
@@ -43,7 +43,7 @@ final class AppCoordinator {
     }
     
     private func showMainScreen(for user: User?) -> UIViewController {
-        let mainScreenCoordinator = MainScreenCoordinator(user: user, parentCoordinator: self)
+        let mainScreenCoordinator = MainScreenCoordinator(user: user, parentCoordinator: self, navigationController: UINavigationController())
         addChildCoordinator(mainScreenCoordinator)
         setFlow(to: mainScreenCoordinator.start())
         return rootViewController

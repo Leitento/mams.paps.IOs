@@ -17,7 +17,7 @@ final class MainScreenCoordinator {
     // MARK: - Properties
     weak var parentCoordinator: AppCoordinatorProtocol?
     var childCoordinators: [CoordinatorProtocol] = []
-    var navigationController: UINavigationController?
+    var navigationController: UINavigationController
     
     // MARK: - Private Properties
     private var user: User?
@@ -26,13 +26,16 @@ final class MainScreenCoordinator {
     private func createNavigationController() -> UIViewController {
         let viewModel = MainViewModel(user: user, coordinator: self)
         let mainViewController = MainViewController(viewModel: viewModel)
-        return mainViewController
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        self.navigationController =  navigationController
+        return self.navigationController
     }
     
     // MARK: - Life Cycle
-    init(user: User?, parentCoordinator: AppCoordinatorProtocol) {
+    init(user: User?, parentCoordinator: AppCoordinatorProtocol, navigationController: UINavigationController) {
         self.user = user
         self.parentCoordinator = parentCoordinator
+        self.navigationController = navigationController
     }
 }
 
@@ -51,6 +54,9 @@ extension MainScreenCoordinator: MainScreenCoordinatorProtocol {
     
     func showAuthorizationScreen() {
         print("showAuthorizationScreen")
+        let profileCoordinator = ProfileScreenCoordinator(user: user, parentCoordinator: self)
+        let viewController = profileCoordinator.start()
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func presentAvailableCities() {

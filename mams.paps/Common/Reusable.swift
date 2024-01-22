@@ -11,3 +11,13 @@ extension UICollectionViewCell: ReusableView {
         return String(describing: self)
     }
 }
+
+public extension UIView {
+    
+    func addSubviews(_ subviews: UIView..., translatesAutoresizingMaskIntoConstraints: Bool = false ) {
+        subviews.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+            addSubview($0)
+        }
+    }
+}
