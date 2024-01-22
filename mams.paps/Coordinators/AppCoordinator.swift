@@ -14,21 +14,25 @@ final class AppCoordinator {
     // MARK: - Private properties
     private var rootViewController: UIViewController
     
-    private lazy var onboardingCoordinator: CoordinatorProtocol = {
+    private func onboardingCoordinator() -> CoordinatorProtocol  {
         let onboardingCoordinator = OnboardingCoordinator(parentCoordinator: self)
         return onboardingCoordinator
-    }()
+    }
     
-    private lazy var authorizationCoordinator: CoordinatorProtocol = {
+    private func authorizationCoordinator() -> CoordinatorProtocol {
         let authorizationCoordinator = AuthorizationCoordinator(parentCoordinator: self)
         return authorizationCoordinator
-    }()
+    }
     
-//    private lazy var mainScreenCoordinator: CoordinatorProtocol = {
-//        let mainScreenCoordinator = MainScreenCoordinator(user: nil, parentCoordinator: self)
+    private func mainScreenCoordinator(for user: User?) -> CoordinatorProtocol  {
+        let mainScreenCoordinator = MainScreenCoordinator(user: nil, 
+                                                          parentCoordinator: self,
+                                                          navigationController: UINavigationController())
 //        mainScreenCoordinator.navigationController = UINavigationController(rootViewController: mainScreenCoordinator.start())
-//        return mainScreenCoordinator
-//    }()
+        return mainScreenCoordinator
+    }
+    
+    
     
     // MARK: - Life Cycle
     init(rootViewController: UIViewController) {
@@ -37,13 +41,13 @@ final class AppCoordinator {
     
     // MARK: - Private methods
     private func showOnboarding() -> UIViewController {
-        addChildCoordinator(onboardingCoordinator)
-        setFlow(to: onboardingCoordinator.start())
+        addChildCoordinator(onboardingCoordinator())
+        setFlow(to: onboardingCoordinator().start())
         return rootViewController
     }
     
     private func showMainScreen(for user: User?) -> UIViewController {
-        let mainScreenCoordinator = MainScreenCoordinator(user: user, parentCoordinator: self, navigationController: UINavigationController())
+        let mainScreenCoordinator = mainScreenCoordinator(for: user)
         addChildCoordinator(mainScreenCoordinator)
         setFlow(to: mainScreenCoordinator.start())
         return rootViewController
@@ -56,7 +60,8 @@ final class AppCoordinator {
         newViewController.didMove(toParent: rootViewController)
     }
     
-    private func switchCoordinators(from previousCoordinator: CoordinatorProtocol, to nextCoordinator: CoordinatorProtocol) {
+    private func switchCoordinators(from previousCoordinator: CoordinatorProtocol, 
+                                    to nextCoordinator: CoordinatorProtocol) {
         addChildCoordinator(nextCoordinator)
         switchFlow(to: nextCoordinator.start())
         removeChildCoordinator(previousCoordinator)
@@ -76,11 +81,11 @@ final class AppCoordinator {
             from: rootViewController.children[0],
             to: newViewController,
             duration: 0.5,
-            options: [.transitionFlipFromRight]
-        ) { [weak self] in
-            guard let self else { return }
+            options: [.transitionFlipFromRight],
+            animations: {}
+        ) {_ in
             currentViewController.removeFromParent()
-            newViewController.didMove(toParent: rootViewController)
+            newViewController.didMove(toParent: self.rootViewController)
         }
     }
     
@@ -118,11 +123,11 @@ extension AppCoordinator: CoordinatorProtocol {
 extension AppCoordinator: AppCoordinatorProtocol {
     
     func switchToNextBranch(from coordinator: CoordinatorProtocol) {
-        if coordinator === onboardingCoordinator {
-            switchCoordinators(from: coordinator, to: authorizationCoordinator)
-        } else if coordinator === authorizationCoordinator {
+        if coordinator === onboardingCoordinator() {
+            switchCoordinators(from: coordinator, to: authorizationCoordinator())
+        } else if coordinator === authorizationCoordinator() {
             markAppAsLaunched()
-            switchCoordinators(from: coordinator, to: mainScreenCoordinator)
+            switchCoordinators(from: coordinator, to: mainScreenCoordinator(for: nil))
         }
     }
 }

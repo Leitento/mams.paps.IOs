@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController {
     //MARK: - Private Properties
     
     private var viewModel: ProfileViewModelProtocol
+    
     private lazy var dataSource = makeDataSource()
     private var snapshot: Snapshot {
         dataSource.snapshot()
@@ -83,6 +84,12 @@ class ProfileViewController: UIViewController {
         title = "Профиль"
         setupCollectionView()
         bindingModel()
+        viewModel.test()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Профиль"
+
     }
 
     //MARK: - Private Methods
@@ -106,7 +113,7 @@ class ProfileViewController: UIViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(100),
+            widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(150)
         )
         let group = NSCollectionLayoutGroup.vertical(
@@ -239,7 +246,10 @@ class ProfileViewController: UIViewController {
         dataSource.apply(snapshot) //конфигурит все
     }
     private func bindingModel() {
-        viewModel.stateChanger = { state in
+        viewModel.stateChanger = { [weak self] state in
+            guard let self else {
+                return
+            }
             switch state {
             
             case .loading:

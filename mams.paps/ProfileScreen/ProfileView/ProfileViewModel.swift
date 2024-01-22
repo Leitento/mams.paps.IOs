@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileViewModelProtocol {
     var stateChanger: ((ProfileViewModel.State) -> Void)? { get set }
+    func test()
 }
 
 final class ProfileViewModel {
@@ -22,6 +23,7 @@ final class ProfileViewModel {
     //MARK: - Properties
     
     var stateChanger: ((State) -> Void)?
+    
     var state: State = .loading {
         didSet {
             self.stateChanger?(state)
@@ -31,7 +33,7 @@ final class ProfileViewModel {
     //MARK: - Life Cycle
     
     init() {
-       getProfile()
+//       getProfile()
        
     }
     
@@ -44,8 +46,12 @@ final class ProfileViewModel {
         let profile =  Profile(profileModel: profileModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
         state = .loaded(profile: profile)
     }
+    
+    
 }
 
 extension ProfileViewModel: ProfileViewModelProtocol {
-    
+    func test() {
+        getProfile()
+    }
 }

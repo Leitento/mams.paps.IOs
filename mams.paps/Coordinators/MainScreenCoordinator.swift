@@ -26,9 +26,13 @@ final class MainScreenCoordinator {
     private func createNavigationController() -> UIViewController {
         let viewModel = MainViewModel(user: user, coordinator: self)
         let mainViewController = MainViewController(viewModel: viewModel)
-        let navigationController = UINavigationController(rootViewController: mainViewController)
-        self.navigationController =  navigationController
-        return self.navigationController
+        let navController = UINavigationController(rootViewController: mainViewController)
+        self.navigationController = navController
+        return navigationController
+    }
+    
+    private func addChildCoordinator(_ coordinator: CoordinatorProtocol) {
+        childCoordinators.append(coordinator)
     }
     
     // MARK: - Life Cycle
@@ -55,6 +59,7 @@ extension MainScreenCoordinator: MainScreenCoordinatorProtocol {
     func showAuthorizationScreen() {
         print("showAuthorizationScreen")
         let profileCoordinator = ProfileScreenCoordinator(user: user, parentCoordinator: self)
+        addChildCoordinator(profileCoordinator)
         let viewController = profileCoordinator.start()
         navigationController.pushViewController(viewController, animated: true)
     }

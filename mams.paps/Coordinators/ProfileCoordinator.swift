@@ -25,6 +25,7 @@ final class ProfileScreenCoordinator {
     
     weak var parentCoordinator: MainScreenCoordinatorProtocol?
     var childCoordinators: [CoordinatorProtocol] = []
+    var rootViewController: UIViewController?
     var navigationController: UINavigationController?
     
     // MARK: - Private Properties
@@ -36,9 +37,10 @@ final class ProfileScreenCoordinator {
     private func createNavigationController() -> UIViewController {
         let viewModel = ProfileViewModel()
         let profileViewController = ProfileViewController(viewModel: viewModel)
-        let navigationController = UINavigationController(rootViewController: profileViewController)
-        self.navigationController =  navigationController
-        return navigationController
+        rootViewController = profileViewController
+//        let navigationController = UINavigationController(rootViewController: profileViewController)
+//        self.navigationController =  navigationController
+        return profileViewController
     }
     
     // MARK: - Life Cycle
