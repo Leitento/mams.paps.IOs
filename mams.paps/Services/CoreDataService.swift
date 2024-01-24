@@ -32,7 +32,7 @@ final class CoreDataService {
         
         let context = setContext()
         
-        if let existingUser = getUser(username: user.login) {
+        if getUser(username: user.login) != nil {
             print("Такой пользователь уже существет")
             return
         }

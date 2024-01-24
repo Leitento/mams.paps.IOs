@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol MainViewDelegate: AnyObject {
+protocol MainViewProtocol: AnyObject {
     func firstCellDidTap()
     func secondCellDidTap()
     func thirdCellDidTap()
@@ -19,7 +19,7 @@ final class MainView: UIView {
         static let spacing: CGFloat = 20
     }
     
-    weak var delegate: MainViewDelegate?
+    weak var delegate: MainViewProtocol?
    
     private let mainMenu: [MainMenuItem]
     private var currentUser: UserModel?

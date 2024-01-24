@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915402E2B5D17C000B144C1 /* MapViewModel.swift */; };
+		091540312B61892700B144C1 /* APIKeyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091540302B61892700B144C1 /* APIKeyStorage.swift */; };
+		091540352B618FA100B144C1 /* YandexMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091540342B618FA100B144C1 /* YandexMapViewController.swift */; };
 		091630E12B10FAF5007E193E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091630E02B10FAF5007E193E /* Localized.swift */; };
 		091630EA2B10FC2F007E193E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 091630EC2B10FC2F007E193E /* Localizable.strings */; };
 		092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092E66F52B1B166100FBB04E /* AuthTextField.swift */; };
+		093D680B2B369D6E0044AAE7 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D680A2B369D6E0044AAE7 /* MapCoordinator.swift */; };
+		093D680F2B369F270044AAE7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D680C2B369F270044AAE7 /* MapViewController.swift */; };
+		093D68102B369F270044AAE7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D680D2B369F270044AAE7 /* MapView.swift */; };
+		093D68112B369F270044AAE7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093D680E2B369F270044AAE7 /* LocationService.swift */; };
 		094977842B2C79700089DB13 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949777F2B2C79700089DB13 /* MainMenu.swift */; };
 		094977852B2C79700089DB13 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977802B2C79700089DB13 /* MainCollectionViewCell.swift */; };
 		094977862B2C79700089DB13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094977812B2C79700089DB13 /* MainViewController.swift */; };
@@ -32,6 +39,7 @@
 		09638DA32B35705A005DF42D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09638DA22B35705A005DF42D /* CoreDataService.swift */; };
 		09638DA52B3583C0005DF42D /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09638DA42B3583C0005DF42D /* KeychainService.swift */; };
 		09638DA82B3584B7005DF42D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 09638DA72B3584B7005DF42D /* KeychainAccess */; };
+		09638DAC2B35954F005DF42D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09638DAB2B35954F005DF42D /* TabBarCoordinator.swift */; };
 		0965DA5C2B0FB50400A457CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0965DA552B0FB50400A457CE /* Assets.xcassets */; };
 		0965DA5F2B0FB5D400A457CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */; };
 		09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC06482B2C8AFB00D71BEB /* OnboardingCoordinator.swift */; };
@@ -39,14 +47,22 @@
 		09DC064F2B2C8AFB00D71BEB /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */; };
 		09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */; };
 		09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */; };
+		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
 		5ADDBD3C2B0FA24000CFA9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDBD3B2B0FA24000CFA9C3 /* AppDelegate.swift */; };
 		5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDBD3D2B0FA24000CFA9C3 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0915402E2B5D17C000B144C1 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		091540302B61892700B144C1 /* APIKeyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyStorage.swift; sourceTree = "<group>"; };
+		091540342B618FA100B144C1 /* YandexMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexMapViewController.swift; sourceTree = "<group>"; };
 		091630E02B10FAF5007E193E /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		091630EB2B10FC2F007E193E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		092E66F52B1B166100FBB04E /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		093D680A2B369D6E0044AAE7 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		093D680C2B369F270044AAE7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		093D680D2B369F270044AAE7 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		093D680E2B369F270044AAE7 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		0949777F2B2C79700089DB13 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		094977802B2C79700089DB13 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		094977812B2C79700089DB13 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +84,7 @@
 		09638DA02B356FCF005DF42D /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
 		09638DA22B35705A005DF42D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		09638DA42B3583C0005DF42D /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		09638DAB2B35954F005DF42D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		0965DA552B0FB50400A457CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09DC06482B2C8AFB00D71BEB /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
@@ -75,11 +92,14 @@
 		09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
 		09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA93B9F2B14DE8100E2908A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5ADDBD382B0FA23F00CFA9C3 /* mams.paps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mams.paps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADDBD3B2B0FA24000CFA9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ADDBD3D2B0FA24000CFA9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5ADDBD492B0FA24100CFA9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D5DBF145ECA2A819F25A4F7 /* Pods-mams.paps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mams.paps.debug.xcconfig"; path = "Target Support Files/Pods-mams.paps/Pods-mams.paps.debug.xcconfig"; sourceTree = "<group>"; };
+		FB1647DA1C743054DEC78F29 /* Pods-mams.paps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mams.paps.release.xcconfig"; path = "Target Support Files/Pods-mams.paps/Pods-mams.paps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +108,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				09638DA82B3584B7005DF42D /* KeychainAccess in Frameworks */,
+				0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		091540362B618FAB00B144C1 /* YandexMap */ = {
+			isa = PBXGroup;
+			children = (
+				091540342B618FA100B144C1 /* YandexMapViewController.swift */,
+			);
+			path = YandexMap;
+			sourceTree = "<group>";
+		};
 		091630DF2B10FAD8007E193E /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +131,20 @@
 				091630E02B10FAF5007E193E /* Localized.swift */,
 				095BE7E72B1F07C200C6220E /* Reusable.swift */,
 				095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */,
+				091540302B61892700B144C1 /* APIKeyStorage.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		093D68092B369ACD0044AAE7 /* MapScreen */ = {
+			isa = PBXGroup;
+			children = (
+				093D680C2B369F270044AAE7 /* MapViewController.swift */,
+				093D680D2B369F270044AAE7 /* MapView.swift */,
+				0915402E2B5D17C000B144C1 /* MapViewModel.swift */,
+				093D680E2B369F270044AAE7 /* LocationService.swift */,
+			);
+			path = MapScreen;
 			sourceTree = "<group>";
 		};
 		0949777E2B2C79700089DB13 /* MainScreen */ = {
@@ -159,8 +200,19 @@
 				09DC06482B2C8AFB00D71BEB /* OnboardingCoordinator.swift */,
 				09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */,
 				09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */,
+				09638DAB2B35954F005DF42D /* TabBarCoordinator.swift */,
+				093D680A2B369D6E0044AAE7 /* MapCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3A75278FF3BAD3E4C4757FDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D5DBF145ECA2A819F25A4F7 /* Pods-mams.paps.debug.xcconfig */,
+				FB1647DA1C743054DEC78F29 /* Pods-mams.paps.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		5ADDBD2F2B0FA23E00CFA9C3 = {
@@ -168,6 +220,8 @@
 			children = (
 				5ADDBD3A2B0FA23F00CFA9C3 /* mams.paps */,
 				5ADDBD392B0FA23F00CFA9C3 /* Products */,
+				3A75278FF3BAD3E4C4757FDD /* Pods */,
+				9E730660B972E7574BFC95B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +242,8 @@
 				094977922B2C799B0089DB13 /* Onboarding */,
 				094977892B2C79910089DB13 /* AuthorizationScreen */,
 				0949777E2B2C79700089DB13 /* MainScreen */,
+				091540362B618FAB00B144C1 /* YandexMap */,
+				093D68092B369ACD0044AAE7 /* MapScreen */,
 				0965DA552B0FB50400A457CE /* Assets.xcassets */,
 				0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */,
 				091630DF2B10FAD8007E193E /* Common */,
@@ -207,6 +263,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		9E730660B972E7574BFC95B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,9 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5ADDBD4C2B0FA24100CFA9C3 /* Build configuration list for PBXNativeTarget "mams.paps" */;
 			buildPhases = (
+				E4A27C130950B27486B98D0A /* [CP] Check Pods Manifest.lock */,
 				5ADDBD342B0FA23F00CFA9C3 /* Sources */,
 				5ADDBD352B0FA23F00CFA9C3 /* Frameworks */,
 				5ADDBD362B0FA23F00CFA9C3 /* Resources */,
+				D7F3F9EBF02E94D844563A38 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,17 +346,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D7F3F9EBF02E94D844563A38 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mams.paps/Pods-mams.paps-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mams.paps/Pods-mams.paps-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mams.paps/Pods-mams.paps-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4A27C130950B27486B98D0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mams.paps-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5ADDBD342B0FA23F00CFA9C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091540312B61892700B144C1 /* APIKeyStorage.swift in Sources */,
 				5ADDBD3C2B0FA24000CFA9C3 /* AppDelegate.swift in Sources */,
 				095BE7D52B1E058000C6220E /* Alert.swift in Sources */,
+				09638DAC2B35954F005DF42D /* TabBarCoordinator.swift in Sources */,
 				095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */,
 				094977872B2C79700089DB13 /* MainViewModel.swift in Sources */,
 				0949779A2B2C799B0089DB13 /* OnboardingViewModel.swift in Sources */,
 				091630E12B10FAF5007E193E /* Localized.swift in Sources */,
+				093D68102B369F270044AAE7 /* MapView.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
 				09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */,
 				094977912B2C79920089DB13 /* AuthorizationViewModel.swift in Sources */,
@@ -302,11 +413,13 @@
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,
 				09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
+				0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */,
 				094977982B2C799B0089DB13 /* OnboardingViewController.swift in Sources */,
 				094977842B2C79700089DB13 /* MainMenu.swift in Sources */,
 				094977972B2C799B0089DB13 /* Slide.swift in Sources */,
 				09638DA32B35705A005DF42D /* CoreDataService.swift in Sources */,
 				094977862B2C79700089DB13 /* MainViewController.swift in Sources */,
+				093D680B2B369D6E0044AAE7 /* MapCoordinator.swift in Sources */,
 				09DC064F2B2C8AFB00D71BEB /* ProtocolCoordinator.swift in Sources */,
 				09638DA52B3583C0005DF42D /* KeychainService.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
@@ -315,6 +428,9 @@
 				095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				0949778F2B2C79920089DB13 /* User.swift in Sources */,
+				093D68112B369F270044AAE7 /* LocationService.swift in Sources */,
+				091540352B618FA100B144C1 /* YandexMapViewController.swift in Sources */,
+				093D680F2B369F270044AAE7 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +487,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -435,7 +551,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -456,14 +572,16 @@
 		};
 		5ADDBD4D2B0FA24100CFA9C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D5DBF145ECA2A819F25A4F7 /* Pods-mams.paps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4T632DPGK;
+				DEVELOPMENT_TEAM = F72FD6J9GL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mams.paps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -483,14 +601,16 @@
 		};
 		5ADDBD4E2B0FA24100CFA9C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB1647DA1C743054DEC78F29 /* Pods-mams.paps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N4T632DPGK;
+				DEVELOPMENT_TEAM = F72FD6J9GL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mams.paps/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

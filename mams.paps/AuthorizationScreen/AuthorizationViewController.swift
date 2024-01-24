@@ -111,7 +111,7 @@ final class AuthorizationViewController: UIViewController {
 }
 
     // MARK: - AuthViewDelegate
-extension AuthorizationViewController: AuthorizationViewDelegate {
+extension AuthorizationViewController: AuthorizationViewProtocol {
 
     func forgotPasswordButtonDidTap() {
         viewModel.presentRestorePasswordController()

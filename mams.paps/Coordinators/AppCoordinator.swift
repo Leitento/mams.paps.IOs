@@ -25,8 +25,7 @@ final class AppCoordinator {
     }()
     
     private lazy var mainScreenCoordinator: CoordinatorProtocol = {
-        let mainScreenCoordinator = MainScreenCoordinator(parentCoordinator: self)
-        mainScreenCoordinator.navigationController = UINavigationController(rootViewController: mainScreenCoordinator.start())
+        let mainScreenCoordinator = MainScreenCoordinator(parentCoordinator: self, rootViewController: rootViewController)
         return mainScreenCoordinator
     }()
     

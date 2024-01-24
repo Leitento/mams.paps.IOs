@@ -31,7 +31,7 @@ extension AuthorizationCoordinator: CoordinatorProtocol {
     }
 }
 
-    // MARK: - AuthorizationCoordinatorDelegate
+    // MARK: - AuthorizationCoordinatorProtocol
 extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
     func authorizationCoordinatorDidFinish() {
         parentCoordinator?.switchToNextBranch(from: self)

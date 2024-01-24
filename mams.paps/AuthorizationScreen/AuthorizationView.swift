@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol AuthorizationViewDelegate: AnyObject {
+protocol AuthorizationViewProtocol: AnyObject {
     func forgotPasswordButtonDidTap()
     func signUpButtonDidTap()
     func withoutLoginButtonDidTap()
@@ -19,7 +19,7 @@ final class AuthorizationView: UIView {
         static let labelButtonHeight: CGFloat = 21
     }
     
-    weak var delegate: AuthorizationViewDelegate?
+    weak var delegate: AuthorizationViewProtocol?
     
     // MARK: - Private properties
     private(set) lazy var scrollView: UIScrollView = {

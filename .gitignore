@@ -2,3 +2,7 @@
 .DS_Store
 *.xcuserstate
 Packages/
+
+# CocoaPods
+Pods/
+Podfile.lock

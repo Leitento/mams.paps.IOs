@@ -32,8 +32,8 @@ final class MainViewController: UIViewController {
     }
 }
 
-    // MARK: - MainViewDelegate
-extension MainViewController: MainViewDelegate {
+// MARK: - MainViewProtocol
+extension MainViewController: MainViewProtocol {
     func locationLabelTapped() {
         viewModel.locationDidTap()
     }
