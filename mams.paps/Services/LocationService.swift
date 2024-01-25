@@ -4,9 +4,13 @@ import CoreLocation
 
 final class LocationService: NSObject {
     
+    // MARK: - Private properties
     private let locationManager = CLLocationManager()
+    
+    // MARK: - Properties
     var isLocationAuthorized: Bool = false
     
+    // MARK: - Life Cycle
     override init() {
         super.init()
         locationManager.delegate = self
@@ -14,12 +18,14 @@ final class LocationService: NSObject {
         locationManager.startUpdatingLocation()
     }
     
+    //MARK: - Methods
     func updateauthorizationStatus() {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
 }
 
+// MARK: - CLLocationManagerDelegate
 extension LocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
