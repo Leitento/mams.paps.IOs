@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol MainViewProtocol: AnyObject {
+protocol MainScreenViewProtocol: AnyObject {
     func firstCellDidTap()
     func secondCellDidTap()
     func thirdCellDidTap()
@@ -11,7 +11,7 @@ protocol MainViewProtocol: AnyObject {
     func userNameLabelTapped()
 }
 
-final class MainView: UIView {
+final class MainScreenView: UIView {
     
     private enum Constants {
         static let aspectRatioMultiplier: CGFloat = 325 / 390
@@ -19,9 +19,10 @@ final class MainView: UIView {
         static let spacing: CGFloat = 20
     }
     
-    weak var delegate: MainViewProtocol?
-   
-    private let mainMenu: [MainMenuItem]
+    weak var delegate: MainScreenViewProtocol?
+    
+    // MARK: - Private properties
+    private let mainMenu: [MainScreenMenuItem]
     private var currentUser: UserModel?
     
     private lazy var topView: UIView = {
@@ -109,11 +110,12 @@ final class MainView: UIView {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
+        collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: MainScreenCollectionViewCell.identifier)
         return collectionView
     }()
     
-    init(user: UserModel?, mainMenu: [MainMenuItem]) {
+    // MARK: - Life Cycle
+    init(user: UserModel?, mainMenu: [MainScreenMenuItem]) {
         self.currentUser = user
         self.mainMenu = mainMenu
         super.init(frame: .zero)
@@ -127,6 +129,7 @@ final class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private methods
     private func setupView() {
         backgroundColor = .systemOrange
     }
@@ -186,14 +189,15 @@ final class MainView: UIView {
     }
 }
 
-extension MainView: UICollectionViewDataSource {
+// MARK: - UICollectionViewDataSource
+extension MainScreenView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         mainMenu.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainScreenCollectionViewCell.identifier, for: indexPath) as? MainScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
         cell.setup(with: mainMenu[indexPath.row])
@@ -201,7 +205,8 @@ extension MainView: UICollectionViewDataSource {
     }
 }
 
-extension MainView: UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionViewDelegateFlowLayout
+extension MainScreenView: UICollectionViewDelegateFlowLayout {
     
     private func itemWidth(for width: CGFloat, spacing: CGFloat) -> CGFloat {
         
@@ -229,7 +234,7 @@ extension MainView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.cellForItem(at: indexPath) is MainCollectionViewCell {
+        if collectionView.cellForItem(at: indexPath) is MainScreenCollectionViewCell {
             if indexPath.item == 0 {
                 delegate?.firstCellDidTap()
             }

@@ -10,6 +10,7 @@ final class AppCoordinator {
     
     // MARK: - Properties
     var childCoordinators: [CoordinatorProtocol] = []
+    var tabBarController = UITabBarController()
     
     // MARK: - Private properties
     private var rootViewController: UIViewController
@@ -24,9 +25,9 @@ final class AppCoordinator {
         return authorizationCoordinator
     }()
     
-    private lazy var mainScreenCoordinator: CoordinatorProtocol = {
-        let mainScreenCoordinator = MainScreenCoordinator(parentCoordinator: self, rootViewController: rootViewController)
-        return mainScreenCoordinator
+    private lazy var tabBarCoordinator: CoordinatorProtocol = {
+        let tabBarCoordinator = TabBarCoordinator(parentCoordinator: self, tabBarController: tabBarController)
+        return tabBarCoordinator
     }()
     
     // MARK: - Life Cycle
@@ -41,9 +42,9 @@ final class AppCoordinator {
         return rootViewController
     }
     
-    private func showMainScreen(for user: User?) -> UIViewController {
-        addChildCoordinator(mainScreenCoordinator)
-        setFlow(to: mainScreenCoordinator.start())
+    private func showTabBarOnMainScreen(for user: User?) -> UIViewController {
+        addChildCoordinator(tabBarCoordinator)
+        setFlow(to: tabBarCoordinator.start())
         return rootViewController
     }
     
@@ -107,7 +108,7 @@ extension AppCoordinator: CoordinatorProtocol {
         if isFirstLaunch() {
             showOnboarding()
         } else {
-            showMainScreen(for: nil)
+            showTabBarOnMainScreen(for: nil)
         }
     }
 }
@@ -120,7 +121,7 @@ extension AppCoordinator: AppCoordinatorProtocol {
             switchCoordinators(from: coordinator, to: authorizationCoordinator)
         } else if coordinator === authorizationCoordinator {
             markAppAsLaunched()
-            switchCoordinators(from: coordinator, to: mainScreenCoordinator)
+            switchCoordinators(from: coordinator, to: tabBarCoordinator)
         }
     }
 }

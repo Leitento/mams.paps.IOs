@@ -5,13 +5,16 @@ import Foundation
 
 final class KeychainService {
     
+    //MARK: - Singleton
     static let shared = KeychainService()
     
     private init() {}
     
+    // MARK: - Private properties
     private let keychain = Keychain(service: "ruspersonal.mams-paps")
     private let usernameKey = "UsernameKey"
     
+    // MARK: - Methods
     func saveUsernameKey(_ username: String) {
         do {
             try keychain.set(username, key: usernameKey)

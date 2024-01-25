@@ -3,10 +3,10 @@
 import UIKit
 
 protocol Configurable: AnyObject {
-    func setup(with mainMenuItem: MainMenuItem)
+    func setup(with mainMenuItem: MainScreenMenuItem)
 }
 
-final class MainCollectionViewCell: UICollectionViewCell {
+final class MainScreenCollectionViewCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -65,8 +65,8 @@ final class MainCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension MainCollectionViewCell: Configurable {
-    func setup(with mainMenuItem: MainMenuItem) {
+extension MainScreenCollectionViewCell: Configurable {
+    func setup(with mainMenuItem: MainScreenMenuItem) {
         imageView.image = UIImage(named: mainMenuItem.imageName)
         textLabel.text = mainMenuItem.text
     }

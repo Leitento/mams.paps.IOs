@@ -35,15 +35,19 @@
 
 "logInButton.Text" = "Войти";
 
-"MainMenuItem.Navigation" = "Навигатор для родителей";
+"MainScreenMenuItem.Navigation" = "Навигатор для родителей";
 
-"MainMenuItem.Events" = "События и мероприятия";
+"MainScreenMenuItem.Events" = "События и мероприятия";
 
-"MainMenuItem.Services" = "Услуги и объявления";
+"MainScreenMenuItem.Services" = "Услуги и объявления";
 
-"MainMenuItem.Useful" = "Полезное";
+"MainScreenMenuItem.Useful" = "Полезное";
+
+"MainScreen.Title" = "Главная";
 
 "Map.Title" = "Карта";
+
+
 
 
 

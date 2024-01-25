@@ -2,18 +2,18 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainScreenViewController: UIViewController {
     
     // MARK: - Private properties
-    private var mainView: MainView
-    private var viewModel: MainViewModelProtocol
+    private var mainScreenView: MainScreenView
+    private var viewModel: MainScreenViewModelProtocol
     
     // MARK: - Life Cycle
-    init(viewModel: MainViewModelProtocol) {
+    init(viewModel: MainScreenViewModelProtocol) {
         self.viewModel = viewModel
-        self.mainView = MainView(user: viewModel.currentUser, mainMenu: viewModel.mainMenu)
+        self.mainScreenView = MainScreenView(user: viewModel.currentUser, mainMenu: viewModel.mainMenu)
         super.init(nibName: nil, bundle: nil)
-        mainView.delegate = self
+        mainScreenView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -22,18 +22,18 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMainView()
+        setupMainScreenView()
     }
     
     // MARK: - Private methods
-    private func setupMainView() {
-        view = mainView
+    private func setupMainScreenView() {
+        view = mainScreenView
         navigationController?.navigationBar.isHidden = true
     }
 }
 
-// MARK: - MainViewProtocol
-extension MainViewController: MainViewProtocol {
+// MARK: - MainScreenViewProtocol
+extension MainScreenViewController: MainScreenViewProtocol {
     func locationLabelTapped() {
         viewModel.locationDidTap()
     }

@@ -7,6 +7,7 @@ enum AuthorizationError: Error {
     case emptyLogin
     case emptyPassword
 
+    // MARK: - Properties
     var description: String {
         switch self {
         case .invalidCredentials:

@@ -36,13 +36,16 @@
 
 "logInButton.Text" = "Log In";
 
-"MainMenuItem.Navigation" = "Navigator for parents";
+"MainScreenMenuItem.Navigation" = "Navigator for parents";
 
-"MainMenuItem.Events" = "Events and Activities";
+"MainScreenMenuItem.Events" = "Events and Activities";
 
-"MainMenuItem.Services" = "Services and announcements";
+"MainScreenMenuItem.Services" = "Services and announcements";
 
-"MainMenuItem.Useful" = "Useful";
+"MainScreenMenuItem.Useful" = "Useful";
+
+"MainScreen.Title" = "Main";
 
 "Map.Title" = "Map";
+
 
