@@ -7,6 +7,7 @@ protocol TabBarCoordinatorProtocol: AnyObject {
     func pushEventsScreen()
     func pushServicesScreen()
     func pushUsefulScreen()
+    func showAuthorizationScreen()
 }
 
 final class TabBarCoordinator {
@@ -93,11 +94,6 @@ extension TabBarCoordinator: TabBarCoordinatorProtocol {
             tabBarController.animateTabBarTransition(to: mapTag)
         }
     }
-//        if let mapTag = childCoordinators.first(where: { $0 is MapCoordinator })?.start().tabBarItem?.tag {
-//            print(mapTag)
-//            tabBarController.animateTabBarTransition()
-//            tabBarController.selectedIndex = mapTag
-//        }
     
     func pushEventsScreen() {
         
@@ -111,7 +107,7 @@ extension TabBarCoordinator: TabBarCoordinatorProtocol {
         
     }
     
-    func presentAvailableCities() {
-        
+    func showAuthorizationScreen() {
+        parentCoordinator?.logOut(from: self)
     }
 }

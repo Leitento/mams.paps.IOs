@@ -5,12 +5,12 @@ import UIKit
 final class OnboardingViewController: UIViewController {
 
     private enum Constants {
-        static let horizontalSpacing: CGFloat = 16
+        static let horizontalSpacing: CGFloat = 20
         static let verticalSpacingMin: CGFloat = 16
         static let verticalSpacingMax: CGFloat = 44
         static let textLabelWidth: CGFloat = 264
         static let textLabelHeight: CGFloat = 52
-        static let nextButtonWidth: CGFloat = 194
+        static let nextButtonCornerRadius: CGFloat = 20
         static let nextButtonHeight: CGFloat = 50
         static let pageControllBottom: CGFloat = -128
         static let pageControlHeight: CGFloat = 12
@@ -59,7 +59,7 @@ final class OnboardingViewController: UIViewController {
         nextButton.setTitle("Onboarding.NextButton".localized, for: .normal)
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
-        nextButton.layer.cornerRadius = 20
+        nextButton.layer.cornerRadius = Constants.nextButtonCornerRadius
         nextButton.backgroundColor = .yellow
         nextButton.addTarget(self, action: #selector(nextButtonTapped(_:)), for: .touchUpInside)
         return nextButton
@@ -132,20 +132,8 @@ final class OnboardingViewController: UIViewController {
             
             nextButton.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: min(verticalSpacingMin, Constants.verticalSpacingMax)),
             nextButton.heightAnchor.constraint(equalToConstant: Constants.nextButtonHeight),
-            nextButton.widthAnchor.constraint(equalToConstant: Constants.nextButtonWidth),
-            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-//            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constants.horizontalSpacing),
-//            nextButton.heightAnchor.constraint(equalToConstant: Constants.nextButtonHeight),
-//            nextButton.widthAnchor.constraint(equalToConstant: Constants.nextButtonWidth),
-//            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//
-//            textLabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -Constants.verticalSpacing),
-//            textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            textLabel.widthAnchor.constraint(equalToConstant: Constants.textLabelWidth),
-//
-//            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: Constants.pageControllBottom)
+            nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalSpacing),
+            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalSpacing)
         ])
     }
     

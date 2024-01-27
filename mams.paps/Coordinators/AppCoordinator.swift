@@ -4,6 +4,7 @@ import UIKit
 
 protocol AppCoordinatorProtocol: AnyObject {
     func switchToNextBranch(from coordinator: CoordinatorProtocol)
+    func logOut(from coordinator: CoordinatorProtocol)
 }
 
 final class AppCoordinator {
@@ -123,5 +124,11 @@ extension AppCoordinator: AppCoordinatorProtocol {
             markAppAsLaunched()
             switchCoordinators(from: coordinator, to: tabBarCoordinator)
         }
+    }
+    
+    func logOut(from coordinator: CoordinatorProtocol) {
+        CoreDataService.shared.removeUserFromCoreData()
+        KeychainService.shared.deleteUsernameKey()
+        switchCoordinators(from: coordinator, to: authorizationCoordinator)
     }
 }

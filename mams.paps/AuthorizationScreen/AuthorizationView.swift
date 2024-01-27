@@ -26,21 +26,15 @@ final class AuthorizationView: UIView {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .systemOrange
 
         return scrollView
     }()
     
-    private lazy var contentView: UIView = {
-        let contentView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        return contentView
-    }()
+    private lazy var contentView = UIView()
     
     private lazy var topView: UIView = {
         let topView = RoundedBottomView()
-        topView.translatesAutoresizingMaskIntoConstraints = false
         topView.backgroundColor = .white
         topView.addSubview(imageView)
         topView.addSubview(welcomeLabel)
@@ -62,7 +56,7 @@ final class AuthorizationView: UIView {
         textLabel.textAlignment = .center
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.numberOfLines = 2
-        textLabel.text = "Authorization.Welcome".localized
+        textLabel.text = "Authorization.Welcome".localized + " " + "GO\u{00A0}̇MAPING"
         return textLabel
     }()
     
@@ -92,7 +86,6 @@ final class AuthorizationView: UIView {
     
     private lazy var forgotPasswordButton: UIButton = {
         let forgotPasswordButton = UIButton(type: .system)
-        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         forgotPasswordButton.setTitle("RestorePassword.Text".localized, for: .normal)
         forgotPasswordButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
         forgotPasswordButton.setTitleColor(.systemBlue, for: .normal)
@@ -103,7 +96,6 @@ final class AuthorizationView: UIView {
     
     private lazy var signUpButton: UIButton = {
         let signUpButton = UIButton(type: .system)
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.setTitle("SignUp.Text".localized, for: .normal)
         signUpButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
         signUpButton.setTitleColor(.systemBlue, for: .normal)
@@ -114,7 +106,6 @@ final class AuthorizationView: UIView {
     
     private lazy var continueButton: UIButton = {
         let continueButton = UIButton(type: .system)
-        continueButton.translatesAutoresizingMaskIntoConstraints = false
         continueButton.setTitle("ContinueButton.Text".localized, for: .normal)
         continueButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
         continueButton.backgroundColor = .clear
@@ -128,7 +119,6 @@ final class AuthorizationView: UIView {
     
     private lazy var logInButton: UIButton = {
         let logInButton = UIButton(type: .system)
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
         logInButton.setTitle("logInButton.Text".localized, for: .normal)
         logInButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .regular)
         logInButton.backgroundColor = .white
@@ -143,8 +133,8 @@ final class AuthorizationView: UIView {
         super.init(frame: .zero)
         setupView()
         addSubviews()
-        setupConstraints()
         setupContentOfScrollView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -157,8 +147,8 @@ final class AuthorizationView: UIView {
     }
     
     private func addSubviews() {
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        addSubviews(scrollView, translatesAutoresizingMaskIntoConstraints: false)
+        scrollView.addSubviews(contentView, translatesAutoresizingMaskIntoConstraints: false)
     }
     
     private func setupConstraints() {
@@ -178,15 +168,17 @@ final class AuthorizationView: UIView {
     }
     
     private func setupContentOfScrollView() {
-
-        contentView.addSubview(topView)
-        contentView.addSubview(textLabel)
-        contentView.addSubview(loginField)
-        contentView.addSubview(passwordField)
-        contentView.addSubview(forgotPasswordButton)
-        contentView.addSubview(signUpButton)
-        contentView.addSubview(continueButton)
-        contentView.addSubview(logInButton)
+        contentView.addSubviews(
+            topView,
+            textLabel,
+            loginField,
+            passwordField,
+            forgotPasswordButton,
+            signUpButton,
+            continueButton,
+            logInButton,
+            translatesAutoresizingMaskIntoConstraints: false
+        )
         
         NSLayoutConstraint.activate([
             topView.topAnchor.constraint(equalTo: contentView.topAnchor),

@@ -13,7 +13,7 @@
 
 "AuthorizationAlert.Message" = "Неправильный логин или пароль";
 
-"Authorization.Welcome" = "Присоединяйся к MAMS.PAPS";
+"Authorization.Welcome" = "Присоединяйся к";
 
 "Authorization.Info" = "Получай уведомления о выгодных предложениях и копи баллы на скидку";
 

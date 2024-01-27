@@ -54,7 +54,7 @@ extension MainScreenViewModel: MainScreenViewModelProtocol {
     }
     
     func userNameDidTap() {
-        coordinator.showAuthorizationScreen()
+        parentCoordinator.showAuthorizationScreen()
     }
 }
 

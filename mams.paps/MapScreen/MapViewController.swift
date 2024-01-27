@@ -15,9 +15,7 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(mapView)
+        view.addSubviews(mapView, translatesAutoresizingMaskIntoConstraints: false)
         view.backgroundColor = .white
         
         NSLayoutConstraint.activate([
@@ -26,9 +24,18 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-      
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     // MARK: - Private methods
 
 }

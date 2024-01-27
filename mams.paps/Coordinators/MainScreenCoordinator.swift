@@ -5,7 +5,6 @@ import UIKit
 protocol MainScreenCoordinatorProtocol: AnyObject {
     func switchToNextBranch(from coordinator: CoordinatorProtocol)
     func mainScreenCoordinatorDidFinish()
-    func showAuthorizationScreen()
     func presentAvailableCities()
 }
 
@@ -22,6 +21,7 @@ final class MainScreenCoordinator {
     init(navigationController: UINavigationController, parentCoordinator: TabBarCoordinatorProtocol) {
         self.navigationController = navigationController
         self.parentCoordinator = parentCoordinator
+        self.user = CoreDataService.shared.fetchUserFromCoreData()
     }
     
     // MARK: - Private method

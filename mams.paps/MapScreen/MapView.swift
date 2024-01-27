@@ -206,7 +206,7 @@ final class MapView: UIView {
                 animation: YMKAnimation(type: .smooth, duration: 1.0)
             )
 
-            let name = event.geoObject.name ?? "Unnamed geoObject"
+//            let name = event.geoObject.name ?? "Unnamed geoObject"
 
 //            AlertPresenter.present(
 //                from: controller,
@@ -287,7 +287,8 @@ final class MapView: UIView {
         [plusZoomButton, minusZoomButton, moveToPlacemarkButton, moveToPolylineButton].forEach {
             buttonsContainer.addArrangedSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor = .systemBackground
+            $0.backgroundColor = UIColor.systemGray.withAlphaComponent(0.3)
+            $0.tintColor = .black
             $0.layer.cornerRadius = Layout.buttonCornerRadius
 
             [

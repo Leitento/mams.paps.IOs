@@ -26,6 +26,20 @@ final class CoreDataService {
         persistentContainer.viewContext
     }
     
+    private func getUser(username: String) -> UserModel? {
+        let request: NSFetchRequest<UserModel> = UserModel.fetchRequest()
+        let predicate = NSPredicate(format: "username == %@", username)
+        request.predicate = predicate
+        
+        do {
+            let results = try setContext().fetch(request)
+            return results.first
+        } catch {
+            print("Error fetching weather data: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     //MARK: - Methods
     func saveUser(user: User?) {
         guard let user else { return }
@@ -49,17 +63,32 @@ final class CoreDataService {
         }
     }
     
-    func getUser(username: String) -> UserModel? {
-        let request: NSFetchRequest<UserModel> = UserModel.fetchRequest()
-        let predicate = NSPredicate(format: "username == %@", username)
-        request.predicate = predicate
-        
+    func fetchUserFromCoreData() -> UserModel? {
+        let context = setContext()
+
+        let fetchRequest: NSFetchRequest<UserModel> = UserModel.fetchRequest()
+
         do {
-            let results = try setContext().fetch(request)
-            return results.first
+            let user = try context.fetch(fetchRequest).first
+
+            return user
         } catch {
-            print("Error fetching weather data: \(error.localizedDescription)")
+            print("Ошибка при извлечении пользователя из CoreData: \(error)")
             return nil
+        }
+    }
+    
+    func removeUserFromCoreData() {
+        let context = setContext()
+        
+        if let currentUser = fetchUserFromCoreData() {
+            context.delete(currentUser)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error deleting user: \(error.localizedDescription)")
+            }
         }
     }
 }

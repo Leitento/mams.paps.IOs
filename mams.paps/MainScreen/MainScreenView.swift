@@ -16,7 +16,7 @@ final class MainScreenView: UIView {
     private enum Constants {
         static let aspectRatioMultiplier: CGFloat = 325 / 390
         static let padding: CGFloat = 20
-        static let spacing: CGFloat = 20
+        static let itemHeight: CGFloat = 24
     }
     
     weak var delegate: MainScreenViewProtocol?
@@ -27,18 +27,18 @@ final class MainScreenView: UIView {
     
     private lazy var topView: UIView = {
         let topView = RoundedBottomView()
-        topView.translatesAutoresizingMaskIntoConstraints = false
         topView.backgroundColor = .white
         return topView
     }()
     
     private lazy var locationStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
+        stackView.alignment = .center
         stackView.spacing = 5
         stackView.addArrangedSubview(locationIcon)
         stackView.addArrangedSubview(locationLabel)
+        stackView.addArrangedSubview(locationArrowIcon)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapOnLocationLabel))
         stackView.isUserInteractionEnabled = true
@@ -49,11 +49,10 @@ final class MainScreenView: UIView {
     
     private lazy var usernameStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 10
-        stackView.addArrangedSubview(userNameLabel)
         stackView.addArrangedSubview(userNameIcon)
+        stackView.addArrangedSubview(userNameLabel)
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapOnUserNameLabel))
         stackView.isUserInteractionEnabled = true
@@ -71,7 +70,6 @@ final class MainScreenView: UIView {
     
     private lazy var locationLabel: UILabel = {
         let locationLabel = UILabel()
-        locationLabel.translatesAutoresizingMaskIntoConstraints = false
         locationLabel.font = .systemFont(ofSize: 16, weight: .regular)
         locationLabel.textColor = .black
         locationLabel.textAlignment = .left
@@ -79,9 +77,15 @@ final class MainScreenView: UIView {
         return locationLabel
     }()
     
+    private lazy var locationArrowIcon: UIImageView = {
+        let locationArrowIcon = UIImageView()
+        locationArrowIcon.translatesAutoresizingMaskIntoConstraints = false
+        locationArrowIcon.image = UIImage(named: "locationArrowIcon")
+        return locationArrowIcon
+    }()
+    
     private lazy var userNameLabel: UILabel = {
         let userNameLabel = UILabel()
-        userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.font = .systemFont(ofSize: 16, weight: .regular)
         userNameLabel.textColor = .black
         userNameLabel.textAlignment = .left
@@ -94,8 +98,26 @@ final class MainScreenView: UIView {
         let userNameIcon = UIImageView()
         userNameIcon.translatesAutoresizingMaskIntoConstraints = false
         userNameIcon.image = UIImage(systemName: "circle.fill")
-        userNameIcon.tintColor = .systemGray
+        userNameIcon.tintColor = UIColor(named: "Skin")
         userNameIcon.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        if let firstLetter = currentUser?.name?.first {
+            label.text = String(firstLetter)
+        } else {
+            label.text = "Г"
+        }
+        label.textAlignment = .center
+        label.textColor = .white
+        
+        userNameIcon.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: userNameIcon.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: userNameIcon.centerYAnchor)
+        ])
         return userNameIcon
     }()
     
@@ -109,7 +131,6 @@ final class MainScreenView: UIView {
     private lazy var collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: MainScreenCollectionViewCell.identifier)
         return collectionView
     }()
@@ -131,7 +152,7 @@ final class MainScreenView: UIView {
     
     // MARK: - Private methods
     private func setupView() {
-        backgroundColor = .systemOrange
+        backgroundColor = UIColor(named: "AccentColor")
     }
     
     private func setupCollectionView() {
@@ -141,11 +162,17 @@ final class MainScreenView: UIView {
     }
     
     private func addSubviews() {
-        addSubview(topView)
-        addSubview(collectionView)
-        topView.addSubview(locationStackView)
-        topView.addSubview(usernameStackView)
-        topView.addSubview(imageView)
+        addSubviews(
+            topView,
+            collectionView,
+            translatesAutoresizingMaskIntoConstraints: false
+        )
+        topView.addSubviews(
+            locationStackView,
+            usernameStackView,
+            imageView,
+            translatesAutoresizingMaskIntoConstraints: false
+        )
     }
     
     private func setupConstraints() {
@@ -154,22 +181,24 @@ final class MainScreenView: UIView {
             topView.topAnchor.constraint(equalTo: topAnchor),
             topView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            topView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.aspectRatioMultiplier, constant: 20),
+            topView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.aspectRatioMultiplier, constant: Constants.padding),
             
-            locationStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            locationStackView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 20),
-            locationStackView.heightAnchor.constraint(equalToConstant: 24),
+            usernameStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.padding),
+            usernameStackView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: Constants.padding),
+            usernameStackView.heightAnchor.constraint(equalToConstant: Constants.itemHeight),
             
-            usernameStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            usernameStackView.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -20),
-            usernameStackView.leadingAnchor.constraint(greaterThanOrEqualTo: locationStackView.trailingAnchor, constant: -20),
-            usernameStackView.heightAnchor.constraint(equalToConstant: 24),
+            locationStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.padding),
+            locationStackView.leadingAnchor.constraint(equalTo: usernameStackView.trailingAnchor, constant: -Constants.padding),
+            locationStackView.trailingAnchor.constraint(greaterThanOrEqualTo: topView.trailingAnchor, constant: -Constants.padding),
+            locationStackView.heightAnchor.constraint(equalToConstant: Constants.itemHeight),
             
-            locationIcon.widthAnchor.constraint(equalToConstant: 20),
-            userNameIcon.widthAnchor.constraint(equalToConstant: 24),
-            userNameIcon.heightAnchor.constraint(equalToConstant: 24),
+            locationIcon.widthAnchor.constraint(equalToConstant: Constants.padding),
+            locationArrowIcon.widthAnchor.constraint(equalToConstant: 9),
+            locationArrowIcon.heightAnchor.constraint(equalTo: locationStackView.heightAnchor, multiplier: 0.5),
+            userNameIcon.widthAnchor.constraint(equalToConstant: Constants.itemHeight),
+            userNameIcon.heightAnchor.constraint(equalToConstant: Constants.itemHeight),
             
-            imageView.topAnchor.constraint(equalTo: locationStackView.bottomAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: locationStackView.bottomAnchor, constant: Constants.padding),
             imageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
             imageView.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -34),
             
@@ -217,20 +246,20 @@ extension MainScreenView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = itemWidth(for: frame.width, spacing: Constants.spacing)
-        return CGSize(width: width, height: (collectionView.frame.height - 3 * Constants.spacing) / 2)
+        let width = itemWidth(for: frame.width, spacing: Constants.padding)
+        return CGSize(width: width, height: (collectionView.frame.height - 3 * Constants.padding) / 2)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: Constants.spacing, left: Constants.spacing, bottom: Constants.spacing, right: Constants.spacing)
+        UIEdgeInsets(top: Constants.padding, left: Constants.padding, bottom: Constants.padding, right: Constants.padding)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.spacing
+        return Constants.padding
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.spacing
+        return Constants.padding
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
