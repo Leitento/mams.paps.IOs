@@ -55,3 +55,17 @@
 "LocationCell.timeToWalk" = "14 минут";
 
 "LocationCell.kilometres" = "1.5 км";
+
+//MARK: - Profile Cell
+
+"ProfileCell.favourite" = "Избранное";
+
+"ProfileCell.notification" = "Уведомления";
+
+"ProfileCell.contractOffer" = "Публичная оферта";
+
+"ProfileCell.aboutApp" = "О приложении";
+
+"ProfileCell.support" = "Поддержка GoMaping";
+
+"ProfileCell.logout" = "Выйти из аккаунта";

@@ -72,8 +72,8 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     func configuredCell(profile: ProfileModel) {
         nameLabel.text = "\(profile.name)" + " " + "\(profile.secondName)"
-        cityLabel.text = "\(profile.city)" // + " " + "\(profile.cityIcon)"
-        mailLabel.text = "\(profile.email)" //+ " " + "\(profile.mailIcon) "
+        cityLabel.text = "\(profile.city)" 
+        mailLabel.text = "\(profile.email)"
     }
     
     //MARK: - Private Mehtods
@@ -83,25 +83,39 @@ final class ProfileHeaderView: UICollectionViewCell {
         self.backgroundColor = .white
         addSubviews(nameLabel, profileImage, cityLabel, cityIcon, mailLabel, mailIcon)
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
-            nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: LayoutConstants.indent),
+            nameLabel.topAnchor.constraint(equalTo: topAnchor,
+                                           constant: 22),
+            nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
+                                           constant: LayoutConstants.leadingMargin),
             
-            profileImage.topAnchor.constraint(equalTo: topAnchor, constant: LayoutConstants.topMargin),
-            profileImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutConstants.leadingMargin),
-            profileImage.widthAnchor.constraint(equalToConstant: 100),
-            profileImage.heightAnchor.constraint(equalToConstant: 100),
+            profileImage.topAnchor.constraint(equalTo: topAnchor,
+                                           constant: LayoutConstants.bottomMargin),
+            profileImage.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                           constant: LayoutConstants.bottomMargin),
+            profileImage.bottomAnchor.constraint(equalTo: bottomAnchor,
+                                           constant: -LayoutConstants.bottomMargin),
+            profileImage.widthAnchor.constraint(equalToConstant: 120),
+            profileImage.heightAnchor.constraint(equalToConstant: 120),
             
-            cityLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: LayoutConstants.indent),
-            cityLabel.leadingAnchor.constraint(equalTo: cityIcon.trailingAnchor, constant: LayoutConstants.indentFive),
+            cityLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
+                                           constant: LayoutConstants.leadingMargin),
+            cityLabel.leadingAnchor.constraint(equalTo: cityIcon.trailingAnchor,
+                                           constant: LayoutConstants.indentSix),
             
-            cityIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: LayoutConstants.indentFive),
-            cityIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: LayoutConstants.indent),
+            cityIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
+                                           constant: LayoutConstants.indentEight),
+            cityIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
+                                           constant: LayoutConstants.leadingMargin),
             
-            mailIcon.topAnchor.constraint(equalTo: cityIcon.bottomAnchor, constant: LayoutConstants.indentFive),
-            mailIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: LayoutConstants.indent),
+            mailIcon.topAnchor.constraint(equalTo: cityIcon.bottomAnchor,
+                                           constant: LayoutConstants.indentEight),
+            mailIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
+                                           constant: LayoutConstants.leadingMargin),
             
-            mailLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 15),
-            mailLabel.leadingAnchor.constraint(equalTo: mailIcon.trailingAnchor, constant: LayoutConstants.indentFive)
+            mailLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor,
+                                           constant: LayoutConstants.leadingMargin),
+            mailLabel.leadingAnchor.constraint(equalTo: mailIcon.trailingAnchor,
+                                           constant: LayoutConstants.indentSix),
         ])
     }
 }

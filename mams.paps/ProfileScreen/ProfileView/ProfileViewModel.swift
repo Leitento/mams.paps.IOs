@@ -40,14 +40,12 @@ final class ProfileViewModel {
     //MARK: - Private Methods
     
     private func getProfile() {
-        let profileModel = ProfileModel(name: "name", secondName: "secName", city: "city", email: "gmail.com")
+        let profileModel = ProfileModel(name: "Name", secondName: "SecondName", city: "City", email: "gmail.com")
         let bannerModel = BannerModel(banner: UIImage(systemName: "banner"))
         let buttonsModel = ButtonsModel.makeButtons()
         let profile =  Profile(profileModel: profileModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
         state = .loaded(profile: profile)
     }
-    
-    
 }
 
 extension ProfileViewModel: ProfileViewModelProtocol {

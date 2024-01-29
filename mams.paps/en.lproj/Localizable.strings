@@ -49,3 +49,17 @@
 "LocationCell.timeToWalk" = "14 minutes";
 
 "LocationCell.kilometres" = "1.5 km";
+
+//MARK: - Profile Cell
+
+"ProfileCell.favourite" = "Favourite";
+
+"ProfileCell.notification" = "Notification";
+
+"ProfileCell.contractOffer" = "Contract Offer";
+
+"ProfileCell.aboutApp" = "About App";
+
+"ProfileCell.support" = "Support GoMaping";
+
+"ProfileCell.logout" = "Logout";

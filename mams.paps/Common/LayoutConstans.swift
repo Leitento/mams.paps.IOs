@@ -8,12 +8,14 @@
 import UIKit
 
 enum LayoutConstants {
-    static let topMargin: CGFloat = 20
+    static let topMargin: CGFloat = 16
     static let bottomMargin: CGFloat = 20
-    static let leadingMargin: CGFloat = 20
-    static let trailingMargin: CGFloat = -20
-    static let indent: CGFloat = 10
+    static let leadingMargin: CGFloat = 16
+    static let trailingMargin: CGFloat = -16
+    static let indent: CGFloat = 12
     static let indentFive: CGFloat = 5
+    static let indentSix: CGFloat = 6
+    static let indentEight: CGFloat = 8
     static let cornerRadius: CGFloat = 20
 }
  

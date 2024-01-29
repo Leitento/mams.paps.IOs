@@ -38,9 +38,9 @@ final class ProfileCollectionViewCellWithBanner: UICollectionViewCell {
     private func setupUI() {
         addSubviews(banner)
         NSLayoutConstraint.activate([
-            banner.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50), //LayoutConstants.topMargin),
-            banner.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: LayoutConstants.leadingMargin),
-            banner.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: LayoutConstants.trailingMargin)
+            banner.topAnchor.constraint(equalTo: topAnchor),
+            banner.leadingAnchor.constraint(equalTo: leadingAnchor),
+            banner.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }
