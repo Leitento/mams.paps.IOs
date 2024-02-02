@@ -49,6 +49,7 @@
 		09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */; };
 		09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */; };
 		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
+		1FDB96542B6842C500C7AF81 /* ProfileEditScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */; };
 		5AC972392B666A1E0035ED95 /* ProfileScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972312B666A1D0035ED95 /* ProfileScreenViewModelProtocol.swift */; };
 		5AC9723A2B666A1E0035ED95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972322B666A1D0035ED95 /* ProfileViewController.swift */; };
 		5AC9723B2B666A1E0035ED95 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972332B666A1D0035ED95 /* ProfileViewModel.swift */; };
@@ -104,6 +105,7 @@
 		09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
 		09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditScreenViewController.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA93B9F2B14DE8100E2908A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AC972312B666A1D0035ED95 /* ProfileScreenViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				5AC972312B666A1D0035ED95 /* ProfileScreenViewModelProtocol.swift */,
 				5AC972322B666A1D0035ED95 /* ProfileViewController.swift */,
+				1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */,
 				5AC972332B666A1D0035ED95 /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
@@ -475,6 +478,7 @@
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,
 				09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */,
+				1FDB96542B6842C500C7AF81 /* ProfileEditScreenViewController.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
 				0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */,
 				5AC972422B666B870035ED95 /* ProfileCoordinator.swift in Sources */,

@@ -47,7 +47,33 @@
 
 "Map.Title" = "Карта";
 
+//MARK: - Location Cell
 
+"LocationCell.title" = "Игровая площадка";
+
+"LocationCell.adress" = "Арбатская, 34";
+
+"LocationCell.longDescription" = " Отличная площадка, правда на выходных много народа...";
+
+"Location.rating" = "4,3";
+
+"LocationCell.timeToWalk" = "14 минут";
+
+"LocationCell.kilometres" = "1.5 км";
+
+//MARK: - Profile Cell
+
+"ProfileCell.favourite" = " Избранное";
+
+"ProfileCell.notification" = "Уведомления";
+
+"ProfileCell.contractOffer" = "Публичная оферта";
+
+"ProfileCell.aboutApp" = "О приложении";
+
+"ProfileCell.support" = "Поддержка GoMapping";
+
+"ProfileCell.logout" = " Выйти из аккаунта";
 
 
 

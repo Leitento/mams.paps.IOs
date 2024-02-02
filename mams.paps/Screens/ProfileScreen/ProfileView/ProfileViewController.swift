@@ -17,14 +17,14 @@ class ProfileViewController: UIViewController {
     enum Cell: Hashable {
         case header(profile: ProfileModel)
         case banner(banner: BannerModel)
-        case buttons(buttons: ButtonsModel)
+        case buttons
     }
 
     //MARK: - Properties
 
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Cell>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Cell>
-    weak var profileCoordinator: ProfileScreenCoordinator? //??
+    weak var profileCoordinator: ProfileScreenCoordinator?
     
     
     //MARK: - Private Properties
@@ -81,19 +81,26 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Профиль"
+        setupNavBar()
         setupCollectionView()
         bindingModel()
         viewModel.test()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Профиль"
 
     }
 
     //MARK: - Private Methods
 
+    private func setupNavBar() {
+        createCustomNavigationBar()
+        let editRightButton = createEditButton(imageName: "edit", selector: #selector(editRightButtonTapped))
+        let customTitleView = createCustomTitleView()
+        navigationItem.rightBarButtonItem = editRightButton
+        navigationItem.titleView = customTitleView
+    }
+    
     private func setupCollectionView() {
         collectionView.backgroundColor = .customOrange
         view.addSubview(collectionView)
@@ -123,8 +130,8 @@ class ProfileViewController: UIViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 10,
-            leading: 20,
+            top: -10,
+            leading: 0,
             bottom: 0,
             trailing: -20
         )
@@ -140,7 +147,7 @@ class ProfileViewController: UIViewController {
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(100)
+            heightDimension: .absolute(130)
         )
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
@@ -149,10 +156,10 @@ class ProfileViewController: UIViewController {
 
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 50,
+            top: 20,
             leading: 20,
             bottom: 0,
-            trailing: -20
+            trailing: 20
         )
         return section
     }
@@ -162,23 +169,23 @@ class ProfileViewController: UIViewController {
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
         )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize) //pic, label
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(44)
+            heightDimension: .absolute(368)
         )
-        let group = NSCollectionLayoutGroup.vertical( // pic + label
+        let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
             subitems: [item]
         )
 
-        let section = NSCollectionLayoutSection(group: group) //section buttons
+        let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 100,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
+            top: 20,
+            leading: 20,
+            bottom: 40,
+            trailing: 20
         )
         return section
     }
@@ -208,7 +215,7 @@ class ProfileViewController: UIViewController {
                 }
                 return cell
 
-            case .buttons(let buttons):
+            case .buttons:
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.id,
                                                                     for: indexPath) as? ProfileCollectionViewCell
                 else {
@@ -240,20 +247,19 @@ class ProfileViewController: UIViewController {
         snapshot.appendSections([.banner])
         snapshot.appendItems([.banner(banner: profile.bannerModel)], toSection: .banner)
         snapshot.appendSections([.buttons])
-        profile.buttonsModel.forEach { model in
-            snapshot.appendItems([.buttons(buttons: model)], toSection: .buttons)
-        }
+        snapshot.appendItems([.buttons], toSection: .buttons)
         dataSource.apply(snapshot) //конфигурит все
-    }
+        }
+   
     private func bindingModel() {
         viewModel.stateChanger = { [weak self] state in
             guard let self else {
                 return
             }
             switch state {
-            
+                
             case .loading:
-               ()
+                ()
             case .loaded(let profile):
                 self.makeSnapshot(profile: profile)
             case .error:
@@ -261,33 +267,50 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-}
-
-extension ProfileViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+    
+    //MARK: - Event Handler
+    
+    @objc private func editRightButtonTapped() {
+        print("editRightButtonTapped")
+//        let profileEditScreen = ProfileEditScreenController()
+//        self.navigationController?.pushViewController(profileEditScreen, animated: true)
+        viewModel.didTappedEditProfile()
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.id, for: indexPath)
-        return  cell //UICollectionViewCell()
-    }
-    //    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    //<#code#>
-    //    }
 }
 
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-//    //Vertical Spacing
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 2
-//    }
-//
-//    //Horizontal Spacing
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 2
-//    }
-//}
+extension ProfileViewController {
+    func createCustomNavigationBar() {
+        navigationItem.hidesBackButton = true
+    }
+    
+    func createCustomTitleView() -> UIView {
+        let view = UIView()
+        view.frame = CGRect(x: 0, y: 0, width: 390, height: 50)
+        
+        let title = UILabel()
+        title.textAlignment = .left
+        title.font = .systemFont(ofSize: 20, weight: .medium)
+        title.text = "Профиль"
+        title.textColor = .customGrey
+        title.frame = CGRect(x: 20, y: 14, width: 114, height: 22)
+        view.addSubview(title)
+        return view
+    }
+    
+    func createEditButton(imageName: String, selector: Selector) -> UIBarButtonItem {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "edit"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        button.addTarget(self, action: selector, for: .touchUpInside)
+        button.tintColor = .customDarkBlue
+        let editButton = UIBarButtonItem(customView: button)
+        return editButton
+    }
+}
+

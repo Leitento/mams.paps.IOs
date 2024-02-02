@@ -11,6 +11,7 @@ import UIKit
 protocol ProfileViewModelProtocol {
     var stateChanger: ((ProfileViewModel.State) -> Void)? { get set }
     func test()
+    func didTappedEditProfile()
 }
 
 final class ProfileViewModel {
@@ -21,7 +22,7 @@ final class ProfileViewModel {
     }
     
     //MARK: - Properties
-    
+  private weak var coordinator: ProfileCoordinatorProtocol?
     var stateChanger: ((State) -> Void)?
     
     var state: State = .loading {
@@ -32,15 +33,15 @@ final class ProfileViewModel {
     
     //MARK: - Life Cycle
     
-    init() {
+    init(coordinator: ProfileCoordinatorProtocol) {
 //       getProfile()
-       
+        self.coordinator = coordinator
     }
     
     //MARK: - Private Methods
     
     private func getProfile() {
-        let profileModel = ProfileModel(name: "name", secondName: "secName", city: "city", email: "gmail.com")
+        let profileModel = ProfileModel(name: "name", secondName: "secName", city: "city", email: "mail@gmail.com")
         let bannerModel = BannerModel(banner: UIImage(systemName: "banner"))
         let buttonsModel = ButtonsModel.makeButtons()
         let profile =  Profile(profileModel: profileModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
@@ -53,5 +54,9 @@ final class ProfileViewModel {
 extension ProfileViewModel: ProfileViewModelProtocol {
     func test() {
         getProfile()
+        
+    }
+    func didTappedEditProfile() {
+        coordinator?.pushProfileEditingButton()
     }
 }

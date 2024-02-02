@@ -35,12 +35,12 @@ final class ProfileScreenCoordinator {
     // MARK: - Private methods
     
     private func createNavigationController() -> UIViewController {
-        let viewModel = ProfileViewModel()
+        let viewModel = ProfileViewModel(coordinator: self)
         let profileViewController = ProfileViewController(viewModel: viewModel)
         rootViewController = profileViewController
         let navigationController = UINavigationController(rootViewController: profileViewController)
         navigationController.tabBarItem = UITabBarItem(title: "Profile".localized,
-                                                       image: UIImage(systemName: "profile.circle"),
+                                                       image: UIImage(named: "profileTabbarIcon"),
                                                        tag: 4)
         self.navigationController =  navigationController
         return navigationController
@@ -73,6 +73,8 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
     
     func pushProfileEditingButton() {
         print("showProfileEditingButton")
+        let viewControler = ProfileEditScreenController()
+        navigationController?.pushViewController(viewControler, animated: true)
     }
     
     func pushAddButton() {

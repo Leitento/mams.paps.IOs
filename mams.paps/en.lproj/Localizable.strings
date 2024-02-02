@@ -48,4 +48,30 @@
 
 "Map.Title" = "Map";
 
+//MARK: - Location Cell
 
+"LocationCell.title" = "Playground";
+
+"LocationCell.adress" = "Arbatskaya, 34";
+
+"LocationCell.longDescription" = " great place, although sometimes there are a lot of people on weekends...";
+
+"Location.rating" = "4,3";
+
+"LocationCell.timeToWalk" = "14 minutes";
+
+"LocationCell.kilometres" = "1.5 km";
+
+//MARK: - Profile Cell
+
+"ProfileCell.favourite" = " Favourites";
+
+"ProfileCell.notification" = "Notifications";
+
+"ProfileCell.contractOffer" = "Contract Offer";
+
+"ProfileCell.aboutApp" = "About App";
+
+"ProfileCell.support" = "Support GoMapping";
+
+"ProfileCell.logout" = "Logout";
