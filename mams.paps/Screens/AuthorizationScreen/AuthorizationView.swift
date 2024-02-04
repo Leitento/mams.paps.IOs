@@ -26,7 +26,7 @@ final class AuthorizationView: UIView {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.backgroundColor = .systemOrange
+        scrollView.backgroundColor = UIColor(named: "customOrange")
 
         return scrollView
     }()

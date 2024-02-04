@@ -45,18 +45,17 @@ final class TabBarCoordinator {
         servicesViewController.tabBarItem = UITabBarItem(title: "Services", image: UIImage(systemName: "plus.circle"), tag: 3)
 
         
-        let usefulViewController = UIViewController()
-        usefulViewController.view.backgroundColor = .white
-        usefulViewController.tabBarItem = UITabBarItem(title: "Useful", image: UIImage(systemName: "person.crop.circle"), tag: 4)
+        let profileCoordinator = ProfileScreenCoordinator(user: nil, parentCoordinator: self)
+        addChildCoordinator(profileCoordinator)
 
 
-        let controllers = 
+        let controllers =
         [
             mainScreenCoordinator.start(),
             eventsViewController,
             mapCoordinator.start(),
             servicesViewController,
-            usefulViewController
+            profileCoordinator.start()
         ]
         
         tabBarController.viewControllers = controllers

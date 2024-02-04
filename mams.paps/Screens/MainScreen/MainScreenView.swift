@@ -98,7 +98,7 @@ final class MainScreenView: UIView {
         let userNameIcon = UIImageView()
         userNameIcon.translatesAutoresizingMaskIntoConstraints = false
         userNameIcon.image = UIImage(systemName: "circle.fill")
-        userNameIcon.tintColor = UIColor(named: "Skin")
+        userNameIcon.tintColor = UIColor(named: "customSkin")
         userNameIcon.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         
         let label = UILabel()
@@ -152,7 +152,7 @@ final class MainScreenView: UIView {
     
     // MARK: - Private methods
     private func setupView() {
-        backgroundColor = UIColor(named: "AccentColor")
+        backgroundColor = UIColor(named: "customOrange")
     }
     
     private func setupCollectionView() {

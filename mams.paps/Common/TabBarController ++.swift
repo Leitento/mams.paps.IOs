@@ -8,7 +8,7 @@ extension UITabBarController {
             return
         }
 
-        UIView.transition(from: selectedView, to: newView, duration: 0.3, options: .transitionFlipFromTop) { _ in
+        UIView.transition(from: selectedView, to: newView, duration: 0.5, options: .transitionCrossDissolve) { _ in
             // Optionally, you can perform additional actions after the transition completes.
         }
 
