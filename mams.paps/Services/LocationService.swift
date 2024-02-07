@@ -1,6 +1,10 @@
 
 
-import CoreLocation
+import CoreLocation 
+
+protocol LocationServiceProtocol: AnyObject {
+    func getCurrentLocation(completion: @escaping (Result<Coordinates, LocationServiceError>) -> Void)
+}
 
 final class LocationService: NSObject {
     
@@ -8,18 +12,19 @@ final class LocationService: NSObject {
     private let locationManager = CLLocationManager()
     
     // MARK: - Properties
-    var isLocationAuthorized: Bool = false
+    private var isLocationAuthorized: Bool = false
+    private var currentLocation: Coordinates?
     
     // MARK: - Life Cycle
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        updateAuthorizationStatus()
     }
     
     //MARK: - Methods
-    func updateauthorizationStatus() {
+    private func updateAuthorizationStatus() {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
@@ -29,8 +34,9 @@ final class LocationService: NSObject {
 extension LocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if !locations.isEmpty {
+        if !locations.isEmpty, let location = locations.last {
             locationManager.stopUpdatingLocation()
+            currentLocation = Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
     
@@ -45,3 +51,21 @@ extension LocationService: CLLocationManagerDelegate {
         }
     }
 }
+
+// MARK: - CLLocationManagerDelegate - LocationServiceProtocol
+extension LocationService: LocationServiceProtocol {
+    func getCurrentLocation(completion: @escaping (Result<Coordinates, LocationServiceError>) -> Void) {
+        guard isLocationAuthorized else {
+            completion(.failure(LocationServiceError.authorizationDenied))
+            return
+        }
+        
+        guard let currentLocation = currentLocation else {
+            completion(.failure(LocationServiceError.locationUnavailable))
+            return
+        }
+        
+        completion(.success(currentLocation))
+    }
+}
+    

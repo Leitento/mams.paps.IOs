@@ -43,6 +43,8 @@
 		0965DA5F2B0FB5D400A457CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */; };
 		097F58F02B62DD99003D6861 /* UIView ++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F58EF2B62DD99003D6861 /* UIView ++.swift */; };
 		097F58F22B62E9B0003D6861 /* TabBarController ++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F58F12B62E9B0003D6861 /* TabBarController ++.swift */; };
+		09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC6BC42B740AA60029669E /* Coordinates.swift */; };
+		09AC6BC72B7412CE0029669E /* LocationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC6BC62B7412CE0029669E /* LocationServiceError.swift */; };
 		09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC06482B2C8AFB00D71BEB /* OnboardingCoordinator.swift */; };
 		09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC06492B2C8AFB00D71BEB /* AppCoordinator.swift */; };
 		09DC064F2B2C8AFB00D71BEB /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */; };
@@ -99,6 +101,8 @@
 		0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		097F58EF2B62DD99003D6861 /* UIView ++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView ++.swift"; sourceTree = "<group>"; };
 		097F58F12B62E9B0003D6861 /* TabBarController ++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarController ++.swift"; sourceTree = "<group>"; };
+		09AC6BC42B740AA60029669E /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		09AC6BC62B7412CE0029669E /* LocationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceError.swift; sourceTree = "<group>"; };
 		09DC06482B2C8AFB00D71BEB /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		09DC06492B2C8AFB00D71BEB /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 				093D680C2B369F270044AAE7 /* MapViewController.swift */,
 				093D680D2B369F270044AAE7 /* MapView.swift */,
 				0915402E2B5D17C000B144C1 /* MapViewModel.swift */,
+				09AC6BC42B740AA60029669E /* Coordinates.swift */,
 			);
 			path = MapScreen;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				09638DA22B35705A005DF42D /* CoreDataService.swift */,
 				09638DA42B3583C0005DF42D /* KeychainService.swift */,
 				093D680E2B369F270044AAE7 /* LocationService.swift */,
+				09AC6BC62B7412CE0029669E /* LocationServiceError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -469,6 +475,7 @@
 				09EBCDAF2B6F4A830093EFAF /* ProfileScreenViewModelProtocol.swift in Sources */,
 				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
 				0949778E2B2C79920089DB13 /* AuthorizationViewController.swift in Sources */,
+				09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */,
 				09EBCDB52B6F4A830093EFAF /* ProfileModel.swift in Sources */,
 				09EBCDB42B6F4A830093EFAF /* ProfileCollectionViewCell.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
@@ -484,6 +491,7 @@
 				09638DA32B35705A005DF42D /* CoreDataService.swift in Sources */,
 				094977862B2C79700089DB13 /* MainScreenViewController.swift in Sources */,
 				093D680B2B369D6E0044AAE7 /* MapCoordinator.swift in Sources */,
+				09AC6BC72B7412CE0029669E /* LocationServiceError.swift in Sources */,
 				097F58F02B62DD99003D6861 /* UIView ++.swift in Sources */,
 				09DC064F2B2C8AFB00D71BEB /* ProtocolCoordinator.swift in Sources */,
 				09638DA52B3583C0005DF42D /* KeychainService.swift in Sources */,

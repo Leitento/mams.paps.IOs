@@ -47,6 +47,10 @@
 
 "Map.Title" = "Карта";
 
+"LocationServiceError.AuthorizationDenied" = "Доступ к службам геолокации запрещен";
+
+"LocationServiceError.LocationUnavailable" = "Службы геолокации в данный момент недоступны";
+
 
 
 

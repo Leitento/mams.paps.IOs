@@ -48,4 +48,8 @@
 
 "Map.Title" = "Map";
 
+"LocationServiceError.AuthorizationDenied" = "Location services authorization denied";
+
+"LocationServiceError.LocationUnavailable" = "Location services are currently unavailable";
+
 

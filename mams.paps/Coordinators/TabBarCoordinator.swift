@@ -33,7 +33,7 @@ final class TabBarCoordinator {
         let mainScreenCoordinator = MainScreenCoordinator(navigationController: UINavigationController(), parentCoordinator: self)
         addChildCoordinator(mainScreenCoordinator)
         
-        let mapCoordinator = MapCoordinator(navigationController: UINavigationController(), parentCoordinator: self)
+        let mapCoordinator = MapCoordinator(navigationController: UINavigationController(), parentCoordinator: self, locationService: LocationService())
         addChildCoordinator(mapCoordinator)
         
         let eventsViewController = UIViewController()
