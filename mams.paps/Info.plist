@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;Add photo?&quot;</string>
 	<key>MAPKIT_API_KEY</key>
 	<string>6346023c-6aa4-4647-a96f-60b8f2b33706</string>
 	<key>UIApplicationSceneManifest</key>

@@ -45,7 +45,6 @@ enum Icon {
     static let aboutApp = UIImage(named: "aboutApp")
     static let support = UIImage(named: "support")
     static let logout = UIImage(named: "logout")
-    
 }
 
 extension ButtonsModel {

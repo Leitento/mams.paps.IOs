@@ -35,7 +35,7 @@ final class ProfileScreenCoordinator {
     // MARK: - Private methods
     
     private func createNavigationController() -> UIViewController {
-        let viewModel = ProfileViewModel(coordinator: self)
+        let viewModel = ProfileViewModel(coordinator: self, parentCoordinator: parentCoordinator!)
         let profileViewController = ProfileViewController(viewModel: viewModel)
         rootViewController = profileViewController
         let navigationController = UINavigationController(rootViewController: profileViewController)
@@ -83,25 +83,38 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
     
     func pushFavouritesButton() {
         print("showEventsScreen")
+//        let viewController = // controller with favourites places
+//        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func pushNotificationButton() {
         print("showServicesScreen")
+        //-> services
+        
     }
     
     func pushContactOfferButton() {
         print("showUsefulScreen")
+        //-> services
     }
     
     func pushAboutAppButton() {
         print("showUsefulScreen")
+        //-> services
     }
     
     func pushSupportButton() {
         print("showUsefulScreen")
+        //-> services
     }
     
     func pushLogoutButton() {
         print("showUsefulScreen")
+        parentCoordinator!.showAuthorizationScreen()
+//        let coordinator = AuthorizationCoordinator()
+//        let viewModel = AuthorizationViewModel(coordinator: <#AuthorizationCoordinatorProtocol#>, authorizationService: <#AuthorizationServiceProtocol#>)
+//        let authorizationViewController = AuthorizationViewController(viewModel: viewModel)
+//        navigationController?.pushViewController(authorizationViewController, animated: true)
+//        //-> authorizationServices
     }
 }

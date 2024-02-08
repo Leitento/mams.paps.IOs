@@ -7,6 +7,15 @@
 
 import UIKit
 
+protocol ProfileViewControllerDelegate: AnyObject {
+    func favouriteButtonTapped()
+    func notificationButtonTapped()
+    func contactOfferButtonTapped()
+    func aboutAppButtonTapped()
+    func supportButtonTapped()
+    func logoutButtonTapped()     
+}
+
 class ProfileViewController: UIViewController {
 
     enum Section: Hashable {
@@ -26,11 +35,9 @@ class ProfileViewController: UIViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Cell>
     weak var profileCoordinator: ProfileScreenCoordinator?
     
-    
     //MARK: - Private Properties
     
     private var viewModel: ProfileViewModelProtocol
-    
     private lazy var dataSource = makeDataSource()
     private var snapshot: Snapshot {
         dataSource.snapshot()
@@ -62,7 +69,6 @@ class ProfileViewController: UIViewController {
         collectionView.register(ProfileHeaderView.self,
                                 forCellWithReuseIdentifier: ProfileHeaderView.id)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         return collectionView
     }()
@@ -84,7 +90,7 @@ class ProfileViewController: UIViewController {
         setupNavBar()
         setupCollectionView()
         bindingModel()
-        viewModel.test()
+        viewModel.didTappedGetProfile()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -197,8 +203,9 @@ class ProfileViewController: UIViewController {
             itemIdentifier in
             switch itemIdentifier {
             case .header(let profile):
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileHeaderView.id,
-                                                                    for: indexPath) as?  ProfileHeaderView
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProfileHeaderView.id,
+                    for: indexPath) as?  ProfileHeaderView
                 else {
                     return  UICollectionViewCell()
                 }
@@ -216,11 +223,13 @@ class ProfileViewController: UIViewController {
                 return cell
 
             case .buttons:
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.id,
-                                                                    for: indexPath) as? ProfileCollectionViewCell
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProfileCollectionViewCell.id,
+                    for: indexPath) as? ProfileCollectionViewCell
                 else {
                     return UICollectionViewCell()
                 }
+                cell.delegate = self
                 return cell
             }
         }
@@ -239,7 +248,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    
     private func makeSnapshot(profile: Profile) {
         var snapshot = Snapshot()
         snapshot.appendSections([.header])
@@ -248,7 +256,7 @@ class ProfileViewController: UIViewController {
         snapshot.appendItems([.banner(banner: profile.bannerModel)], toSection: .banner)
         snapshot.appendSections([.buttons])
         snapshot.appendItems([.buttons], toSection: .buttons)
-        dataSource.apply(snapshot) //конфигурит все
+        dataSource.apply(snapshot)
         }
    
     private func bindingModel() {
@@ -272,14 +280,29 @@ class ProfileViewController: UIViewController {
     
     @objc private func editRightButtonTapped() {
         print("editRightButtonTapped")
-//        let profileEditScreen = ProfileEditScreenController()
-//        self.navigationController?.pushViewController(profileEditScreen, animated: true)
         viewModel.didTappedEditProfile()
     }
 }
 
-extension ProfileViewController: UICollectionViewDelegateFlowLayout {
-
+extension ProfileViewController: ProfileViewControllerDelegate {
+    func favouriteButtonTapped() {
+        viewModel.favouriteButton()
+    }
+    func notificationButtonTapped() {
+        viewModel.notificationButton()
+    }
+    func contactOfferButtonTapped() {
+        viewModel.contactOfferButton()
+    }
+    func aboutAppButtonTapped() {
+        viewModel.aboutAppButton()
+    }
+    func supportButtonTapped() {
+        viewModel.supportButton()
+    }
+    func logoutButtonTapped() {
+        viewModel.logoutButton()
+    }
 }
 
 extension ProfileViewController {

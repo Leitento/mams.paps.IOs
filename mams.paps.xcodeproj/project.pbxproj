@@ -49,6 +49,7 @@
 		09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */; };
 		09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */; };
 		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
+		1F20AC582B73AAA60088A78B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC572B73AAA60088A78B /* ImagePicker.swift */; };
 		1FDB96542B6842C500C7AF81 /* ProfileEditScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */; };
 		5AC972392B666A1E0035ED95 /* ProfileScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972312B666A1D0035ED95 /* ProfileScreenViewModelProtocol.swift */; };
 		5AC9723A2B666A1E0035ED95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972322B666A1D0035ED95 /* ProfileViewController.swift */; };
@@ -105,6 +106,7 @@
 		09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
 		09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		1F20AC572B73AAA60088A78B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditScreenViewController.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA93B9F2B14DE8100E2908A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				097F58F12B62E9B0003D6861 /* TabBarController ++.swift */,
 				5AC972452B666D710035ED95 /* Array.swift */,
 				5AC972432B666D210035ED95 /* LayoutConstans.swift */,
+				1F20AC572B73AAA60088A78B /* ImagePicker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				5AC9723D2B666A1E0035ED95 /* ProfileCollectionViewWithBanner.swift in Sources */,
 				093D68102B369F270044AAE7 /* MapView.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
+				1F20AC582B73AAA60088A78B /* ImagePicker.swift in Sources */,
 				09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */,
 				094977912B2C79920089DB13 /* AuthorizationViewModel.swift in Sources */,
 				094977992B2C799B0089DB13 /* OnboardingSlide.swift in Sources */,

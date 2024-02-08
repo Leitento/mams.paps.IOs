@@ -22,13 +22,17 @@ protocol ProfileScreenViewModelProtocol: AnyObject {
 
 final class ProfileScreenViewModel {
     
+    //MARK: - Properties
+    
+    var currentUser: User?
+      
     //MARK: - Private Properties
+    
     private let coordinator: ProfileCoordinatorProtocol
     
-    //MARK: - Properties
-    var currentUser: User?
-                
+             
     //MARK: - Life Cycles
+    
     init(user: User?, coordinator: ProfileCoordinatorProtocol) {
         self.currentUser = user
         self.coordinator = coordinator
@@ -39,35 +43,27 @@ extension ProfileScreenViewModel: ProfileScreenViewModelProtocol {
     func showProfileScreen() {
         coordinator.showProfileScreen()
     }
-    
     func pushProfileEditingButton() {
         coordinator.pushProfileEditingButton()
     }
-    
     func pushAddButton() {
         coordinator.pushAddButton()
     }
-    
     func pushFavouritesButton() {
         coordinator.pushFavouritesButton()
     }
-    
     func pushNotificationButton() {
         coordinator.pushNotificationButton()
     }
-    
     func pushContactOfferButton() {
         coordinator.pushContactOfferButton()
     }
-    
     func pushAboutAppButton() {
         coordinator.pushAboutAppButton()
     }
-    
     func pushSupportButton() {
         coordinator.pushSupportButton()
     }
-    
     func pushLogoutButton() {
         coordinator.pushLogoutButton()
     }

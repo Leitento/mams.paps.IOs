@@ -8,12 +8,12 @@
 import UIKit
 
 final class ProfileCollectionViewCellWithBanner: UICollectionViewCell {
-    
-    //MARK: - Properties
-    
+        
     static let id = "ProfileCollectionViewCellWithBanner"
     
-    private let banner: UIImageView = {
+    //MARK: - Private Properties
+
+    private lazy var banner: UIImageView = {
         let banner = UIImageView()
         banner.image = UIImage(named: "banner")
         banner.tintColor = .white

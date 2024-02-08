@@ -13,13 +13,13 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     static let id = "ProfileHeaderView"
     
-    private var profileImage: UIImageView = {
+    private lazy var profileImage: UIImageView = {
         var profileImage = UIImageView()
         profileImage.image = UIImage(systemName: "person.circle")
         profileImage.layer.cornerRadius = LayoutConstants.cornerRadius
         return profileImage
     }()
-    private var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         var nameLabel = UILabel()
         nameLabel.text = "Фамилия Имя"
         nameLabel.font = .systemFont(ofSize: 20, weight: .semibold)
@@ -27,7 +27,7 @@ final class ProfileHeaderView: UICollectionViewCell {
         nameLabel.textAlignment = .left
         return nameLabel
     }()
-    private var cityLabel: UILabel = {
+    private lazy var cityLabel: UILabel = {
         var cityLabel = UILabel()
         cityLabel.text = "Город"
         cityLabel.font = .systemFont(ofSize: 14, weight: .medium)
@@ -35,17 +35,17 @@ final class ProfileHeaderView: UICollectionViewCell {
         cityLabel.textAlignment = .left
         return cityLabel
     }()
-    private var cityIcon: UIImageView = {
+    private lazy var cityIcon: UIImageView = {
         var cityIcon = UIImageView()
         cityIcon.image = UIImage(named: "cityIcon")
         return cityIcon
     }()
-    private var mailIcon: UIImageView = {
+    private lazy var mailIcon: UIImageView = {
         var mailIcon = UIImageView()
         mailIcon.image = UIImage(named: "mailIcon")
         return mailIcon
     }()
-    private var mailLabel: UILabel = {
+    private lazy var mailLabel: UILabel = {
         var mailLabel = UILabel()
         mailLabel.text = "mail.mail@mail.ru"
         mailLabel.font = .systemFont(ofSize: 14, weight: .medium)

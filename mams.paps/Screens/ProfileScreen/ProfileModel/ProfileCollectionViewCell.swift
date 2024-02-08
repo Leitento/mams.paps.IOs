@@ -9,18 +9,18 @@ import UIKit
 
 final class ProfileCollectionViewCell: UICollectionViewCell {
 
-    //MARK: - Private Properties
-
     static let id = "ProfileCollectionViewCell"
-
+    
+    //MARK: - Private Properties
+    weak var delegate:  ProfileViewControllerDelegate?
+    
     private lazy var favouriteButton: UIButton = {
         let favouriteButton = UIButton()
         favouriteButton.setTitle(ButtonsTitles.favourites, for: .normal)
         favouriteButton.setTitleColor(.customGreyButtons, for: .normal)
         favouriteButton.setImage(UIImage(named: "favourite"), for: .normal)
         favouriteButton.addTarget(self, action: #selector(favouriteButtonTapped), for: .touchUpInside)
-        favouriteButton.imageEdgeInsets.left = -12
-//        favouriteButton.titleEdgeInsets.left = 12
+        favouriteButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return favouriteButton
     }()
 
@@ -30,8 +30,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         notificationButton.setTitleColor(.customGreyButtons, for: .normal)
         notificationButton.setImage(UIImage(named: "notification"), for: .normal)
         notificationButton.addTarget(self, action: #selector(notificationButtonTapped), for: .touchUpInside)
-        notificationButton.imageEdgeInsets.left = -12
-//        notificationButton.titleEdgeInsets.left = 12
+        notificationButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return notificationButton
     }()
 
@@ -41,8 +40,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         contractOffer.setTitleColor(.customGreyButtons, for: .normal)
         contractOffer.setImage(UIImage(named: "contractOffer"), for: .normal)
         contractOffer.addTarget(self, action: #selector(contractOfferButtonTapped), for: .touchUpInside)
-        contractOffer.imageEdgeInsets.left = -12
-//        contractOffer.titleEdgeInsets.left = 12
+        contractOffer.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return contractOffer
     }()
     private lazy var aboutAppButton: UIButton = {
@@ -51,8 +49,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         aboutAppButton.setTitleColor(.customGreyButtons, for: .normal)
         aboutAppButton.setImage(UIImage(named: "aboutApp"), for: .normal)
         aboutAppButton.addTarget(self, action: #selector(aboutAppButtonTapped), for: .touchUpInside)
-        aboutAppButton.imageEdgeInsets.left = -12
-//        aboutAppButton.titleEdgeInsets.left = 12
+        aboutAppButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return aboutAppButton
     }()
     private lazy var supportButton: UIButton = {
@@ -61,8 +58,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         supportButton.setTitleColor(.customGreyButtons, for: .normal)
         supportButton.setImage(UIImage(named: "support"), for: .normal)
         supportButton.addTarget(self, action: #selector(supportButtonTapped), for: .touchUpInside)
-        supportButton.imageEdgeInsets.left = -12
-//        supportButton.titleEdgeInsets.left = 12
+        supportButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return supportButton
     }()
     private lazy var logoutButton: UIButton = {
@@ -71,15 +67,13 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         logoutButton.setTitleColor(.customGreyButtons, for: .normal)
         logoutButton.setImage(UIImage(named: "logout"), for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
-        logoutButton.imageEdgeInsets.left = -12
-//        logoutButton.titleEdgeInsets.left = 12
+        logoutButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return logoutButton
     }()
 
     //MARK: - Life Cycle
 
     override init(frame: CGRect) {
-
         super.init(frame: frame)
         setupSubs()
     }
@@ -87,9 +81,8 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-
-
+//MARK: - Private Methods
+    
 private func setupSubs() {
         contentView.addSubviews(
             favouriteButton,notificationButton,aboutAppButton,supportButton,logoutButton,contractOfferButton
@@ -108,70 +101,60 @@ private func setupSubs() {
 
             favouriteButton.topAnchor.constraint(equalTo: contentView.topAnchor,
                                                  constant: LayoutConstants.defaultOffSet),
-            favouriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.indentSixteen),
-//            favouriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-//                                            constant: -LayoutConstants.indentSix),
-            favouriteButton.widthAnchor.constraint(equalToConstant: 158),//156
+            favouriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, 
+                                                     constant: LayoutConstants.indentSixteen),
+            favouriteButton.widthAnchor.constraint(equalToConstant: 152),
 
             notificationButton.topAnchor.constraint(equalTo: favouriteButton.bottomAnchor,
-                                                 constant: LayoutConstants.indent),
-            notificationButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.indentSixteen),
-//            notificationButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                                                         //constant: -LayoutConstants.indentTwelve),//def
-            notificationButton.widthAnchor.constraint(equalToConstant: 170),//174
+                                                 constant: LayoutConstants.indentTen),
+            notificationButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                        constant: LayoutConstants.indentSixteen),
+            notificationButton.widthAnchor.constraint(equalToConstant: 172),
 
             contractOfferButton.topAnchor.constraint(equalTo: notificationButton.bottomAnchor,
-                                                 constant: LayoutConstants.indent),
-            contractOfferButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.indentSixteen),
-//            contractOfferButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                                                          //constant: -LayoutConstants.indentTwelve),//def
-            contractOfferButton.widthAnchor.constraint(equalToConstant: 217),//215
+                                                 constant: LayoutConstants.indentTen),
+            contractOfferButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                         constant: LayoutConstants.indentSixteen),
+            contractOfferButton.widthAnchor.constraint(equalToConstant: 217),
             aboutAppButton.topAnchor.constraint(equalTo: contractOfferButton.bottomAnchor,
-                                                constant: LayoutConstants.indent),
-            aboutAppButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.indentSixteen),
-//            aboutAppButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                                                    // constant: -LayoutConstants.indentTwelve),//def
+                                                constant: LayoutConstants.indentTen),
+            aboutAppButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                    constant: LayoutConstants.indentSixteen),
 
             aboutAppButton.widthAnchor.constraint(equalToConstant: 182),
             supportButton.topAnchor.constraint(equalTo: aboutAppButton.bottomAnchor,
-                                                constant: LayoutConstants.indent),
-            supportButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.indentSixteen),
-//            supportButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                                                    //constant: -LayoutConstants.indentTwelve),//def
+                                                constant: LayoutConstants.indentTen),
+            supportButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                   constant: LayoutConstants.indentSixteen),
 
-supportButton.widthAnchor.constraint(equalToConstant: 255),//219//235
+supportButton.widthAnchor.constraint(equalToConstant: 255),
             logoutButton.topAnchor.constraint(equalTo: supportButton.bottomAnchor,
-                                               constant: LayoutConstants.indent),
-            logoutButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.indentSixteen),
-//            logoutButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                                                  // constant: -LayoutConstants.indentTwelve),//def
-            logoutButton.widthAnchor.constraint(equalToConstant: 220),//210
+                                               constant: LayoutConstants.indentTen),
+            logoutButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, 
+                                                  constant: 15),
+            logoutButton.widthAnchor.constraint(equalToConstant: 216)
         ])
     }
 
-    //MARK: - Events Handler
+    //MARK: - Event Handlers
 
     @objc private func favouriteButtonTapped() {
-        print("favouriteButtonTapped")
+        print("favouriteButtonTapped; show Events screen")
     }
-
     @objc private func notificationButtonTapped() {
-        print("notificationButtonTapped")
+        print("notificationButtonTapped; show service screen")
     }
-
     @objc private func contractOfferButtonTapped() {
-        print("contractOfferButtonTapped")
+        print("contractOfferButtonTapped; show service screen")
     }
-
     @objc private func aboutAppButtonTapped() {
-        print("aboutAppButtonTapped")
+        print("aboutAppButtonTapped; show service screen")
     }
-
     @objc private func supportButtonTapped() {
-        print("supportButtonTapped")
+        print("supportButtonTapped; show service screen")
     }
-
     @objc private func logoutButtonTapped() {
-        print("logoutButtonTapped")
+        print("logoutButtonTapped; show authorization screen")
+//        parentCoordinator.showAuthorizationScreen()
     }
 }
