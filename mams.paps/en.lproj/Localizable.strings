@@ -52,4 +52,4 @@
 
 "LocationServiceError.LocationUnavailable" = "Location services are currently unavailable";
 
-
+"SearchBar.Placeholder" = "Enter the text";

@@ -1,5 +1,6 @@
 
 
+import Combine
 import UIKit
 import YandexMapsMobile
 
@@ -31,11 +32,16 @@ final class MapView: UIView {
     }
     
     // MARK: - Private properties
+        
     private var controller: MapViewController
     
     private var mapView: YMKMapView?
     private var map: YMKMap?
     private var placemark: YMKPlacemarkMapObject?
+    private lazy var mapObjectTapListener = MapObjectTapListener(controller: controller)
+    private var bag = Set<AnyCancellable>()
+    
+    @Published private var searchSuggests: [SuggestItem] = []
     
     /// Handles geo objects taps
     /// - Note: This should be declared as property to store a strong reference
@@ -96,11 +102,11 @@ final class MapView: UIView {
         self.controller = controller
         super.init(frame: frame)
         setupView()
-        setupConstraints()
         updateMapFocus()
         addPlacemark()
         setupMapHandlers()
         move()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -121,7 +127,8 @@ final class MapView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            zoomButtonsContainer.trailingAnchor.constraint(equalTo: trailingAnchor, 
+            
+            zoomButtonsContainer.trailingAnchor.constraint(equalTo: trailingAnchor,
                                                        constant: -Constants.buttonMargin),
             zoomButtonsContainer.centerYAnchor.constraint(equalTo: centerYAnchor),
             
@@ -141,6 +148,8 @@ final class MapView: UIView {
             
             favoritesButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
             favoritesButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
+            
+            
         ])
     }
     
@@ -201,7 +210,7 @@ final class MapView: UIView {
         map.move(with: cameraPosition, animation: YMKAnimation(type: .smooth, duration: 1.0))
     }
 
-    private func move() {
+    func move() {
         let targetLatitude = controller.currentLocation?.latitude
         let targetLongitude = controller.currentLocation?.longitude
         
@@ -228,6 +237,51 @@ final class MapView: UIView {
             ),
             animation: YMKAnimation(type: .smooth, duration: 1.0)
         )
+    }
+
+    
+    func displaySearchResults(
+        items: [SearchResponseItem],
+        zoomToItems: Bool,
+        itemsBoundingBox: YMKBoundingBox
+    ) {
+        guard let map = map else {
+            return
+        }
+        map.mapObjects.clear()
+
+        items.forEach { item in
+            let image = UIImage(systemName: "circle.circle.fill")!
+                .withTintColor(.tintColor)
+
+            let placemark = map.mapObjects.addPlacemark()
+            placemark.geometry = item.point
+            placemark.setViewWithView(YRTViewProvider(uiView: UIImageView(image: image)))
+
+            placemark.userData = item.geoObject
+            placemark.addTapListener(with: mapObjectTapListener)
+        }
+    }
+    
+    func focusCamera(points: [YMKPoint], boundingBox: YMKBoundingBox) {
+        guard let map = map else {
+            return
+        }
+        
+        if points.isEmpty {
+            return
+        }
+
+        let position = points.count == 1
+            ? YMKCameraPosition(
+                target: points.first!,
+                zoom: map.cameraPosition.zoom,
+                azimuth: map.cameraPosition.azimuth,
+                tilt: map.cameraPosition.tilt
+            )
+            : map.cameraPosition(with: YMKGeometry(boundingBox: boundingBox))
+
+        map.move(with: position, animation: YMKAnimation(type: .smooth, duration: 0.5))
     }
     
     @objc private func zoomIn() {
