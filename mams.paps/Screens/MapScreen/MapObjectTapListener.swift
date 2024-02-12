@@ -3,14 +3,28 @@
 import UIKit
 import YandexMapsMobile
 
-class MapObjectTapListener: NSObject, YMKMapObjectTapListener {
-    // MARK: - Constructor
-
+final class MapObjectTapListener: NSObject, YMKMapObjectTapListener {
+    
+    enum GeoObjectType {
+        case toponym(address: String)
+        case business(
+                name: String,
+                workingHours: String?,
+                categories: String?,
+                phones: String?,
+                link: String?)
+        case undefined
+    }
+    
+    // MARK: - Private properties
+    private weak var controller: UIViewController?
+    
+    // MARK: - Life Cycle
     init(controller: UIViewController) {
         self.controller = controller
     }
-    // MARK: - Public methods
-
+    
+    // MARK: - Methods
     func onMapObjectTap(with mapObject: YMKMapObject, point: YMKPoint) -> Bool {
         guard let geoObject = mapObject.userData as? YMKGeoObject else {
             return true
@@ -84,25 +98,5 @@ class MapObjectTapListener: NSObject, YMKMapObjectTapListener {
         controller?.present(alert, animated: true)
 
         return true
-    }
-
-    // MARK: - Private properties
-
-    private weak var controller: UIViewController?
-
-    // MARK: - Private nesting
-
-    enum GeoObjectType {
-        case toponym(address: String)
-
-        case business(
-                name: String,
-                workingHours: String?,
-                categories: String?,
-                phones: String?,
-                link: String?
-             )
-
-        case undefined
     }
 }

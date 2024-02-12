@@ -10,18 +10,22 @@ protocol MapViewControllerDelegate: AnyObject {
 
 final class MapViewController: UIViewController, MapViewControllerDelegate {
     
-    // MARK: - Private properties
-    var viewModel: MapViewModel
+    // MARK: - Properties
     var currentLocation: Coordinates?
     
-    private let searchBarController = UISearchController()
-    private var bag = Set<AnyCancellable>()
-    
+    // MARK: - Private Properties
+
     private lazy var mapView = MapView(frame: view.bounds, controller: self)
+    private var viewModel: MapViewModel
+    
+    private var searchBarController: UISearchController?
+    private var bag = Set<AnyCancellable>()
+    @Published private var searchSuggests: [SuggestItem] = []
+    private lazy var mapObjectTapListener = MapObjectTapListener(controller: self)
     
     // MARK: - Life Cycle
-    init(viewModel: MapViewModelProtocol) {
-        self.viewModel = viewModel as! MapViewModel
+    init(viewModel: MapViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,7 +35,7 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchBarController = mapView.getSearchController()
         viewModel.fetchCurrentLocation { result in
             switch result {
             case .success(let coordinates):
@@ -40,10 +44,12 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
                 Alert.shared.showAlert(on: self, title: "Error", message: error.description)
             }
         }
-        
         setupView()
-        setupSearchController()
+        
+        /// настраиваем поиск
+        setupStateUpdates()
         viewModel.setupSubscriptions()
+        moveToStartPoint()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,22 +76,9 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
         ])
     }
     
-    private func setupSearchController() {
-        
-        searchBarController.searchResultsUpdater = self
-        searchBarController.obscuresBackgroundDuringPresentation = true
-        searchBarController.hidesNavigationBarDuringPresentation = false
-        searchBarController.searchBar.placeholder = "SearchBar.Placeholder".localized
-
-        navigationItem.searchController = searchBarController
-        definesPresentationContext = true
-        navigationItem.hidesSearchBarWhenScrolling = false
-
-        searchBarController.delegate = self
-        searchBarController.searchBar.delegate = self
-        searchBarController.searchBar.showsBookmarkButton = false
-
-        setupStateUpdates()
+    private func moveToStartPoint() {
+        guard let map = mapView.map else { return}
+        viewModel.setVisibleRegion(with: map.visibleRegion)
     }
     
     private func displaySearchResults(
@@ -93,21 +86,46 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
         zoomToItems: Bool,
         itemsBoundingBox: YMKBoundingBox
     ) {
-        mapView.displaySearchResults(items: items, zoomToItems: zoomToItems, itemsBoundingBox: itemsBoundingBox)
+        guard let map = mapView.map else { return}
+
+        map.mapObjects.clear()
+
+        items.forEach { item in
+            let image = UIImage(systemName: "circle.circle.fill")!
+                .withTintColor(.tintColor)
+
+            let placemark = map.mapObjects.addPlacemark()
+            placemark.geometry = item.point
+            placemark.setViewWithView(YRTViewProvider(uiView: UIImageView(image: image)))
+
+            placemark.userData = item.geoObject
+            placemark.addTapListener(with: mapObjectTapListener)
+        }
     }
     
     private func focusCamera(points: [YMKPoint], boundingBox: YMKBoundingBox) {
+        guard let map = mapView.map else { return}
+        
         if points.isEmpty {
             return
         }
-        mapView.focusCamera(points: points, boundingBox: boundingBox)
-    }
-    
-    // MARK: - Methods
 
+        let position = points.count == 1
+            ? YMKCameraPosition(
+                target: points.first!,
+                zoom: map.cameraPosition.zoom,
+                azimuth: map.cameraPosition.azimuth,
+                tilt: map.cameraPosition.tilt
+            )
+            : map.cameraPosition(with: YMKGeometry(boundingBox: boundingBox))
+
+        map.move(with: position, animation: YMKAnimation(type: .smooth, duration: 0.5))
+    }
 }
 
+//MARK: - UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate
 extension MapViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
+    
     func updateSearchResults(for searchController: UISearchController) {
     }
 
@@ -118,7 +136,7 @@ extension MapViewController: UISearchResultsUpdating, UISearchControllerDelegate
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.startSearch(with: nil)
-        searchBarController.searchBar.text = viewModel.mapUIState.query
+        searchBarController?.searchBar.text = viewModel.mapUIState.query
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -137,27 +155,30 @@ extension MapViewController: UISearchResultsUpdating, UISearchControllerDelegate
 
     func setupStateUpdates() {
         viewModel.$mapUIState.sink { [weak self] state in
+            guard let self else { return }
             let query = state?.query ?? String()
-            self?.searchBarController.searchBar.text = query
-            self?.updatePlaceholder(with: query)
+            searchBarController?.searchBar.text = query
+            updatePlaceholder(with: query)
 
             if case let .success(items, zoomToItems, itemsBoundingBox) = state?.searchState {
-                self?.displaySearchResults(items: items, zoomToItems: zoomToItems, itemsBoundingBox: itemsBoundingBox)
+                displaySearchResults(items: items, zoomToItems: zoomToItems, itemsBoundingBox: itemsBoundingBox)
                 if zoomToItems {
-                    self?.focusCamera(points: items.map { $0.point }, boundingBox: itemsBoundingBox)
+                    focusCamera(points: items.map { $0.point }, boundingBox: itemsBoundingBox)
                 }
             }
             if let suggestState = state?.suggestState {
-                self?.updateSuggests(with: suggestState)
+                print(state, suggestState, "✅")
+                updateSuggests(with: suggestState)
             }
         }
         .store(in: &bag)
     }
 
     private func updateSuggests(with suggestState: SuggestState) {
+        print(suggestState.self, "State")
         switch suggestState {
         case .success(let items):
-            searchBarController.searchSuggestions = items.map { item in
+            searchBarController?.searchSuggestions = items.map { item in
                 let title = AttributedString(item.title.text)
                 let subtitle = AttributedString(item.subtitle?.text ?? "")
                     .settingAttributes(
@@ -177,7 +198,6 @@ extension MapViewController: UISearchResultsUpdating, UISearchControllerDelegate
     }
 
     private func updatePlaceholder(with text: String = String()) {
-        searchBarController.searchBar.placeholder = text.isEmpty ? "SearchBar.Placeholder".localized : text
+        searchBarController?.searchBar.placeholder = text.isEmpty ? "Search places" : text
     }
 }
-    

@@ -32,16 +32,12 @@ final class MapView: UIView {
     }
     
     // MARK: - Private properties
-        
     private var controller: MapViewController
     
+    private var searchBarController: UISearchController?
     private var mapView: YMKMapView?
-    private var map: YMKMap?
+    var map: YMKMap?
     private var placemark: YMKPlacemarkMapObject?
-    private lazy var mapObjectTapListener = MapObjectTapListener(controller: controller)
-    private var bag = Set<AnyCancellable>()
-    
-    @Published private var searchSuggests: [SuggestItem] = []
     
     /// Handles geo objects taps
     /// - Note: This should be declared as property to store a strong reference
@@ -50,6 +46,15 @@ final class MapView: UIView {
     /// Handles map inputs
     /// - Note: This should be declared as property to store a strong reference
     private var inputListener: InputListener?
+    
+//    private lazy var searchBar: UISearchBar = {
+//        let searchBar = UISearchBar()
+//        searchBar.delegate = controller
+//        searchBar.searchBarStyle = .minimal
+//        searchBar.searchTextField.backgroundColor = .white
+//        searchBar.placeholder = "SearchBar.Placeholder".localized
+//        return searchBar
+//    }()
     
     private lazy var zoomButtonsContainer: UIStackView = {
         let zoomButtonsContainer = UIStackView()
@@ -107,6 +112,7 @@ final class MapView: UIView {
         setupMapHandlers()
         move()
         setupConstraints()
+        setupSearchController()
     }
     
     required init?(coder: NSCoder) {
@@ -148,7 +154,6 @@ final class MapView: UIView {
             
             favoritesButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
             favoritesButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
-            
             
         ])
     }
@@ -238,50 +243,40 @@ final class MapView: UIView {
             animation: YMKAnimation(type: .smooth, duration: 1.0)
         )
     }
-
     
-    func displaySearchResults(
-        items: [SearchResponseItem],
-        zoomToItems: Bool,
-        itemsBoundingBox: YMKBoundingBox
-    ) {
-        guard let map = map else {
-            return
-        }
-        map.mapObjects.clear()
+    private func setupSearchController() {
+        searchBarController = UISearchController()
+        searchBarController?.searchResultsUpdater = controller
+        searchBarController?.obscuresBackgroundDuringPresentation = true
+        searchBarController?.hidesNavigationBarDuringPresentation = false
+        searchBarController?.delegate = controller
+        controller.definesPresentationContext = true
 
-        items.forEach { item in
-            let image = UIImage(systemName: "circle.circle.fill")!
-                .withTintColor(.tintColor)
-
-            let placemark = map.mapObjects.addPlacemark()
-            placemark.geometry = item.point
-            placemark.setViewWithView(YRTViewProvider(uiView: UIImageView(image: image)))
-
-            placemark.userData = item.geoObject
-            placemark.addTapListener(with: mapObjectTapListener)
+        if let searchBar = searchBarController?.searchBar {
+            searchBar.placeholder = "SearchBar.Placeholder".localized
+            searchBar.searchBarStyle = .minimal
+            searchBar.showsBookmarkButton = false
+            searchBar.delegate = controller
+            addSubview(searchBar)
+            
+//            searchBar.translatesAutoresizingMaskIntoConstraints = false
+//            
+//            NSLayoutConstraint.activate([
+//                searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,
+//                                               constant: 20),
+//                searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
+//                                               constant: 20),
+//                searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,
+//                                               constant: -20),
+//            ])
         }
     }
     
-    func focusCamera(points: [YMKPoint], boundingBox: YMKBoundingBox) {
-        guard let map = map else {
-            return
+    func getSearchController() -> UISearchController {
+        guard let searchBarController else {
+            return UISearchController()
         }
-        
-        if points.isEmpty {
-            return
-        }
-
-        let position = points.count == 1
-            ? YMKCameraPosition(
-                target: points.first!,
-                zoom: map.cameraPosition.zoom,
-                azimuth: map.cameraPosition.azimuth,
-                tilt: map.cameraPosition.tilt
-            )
-            : map.cameraPosition(with: YMKGeometry(boundingBox: boundingBox))
-
-        map.move(with: position, animation: YMKAnimation(type: .smooth, duration: 0.5))
+        return searchBarController
     }
     
     @objc private func zoomIn() {
@@ -307,7 +302,7 @@ final class MapView: UIView {
     }
     
     @objc private func addToFavorites() {
-        
+        print("add place to favorites")
     }
     
     // MARK: - Private nesting

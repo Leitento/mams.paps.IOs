@@ -47,7 +47,7 @@ final class MapViewModel {
     @Published private var searchState = SearchState.idle
     @Published private var suggestState = SuggestState.idle
     
-    //MARK: - Life Cycles
+    //MARK: - Life Cycle
     init(locationService: LocationServiceProtocol, coordinator: MapCoordinatorProtocol) {
         self.locationService = locationService
         self.coordinator = coordinator
