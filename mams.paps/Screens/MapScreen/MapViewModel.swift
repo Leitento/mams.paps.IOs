@@ -94,10 +94,10 @@ final class MapViewModel {
                 guard let self = self else {
                     return
                 }
-                self.searchSession?.setSearchAreaWithArea(YMKVisibleRegionUtils.toPolygon(with: visibleRegion))
-                self.searchSession?.resubmit(responseHandler: self.handleSearchSessionResponse)
-                self.searchState = .loading
-                self.zoomToSearchResult = false
+                searchSession?.setSearchAreaWithArea(YMKVisibleRegionUtils.toPolygon(with: visibleRegion))
+                searchSession?.resubmit(responseHandler: self.handleSearchSessionResponse)
+                searchState = .loading
+                zoomToSearchResult = false
             }
             .store(in: &bag)
     }

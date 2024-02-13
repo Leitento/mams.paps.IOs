@@ -47,15 +47,6 @@ final class MapView: UIView {
     /// - Note: This should be declared as property to store a strong reference
     private var inputListener: InputListener?
     
-//    private lazy var searchBar: UISearchBar = {
-//        let searchBar = UISearchBar()
-//        searchBar.delegate = controller
-//        searchBar.searchBarStyle = .minimal
-//        searchBar.searchTextField.backgroundColor = .white
-//        searchBar.placeholder = "SearchBar.Placeholder".localized
-//        return searchBar
-//    }()
-    
     private lazy var zoomButtonsContainer: UIStackView = {
         let zoomButtonsContainer = UIStackView()
         zoomButtonsContainer.axis = .vertical
@@ -69,7 +60,7 @@ final class MapView: UIView {
         let circleButtonsContainer = UIStackView()
         circleButtonsContainer.axis = .vertical
         circleButtonsContainer.spacing = Constants.buttonMargin
-        circleButtonsContainer.addArrangedSubview(moveToPlacemarkButton)
+        circleButtonsContainer.addArrangedSubview(moveToCurrentLocationButton)
         circleButtonsContainer.addArrangedSubview(favoritesButton)
         return circleButtonsContainer
     }()
@@ -88,11 +79,11 @@ final class MapView: UIView {
             self?.zoomOut()
     })
     
-    private lazy var moveToPlacemarkButton = CustomMapsButton(
-        image: UIImage(systemName: "location.fill"), 
+    private lazy var moveToCurrentLocationButton = CustomMapsButton(
+        image: UIImage(systemName: "location.fill"),
         isRound: true,
         action: { [weak self] in
-            self?.moveToPlacemark()
+            self?.moveToCurrentLocation()
     })
     
     private lazy var favoritesButton = CustomMapsButton(
@@ -149,8 +140,8 @@ final class MapView: UIView {
             minusZoomButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
             minusZoomButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
             
-            moveToPlacemarkButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
-            moveToPlacemarkButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
+            moveToCurrentLocationButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
+            moveToCurrentLocationButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
             
             favoritesButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
             favoritesButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
@@ -258,25 +249,7 @@ final class MapView: UIView {
             searchBar.showsBookmarkButton = false
             searchBar.delegate = controller
             addSubview(searchBar)
-            
-//            searchBar.translatesAutoresizingMaskIntoConstraints = false
-//            
-//            NSLayoutConstraint.activate([
-//                searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,
-//                                               constant: 20),
-//                searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
-//                                               constant: 20),
-//                searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,
-//                                               constant: -20),
-//            ])
         }
-    }
-    
-    func getSearchController() -> UISearchController {
-        guard let searchBarController else {
-            return UISearchController()
-        }
-        return searchBarController
     }
     
     @objc private func zoomIn() {
@@ -285,6 +258,11 @@ final class MapView: UIView {
     
     @objc private func zoomOut() {
         changeZoom(by: -1.0)
+    }
+    
+    @objc private func moveToCurrentLocation() {
+        move()
+        addPlacemark()
     }
     
     @objc private func moveToPlacemark() {
@@ -303,6 +281,14 @@ final class MapView: UIView {
     
     @objc private func addToFavorites() {
         print("add place to favorites")
+    }
+    
+    // MARK: - Methods
+    func getSearchController() -> UISearchController {
+        guard let searchBarController else {
+            return UISearchController()
+        }
+        return searchBarController
     }
     
     // MARK: - Private nesting

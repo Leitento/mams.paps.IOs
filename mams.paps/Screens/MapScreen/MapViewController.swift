@@ -167,7 +167,6 @@ extension MapViewController: UISearchResultsUpdating, UISearchControllerDelegate
                 }
             }
             if let suggestState = state?.suggestState {
-                print(state, suggestState, "✅")
                 updateSuggests(with: suggestState)
             }
         }
@@ -175,7 +174,6 @@ extension MapViewController: UISearchResultsUpdating, UISearchControllerDelegate
     }
 
     private func updateSuggests(with suggestState: SuggestState) {
-        print(suggestState.self, "State")
         switch suggestState {
         case .success(let items):
             searchBarController?.searchSuggestions = items.map { item in
