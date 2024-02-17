@@ -1,6 +1,5 @@
 
 
-import Combine
 import UIKit
 import YandexMapsMobile
 
@@ -8,13 +7,19 @@ final class MapView: UIView {
     
     private enum Constants {
         static let buttonSize: CGFloat = 60
-        static let buttonMargin: CGFloat = 20.0
+        static let padding: CGFloat = 20.0
+        static let searchBarHeight: CGFloat = 50.0
+        static let filterButtonHeight: CGFloat = 50
+        static let filterButtonWidth: CGFloat = 150
+        static let barButtonsCornerRadius: CGFloat = 24.0
         static let zoomButtonCornerRadius: CGFloat = 14.0
         static let circleButtonCornerRadius: CGFloat = buttonSize/2
-        static let buttonColor: UIColor = UIColor.systemGray4.withAlphaComponent(0.6)
-        static let buttonTintColor: UIColor = .black
         static let buttonSymbolPointSize: CGFloat = 24
         static let paddingBetweenButtonsContainer: CGFloat = 60
+        static let placeholderColor: UIColor = .gray.withAlphaComponent(0.6)
+        static let buttonColor: UIColor = UIColor.gray.withAlphaComponent(0.2)
+        static let buttonTintColor: UIColor = .black
+        static let filterButtonBackgroundColor: UIColor = UIColor(named: "darkBlue") ?? .systemBlue
     }
     
     private enum defaultPosition {
@@ -34,7 +39,6 @@ final class MapView: UIView {
     // MARK: - Private properties
     private var controller: MapViewController
     
-    private var searchBarController: UISearchController?
     private var mapView: YMKMapView?
     var map: YMKMap?
     private var placemark: YMKPlacemarkMapObject?
@@ -47,10 +51,60 @@ final class MapView: UIView {
     /// - Note: This should be declared as property to store a strong reference
     private var inputListener: InputListener?
     
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = .minimal
+        searchBar.delegate = self
+        searchBar.backgroundColor = .white
+        searchBar.layer.cornerRadius = Constants.barButtonsCornerRadius
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.black.cgColor
+        searchBar.searchTextField.borderStyle = .none
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.searchTextField.font = .systemFont(
+            ofSize: 17,
+            weight: .regular)
+        searchBar.searchTextField.textColor = .black
+        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: "SearchBar.Placeholder".localized,
+            attributes: [NSAttributedString.Key.foregroundColor: Constants.placeholderColor])
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(
+            UIImage(systemName: "magnifyingglass",
+                    withConfiguration: UIImage.SymbolConfiguration(
+                        pointSize: 17,
+                        weight: .regular))?
+                .withTintColor(Constants.placeholderColor,
+                               renderingMode: .alwaysOriginal),
+            for: .search,
+            state: .normal)
+        searchBar.setImage(
+            UIImage(systemName: "mic.fill",
+                    withConfiguration: UIImage.SymbolConfiguration(
+                        pointSize: 17,
+                        weight: .regular))?
+                .withTintColor(Constants.placeholderColor,
+                               renderingMode: .alwaysOriginal),
+            for: .bookmark,
+            state: .normal)
+        searchBar.setImage(
+            UIImage(systemName: "xmark.circle.fill",
+                    withConfiguration: UIImage.SymbolConfiguration(
+                        pointSize: 17,
+                        weight: .regular))?
+                .withTintColor(Constants.placeholderColor,
+                               renderingMode: .alwaysOriginal),
+            for: .clear,
+            state: .normal)
+        searchBar.tintColor = .black
+        
+        return searchBar
+    }()
+    
     private lazy var zoomButtonsContainer: UIStackView = {
         let zoomButtonsContainer = UIStackView()
         zoomButtonsContainer.axis = .vertical
-        zoomButtonsContainer.spacing = Constants.buttonMargin
+        zoomButtonsContainer.spacing = Constants.padding
         zoomButtonsContainer.addArrangedSubview(plusZoomButton)
         zoomButtonsContainer.addArrangedSubview(minusZoomButton)
         return zoomButtonsContainer
@@ -59,39 +113,60 @@ final class MapView: UIView {
     private lazy var circleButtonsContainer: UIStackView = {
         let circleButtonsContainer = UIStackView()
         circleButtonsContainer.axis = .vertical
-        circleButtonsContainer.spacing = Constants.buttonMargin
+        circleButtonsContainer.spacing = Constants.padding
         circleButtonsContainer.addArrangedSubview(moveToCurrentLocationButton)
         circleButtonsContainer.addArrangedSubview(favoritesButton)
         return circleButtonsContainer
     }()
     
     private lazy var plusZoomButton = CustomMapsButton(
-        image: UIImage(systemName: "plus"), 
+        image: UIImage(systemName: "plus"),
         isRound: false,
         action: { [weak self] in
             self?.zoomIn()
-    })
-        
+        })
+    
     private lazy var minusZoomButton = CustomMapsButton(
         image: UIImage(systemName: "minus"),
         isRound: false,
         action: { [weak self] in
             self?.zoomOut()
-    })
+        })
     
     private lazy var moveToCurrentLocationButton = CustomMapsButton(
         image: UIImage(systemName: "location.fill"),
         isRound: true,
         action: { [weak self] in
             self?.moveToCurrentLocation()
-    })
+        })
     
     private lazy var favoritesButton = CustomMapsButton(
-        image: UIImage(systemName: "bookmark.fill"), 
+        image: UIImage(systemName: "bookmark.fill"),
         isRound: true,
         action: { [weak self] in
             self?.addToFavorites()
-    })
+        })
+    
+    private lazy var filterButton: UIButton = {
+        let filterButton = UIButton(type: .custom)
+        filterButton.setTitle("MapView.FilterButton".localized, for: .normal)
+        filterButton.setTitleColor(.white, for: .normal)
+        filterButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
+        filterButton.layer.cornerRadius = Constants.barButtonsCornerRadius
+        filterButton.backgroundColor = Constants.filterButtonBackgroundColor
+        
+        let image = UIImage(systemName: "slider.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular))
+        filterButton.setImage(image, for: .normal)
+        filterButton.tintColor = .white
+        
+        var buttonConfig = UIButton.Configuration.tinted()
+        buttonConfig.imagePadding = Constants.padding
+        buttonConfig.imagePlacement = .trailing
+        filterButton.configuration = buttonConfig
+        
+        filterButton.addTarget(self, action: #selector(filterButtonTapped(_:)), for: .touchUpInside)
+        return filterButton
+    }()
     
     // MARK: - Life Cycle
     init(frame: CGRect, controller: MapViewController) {
@@ -103,36 +178,52 @@ final class MapView: UIView {
         setupMapHandlers()
         move()
         setupConstraints()
-        setupSearchController()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
     // MARK: - Private methods
     private func setupView() {
         mapView = YMKMapView(frame: frame)
         addSubview(mapView ?? YMKMapView(frame: frame))
         map = mapView?.mapWindow.map
         addSubviews(
+            searchBar,
             zoomButtonsContainer,
             circleButtonsContainer,
+            filterButton,
             translatesAutoresizingMaskIntoConstraints: false
         )
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        addGestureRecognizer(tapGesture)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                               constant: Constants.padding),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                                constant: -Constants.padding),
+            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,
+                                           constant: Constants.padding),
+            searchBar.heightAnchor.constraint(equalToConstant: Constants.searchBarHeight),
+            
             zoomButtonsContainer.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                       constant: -Constants.buttonMargin),
+                                                           constant: -Constants.padding),
             zoomButtonsContainer.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             circleButtonsContainer.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                       constant: -Constants.buttonMargin),
+                                                             constant: -Constants.padding),
             circleButtonsContainer.topAnchor.constraint(equalTo: zoomButtonsContainer.bottomAnchor,
                                                         constant: Constants.paddingBetweenButtonsContainer),
+            
+            filterButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Constants.padding),
+            filterButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            filterButton.widthAnchor.constraint(equalToConstant: 200),
+            filterButton.heightAnchor.constraint(equalToConstant: Constants.filterButtonHeight),
             
             plusZoomButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
             plusZoomButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize),
@@ -151,7 +242,9 @@ final class MapView: UIView {
     
     private func setupMapHandlers() {
         guard let map else { return }
-        let geoObjectTapListener = GeoObjectTapListener(map: map, controller: controller)
+        let geoObjectTapListener = GeoObjectTapListener(
+            map: map,
+            controller: controller)
         self.geoObjectTapListener = geoObjectTapListener
         map.addTapListener(with: geoObjectTapListener)
     }
@@ -175,7 +268,7 @@ final class MapView: UIView {
         }
         placemark.isDraggable = true
         self.placemark = placemark
-      
+        
         let inputListener = InputListener(placemark: placemark)
         self.inputListener = inputListener
         
@@ -189,13 +282,13 @@ final class MapView: UIView {
         mapView.mapWindow.focusRect = YMKScreenRect(
             topLeft: YMKScreenPoint(x: 0.0, y: 0.0),
             bottomRight: YMKScreenPoint(
-                x: Float(frame.width - (Constants.buttonSize + Constants.buttonMargin)) * scale,
+                x: Float(frame.width - (Constants.buttonSize + Constants.padding)) * scale,
                 y: Float(frame.height) * scale
             )
         )
         
         mapView.mapWindow.focusPoint = YMKScreenPoint(
-            x: Float(frame.midX - (Constants.buttonSize + Constants.buttonMargin) / 2) * scale,
+            x: Float(frame.midX - (Constants.buttonSize + Constants.padding) / 2) * scale,
             y: Float(frame.midY) * scale
         )
     }
@@ -205,13 +298,13 @@ final class MapView: UIView {
         guard let map else { return }
         map.move(with: cameraPosition, animation: YMKAnimation(type: .smooth, duration: 1.0))
     }
-
+    
     func move() {
         let targetLatitude = controller.currentLocation?.latitude
         let targetLongitude = controller.currentLocation?.longitude
         
         let cameraPosition = YMKCameraPosition(
-            target: YMKPoint(latitude: targetLatitude ?? defaultPosition.startPoint.latitude, 
+            target: YMKPoint(latitude: targetLatitude ?? defaultPosition.startPoint.latitude,
                              longitude: targetLongitude ?? defaultPosition.startPoint.longitude),
             zoom: 15.0,
             azimuth: .zero,
@@ -233,23 +326,6 @@ final class MapView: UIView {
             ),
             animation: YMKAnimation(type: .smooth, duration: 1.0)
         )
-    }
-    
-    private func setupSearchController() {
-        searchBarController = UISearchController()
-        searchBarController?.searchResultsUpdater = controller
-        searchBarController?.obscuresBackgroundDuringPresentation = true
-        searchBarController?.hidesNavigationBarDuringPresentation = false
-        searchBarController?.delegate = controller
-        controller.definesPresentationContext = true
-
-        if let searchBar = searchBarController?.searchBar {
-            searchBar.placeholder = "SearchBar.Placeholder".localized
-            searchBar.searchBarStyle = .minimal
-            searchBar.showsBookmarkButton = false
-            searchBar.delegate = controller
-            addSubview(searchBar)
-        }
     }
     
     @objc private func zoomIn() {
@@ -283,13 +359,14 @@ final class MapView: UIView {
         print("add place to favorites")
     }
     
-    // MARK: - Methods
-    func getSearchController() -> UISearchController {
-        guard let searchBarController else {
-            return UISearchController()
-        }
-        return searchBarController
+    @objc private func filterButtonTapped(_ sender: UIButton) {
     }
+    
+    @objc private func dismissKeyboard() {
+        endEditing(true)
+        searchBar.showsCancelButton = false
+    }
+
     
     // MARK: - Private nesting
     /// Handles geoobjects taps
@@ -374,11 +451,37 @@ final class MapView: UIView {
             } else {
                 layer.cornerRadius = Constants.zoomButtonCornerRadius
             }
-            setPreferredSymbolConfiguration(configuration, 
+            setPreferredSymbolConfiguration(configuration,
                                             forImageIn: .normal
             )
             backgroundColor = Constants.buttonColor
             tintColor = Constants.buttonTintColor
         }
+    }
+}
+
+extension MapView: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBar.showsCancelButton = true
+        controller.searchText(with: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        // Здесь обрабатываем нажатие на кнопку микрофона
     }
 }
