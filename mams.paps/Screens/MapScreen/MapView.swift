@@ -328,6 +328,26 @@ final class MapView: UIView {
         )
     }
     
+    private func animateMicrophoneButton() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.searchBar.searchTextField.rightView?.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        }) { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.searchBar.searchTextField.rightView?.transform = .identity
+            }
+        }
+    }
+    
+    private func animateSearchBar() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.searchBar.searchTextField.leftView?.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        }) { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.searchBar.searchTextField.leftView?.transform = .identity
+            }
+        }
+    }
+    
     @objc private func zoomIn() {
         changeZoom(by: 1.0)
     }
@@ -356,10 +376,13 @@ final class MapView: UIView {
     }
     
     @objc private func addToFavorites() {
+        // Здесь обрабатываем нажатие на кнопку Избранное
         print("add place to favorites")
     }
     
     @objc private func filterButtonTapped(_ sender: UIButton) {
+        // Здесь обрабатываем нажатие на кнопку Фильтры
+        print("Filters button tapped")
     }
     
     @objc private func dismissKeyboard() {
@@ -418,7 +441,7 @@ final class MapView: UIView {
     
     final private class CustomMapsButton: UIButton {
         private var customAction: (() -> Void)?
-
+        
         init(image: UIImage?, isRound: Bool, action: (() -> Void)?) {
             super.init(frame: .zero)
             self.customAction = action
@@ -426,20 +449,21 @@ final class MapView: UIView {
             setImage(image, for: .normal)
             setupStyle(isRound: isRound)
         }
-
+        
         required init?(coder: NSCoder) {
             super.init(coder: coder)
             commonInit()
         }
-
+        
         private func commonInit() {
             addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         }
-
+        
         @objc private func buttonTapped() {
             customAction?()
+            animateTap()
         }
-
+        
         private func setupStyle(isRound: Bool) {
             let configuration = UIImage.SymbolConfiguration(
                 pointSize: Constants.buttonSymbolPointSize,
@@ -457,12 +481,23 @@ final class MapView: UIView {
             backgroundColor = Constants.buttonColor
             tintColor = Constants.buttonTintColor
         }
+        
+        private func animateTap() {
+            UIView.animate(withDuration: 0.1, animations: {
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            }) { _ in
+                UIView.animate(withDuration: 0.1) {
+                    self.transform = .identity
+                }
+            }
+        }
     }
 }
 
 extension MapView: UISearchBarDelegate {
-    
+        
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        animateSearchBar()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -483,5 +518,7 @@ extension MapView: UISearchBarDelegate {
     
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
         // Здесь обрабатываем нажатие на кнопку микрофона
+        print("Voice search tapped")
+        animateMicrophoneButton()
     }
 }
