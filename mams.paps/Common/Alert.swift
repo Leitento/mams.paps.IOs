@@ -23,8 +23,7 @@ final class Alert {
     
     func photoEditAlert(viewController: UIViewController, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let addPhoto = UIAlertAction(title: "Добавить фото", style: .default) { _ in
-            print("add photo")
+        let addPhoto = UIAlertAction(title: "ProfilePhotoEditAlert.addphoto".localized, style: .default) { _ in
             PHPhotoLibrary.requestAuthorization { status in
                 if status == .authorized {
                     completion?()
@@ -33,13 +32,13 @@ final class Alert {
                 }
             }
         }
-        let editPhoto = UIAlertAction(title: "Изменить фото", style: .default) { _ in
+        let editPhoto = UIAlertAction(title: "ProfilePhotoEditAlert.edit".localized, style: .default) { _ in
             print("edit photo")
         }
-        let deletePhoto = UIAlertAction(title: "Удалить фото", style: .destructive) { _ in
+        let deletePhoto = UIAlertAction(title: "ProfilePhotoEditAlert.delete".localized, style: .destructive) { _ in
             print("delete photo")
         }
-        let cancel = UIAlertAction(title: "Отмена", style: .cancel) { _ in
+        let cancel = UIAlertAction(title: "ProfilePhotoEditAlert.cancel".localized, style: .cancel) { _ in
             print("cancel")
         }
         alert.addAction(addPhoto)
@@ -48,5 +47,12 @@ final class Alert {
         alert.addAction(cancel)
         viewController.present(alert, animated: true)
     }
+    func alertError(viewController: UIViewController, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertError = UIAlertAction(title: "ProfilePhotoEditAlert.error".localized, style: .default) { _ in
+            print("alert error")
+        }
+        alert.addAction(alertError)
+        viewController.present(alert, animated: true)
+    }
 }
-   

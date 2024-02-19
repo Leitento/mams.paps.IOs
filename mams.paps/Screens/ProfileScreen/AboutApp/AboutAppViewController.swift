@@ -1,5 +1,5 @@
 //
-//  ContractOfferViewController.swift
+//  AboutAppViewController.swift
 //  mams.paps
 //
 //  Created by Юлия Кагирова on 14.02.2024.
@@ -7,34 +7,48 @@
 
 import UIKit
 
-final class ContractOfferViewController: UIViewController, UIScrollViewDelegate {
+class AboutAppViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: - Private Properties
-//    private var viewModel: ProfileViewModelProtocol
-     weak var coordinator: ContractOfferCoordinator?
     
-    private var backgroundView: UIView = {
+    private lazy var backgroundView: UIView = {
         var view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = LayoutConstants.cornerRadius
         return view
     }()
+    private lazy var logo: UIImageView = {
+        let imageLogo = UIImageView()
+        imageLogo.image = UIImage(named: "aboutAppLogo")
+        imageLogo.translatesAutoresizingMaskIntoConstraints = false
+        imageLogo.contentMode = .scaleAspectFit
+        imageLogo.tintColor = .white
+        return imageLogo
+    }()
     private var label: UILabel = {
         var label = UILabel()
-        label.text = "ContractOffer.label".localized
+        label.text = "AboutApp.label".localized
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .customRed
         return label
     }()
     private var descriptionName: UILabel = {
         var label = UILabel()
-        label.text = "ContractOffer.termins".localized
+        label.text = "AboutApp.description".localized
         label.numberOfLines = 0
         label.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 16
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .darkGray
         return label
     }()
+    private lazy var rightsLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.text = "AboutApp.rights".localized
+        label.textColor = .customLightGrey
+        return label
+    }()
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: 0, width: 300, height: 400)
@@ -56,10 +70,10 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
         descriptionName.frame.size = scrollView.contentSize
         scrollView.contentOffset = CGPoint(x: 150, y: 150)
     }
-     
+    
     private func setupUI() {
         view.addSubview(scrollView)
-        scrollView.addSubviews(backgroundView, label, descriptionName)
+        scrollView.addSubviews(backgroundView, logo, label, descriptionName, rightsLabel)
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
@@ -72,14 +86,22 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
                                                     constant: LayoutConstants.defaultOffSet),
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                      constant: -LayoutConstants.defaultOffSet),
-            
+
             label.topAnchor.constraint(equalTo: backgroundView.topAnchor,
-                                       constant: LayoutConstants.defaultOffSet),
+                                       constant: 188),
             label.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
-                                           constant: LayoutConstants.indentSixteen),
+                                           constant: 74),
             
-            descriptionName.topAnchor.constraint(equalTo: label.bottomAnchor, constant: LayoutConstants.indentEight),
-            descriptionName.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 4)
+            logo.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 28),
+            logo.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 115),
+            
+            descriptionName.topAnchor.constraint(equalTo: backgroundView.topAnchor,
+                                                 constant: 239),
+            descriptionName.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                     constant: LayoutConstants.defaultOffSet),
+            
+            rightsLabel.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 93),
+            rightsLabel.topAnchor.constraint(equalTo: descriptionName.bottomAnchor, constant: 47)
             
         ])
     }

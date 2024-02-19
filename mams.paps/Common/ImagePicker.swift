@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class ImagePicker {
+final class ImagePicker {
     
     static let shared = ImagePicker()
     

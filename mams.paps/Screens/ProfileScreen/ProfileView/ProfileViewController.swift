@@ -13,11 +13,11 @@ protocol ProfileViewControllerDelegate: AnyObject {
     func contactOfferButtonTapped()
     func aboutAppButtonTapped()
     func supportButtonTapped()
-    func logoutButtonTapped()     
+    func logoutButtonTapped()
 }
 
-class ProfileViewController: UIViewController {
-
+final class ProfileViewController: UIViewController {
+    
     enum Section: Hashable {
         case header
         case banner
@@ -28,15 +28,12 @@ class ProfileViewController: UIViewController {
         case banner(banner: BannerModel)
         case buttons
     }
-
-    //MARK: - Properties
-
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, Cell>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Cell>
-    weak var profileCoordinator: ProfileScreenCoordinator?
     
     //MARK: - Private Properties
     
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Cell>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Cell>
+    private weak var profileCoordinator: ProfileScreenCoordinator?
     private var viewModel: ProfileViewModelProtocol
     private lazy var dataSource = makeDataSource()
     private var snapshot: Snapshot {
@@ -59,7 +56,7 @@ class ProfileViewController: UIViewController {
             return self?.setupButtonsLayout()
         }
     }, configuration: layoutConfiguration)
-
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ProfileCollectionViewCellWithBanner.self,
@@ -72,9 +69,9 @@ class ProfileViewController: UIViewController {
         collectionView.alwaysBounceVertical = true
         return collectionView
     }()
-
+    
     //MARK: - Life Cycle
-
+    
     init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -92,13 +89,9 @@ class ProfileViewController: UIViewController {
         bindingModel()
         viewModel.didTappedGetProfile()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-    }
-
+    
     //MARK: - Private Methods
-
+    
     private func setupNavBar() {
         createCustomNavigationBar()
         let editRightButton = createEditButton(imageName: "edit", selector: #selector(editRightButtonTapped))
@@ -117,14 +110,14 @@ class ProfileViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
+    
     private func setupHeaderLayout() -> NSCollectionLayoutSection? {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(150)
@@ -133,7 +126,7 @@ class ProfileViewController: UIViewController {
             layoutSize: groupSize,
             subitems: [item]
         )
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
             top: -10,
@@ -143,14 +136,14 @@ class ProfileViewController: UIViewController {
         )
         return section
     }
-
+    
     private func setupBannerLayout() -> NSCollectionLayoutSection? {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(130)
@@ -159,7 +152,7 @@ class ProfileViewController: UIViewController {
             layoutSize: groupSize,
             subitems: [item]
         )
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 20,
@@ -169,14 +162,14 @@ class ProfileViewController: UIViewController {
         )
         return section
     }
-
+    
     private func setupButtonsLayout() -> NSCollectionLayoutSection? {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(368)
@@ -185,7 +178,7 @@ class ProfileViewController: UIViewController {
             layoutSize: groupSize,
             subitems: [item]
         )
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 20,
@@ -195,7 +188,7 @@ class ProfileViewController: UIViewController {
         )
         return section
     }
-
+    
     private func makeDataSource() -> DataSource {
         return DataSource(collectionView: collectionView) {
             collectionView,
@@ -211,7 +204,7 @@ class ProfileViewController: UIViewController {
                 }
                 cell.configuredCell(profile: profile)
                 return  cell
-
+                
             case .banner(let banner):
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ProfileCollectionViewCellWithBanner.id,
@@ -221,7 +214,7 @@ class ProfileViewController: UIViewController {
                     return UICollectionViewCell()
                 }
                 return cell
-
+                
             case .buttons:
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ProfileCollectionViewCell.id,
@@ -257,8 +250,8 @@ class ProfileViewController: UIViewController {
         snapshot.appendSections([.buttons])
         snapshot.appendItems([.buttons], toSection: .buttons)
         dataSource.apply(snapshot)
-        }
-   
+    }
+    
     private func bindingModel() {
         viewModel.stateChanger = { [weak self] state in
             guard let self else {
@@ -271,7 +264,9 @@ class ProfileViewController: UIViewController {
             case .loaded(let profile):
                 self.makeSnapshot(profile: profile)
             case .error:
-                ()
+                Alert.shared.alertError(viewController: self) {
+                    
+                }
             }
         }
     }
@@ -286,22 +281,22 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewControllerDelegate {
     func favouriteButtonTapped() {
-        viewModel.favouriteButton()
+        viewModel.didTappedFavouriteButton()
     }
     func notificationButtonTapped() {
-        viewModel.notificationButton()
+        viewModel.didTappedNotificationButton()
     }
     func contactOfferButtonTapped() {
-        viewModel.contactOfferButton()
+        viewModel.didTappedContactOfferButton()
     }
     func aboutAppButtonTapped() {
-        viewModel.aboutAppButton()
+        viewModel.didTappedAboutAppButton()
     }
     func supportButtonTapped() {
-        viewModel.supportButton()
+        viewModel.didTappedSupportButton()
     }
     func logoutButtonTapped() {
-        viewModel.logoutButton()
+        viewModel.didTappedLogoutButton()
     }
 }
 

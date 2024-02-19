@@ -11,7 +11,7 @@ import PhotosUI
 class ProfileEditScreenController: UIViewController {
     
     //MARK: - Properties
-        
+    
     private lazy var viewBackground: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -28,7 +28,7 @@ class ProfileEditScreenController: UIViewController {
         return view
     }()
     
-     private lazy var photoEditImageView : UIImageView = {
+    private lazy var photoEditImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .label
@@ -40,7 +40,7 @@ class ProfileEditScreenController: UIViewController {
     private lazy var emailText = "ProfileEditScreen.emailText".localized
     private lazy var phoneText =  "ProfileEditScreen.phoneText".localized
     private lazy var dateOfBirthText =  "ProfileEditScreen.dateOfBirthText".localized
-
+    
     private lazy var nameField: UITextField = {
         let nameField = UITextField()
         nameField.layer.borderColor = UIColor.customDarkBlue.cgColor
@@ -206,13 +206,13 @@ class ProfileEditScreenController: UIViewController {
         return label
     }()
     
-    private lazy var showButton: UIButton = { //saveButton????
+    private lazy var showButton: UIButton = {
         let showButton = UIButton()
         showButton.layer.borderColor = UIColor.customDarkBlue.cgColor
         showButton.layer.cornerRadius = 30
         showButton.tintColor = .customDarkBlue
         showButton.backgroundColor = .gray
-        showButton.setTitle("Показать", for: .normal)  //"Сохранить" ????
+        showButton.setTitle("Показать", for: .normal)
         showButton.addTarget(self, action: #selector(showButtonTapped), for: .touchUpInside)
         return showButton
     }()
@@ -226,7 +226,7 @@ class ProfileEditScreenController: UIViewController {
     }
     
     //MARK: - Private Mehtods
-   
+    
     private func photoEdit() {
         photoEditImageView.image = UIImage(named: "photoEdit")
         photoEditImageView.alpha = 1
@@ -249,10 +249,10 @@ class ProfileEditScreenController: UIViewController {
             target: self,
             action: nil)
         navigationController?.navigationBar.tintColor = .customGrey
-       
+        
         tabBarController?.tabBar.isHidden = true
-            view.layer.cornerRadius = LayoutConstants.cornerRadius
-            view.backgroundColor = .customOrange
+        view.layer.cornerRadius = LayoutConstants.cornerRadius
+        view.backgroundColor = .customOrange
         
         viewList.addSubviews(
             nameField,nameLabel,
@@ -262,12 +262,12 @@ class ProfileEditScreenController: UIViewController {
             dateOfBirthField,dateOfBirthLabel
         )
         view.addSubviews(viewBackground, photoEditImageView, viewList, showButton)
-            NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate([
             viewBackground.topAnchor.constraint(equalTo: view.topAnchor),
             viewBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             viewBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             viewBackground.heightAnchor.constraint(equalToConstant: 245),
-          
+            
             photoEditImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             photoEditImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 135),
             photoEditImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -135),
@@ -277,11 +277,11 @@ class ProfileEditScreenController: UIViewController {
             viewList.topAnchor.constraint(equalTo: viewBackground.bottomAnchor,
                                           constant: LayoutConstants.defaultOffSet),
             viewList.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                               constant: LayoutConstants.indentSixteen),
+                                              constant: LayoutConstants.indentSixteen),
             viewList.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                constant: -LayoutConstants.indentSixteen),
+                                               constant: -LayoutConstants.indentSixteen),
             viewList.bottomAnchor.constraint(equalTo: dateOfBirthField.bottomAnchor,
-                                              constant: 28),
+                                             constant: 28),
             
             nameField.topAnchor.constraint(equalTo: viewList.topAnchor,
                                            constant: 28),
@@ -306,7 +306,7 @@ class ProfileEditScreenController: UIViewController {
                                                constant: LayoutConstants.defaultOffSet),
             cityField.trailingAnchor.constraint(equalTo: viewList.trailingAnchor,
                                                 constant: -LayoutConstants.defaultOffSet),
-            cityField.bottomAnchor.constraint(equalTo: emailField.topAnchor, 
+            cityField.bottomAnchor.constraint(equalTo: emailField.topAnchor,
                                               constant: -LayoutConstants.defaultOffSet),
             cityField.heightAnchor.constraint(equalToConstant: 48),
             cityField.widthAnchor.constraint(equalToConstant: 318),
@@ -332,13 +332,13 @@ class ProfileEditScreenController: UIViewController {
             emailLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
             emailLabel.widthAnchor.constraint(equalToConstant: 43),
             
-            phoneField.topAnchor.constraint(equalTo: emailField.bottomAnchor, 
+            phoneField.topAnchor.constraint(equalTo: emailField.bottomAnchor,
                                             constant: LayoutConstants.defaultOffSet),
             phoneField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
                                                 constant: LayoutConstants.defaultOffSet),
             phoneField.trailingAnchor.constraint(equalTo: viewList.trailingAnchor,
                                                  constant: -LayoutConstants.defaultOffSet),
-            phoneField.bottomAnchor.constraint(equalTo: dateOfBirthField.topAnchor, 
+            phoneField.bottomAnchor.constraint(equalTo: dateOfBirthField.topAnchor,
                                                constant: -LayoutConstants.defaultOffSet),
             phoneField.heightAnchor.constraint(equalToConstant: 48),
             phoneField.widthAnchor.constraint(equalToConstant: 318),
@@ -365,9 +365,9 @@ class ProfileEditScreenController: UIViewController {
             
             showButton.topAnchor.constraint(equalTo: viewList.bottomAnchor,
                                             constant: 40),
-            showButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, 
+            showButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                 constant: LayoutConstants.defaultOffSet),
-            showButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, 
+            showButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                  constant: -LayoutConstants.defaultOffSet),
             showButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
                                                constant: -108),

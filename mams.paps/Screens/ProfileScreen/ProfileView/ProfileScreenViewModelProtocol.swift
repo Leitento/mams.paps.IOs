@@ -25,12 +25,12 @@ final class ProfileScreenViewModel {
     //MARK: - Properties
     
     var currentUser: User?
-      
+    
     //MARK: - Private Properties
     
     private let coordinator: ProfileCoordinatorProtocol
     
-             
+    
     //MARK: - Life Cycles
     
     init(user: User?, coordinator: ProfileCoordinatorProtocol) {
@@ -47,7 +47,7 @@ extension ProfileScreenViewModel: ProfileScreenViewModelProtocol {
         coordinator.pushProfileEditingButton()
     }
     func pushAddButton() {
-        coordinator.pushAddButton()
+        coordinator.pushBannerButton()
     }
     func pushFavouritesButton() {
         coordinator.pushFavouritesButton()

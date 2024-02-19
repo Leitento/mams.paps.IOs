@@ -8,12 +8,13 @@
 import UIKit
 
 final class ProfileCollectionViewCell: UICollectionViewCell {
-
+    
     static let id = "ProfileCollectionViewCell"
     
     //MARK: - Private Properties
-    weak var delegate:  ProfileViewControllerDelegate?
     
+     weak var delegate:  ProfileViewControllerDelegate?
+     weak var profilecoordinator: ProfileScreenCoordinator?
     private lazy var favouriteButton: UIButton = {
         let favouriteButton = UIButton()
         favouriteButton.setTitle(ButtonsTitles.favourites, for: .normal)
@@ -23,7 +24,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         favouriteButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return favouriteButton
     }()
-
+    
     private lazy var notificationButton: UIButton = {
         let notificationButton = UIButton()
         notificationButton.setTitle(ButtonsTitles.notifications, for: .normal)
@@ -33,7 +34,7 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         notificationButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return notificationButton
     }()
-
+    
     private lazy var contractOfferButton: UIButton = {
         let contractOffer = UIButton()
         contractOffer.setTitle(ButtonsTitles.contractOffer, for: .normal)
@@ -70,20 +71,20 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
         logoutButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return logoutButton
     }()
-
+    
     //MARK: - Life Cycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubs()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//MARK: - Private Methods
+    //MARK: - Private Methods
     
-private func setupSubs() {
+    private func setupSubs() {
         contentView.addSubviews(
             favouriteButton,notificationButton,aboutAppButton,supportButton,logoutButton,contractOfferButton
         )
@@ -98,21 +99,21 @@ private func setupSubs() {
             contentView.widthAnchor.constraint(equalToConstant: 220),
             contentView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             contentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
-
+            
             favouriteButton.topAnchor.constraint(equalTo: contentView.topAnchor,
                                                  constant: LayoutConstants.defaultOffSet),
-            favouriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, 
+            favouriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                      constant: LayoutConstants.indentSixteen),
             favouriteButton.widthAnchor.constraint(equalToConstant: 152),
-
+            
             notificationButton.topAnchor.constraint(equalTo: favouriteButton.bottomAnchor,
-                                                 constant: LayoutConstants.indentTen),
+                                                    constant: LayoutConstants.indentTen),
             notificationButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                         constant: LayoutConstants.indentSixteen),
             notificationButton.widthAnchor.constraint(equalToConstant: 172),
-
+            
             contractOfferButton.topAnchor.constraint(equalTo: notificationButton.bottomAnchor,
-                                                 constant: LayoutConstants.indentTen),
+                                                     constant: LayoutConstants.indentTen),
             contractOfferButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                          constant: LayoutConstants.indentSixteen),
             contractOfferButton.widthAnchor.constraint(equalToConstant: 217),
@@ -120,41 +121,46 @@ private func setupSubs() {
                                                 constant: LayoutConstants.indentTen),
             aboutAppButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: LayoutConstants.indentSixteen),
-
+            
             aboutAppButton.widthAnchor.constraint(equalToConstant: 182),
             supportButton.topAnchor.constraint(equalTo: aboutAppButton.bottomAnchor,
-                                                constant: LayoutConstants.indentTen),
+                                               constant: LayoutConstants.indentTen),
             supportButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                    constant: LayoutConstants.indentSixteen),
-
-supportButton.widthAnchor.constraint(equalToConstant: 255),
+            
+            supportButton.widthAnchor.constraint(equalToConstant: 255),
             logoutButton.topAnchor.constraint(equalTo: supportButton.bottomAnchor,
-                                               constant: LayoutConstants.indentTen),
-            logoutButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, 
+                                              constant: LayoutConstants.indentTen),
+            logoutButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                   constant: 15),
             logoutButton.widthAnchor.constraint(equalToConstant: 216)
         ])
     }
-
+    
     //MARK: - Event Handlers
-
+    
     @objc private func favouriteButtonTapped() {
         print("favouriteButtonTapped; show Events screen")
     }
     @objc private func notificationButtonTapped() {
         print("notificationButtonTapped; show service screen")
+        profilecoordinator?.pushNotificationButton()
     }
     @objc private func contractOfferButtonTapped() {
         print("contractOfferButtonTapped; show service screen")
+        profilecoordinator?.pushContactOfferButton()
     }
     @objc private func aboutAppButtonTapped() {
         print("aboutAppButtonTapped; show service screen")
+        profilecoordinator?.pushAboutAppButton()
     }
     @objc private func supportButtonTapped() {
         print("supportButtonTapped; show service screen")
+        profilecoordinator?.pushSupportButton()
     }
     @objc private func logoutButtonTapped() {
         print("logoutButtonTapped; show authorization screen")
-//        parentCoordinator.showAuthorizationScreen()
+        profilecoordinator?.pushLogoutButton()
+        //        parentCoordinator.showAuthorizationScreen()
     }
 }

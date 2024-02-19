@@ -83,39 +83,39 @@ final class ProfileHeaderView: UICollectionViewCell {
         self.backgroundColor = .white
         addSubviews(nameLabel, profileImage, cityLabel, cityIcon, mailLabel, mailIcon)
         NSLayoutConstraint.activate([
-                    nameLabel.topAnchor.constraint(equalTo: topAnchor,
-                                                   constant: 22),
-                    nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
-                                                   constant: LayoutConstants.defaultOffSet),
-
-                    profileImage.topAnchor.constraint(equalTo: topAnchor,
-                                                   constant: LayoutConstants.defaultOffSet),
-                    profileImage.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                   constant: LayoutConstants.defaultOffSet),
-                    profileImage.bottomAnchor.constraint(equalTo: bottomAnchor,
-                                                   constant: -LayoutConstants.defaultOffSet),
-                    profileImage.widthAnchor.constraint(equalToConstant: 120),
-                    profileImage.heightAnchor.constraint(equalToConstant: 120),
-
-                    cityLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
-                                                   constant: LayoutConstants.indentTwelve),
-                    cityLabel.leadingAnchor.constraint(equalTo: cityIcon.trailingAnchor,
-                                                   constant: LayoutConstants.indentSix),
-
-                    cityIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
-                                                   constant: LayoutConstants.indentEight),
-                    cityIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
-                                                   constant: LayoutConstants.defaultOffSet),
-
-                    mailIcon.topAnchor.constraint(equalTo: cityIcon.bottomAnchor,
-                                                   constant: LayoutConstants.indentEight),
-                    mailIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
-                                                   constant: LayoutConstants.defaultOffSet),
-
-                    mailLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor,
-                                                   constant: LayoutConstants.defaultOffSet),
-                    mailLabel.leadingAnchor.constraint(equalTo: mailIcon.trailingAnchor,
-                                                   constant: LayoutConstants.indentSix),
-                ])
+            nameLabel.topAnchor.constraint(equalTo: topAnchor,
+                                           constant: 22),
+            nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
+                                               constant: LayoutConstants.defaultOffSet),
+            
+            profileImage.topAnchor.constraint(equalTo: topAnchor,
+                                              constant: LayoutConstants.defaultOffSet),
+            profileImage.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                                  constant: LayoutConstants.defaultOffSet),
+            profileImage.bottomAnchor.constraint(equalTo: bottomAnchor,
+                                                 constant: -LayoutConstants.defaultOffSet),
+            profileImage.widthAnchor.constraint(equalToConstant: 120),
+            profileImage.heightAnchor.constraint(equalToConstant: 120),
+            
+            cityLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
+                                           constant: LayoutConstants.indentTwelve),
+            cityLabel.leadingAnchor.constraint(equalTo: cityIcon.trailingAnchor,
+                                               constant: LayoutConstants.indentSix),
+            
+            cityIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
+                                          constant: LayoutConstants.indentEight),
+            cityIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
+                                              constant: LayoutConstants.defaultOffSet),
+            
+            mailIcon.topAnchor.constraint(equalTo: cityIcon.bottomAnchor,
+                                          constant: LayoutConstants.indentEight),
+            mailIcon.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
+                                              constant: LayoutConstants.defaultOffSet),
+            
+            mailLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor,
+                                           constant: LayoutConstants.defaultOffSet),
+            mailLabel.leadingAnchor.constraint(equalTo: mailIcon.trailingAnchor,
+                                               constant: LayoutConstants.indentSix),
+        ])
     }
 }

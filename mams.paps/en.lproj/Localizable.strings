@@ -87,3 +87,15 @@
 "ProfileEditScreen.phoneText" = "+7 (900) 000-00-00";
 
 "ProfileEditScreen.dateOfBirthText" = "XX/XX/XXXX";
+
+//MARK: - Profile Photo Edit Alert
+
+"ProfilePhotoEditAlert.addphoto" = "Add photo";
+
+"ProfilePhotoEditAlert.edit" = "Edit photo";
+
+"ProfilePhotoEditAlert.delete" = "Delete photo";
+
+"ProfilePhotoEditAlert.cancel" = "Cancel";
+
+"ProfilePhotoEditAlert.error" = "Error";

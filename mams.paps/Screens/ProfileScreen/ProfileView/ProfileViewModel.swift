@@ -13,12 +13,12 @@ protocol ProfileViewModelProtocol {
     func didTappedGetProfile()
     func didTappedEditProfile()
     
-    func favouriteButton()
-    func notificationButton()
-    func contactOfferButton()
-    func aboutAppButton()
-    func supportButton()
-    func logoutButton()
+    func didTappedFavouriteButton()
+    func didTappedNotificationButton()
+    func didTappedContactOfferButton()
+    func didTappedAboutAppButton()
+    func didTappedSupportButton()
+    func didTappedLogoutButton()
 }
 
 final class ProfileViewModel {
@@ -29,23 +29,18 @@ final class ProfileViewModel {
     }
     
     //MARK: - Properties
-    
-  private weak var coordinator: ProfileCoordinatorProtocol?
+    private weak var coordinator: ProfileCoordinatorProtocol?
     var stateChanger: ((State) -> Void)?
     var state: State = .loading {
         didSet {
             self.stateChanger?(state)
         }
     }
-    //
-    private let parentCoordinator: TabBarCoordinatorProtocol
-    //
     
     //MARK: - Life Cycle
     
-    init(coordinator: ProfileCoordinatorProtocol, parentCoordinator: TabBarCoordinatorProtocol) {
+    init(coordinator: ProfileCoordinatorProtocol) {
         self.coordinator = coordinator
-        self.parentCoordinator = parentCoordinator
     }
     
     //MARK: - Private Methods
@@ -66,25 +61,24 @@ extension ProfileViewModel: ProfileViewModelProtocol {
     func didTappedEditProfile() {
         coordinator?.pushProfileEditingButton()
     }
-    func favouriteButton() {
+    func didTappedFavouriteButton() {
         coordinator?.pushFavouritesButton()
     }
-    func notificationButton() {
+    func didTappedNotificationButton() {
         coordinator?.pushNotificationButton()
     }
-    func contactOfferButton() {
+    func didTappedContactOfferButton() {
         coordinator?.pushContactOfferButton()
     }
-    func aboutAppButton() {
+    func didTappedAboutAppButton() {
         coordinator?.pushAboutAppButton()
     }
-    func supportButton() {
+    func didTappedSupportButton() {
         coordinator?.pushSupportButton()
     }
-    func logoutButton() {
+    func didTappedLogoutButton() {
         coordinator?.pushLogoutButton()
-//        let parentCoordinator = TabBarCoordinatorProtocol()
-        parentCoordinator.showAuthorizationScreen()
+//        parentCoordinator.showAuthorizationScreen()
         //back on authorizationScreen
     }
 }

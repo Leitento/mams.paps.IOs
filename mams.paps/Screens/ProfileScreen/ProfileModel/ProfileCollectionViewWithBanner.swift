@@ -8,11 +8,11 @@
 import UIKit
 
 final class ProfileCollectionViewCellWithBanner: UICollectionViewCell {
-        
+    
     static let id = "ProfileCollectionViewCellWithBanner"
     
     //MARK: - Private Properties
-
+    
     private lazy var banner: UIImageView = {
         let banner = UIImageView()
         banner.image = UIImage(named: "banner")

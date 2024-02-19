@@ -10,7 +10,7 @@ import UIKit
 protocol ProfileCoordinatorProtocol: AnyObject {
     func showProfileScreen()
     func pushProfileEditingButton()
-    func pushAddButton()
+    func pushBannerButton()
     func pushFavouritesButton()
     func pushNotificationButton()
     func pushContactOfferButton()
@@ -20,22 +20,26 @@ protocol ProfileCoordinatorProtocol: AnyObject {
 }
 
 final class ProfileScreenCoordinator {
-        
-    // MARK: - Properties
-    
-    weak var parentCoordinator: TabBarCoordinatorProtocol?
-    var childCoordinators: [CoordinatorProtocol] = []
-    var rootViewController: UIViewController?
-    var navigationController: UINavigationController?
     
     // MARK: - Private Properties
     
     private var user: User?
+    private weak var parentCoordinator: TabBarCoordinatorProtocol?
+    private var childCoordinators: [CoordinatorProtocol] = []
+    private var rootViewController: UIViewController?
+    private var navigationController: UINavigationController?
+    
+    // MARK: - Life Cycle
+    
+    init(user: User?, parentCoordinator: TabBarCoordinatorProtocol) {
+        self.user = user
+        self.parentCoordinator = parentCoordinator
+    }
     
     // MARK: - Private methods
     
     private func createNavigationController() -> UIViewController {
-        let viewModel = ProfileViewModel(coordinator: self, parentCoordinator: parentCoordinator!)
+        let viewModel = ProfileViewModel(coordinator: self)
         let profileViewController = ProfileViewController(viewModel: viewModel)
         rootViewController = profileViewController
         let navigationController = UINavigationController(rootViewController: profileViewController)
@@ -44,13 +48,6 @@ final class ProfileScreenCoordinator {
                                                        tag: 4)
         self.navigationController =  navigationController
         return navigationController
-    }
-    
-    // MARK: - Life Cycle
-    
-    init(user: User?, parentCoordinator: TabBarCoordinatorProtocol) {
-        self.user = user
-        self.parentCoordinator = parentCoordinator
     }
 }
 
@@ -68,7 +65,6 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
     
     func showProfileScreen() {
         print("showProfileScreen")
-        
     }
     
     func pushProfileEditingButton() {
@@ -77,44 +73,45 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
         navigationController?.pushViewController(viewControler, animated: true)
     }
     
-    func pushAddButton() {
+    func pushBannerButton() {
         print("showMapScreen")
     }
     
     func pushFavouritesButton() {
         print("showEventsScreen")
-//        let viewController = // controller with favourites places
-//        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func pushNotificationButton() {
         print("showServicesScreen")
-        //-> services
-        
+        let viewController = NotificationViewController()
+        viewController.profileCoordinator = self
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func pushContactOfferButton() {
         print("showUsefulScreen")
-        //-> services
+        let viewController = ContractOfferViewController()
+//        viewController.coordinator = self
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func pushAboutAppButton() {
         print("showUsefulScreen")
-        //-> services
+        let viewController = AboutAppViewController()
+        viewController.profileCoordinator = self
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func pushSupportButton() {
         print("showUsefulScreen")
-        //-> services
+        let viewController = SupportViewController()
+        viewController.profileCoordinator = self
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func pushLogoutButton() {
         print("showUsefulScreen")
-        parentCoordinator!.showAuthorizationScreen()
-//        let coordinator = AuthorizationCoordinator()
-//        let viewModel = AuthorizationViewModel(coordinator: <#AuthorizationCoordinatorProtocol#>, authorizationService: <#AuthorizationServiceProtocol#>)
-//        let authorizationViewController = AuthorizationViewController(viewModel: viewModel)
-//        navigationController?.pushViewController(authorizationViewController, animated: true)
-//        //-> authorizationServices
+        //        parentCoordinator!.showAuthorizationScreen()
     }
 }
+

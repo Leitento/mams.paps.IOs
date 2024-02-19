@@ -7,11 +7,9 @@
 
 import UIKit
 
-final class ContractOfferViewController: UIViewController, UIScrollViewDelegate {
+class ContractOfferViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: - Private Properties
-//    private var viewModel: ProfileViewModelProtocol
-     weak var coordinator: ContractOfferCoordinator?
     
     private var backgroundView: UIView = {
         var view = UIView()
@@ -56,7 +54,7 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
         descriptionName.frame.size = scrollView.contentSize
         scrollView.contentOffset = CGPoint(x: 150, y: 150)
     }
-     
+    
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubviews(backgroundView, label, descriptionName)
@@ -68,14 +66,14 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
             
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor,
                                                 constant: LayoutConstants.defaultOffSet),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, 
                                                     constant: LayoutConstants.defaultOffSet),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, 
                                                      constant: -LayoutConstants.defaultOffSet),
-            
-            label.topAnchor.constraint(equalTo: backgroundView.topAnchor,
+
+            label.topAnchor.constraint(equalTo: backgroundView.topAnchor, 
                                        constant: LayoutConstants.defaultOffSet),
-            label.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+            label.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, 
                                            constant: LayoutConstants.indentSixteen),
             
             descriptionName.topAnchor.constraint(equalTo: label.bottomAnchor, constant: LayoutConstants.indentEight),

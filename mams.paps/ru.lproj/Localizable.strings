@@ -75,7 +75,7 @@
 
 "ProfileCell.logout" = "Выйти из аккаунта";
 
-//MARK: - ProfileEditScreen
+//MARK: - Profile Edit Screen
 
 "ProfileEditScreen.nameText" = "Владимир";
 
@@ -87,4 +87,15 @@
 
 "ProfileEditScreen.dateOfBirthText" = "XX/XX/XXXX";
 
+//MARK: - Profile Photo Edit Alert
+
+"ProfilePhotoEditAlert.addphoto" = "Добавить фото";
+
+"ProfilePhotoEditAlert.edit" = "Изменить фото";
+
+"ProfilePhotoEditAlert.delete" = "Удалить фото";
+
+"ProfilePhotoEditAlert.cancel" = "Отмена";
+
+"ProfilePhotoEditAlert.error" = "Ошибка";
 
