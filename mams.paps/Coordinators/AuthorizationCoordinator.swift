@@ -3,7 +3,7 @@
 import UIKit
 
 protocol AuthorizationCoordinatorProtocol: AnyObject {
-    func authorizationCoordinatorDidFinish(user: User?)
+    func authorizationCoordinatorDidFinish()
 }
 
 final class AuthorizationCoordinator {
@@ -31,9 +31,9 @@ extension AuthorizationCoordinator: CoordinatorProtocol {
     }
 }
 
-    // MARK: - AuthorizationCoordinatorDelegate
+    // MARK: - AuthorizationCoordinatorProtocol
 extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
-    func authorizationCoordinatorDidFinish(user: User?) {
+    func authorizationCoordinatorDidFinish() {
         parentCoordinator?.switchToNextBranch(from: self)
     }
 }

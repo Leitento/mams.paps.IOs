@@ -13,7 +13,7 @@
 
 "AuthorizationAlert.Message" = "Неправильный логин или пароль";
 
-"Authorization.Welcome" = "Присоединяйся к MAMS.PAPS";
+"Authorization.Welcome" = "Присоединяйся к";
 
 "Authorization.Info" = "Получай уведомления о выгодных предложениях и копи баллы на скидку";
 
@@ -35,13 +35,25 @@
 
 "logInButton.Text" = "Войти";
 
-"MainMenuItem.Navigation" = "Навигатор для родителей";
+"MainScreenMenuItem.Navigation" = "Навигатор для родителей";
 
-"MainMenuItem.Events" = "События и мероприятия";
+"MainScreenMenuItem.Events" = "События и мероприятия";
 
-"MainMenuItem.Services" = "Услуги и объявления";
+"MainScreenMenuItem.Services" = "Услуги и объявления";
 
-"MainMenuItem.Useful" = "Полезное";
+"MainScreenMenuItem.Useful" = "Полезное";
+
+"MainScreen.Title" = "Главная";
+
+"Map.Title" = "Карта";
+
+"LocationServiceError.AuthorizationDenied" = "Доступ к службам геолокации запрещен";
+
+"LocationServiceError.LocationUnavailable" = "Службы геолокации в данный момент недоступны";
+
+"SearchBar.Placeholder" = "Введите текст";
+
+"MapView.FilterButton" = "Фильтры";
 
 
 

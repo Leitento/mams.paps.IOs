@@ -29,12 +29,14 @@
       "size" : "29x29"
     },
     {
+      "filename" : "AppIcon~ipad.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "38x38"
     },
     {
+      "filename" : "logo GO maping 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -69,18 +71,21 @@
       "size" : "60x60"
     },
     {
+      "filename" : "logo GO maping 3.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "64x64"
     },
     {
+      "filename" : "logo GO maping 4.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "64x64"
     },
     {
+      "filename" : "logo GO maping 5.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",

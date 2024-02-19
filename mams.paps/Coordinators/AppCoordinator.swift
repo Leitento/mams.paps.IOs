@@ -4,31 +4,32 @@ import UIKit
 
 protocol AppCoordinatorProtocol: AnyObject {
     func switchToNextBranch(from coordinator: CoordinatorProtocol)
+    func logOut(from coordinator: CoordinatorProtocol)
 }
 
 final class AppCoordinator {
     
     // MARK: - Properties
     var childCoordinators: [CoordinatorProtocol] = []
+    var tabBarController = UITabBarController()
     
     // MARK: - Private properties
     private var rootViewController: UIViewController
     
-    private lazy var onboardingCoordinator: CoordinatorProtocol = {
+    private func onboardingCoordinator() -> CoordinatorProtocol  {
         let onboardingCoordinator = OnboardingCoordinator(parentCoordinator: self)
         return onboardingCoordinator
-    }()
+    }
     
-    private lazy var authorizationCoordinator: CoordinatorProtocol = {
+    private func authorizationCoordinator() -> CoordinatorProtocol {
         let authorizationCoordinator = AuthorizationCoordinator(parentCoordinator: self)
         return authorizationCoordinator
-    }()
+    }
     
-    private lazy var mainScreenCoordinator: CoordinatorProtocol = {
-        let mainScreenCoordinator = MainScreenCoordinator(user: nil, parentCoordinator: self)
-        mainScreenCoordinator.navigationController = UINavigationController(rootViewController: mainScreenCoordinator.start())
-        return mainScreenCoordinator
-    }()
+    private func tabBarCoordinator() -> CoordinatorProtocol {
+        let tabBarCoordinator = TabBarCoordinator(parentCoordinator: self, tabBarController: tabBarController)
+        return tabBarCoordinator
+    }
     
     // MARK: - Life Cycle
     init(rootViewController: UIViewController) {
@@ -37,15 +38,16 @@ final class AppCoordinator {
     
     // MARK: - Private methods
     private func showOnboarding() -> UIViewController {
-        addChildCoordinator(onboardingCoordinator)
-        setFlow(to: onboardingCoordinator.start())
+        var coordinator = onboardingCoordinator()
+        addChildCoordinator(coordinator)
+        setFlow(to: coordinator.start())
         return rootViewController
     }
     
-    private func showMainScreen(for user: User?) -> UIViewController {
-        let mainScreenCoordinator = MainScreenCoordinator(user: user, parentCoordinator: self)
-        addChildCoordinator(mainScreenCoordinator)
-        setFlow(to: mainScreenCoordinator.start())
+    private func showTabBarOnMainScreen(for user: User?) -> UIViewController {
+        var coordinator = tabBarCoordinator()
+        addChildCoordinator(coordinator)
+        setFlow(to: coordinator.start())
         return rootViewController
     }
     
@@ -109,7 +111,7 @@ extension AppCoordinator: CoordinatorProtocol {
         if isFirstLaunch() {
             showOnboarding()
         } else {
-            showMainScreen(for: nil)
+            showTabBarOnMainScreen(for: nil)
         }
     }
 }
@@ -118,11 +120,23 @@ extension AppCoordinator: CoordinatorProtocol {
 extension AppCoordinator: AppCoordinatorProtocol {
     
     func switchToNextBranch(from coordinator: CoordinatorProtocol) {
-        if coordinator === onboardingCoordinator {
-            switchCoordinators(from: coordinator, to: authorizationCoordinator)
-        } else if coordinator === authorizationCoordinator {
+        
+        switch coordinator {
+        case let coordinator as OnboardingCoordinator:
+            switchCoordinators(from: coordinator, to: authorizationCoordinator())
+        case let coordinator as AuthorizationCoordinator:
             markAppAsLaunched()
-            switchCoordinators(from: coordinator, to: mainScreenCoordinator)
+            switchCoordinators(from: coordinator, to: tabBarCoordinator())
+        default:
+            print("Error coordinators switching")
         }
+        
+    }
+    
+    func logOut(from coordinator: CoordinatorProtocol) {
+        CoreDataService.shared.removeUserFromCoreData()
+        KeychainService.shared.deleteUsernameKey()
+        switchCoordinators(from: coordinator, to: authorizationCoordinator())
     }
 }
+

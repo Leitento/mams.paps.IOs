@@ -14,7 +14,7 @@
 
 "AuthorizationAlert.Message" = "Incorrect login or password";
 
-"Authorization.Welcome" = "Join the MAMS.PAPS";
+"Authorization.Welcome" = "Join the";
 
 "Authorization.Info" = "Receive notifications about great offers and earn discount points";
 
@@ -36,11 +36,22 @@
 
 "logInButton.Text" = "Log In";
 
-"MainMenuItem.Navigation" = "Navigator for parents";
+"MainScreenMenuItem.Navigation" = "Navigator for parents";
 
-"MainMenuItem.Events" = "Events and Activities";
+"MainScreenMenuItem.Events" = "Events and Activities";
 
-"MainMenuItem.Services" = "Services and announcements";
+"MainScreenMenuItem.Services" = "Services and announcements";
 
-"MainMenuItem.Useful" = "Useful";
+"MainScreenMenuItem.Useful" = "Useful";
 
+"MainScreen.Title" = "Main";
+
+"Map.Title" = "Map";
+
+"LocationServiceError.AuthorizationDenied" = "Location services authorization denied";
+
+"LocationServiceError.LocationUnavailable" = "Location services are currently unavailable";
+
+"SearchBar.Placeholder" = "Enter the text";
+
+"MapView.FilterButton" = "Filters";

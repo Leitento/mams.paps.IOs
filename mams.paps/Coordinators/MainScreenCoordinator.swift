@@ -3,75 +3,77 @@
 import UIKit
 
 protocol MainScreenCoordinatorProtocol: AnyObject {
-    func mainCoordinatorDidFinish()
-    func showAuthorizationScreen()
-    func pushMapScreen()
-    func pushEventsScreen()
-    func pushServicesScreen()
-    func pushUsefulScreen()
+    func switchToNextBranch(from coordinator: CoordinatorProtocol)
+    func mainScreenCoordinatorDidFinish()
     func presentAvailableCities()
 }
 
 final class MainScreenCoordinator {
-        
+    
     // MARK: - Properties
-    weak var parentCoordinator: AppCoordinatorProtocol?
-    var childCoordinators: [CoordinatorProtocol] = []
-    var navigationController: UINavigationController?
+    let parentCoordinator: TabBarCoordinatorProtocol
+    var navigationController: UINavigationController
     
     // MARK: - Private Properties
-    private var user: User?
+    private var user: UserModel?
+    
+    // MARK: - Life Cycle
+    init(navigationController: UINavigationController, parentCoordinator: TabBarCoordinatorProtocol) {
+        self.navigationController = navigationController
+        self.parentCoordinator = parentCoordinator
+        self.user = CoreDataService.shared.fetchUserFromCoreData()
+    }
     
     // MARK: - Private method
     private func createNavigationController() -> UIViewController {
-        let viewModel = MainViewModel(user: user, coordinator: self)
-        let mainViewController = MainViewController(viewModel: viewModel)
-        return mainViewController
-    }
-    
-    // MARK: - Life Cycle
-    init(user: User?, parentCoordinator: AppCoordinatorProtocol) {
-        self.user = user
-        self.parentCoordinator = parentCoordinator
+        let viewModel = MainScreenViewModel(user: user, coordinator: self, parentCoordinator: parentCoordinator)
+        let mainScreenViewController = MainScreenViewController(viewModel: viewModel)
+        mainScreenViewController.hidesBottomBarWhenPushed = true
+        let navigationController = UINavigationController(rootViewController: mainScreenViewController)
+        navigationController.tabBarItem = UITabBarItem(title: "MainScreen.Title".localized, image: UIImage(systemName: "house.fill"), tag: 0)
+        self.navigationController = navigationController
+        return navigationController
     }
 }
-
-// MARK: - CoordinatorProtocol
+    
+    // MARK: - CoordinatorProtocol
 extension MainScreenCoordinator: CoordinatorProtocol {
     func start() -> UIViewController {
         createNavigationController()
     }
 }
 
-// MARK: - AuthorizationCoordinatorDelegate
+    // MARK: - MainScreenCoordinatorProtocol
 extension MainScreenCoordinator: MainScreenCoordinatorProtocol {
-    
-    func mainCoordinatorDidFinish() {
+    func mainScreenCoordinatorDidFinish() {
+        
     }
     
     func showAuthorizationScreen() {
-        print("showAuthorizationScreen")
-    }
-    
-    func presentAvailableCities() {
-        print("presentAvailableCities")
+        
     }
     
     func pushMapScreen() {
-        print("pushMapScreen")
+        parentCoordinator.pushMapScreen()
     }
     
     func pushEventsScreen() {
-        print("pushEventsScreen")
+        
     }
     
     func pushServicesScreen() {
-        print("pushServicesScreen")
+        
     }
     
     func pushUsefulScreen() {
-        print("pushUsefulScreen")
+        
     }
     
+    func presentAvailableCities() {
+        
+    }
     
+    func switchToNextBranch(from coordinator: CoordinatorProtocol) {
+        
+    }
 }
