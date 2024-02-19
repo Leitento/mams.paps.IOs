@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileCollectionViewCellWithBanner: UICollectionViewCell {
+final class BannerProfileCell: UICollectionViewCell {
     
     static let id = "ProfileCollectionViewCellWithBanner"
     

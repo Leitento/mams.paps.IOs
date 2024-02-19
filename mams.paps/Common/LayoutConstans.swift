@@ -8,7 +8,9 @@
 import UIKit
 
 enum LayoutConstants {
+    /// 20 pt
     static let defaultOffSet: CGFloat = 20
+    /// 10 pt
     static let indentTen: CGFloat = 10
     static let indentFive: CGFloat = 5
     static let indentSix: CGFloat = 6

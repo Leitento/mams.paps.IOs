@@ -59,10 +59,10 @@ final class ProfileViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(ProfileCollectionViewCellWithBanner.self,
-                                forCellWithReuseIdentifier: ProfileCollectionViewCellWithBanner.id)
-        collectionView.register(ProfileCollectionViewCell.self,
-                                forCellWithReuseIdentifier: ProfileCollectionViewCell.id)
+        collectionView.register(BannerProfileCell.self,
+                                forCellWithReuseIdentifier: BannerProfileCell.id)
+        collectionView.register(ButtonsProfileCell.self,
+                                forCellWithReuseIdentifier: ButtonsProfileCell.identifier)
         collectionView.register(ProfileHeaderView.self,
                                 forCellWithReuseIdentifier: ProfileHeaderView.id)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -129,10 +129,10 @@ final class ProfileViewController: UIViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: -10,
+            top: 10,
             leading: 0,
             bottom: 0,
-            trailing: -20
+            trailing: 0
         )
         return section
     }
@@ -207,9 +207,9 @@ final class ProfileViewController: UIViewController {
                 
             case .banner(let banner):
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: ProfileCollectionViewCellWithBanner.id,
+                    withReuseIdentifier: BannerProfileCell.id,
                     for: indexPath
-                ) as? ProfileCollectionViewCellWithBanner
+                ) as? BannerProfileCell
                 else {
                     return UICollectionViewCell()
                 }
@@ -217,8 +217,8 @@ final class ProfileViewController: UIViewController {
                 
             case .buttons:
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: ProfileCollectionViewCell.id,
-                    for: indexPath) as? ProfileCollectionViewCell
+                    withReuseIdentifier: ButtonsProfileCell.identifier,
+                    for: indexPath) as? ButtonsProfileCell
                 else {
                     return UICollectionViewCell()
                 }

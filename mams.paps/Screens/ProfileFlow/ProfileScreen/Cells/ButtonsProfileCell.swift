@@ -7,14 +7,12 @@
 
 import UIKit
 
-final class ProfileCollectionViewCell: UICollectionViewCell {
-    
-    static let id = "ProfileCollectionViewCell"
+final class ButtonsProfileCell: UICollectionViewCell {
     
     //MARK: - Private Properties
     
-     weak var delegate:  ProfileViewControllerDelegate?
-     weak var profilecoordinator: ProfileScreenCoordinator?
+    weak var delegate: ProfileViewControllerDelegate?
+    
     private lazy var favouriteButton: UIButton = {
         let favouriteButton = UIButton()
         favouriteButton.setTitle(ButtonsTitles.favourites, for: .normal)
@@ -144,23 +142,26 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     }
     @objc private func notificationButtonTapped() {
         print("notificationButtonTapped; show service screen")
-        profilecoordinator?.pushNotificationButton()
+//        profilecoordinator?.pushNotificationButton()
     }
     @objc private func contractOfferButtonTapped() {
         print("contractOfferButtonTapped; show service screen")
-        profilecoordinator?.pushContactOfferButton()
+        delegate?.contactOfferButtonTapped()
+//        profilecoordinator?.pushContactOfferButton()
     }
     @objc private func aboutAppButtonTapped() {
         print("aboutAppButtonTapped; show service screen")
-        profilecoordinator?.pushAboutAppButton()
+        delegate?.aboutAppButtonTapped()
+//        profilecoordinator?.pushAboutAppButton()
     }
     @objc private func supportButtonTapped() {
         print("supportButtonTapped; show service screen")
-        profilecoordinator?.pushSupportButton()
+//        profilecoordinator?.pushSupportButton()
     }
     @objc private func logoutButtonTapped() {
         print("logoutButtonTapped; show authorization screen")
-        profilecoordinator?.pushLogoutButton()
+        delegate?.logoutButtonTapped()
+//        profilecoordinator?.pushLogoutButton()
         //        parentCoordinator.showAuthorizationScreen()
     }
 }

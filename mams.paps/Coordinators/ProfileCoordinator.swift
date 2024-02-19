@@ -111,6 +111,7 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
     
     func pushLogoutButton() {
         print("showUsefulScreen")
+        parentCoordinator?.showAuthorizationScreen()
         //        parentCoordinator!.showAuthorizationScreen()
     }
 }

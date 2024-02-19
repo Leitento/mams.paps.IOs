@@ -56,12 +56,12 @@
 		1F20AC942B80EBF00088A78B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC932B80EBF00088A78B /* NotificationViewController.swift */; };
 		1F20AC982B837C2F0088A78B /* ContractOfferCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC972B837C2F0088A78B /* ContractOfferCoordinator.swift */; };
 		1FDB96542B6842C500C7AF81 /* ProfileEditScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */; };
-		5AC972392B666A1E0035ED95 /* ProfileScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972312B666A1D0035ED95 /* ProfileScreenViewModelProtocol.swift */; };
+		5AAE953F2B83E582008EAB32 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAE953E2B83E582008EAB32 /* ProfileEditViewModel.swift */; };
 		5AC9723A2B666A1E0035ED95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972322B666A1D0035ED95 /* ProfileViewController.swift */; };
 		5AC9723B2B666A1E0035ED95 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972332B666A1D0035ED95 /* ProfileViewModel.swift */; };
 		5AC9723C2B666A1E0035ED95 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972352B666A1D0035ED95 /* ProfileHeaderView.swift */; };
-		5AC9723D2B666A1E0035ED95 /* ProfileCollectionViewWithBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972362B666A1D0035ED95 /* ProfileCollectionViewWithBanner.swift */; };
-		5AC9723E2B666A1E0035ED95 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972372B666A1D0035ED95 /* ProfileCollectionViewCell.swift */; };
+		5AC9723D2B666A1E0035ED95 /* BannerProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972362B666A1D0035ED95 /* BannerProfileCell.swift */; };
+		5AC9723E2B666A1E0035ED95 /* ButtonsProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972372B666A1D0035ED95 /* ButtonsProfileCell.swift */; };
 		5AC9723F2B666A1E0035ED95 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972382B666A1D0035ED95 /* ProfileModel.swift */; };
 		5AC972422B666B870035ED95 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972412B666B870035ED95 /* ProfileCoordinator.swift */; };
 		5AC972442B666D220035ED95 /* LayoutConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972432B666D210035ED95 /* LayoutConstans.swift */; };
@@ -120,12 +120,12 @@
 		1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditScreenViewController.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA93B9F2B14DE8100E2908A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5AC972312B666A1D0035ED95 /* ProfileScreenViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModelProtocol.swift; sourceTree = "<group>"; };
+		5AAE953E2B83E582008EAB32 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		5AC972322B666A1D0035ED95 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5AC972332B666A1D0035ED95 /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5AC972352B666A1D0035ED95 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		5AC972362B666A1D0035ED95 /* ProfileCollectionViewWithBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewWithBanner.swift; sourceTree = "<group>"; };
-		5AC972372B666A1D0035ED95 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		5AC972362B666A1D0035ED95 /* BannerProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerProfileCell.swift; sourceTree = "<group>"; };
+		5AC972372B666A1D0035ED95 /* ButtonsProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsProfileCell.swift; sourceTree = "<group>"; };
 		5AC972382B666A1D0035ED95 /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		5AC972412B666B870035ED95 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		5AC972432B666D210035ED95 /* LayoutConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstans.swift; sourceTree = "<group>"; };
@@ -249,12 +249,12 @@
 			path = AboutAppFlow;
 			sourceTree = "<group>";
 		};
-		1F20AC8C2B80E7160088A78B /* ContractOfferFlow */ = {
+		1F20AC8C2B80E7160088A78B /* ContractScreen */ = {
 			isa = PBXGroup;
 			children = (
 				1F20AC8D2B80E7340088A78B /* ContractOfferViewController.swift */,
 			);
-			path = ContractOfferFlow;
+			path = ContractScreen;
 			sourceTree = "<group>";
 		};
 		1F20AC8F2B80EB570088A78B /* SupportFlow */ = {
@@ -282,45 +282,61 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		5AC9722F2B666A1D0035ED95 /* ProfileScreen */ = {
+		5AAE953B2B83E51E008EAB32 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
-				1F20AC922B80EBE10088A78B /* NotificationFlow */,
-				1F20AC8F2B80EB570088A78B /* SupportFlow */,
-				1F20AC8C2B80E7160088A78B /* ContractOfferFlow */,
-				1F20AC892B80E6BB0088A78B /* AboutAppFlow */,
-				5AC972302B666A1D0035ED95 /* ProfileView */,
-				5AC972342B666A1D0035ED95 /* ProfileModel */,
+				5AAE953D2B83E55E008EAB32 /* Cells */,
+				5AC972322B666A1D0035ED95 /* ProfileViewController.swift */,
+				5AC972332B666A1D0035ED95 /* ProfileViewModel.swift */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
-		5AC972302B666A1D0035ED95 /* ProfileView */ = {
+		5AAE953C2B83E530008EAB32 /* EditProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5AC972312B666A1D0035ED95 /* ProfileScreenViewModelProtocol.swift */,
-				5AC972322B666A1D0035ED95 /* ProfileViewController.swift */,
 				1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */,
-				5AC972332B666A1D0035ED95 /* ProfileViewModel.swift */,
+				5AAE953E2B83E582008EAB32 /* ProfileEditViewModel.swift */,
 			);
-			path = ProfileView;
+			path = EditProfileScreen;
 			sourceTree = "<group>";
 		};
-		5AC972342B666A1D0035ED95 /* ProfileModel */ = {
+		5AAE953D2B83E55E008EAB32 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				5AC972352B666A1D0035ED95 /* ProfileHeaderView.swift */,
-				5AC972362B666A1D0035ED95 /* ProfileCollectionViewWithBanner.swift */,
-				5AC972372B666A1D0035ED95 /* ProfileCollectionViewCell.swift */,
+				5AC972362B666A1D0035ED95 /* BannerProfileCell.swift */,
+				5AC972372B666A1D0035ED95 /* ButtonsProfileCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5AC9722F2B666A1D0035ED95 /* ProfileFlow */ = {
+			isa = PBXGroup;
+			children = (
+				5AAE953C2B83E530008EAB32 /* EditProfileScreen */,
+				5AAE953B2B83E51E008EAB32 /* ProfileScreen */,
+				1F20AC922B80EBE10088A78B /* NotificationFlow */,
+				1F20AC8F2B80EB570088A78B /* SupportFlow */,
+				1F20AC8C2B80E7160088A78B /* ContractScreen */,
+				1F20AC892B80E6BB0088A78B /* AboutAppFlow */,
+				5AC972342B666A1D0035ED95 /* Models */,
+			);
+			path = ProfileFlow;
+			sourceTree = "<group>";
+		};
+		5AC972342B666A1D0035ED95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				5AC972382B666A1D0035ED95 /* ProfileModel.swift */,
 			);
-			path = ProfileModel;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		5AC972402B666A250035ED95 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				5AC9722F2B666A1D0035ED95 /* ProfileScreen */,
+				5AC9722F2B666A1D0035ED95 /* ProfileFlow */,
 				094977922B2C799B0089DB13 /* Onboarding */,
 				094977892B2C79910089DB13 /* AuthorizationScreen */,
 				0949777E2B2C79700089DB13 /* MainScreen */,
@@ -514,21 +530,21 @@
 				0949779A2B2C799B0089DB13 /* OnboardingViewModel.swift in Sources */,
 				091630E12B10FAF5007E193E /* Localized.swift in Sources */,
 				1F20AC8E2B80E7340088A78B /* ContractOfferViewController.swift in Sources */,
-				5AC9723D2B666A1E0035ED95 /* ProfileCollectionViewWithBanner.swift in Sources */,
+				5AC9723D2B666A1E0035ED95 /* BannerProfileCell.swift in Sources */,
 				093D68102B369F270044AAE7 /* MapView.swift in Sources */,
 				1F20AC982B837C2F0088A78B /* ContractOfferCoordinator.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
 				1F20AC582B73AAA60088A78B /* ImagePicker.swift in Sources */,
 				1F20AC8B2B80E6ED0088A78B /* AboutAppViewController.swift in Sources */,
+				5AAE953F2B83E582008EAB32 /* ProfileEditViewModel.swift in Sources */,
 				09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */,
 				1F20AC912B80EB650088A78B /* SupportViewController.swift in Sources */,
 				094977912B2C79920089DB13 /* AuthorizationViewModel.swift in Sources */,
 				094977992B2C799B0089DB13 /* OnboardingSlide.swift in Sources */,
-				5AC972392B666A1E0035ED95 /* ProfileScreenViewModelProtocol.swift in Sources */,
 				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
 				0949778E2B2C79920089DB13 /* AuthorizationViewController.swift in Sources */,
 				5AC9723F2B666A1E0035ED95 /* ProfileModel.swift in Sources */,
-				5AC9723E2B666A1E0035ED95 /* ProfileCollectionViewCell.swift in Sources */,
+				5AC9723E2B666A1E0035ED95 /* ButtonsProfileCell.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,

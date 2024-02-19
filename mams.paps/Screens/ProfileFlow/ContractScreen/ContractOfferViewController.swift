@@ -15,7 +15,7 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
     
     private var backgroundView: UIView = {
         var view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .red
         view.layer.cornerRadius = LayoutConstants.cornerRadius
         return view
     }()
@@ -37,40 +37,47 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
     }()
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.frame = CGRect(x: 0, y: 0, width: 300, height: 400)
-        scrollView.center = view.center
+//        scrollView.frame = CGRect(x: 0, y: 0, width: 300, height: 400)
+//        scrollView.center = view.center
         scrollView.showsVerticalScrollIndicator = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.alwaysBounceVertical = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentSize = CGSize(width: 300, height: 800)
+//        scrollView.contentSize = CGSize(width: 300, height: 800)
         scrollView.delegate = self
         scrollView.isScrollEnabled = true
         scrollView.scrollsToTop = true
         return scrollView
     }()
     
+    private lazy var contentView = UIView()
+    
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
         setupUI()
-        descriptionName.frame.size = scrollView.contentSize
-        scrollView.contentOffset = CGPoint(x: 150, y: 150)
+//        descriptionName.frame.size = scrollView.contentSize
+//        scrollView.contentOffset = CGPoint(x: 150, y: 150)
     }
      
     private func setupUI() {
         view.addSubview(scrollView)
-        scrollView.addSubviews(backgroundView, label, descriptionName)
+        contentView.addSubviews(backgroundView, label, descriptionName)
+        scrollView.addSubviews(contentView)
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor,
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            
+            backgroundView.topAnchor.constraint(equalTo: contentView.topAnchor,
                                                 constant: LayoutConstants.defaultOffSet),
-            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+            backgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: LayoutConstants.defaultOffSet),
-            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+            backgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
                                                      constant: -LayoutConstants.defaultOffSet),
             
             label.topAnchor.constraint(equalTo: backgroundView.topAnchor,
@@ -79,7 +86,10 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
                                            constant: LayoutConstants.indentSixteen),
             
             descriptionName.topAnchor.constraint(equalTo: label.bottomAnchor, constant: LayoutConstants.indentEight),
-            descriptionName.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 4)
+            descriptionName.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 4),
+            
+            contentView.bottomAnchor.constraint(equalTo: contentView.subviews.last?.bottomAnchor ?? scrollView.bottomAnchor,
+                                                constant: -LayoutConstants.defaultOffSet)
             
         ])
     }
