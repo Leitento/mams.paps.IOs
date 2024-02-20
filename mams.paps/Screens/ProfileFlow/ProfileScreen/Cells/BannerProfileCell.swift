@@ -9,7 +9,7 @@ import UIKit
 
 final class BannerProfileCell: UICollectionViewCell {
     
-    static let id = "ProfileCollectionViewCellWithBanner"
+//    static let id = "ProfileCollectionViewCellWithBanner"
     
     //MARK: - Private Properties
     

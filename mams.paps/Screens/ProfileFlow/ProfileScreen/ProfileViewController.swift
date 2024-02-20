@@ -60,11 +60,11 @@ final class ProfileViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(BannerProfileCell.self,
-                                forCellWithReuseIdentifier: BannerProfileCell.id)
+                                forCellWithReuseIdentifier: BannerProfileCell.identifier)
         collectionView.register(ButtonsProfileCell.self,
                                 forCellWithReuseIdentifier: ButtonsProfileCell.identifier)
         collectionView.register(ProfileHeaderView.self,
-                                forCellWithReuseIdentifier: ProfileHeaderView.id)
+                                forCellWithReuseIdentifier: ProfileHeaderView.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
         return collectionView
@@ -197,7 +197,7 @@ final class ProfileViewController: UIViewController {
             switch itemIdentifier {
             case .header(let profile):
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: ProfileHeaderView.id,
+                    withReuseIdentifier: ProfileHeaderView.identifier,
                     for: indexPath) as?  ProfileHeaderView
                 else {
                     return  UICollectionViewCell()
@@ -207,7 +207,7 @@ final class ProfileViewController: UIViewController {
                 
             case .banner(let banner):
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: BannerProfileCell.id,
+                    withReuseIdentifier: BannerProfileCell.identifier,
                     for: indexPath
                 ) as? BannerProfileCell
                 else {
@@ -234,7 +234,7 @@ final class ProfileViewController: UIViewController {
         return { collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionHeader else { return nil }
             guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind, withReuseIdentifier: ProfileHeaderView.id, for: indexPath) as? ProfileHeaderView
+                ofKind: kind, withReuseIdentifier: ProfileHeaderView.identifier, for: indexPath) as? ProfileHeaderView
             else { return nil}
             header.configuredCell(profile: profile)
             return header

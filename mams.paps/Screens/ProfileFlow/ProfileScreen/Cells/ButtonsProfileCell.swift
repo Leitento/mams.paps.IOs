@@ -139,29 +139,26 @@ final class ButtonsProfileCell: UICollectionViewCell {
     
     @objc private func favouriteButtonTapped() {
         print("favouriteButtonTapped; show Events screen")
+        delegate?.favouriteButtonTapped()
     }
     @objc private func notificationButtonTapped() {
         print("notificationButtonTapped; show service screen")
-//        profilecoordinator?.pushNotificationButton()
+        delegate?.notificationButtonTapped()
     }
     @objc private func contractOfferButtonTapped() {
         print("contractOfferButtonTapped; show service screen")
         delegate?.contactOfferButtonTapped()
-//        profilecoordinator?.pushContactOfferButton()
     }
     @objc private func aboutAppButtonTapped() {
         print("aboutAppButtonTapped; show service screen")
         delegate?.aboutAppButtonTapped()
-//        profilecoordinator?.pushAboutAppButton()
     }
     @objc private func supportButtonTapped() {
         print("supportButtonTapped; show service screen")
-//        profilecoordinator?.pushSupportButton()
+        delegate?.supportButtonTapped()
     }
     @objc private func logoutButtonTapped() {
         print("logoutButtonTapped; show authorization screen")
         delegate?.logoutButtonTapped()
-//        profilecoordinator?.pushLogoutButton()
-        //        parentCoordinator.showAuthorizationScreen()
     }
 }

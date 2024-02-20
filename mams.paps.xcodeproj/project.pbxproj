@@ -54,7 +54,6 @@
 		1F20AC8E2B80E7340088A78B /* ContractOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC8D2B80E7340088A78B /* ContractOfferViewController.swift */; };
 		1F20AC912B80EB650088A78B /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC902B80EB650088A78B /* SupportViewController.swift */; };
 		1F20AC942B80EBF00088A78B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC932B80EBF00088A78B /* NotificationViewController.swift */; };
-		1F20AC982B837C2F0088A78B /* ContractOfferCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC972B837C2F0088A78B /* ContractOfferCoordinator.swift */; };
 		1FDB96542B6842C500C7AF81 /* ProfileEditScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */; };
 		5AAE953F2B83E582008EAB32 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAE953E2B83E582008EAB32 /* ProfileEditViewModel.swift */; };
 		5AC9723A2B666A1E0035ED95 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC972322B666A1D0035ED95 /* ProfileViewController.swift */; };
@@ -116,7 +115,6 @@
 		1F20AC8D2B80E7340088A78B /* ContractOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractOfferViewController.swift; sourceTree = "<group>"; };
 		1F20AC902B80EB650088A78B /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		1F20AC932B80EBF00088A78B /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		1F20AC972B837C2F0088A78B /* ContractOfferCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractOfferCoordinator.swift; sourceTree = "<group>"; };
 		1FDB96532B6842C500C7AF81 /* ProfileEditScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditScreenViewController.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA93B9F2B14DE8100E2908A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 				5AC972412B666B870035ED95 /* ProfileCoordinator.swift */,
 				09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */,
 				093D680A2B369D6E0044AAE7 /* MapCoordinator.swift */,
-				1F20AC972B837C2F0088A78B /* ContractOfferCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -532,7 +529,6 @@
 				1F20AC8E2B80E7340088A78B /* ContractOfferViewController.swift in Sources */,
 				5AC9723D2B666A1E0035ED95 /* BannerProfileCell.swift in Sources */,
 				093D68102B369F270044AAE7 /* MapView.swift in Sources */,
-				1F20AC982B837C2F0088A78B /* ContractOfferCoordinator.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
 				1F20AC582B73AAA60088A78B /* ImagePicker.swift in Sources */,
 				1F20AC8B2B80E6ED0088A78B /* AboutAppViewController.swift in Sources */,

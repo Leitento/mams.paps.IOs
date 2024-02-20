@@ -11,7 +11,7 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     //MARK: - Properties
     
-    static let id = "ProfileHeaderView"
+//    static let id = "ProfileHeaderView"
     
     private lazy var profileImage: UIImageView = {
         var profileImage = UIImageView()

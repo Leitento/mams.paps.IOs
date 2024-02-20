@@ -10,12 +10,10 @@ import UIKit
 final class ContractOfferViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: - Private Properties
-//    private var viewModel: ProfileViewModelProtocol
-     weak var coordinator: ContractOfferCoordinator?
     
     private var backgroundView: UIView = {
         var view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         view.layer.cornerRadius = LayoutConstants.cornerRadius
         return view
     }()
@@ -30,7 +28,7 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
         var label = UILabel()
         label.text = "ContractOffer.termins".localized
         label.numberOfLines = 0
-        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 16
+        label.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 40
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .darkGray
         return label
@@ -38,7 +36,7 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
 //        scrollView.frame = CGRect(x: 0, y: 0, width: 300, height: 400)
-//        scrollView.center = view.center
+        scrollView.center = view.center
         scrollView.showsVerticalScrollIndicator = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.alwaysBounceVertical = true
@@ -52,17 +50,36 @@ final class ContractOfferViewController: UIViewController, UIScrollViewDelegate 
     
     private lazy var contentView = UIView()
     
+    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
         setupUI()
-//        descriptionName.frame.size = scrollView.contentSize
-//        scrollView.contentOffset = CGPoint(x: 150, y: 150)
     }
-     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    //MARK: - Private Methods
+    
     private func setupUI() {
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(
+            title: "Публичная оферта",
+            style: .done,
+            target: self,
+            action: nil)
+        navigationController?.navigationBar.tintColor = .customGrey
+        view.backgroundColor = .customOrange
         view.addSubview(scrollView)
-        contentView.addSubviews(backgroundView, label, descriptionName)
         scrollView.addSubviews(contentView)
+        contentView.addSubviews(backgroundView, label, descriptionName)
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),

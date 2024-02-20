@@ -184,6 +184,94 @@
 			<key>type</key>
 			<string>bookmark</string>
 		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>31</string>
+					<key>EndingLineNumber</key>
+					<string>101</string>
+					<key>StartingColumnNumber</key>
+					<string>23</string>
+					<key>StartingLineNumber</key>
+					<string>101</string>
+					<key>Timestamp</key>
+					<string>730106932.473936</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>goMaping/mams.paps/ru.lproj/Localizable.strings</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>Contract</string>
+				<key>leading</key>
+				<string>"ProfilePhotoEditAlert.error" = "Ошибка";
+
+//MARK: - Profile Flow </string>
+				<key>trailing</key>
+				<string> Offer
+
+"ContractOffer.label" = "1. Термины и определения";
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>28</string>
+					<key>EndingLineNumber</key>
+					<string>122</string>
+					<key>StartingColumnNumber</key>
+					<string>23</string>
+					<key>StartingLineNumber</key>
+					<string>122</string>
+					<key>Timestamp</key>
+					<string>730106936.210049</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>goMaping/mams.paps/ru.lproj/Localizable.strings</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>About</string>
+				<key>leading</key>
+				<string>паттернов поведения. ";
+
+//MARK: - Profile Flow </string>
+				<key>trailing</key>
+				<string> App
+
+"AboutApp.description" = "Go Maping - это разнообразный и богатый опыт говорит нам, что начало повседневной работы 
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
 	</array>
 </dict>
 </plist>
