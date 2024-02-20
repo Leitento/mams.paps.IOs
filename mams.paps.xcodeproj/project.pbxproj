@@ -54,14 +54,6 @@
 		09DC064F2B2C8AFB00D71BEB /* ProtocolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */; };
 		09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */; };
 		09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */; };
-		09EBCDAF2B6F4A830093EFAF /* ProfileScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDA72B6F4A830093EFAF /* ProfileScreenViewModelProtocol.swift */; };
-		09EBCDB02B6F4A830093EFAF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDA82B6F4A830093EFAF /* ProfileViewController.swift */; };
-		09EBCDB12B6F4A830093EFAF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDA92B6F4A830093EFAF /* ProfileViewModel.swift */; };
-		09EBCDB22B6F4A830093EFAF /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDAB2B6F4A830093EFAF /* ProfileHeaderView.swift */; };
-		09EBCDB32B6F4A830093EFAF /* ProfileCollectionViewWithBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDAC2B6F4A830093EFAF /* ProfileCollectionViewWithBanner.swift */; };
-		09EBCDB42B6F4A830093EFAF /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDAD2B6F4A830093EFAF /* ProfileCollectionViewCell.swift */; };
-		09EBCDB52B6F4A830093EFAF /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDAE2B6F4A830093EFAF /* ProfileModel.swift */; };
-		09EBCDB72B6F4B3C0093EFAF /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB62B6F4B3C0093EFAF /* ProfileCoordinator.swift */; };
 		09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */; };
 		09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB92B6F4B8F0093EFAF /* Array.swift */; };
 		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
@@ -116,14 +108,6 @@
 		09DC064A2B2C8AFB00D71BEB /* ProtocolCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoordinator.swift; sourceTree = "<group>"; };
 		09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCoordinator.swift; sourceTree = "<group>"; };
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
-		09EBCDA72B6F4A830093EFAF /* ProfileScreenViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModelProtocol.swift; sourceTree = "<group>"; };
-		09EBCDA82B6F4A830093EFAF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		09EBCDA92B6F4A830093EFAF /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		09EBCDAB2B6F4A830093EFAF /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		09EBCDAC2B6F4A830093EFAF /* ProfileCollectionViewWithBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewWithBanner.swift; sourceTree = "<group>"; };
-		09EBCDAD2B6F4A830093EFAF /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
-		09EBCDAE2B6F4A830093EFAF /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
-		09EBCDB62B6F4B3C0093EFAF /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstans.swift; sourceTree = "<group>"; };
 		09EBCDB92B6F4B8F0093EFAF /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,7 +222,6 @@
 				09638DAB2B35954F005DF42D /* TabBarCoordinator.swift */,
 				09DC064B2B2C8AFB00D71BEB /* MainScreenCoordinator.swift */,
 				093D680A2B369D6E0044AAE7 /* MapCoordinator.swift */,
-				09EBCDB62B6F4B3C0093EFAF /* ProfileCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -250,39 +233,8 @@
 				094977892B2C79910089DB13 /* AuthorizationScreen */,
 				0949777E2B2C79700089DB13 /* MainScreen */,
 				093D68092B369ACD0044AAE7 /* MapScreen */,
-				09EBCDA52B6F4A830093EFAF /* ProfileScreen */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		09EBCDA52B6F4A830093EFAF /* ProfileScreen */ = {
-			isa = PBXGroup;
-			children = (
-				09EBCDA62B6F4A830093EFAF /* ProfileView */,
-				09EBCDAA2B6F4A830093EFAF /* ProfileModel */,
-			);
-			path = ProfileScreen;
-			sourceTree = "<group>";
-		};
-		09EBCDA62B6F4A830093EFAF /* ProfileView */ = {
-			isa = PBXGroup;
-			children = (
-				09EBCDA72B6F4A830093EFAF /* ProfileScreenViewModelProtocol.swift */,
-				09EBCDA82B6F4A830093EFAF /* ProfileViewController.swift */,
-				09EBCDA92B6F4A830093EFAF /* ProfileViewModel.swift */,
-			);
-			path = ProfileView;
-			sourceTree = "<group>";
-		};
-		09EBCDAA2B6F4A830093EFAF /* ProfileModel */ = {
-			isa = PBXGroup;
-			children = (
-				09EBCDAB2B6F4A830093EFAF /* ProfileHeaderView.swift */,
-				09EBCDAC2B6F4A830093EFAF /* ProfileCollectionViewWithBanner.swift */,
-				09EBCDAD2B6F4A830093EFAF /* ProfileCollectionViewCell.swift */,
-				09EBCDAE2B6F4A830093EFAF /* ProfileModel.swift */,
-			);
-			path = ProfileModel;
 			sourceTree = "<group>";
 		};
 		3A75278FF3BAD3E4C4757FDD /* Pods */ = {
@@ -474,31 +426,25 @@
 				095BE7D52B1E058000C6220E /* Alert.swift in Sources */,
 				09638DAC2B35954F005DF42D /* TabBarCoordinator.swift in Sources */,
 				095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */,
-				09EBCDB12B6F4A830093EFAF /* ProfileViewModel.swift in Sources */,
 				094977872B2C79700089DB13 /* MainScreenViewModel.swift in Sources */,
 				095480DA2B792DF700D65C87 /* SuggestItem.swift in Sources */,
 				0949779A2B2C799B0089DB13 /* OnboardingViewModel.swift in Sources */,
 				091630E12B10FAF5007E193E /* Localized.swift in Sources */,
-				09EBCDB32B6F4A830093EFAF /* ProfileCollectionViewWithBanner.swift in Sources */,
 				0919F5EC2B811CB100D421F3 /* MapCameraListener.swift in Sources */,
 				093D68102B369F270044AAE7 /* MapView.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
 				09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */,
 				094977912B2C79920089DB13 /* AuthorizationViewModel.swift in Sources */,
 				094977992B2C799B0089DB13 /* OnboardingSlide.swift in Sources */,
-				09EBCDAF2B6F4A830093EFAF /* ProfileScreenViewModelProtocol.swift in Sources */,
 				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
 				0949778E2B2C79920089DB13 /* AuthorizationViewController.swift in Sources */,
 				09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */,
-				09EBCDB52B6F4A830093EFAF /* ProfileModel.swift in Sources */,
-				09EBCDB42B6F4A830093EFAF /* ProfileCollectionViewCell.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,
 				09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
 				0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */,
-				09EBCDB72B6F4B3C0093EFAF /* ProfileCoordinator.swift in Sources */,
 				094977982B2C799B0089DB13 /* OnboardingViewController.swift in Sources */,
 				094977842B2C79700089DB13 /* MainScreenMenu.swift in Sources */,
 				094977972B2C799B0089DB13 /* Slide.swift in Sources */,
@@ -515,14 +461,12 @@
 				095480DE2B792E7E00D65C87 /* MapObjectTapListener.swift in Sources */,
 				094977852B2C79700089DB13 /* MainScreenCollectionViewCell.swift in Sources */,
 				095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */,
-				09EBCDB02B6F4A830093EFAF /* ProfileViewController.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */,
 				0949778F2B2C79920089DB13 /* User.swift in Sources */,
 				095480D82B792DD300D65C87 /* MapUIState.swift in Sources */,
 				093D68112B369F270044AAE7 /* LocationService.swift in Sources */,
 				093D680F2B369F270044AAE7 /* MapViewController.swift in Sources */,
-				09EBCDB22B6F4A830093EFAF /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
