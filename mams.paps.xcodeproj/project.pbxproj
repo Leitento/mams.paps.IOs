@@ -57,6 +57,7 @@
 		09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */; };
 		09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB92B6F4B8F0093EFAF /* Array.swift */; };
 		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
+		1F20AC9E2B860AF80088A78B /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20AC9D2B860AF80088A78B /* CustomNavigationController.swift */; };
 		5A6AA9532B848EFF00918278 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA93E2B848EFF00918278 /* AboutAppViewController.swift */; };
 		5A6AA9542B848EFF00918278 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9402B848EFF00918278 /* NotificationViewController.swift */; };
 		5A6AA9552B848EFF00918278 /* ContractOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9422B848EFF00918278 /* ContractOfferViewController.swift */; };
@@ -124,6 +125,7 @@
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstans.swift; sourceTree = "<group>"; };
 		09EBCDB92B6F4B8F0093EFAF /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		1F20AC9D2B860AF80088A78B /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6AA93E2B848EFF00918278 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		5A6AA9402B848EFF00918278 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */,
 				097F58F12B62E9B0003D6861 /* TabBarController ++.swift */,
 				097F58EF2B62DD99003D6861 /* UIView ++.swift */,
+				1F20AC9D2B860AF80088A78B /* CustomNavigationController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				09638DA52B3583C0005DF42D /* KeychainService.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
 				5A6AA9622B84910800918278 /* ImagePicker.swift in Sources */,
+				1F20AC9E2B860AF80088A78B /* CustomNavigationController.swift in Sources */,
 				09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */,
 				094977882B2C79700089DB13 /* MainScreenView.swift in Sources */,
 				095480DE2B792E7E00D65C87 /* MapObjectTapListener.swift in Sources */,

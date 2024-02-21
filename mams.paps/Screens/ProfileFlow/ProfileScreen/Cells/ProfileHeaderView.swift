@@ -7,12 +7,17 @@
 
 import UIKit
 
+enum SizeHeader {
+    ///22
+    static let twentyTwo: CGFloat = 22
+    ///120
+    static let oneHtwenty: CGFloat = 120
+}
+
 final class ProfileHeaderView: UICollectionViewCell {
-    
+
     //MARK: - Properties
-    
-    static let id = "ProfileHeaderView"
-    
+        
     private lazy var profileImage: UIImageView = {
         var profileImage = UIImageView()
         profileImage.image = UIImage(systemName: "person.circle")
@@ -78,13 +83,13 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     //MARK: - Private Mehtods
     
-    func setupUI() {
+    private func setupUI() {
         self.layer.cornerRadius = LayoutConstants.cornerRadius
         self.backgroundColor = .white
         addSubviews(nameLabel, profileImage, cityLabel, cityIcon, mailLabel, mailIcon)
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: topAnchor,
-                                           constant: 22),
+                                           constant: SizeHeader.twentyTwo),
             nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
                                                constant: LayoutConstants.defaultOffSet),
             
@@ -94,8 +99,8 @@ final class ProfileHeaderView: UICollectionViewCell {
                                                   constant: LayoutConstants.defaultOffSet),
             profileImage.bottomAnchor.constraint(equalTo: bottomAnchor,
                                                  constant: -LayoutConstants.defaultOffSet),
-            profileImage.widthAnchor.constraint(equalToConstant: 120),
-            profileImage.heightAnchor.constraint(equalToConstant: 120),
+            profileImage.widthAnchor.constraint(equalToConstant: SizeHeader.oneHtwenty),
+            profileImage.heightAnchor.constraint(equalToConstant: SizeHeader.oneHtwenty),
             
             cityLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
                                            constant: LayoutConstants.indentTwelve),

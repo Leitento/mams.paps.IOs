@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProfileViewControllerDelegate: AnyObject {
     func favouriteButtonTapped()
+    func myAddsButtonTapped()
     func notificationButtonTapped()
     func contactOfferButtonTapped()
     func aboutAppButtonTapped()
@@ -60,11 +61,11 @@ final class ProfileViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(BannerProfileCell.self,
-                                forCellWithReuseIdentifier: BannerProfileCell.id)
+                                forCellWithReuseIdentifier: BannerProfileCell.identifier)
         collectionView.register(ButtonsProfileCell.self,
                                 forCellWithReuseIdentifier: ButtonsProfileCell.identifier)
         collectionView.register(ProfileHeaderView.self,
-                                forCellWithReuseIdentifier: ProfileHeaderView.id)
+                                forCellWithReuseIdentifier: ProfileHeaderView.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
         return collectionView
@@ -129,7 +130,7 @@ final class ProfileViewController: UIViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 10,
+            top: -12,
             leading: 0,
             bottom: 0,
             trailing: 0
@@ -172,7 +173,7 @@ final class ProfileViewController: UIViewController {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(368)
+            heightDimension: .absolute(434)//368
         )
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
@@ -197,7 +198,7 @@ final class ProfileViewController: UIViewController {
             switch itemIdentifier {
             case .header(let profile):
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: ProfileHeaderView.id,
+                    withReuseIdentifier: ProfileHeaderView.identifier,
                     for: indexPath) as?  ProfileHeaderView
                 else {
                     return  UICollectionViewCell()
@@ -207,7 +208,7 @@ final class ProfileViewController: UIViewController {
                 
             case .banner(let banner):
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: BannerProfileCell.id,
+                    withReuseIdentifier: BannerProfileCell.identifier,
                     for: indexPath
                 ) as? BannerProfileCell
                 else {
@@ -234,7 +235,7 @@ final class ProfileViewController: UIViewController {
         return { collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionHeader else { return nil }
             guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind, withReuseIdentifier: ProfileHeaderView.id, for: indexPath) as? ProfileHeaderView
+                ofKind: kind, withReuseIdentifier: ProfileHeaderView.identifier, for: indexPath) as? ProfileHeaderView
             else { return nil}
             header.configuredCell(profile: profile)
             return header
@@ -283,6 +284,9 @@ extension ProfileViewController: ProfileViewControllerDelegate {
     func favouriteButtonTapped() {
         viewModel.didTappedFavouriteButton()
     }
+    func myAddsButtonTapped() {
+        viewModel.didTappedMyAddsButton()
+    }
     func notificationButtonTapped() {
         viewModel.didTappedNotificationButton()
     }
@@ -318,7 +322,6 @@ extension ProfileViewController {
         view.addSubview(title)
         return view
     }
-    
     func createEditButton(imageName: String, selector: Selector) -> UIBarButtonItem {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "edit"), for: .normal)

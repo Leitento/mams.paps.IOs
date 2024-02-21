@@ -7,8 +7,33 @@
 
 import UIKit
 
+///button config ???????
+
+enum SizeButtons {
+    ///15
+    static let fifteen: CGFloat = 15
+    ///46
+    static let fortySix: CGFloat = 46
+    ///152
+    static let oneHfiftyTwo: CGFloat = 152
+    ///172
+    static let oneHseventyTwo: CGFloat = 172
+    ///182
+    static let oneHeightyTwo: CGFloat = 182
+    ///198
+    static let oneHnintyEight: CGFloat = 198
+    ///216
+    static let twoHsixteen: CGFloat = 216
+    ///217
+    static let twoHseventeen: CGFloat = 217
+    ///220
+    static let twoHtwenty: CGFloat = 220
+    ///255
+    static let twoHfiftyFive: CGFloat = 255
+}
+
 final class ButtonsProfileCell: UICollectionViewCell {
-    
+
     //MARK: - Private Properties
     
     weak var delegate: ProfileViewControllerDelegate?
@@ -19,6 +44,16 @@ final class ButtonsProfileCell: UICollectionViewCell {
         favouriteButton.setTitleColor(.customGreyButtons, for: .normal)
         favouriteButton.setImage(UIImage(named: "favourite"), for: .normal)
         favouriteButton.addTarget(self, action: #selector(favouriteButtonTapped), for: .touchUpInside)
+        favouriteButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
+        return favouriteButton
+    }()
+    
+    private lazy var myAddsButton: UIButton = {
+        let favouriteButton = UIButton()
+        favouriteButton.setTitle(ButtonsTitles.myAdds, for: .normal)
+        favouriteButton.setTitleColor(.customGreyButtons, for: .normal)
+        favouriteButton.setImage(UIImage(named: "adds"), for: .normal)
+        favouriteButton.addTarget(self, action: #selector(myAddsButtonTapped), for: .touchUpInside)
         favouriteButton.imageEdgeInsets.left = -LayoutConstants.indentTwelve
         return favouriteButton
     }()
@@ -84,8 +119,8 @@ final class ButtonsProfileCell: UICollectionViewCell {
     
     private func setupSubs() {
         contentView.addSubviews(
-            favouriteButton,notificationButton,aboutAppButton,supportButton,logoutButton,contractOfferButton
-        )
+            favouriteButton, myAddsButton, notificationButton, aboutAppButton, supportButton, logoutButton,
+            contractOfferButton)
         contentView.backgroundColor = .white
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = LayoutConstants.cornerRadius
@@ -93,75 +128,76 @@ final class ButtonsProfileCell: UICollectionViewCell {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 46),
-            contentView.widthAnchor.constraint(equalToConstant: 220),
+            contentView.heightAnchor.constraint(equalToConstant: SizeButtons.fortySix),
+            contentView.widthAnchor.constraint(equalToConstant: SizeButtons.twoHtwenty),
             contentView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            contentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
             
             favouriteButton.topAnchor.constraint(equalTo: contentView.topAnchor,
                                                  constant: LayoutConstants.defaultOffSet),
             favouriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                      constant: LayoutConstants.indentSixteen),
-            favouriteButton.widthAnchor.constraint(equalToConstant: 152),
+            favouriteButton.widthAnchor.constraint(equalToConstant: SizeButtons.oneHfiftyTwo),
             
-            notificationButton.topAnchor.constraint(equalTo: favouriteButton.bottomAnchor,
+            myAddsButton.topAnchor.constraint(equalTo: favouriteButton.bottomAnchor,
+                                              constant: LayoutConstants.indentTen),
+            myAddsButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                  constant: LayoutConstants.indentSixteen),
+            myAddsButton.widthAnchor.constraint(equalToConstant: SizeButtons.oneHnintyEight),
+            
+            notificationButton.topAnchor.constraint(equalTo: myAddsButton.bottomAnchor,
                                                     constant: LayoutConstants.indentTen),
             notificationButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                         constant: LayoutConstants.indentSixteen),
-            notificationButton.widthAnchor.constraint(equalToConstant: 172),
+            notificationButton.widthAnchor.constraint(equalToConstant: SizeButtons.oneHseventyTwo),
             
             contractOfferButton.topAnchor.constraint(equalTo: notificationButton.bottomAnchor,
                                                      constant: LayoutConstants.indentTen),
             contractOfferButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                          constant: LayoutConstants.indentSixteen),
-            contractOfferButton.widthAnchor.constraint(equalToConstant: 217),
+            contractOfferButton.widthAnchor.constraint(equalToConstant: SizeButtons.twoHseventeen),
+            
             aboutAppButton.topAnchor.constraint(equalTo: contractOfferButton.bottomAnchor,
                                                 constant: LayoutConstants.indentTen),
             aboutAppButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: LayoutConstants.indentSixteen),
+            aboutAppButton.widthAnchor.constraint(equalToConstant: SizeButtons.oneHeightyTwo),
             
-            aboutAppButton.widthAnchor.constraint(equalToConstant: 182),
             supportButton.topAnchor.constraint(equalTo: aboutAppButton.bottomAnchor,
                                                constant: LayoutConstants.indentTen),
             supportButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                    constant: LayoutConstants.indentSixteen),
             
-            supportButton.widthAnchor.constraint(equalToConstant: 255),
+            supportButton.widthAnchor.constraint(equalToConstant: SizeButtons.twoHfiftyFive),
+            
             logoutButton.topAnchor.constraint(equalTo: supportButton.bottomAnchor,
                                               constant: LayoutConstants.indentTen),
             logoutButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                                  constant: 15),
-            logoutButton.widthAnchor.constraint(equalToConstant: 216)
+                                                  constant: SizeButtons.fifteen),
+            logoutButton.widthAnchor.constraint(equalToConstant: SizeButtons.twoHsixteen)
         ])
     }
     
     //MARK: - Event Handlers
     
     @objc private func favouriteButtonTapped() {
-        print("favouriteButtonTapped; show Events screen")
+        delegate?.favouriteButtonTapped()
+    }
+    @objc private func myAddsButtonTapped() {
+        delegate?.myAddsButtonTapped()
     }
     @objc private func notificationButtonTapped() {
-        print("notificationButtonTapped; show service screen")
-//        profilecoordinator?.pushNotificationButton()
+        delegate?.notificationButtonTapped()
     }
     @objc private func contractOfferButtonTapped() {
-        print("contractOfferButtonTapped; show service screen")
         delegate?.contactOfferButtonTapped()
-//        profilecoordinator?.pushContactOfferButton()
     }
     @objc private func aboutAppButtonTapped() {
-        print("aboutAppButtonTapped; show service screen")
         delegate?.aboutAppButtonTapped()
-//        profilecoordinator?.pushAboutAppButton()
     }
     @objc private func supportButtonTapped() {
-        print("supportButtonTapped; show service screen")
-//        profilecoordinator?.pushSupportButton()
+        delegate?.supportButtonTapped()
     }
     @objc private func logoutButtonTapped() {
-        print("logoutButtonTapped; show authorization screen")
         delegate?.logoutButtonTapped()
-//        profilecoordinator?.pushLogoutButton()
-        //        parentCoordinator.showAuthorizationScreen()
     }
 }

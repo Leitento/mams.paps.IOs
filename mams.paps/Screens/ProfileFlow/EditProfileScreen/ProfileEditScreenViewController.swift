@@ -8,9 +8,48 @@
 import UIKit
 import PhotosUI
 
-class ProfileEditScreenController: UIViewController {
+//dateofbirth ????
+
+enum SizeEditScreen {
+    ///28
+    static let twentyEight: CGFloat = 28
+    ///30
+    static let thirty: CGFloat = 30
+    ///40
+    static let fourty: CGFloat = 40
+    ///41
+    static let fourtyOne: CGFloat = 41
+    ///43
+    static let fourtyThree: CGFloat = 43
+    ///48
+    static let fourtyEight: CGFloat = 48
+    ///57
+    static let fiftySeven: CGFloat = 57
+    ///60
+    static let sixty: CGFloat = 60
+    ///65
+    static let sixtyFive: CGFloat = 65
+    ///96
+    static let nintySix: CGFloat = 96
+    ///100
+    static let oneH: CGFloat = 100
+    ///108
+    static let oneHeight: CGFloat = 108
+    ///120
+    static let oneHtwenty: CGFloat = 120
+    ///135
+    static let oneHthirtyFive: CGFloat = 135
+    ///245
+    static let twoHfourtyFive: CGFloat = 245
+    ///318
+    static let threeHeighteen: CGFloat = 318
+    ///350
+    static let threeHfifty: CGFloat = 350
+}
+
+final class ProfileEditScreenController: UIViewController {
     
-    //MARK: - Properties
+    //MARK: - Private Properties
     
     private lazy var viewBackground: UIView = {
         let view = UIView()
@@ -19,7 +58,6 @@ class ProfileEditScreenController: UIViewController {
         view.clipsToBounds = true
         return view
     }()
-    
     private lazy var viewList: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -27,20 +65,17 @@ class ProfileEditScreenController: UIViewController {
         view.clipsToBounds = true
         return view
     }()
-    
     private lazy var photoEditImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .label
         return imageView
     }()
-    
     private lazy var nameText = "ProfileEditScreen.nameText".localized
     private lazy var cityText =  "ProfileEditScreen.cityText".localized
     private lazy var emailText = "ProfileEditScreen.emailText".localized
     private lazy var phoneText =  "ProfileEditScreen.phoneText".localized
     private lazy var dateOfBirthText =  "ProfileEditScreen.dateOfBirthText".localized
-    
     private lazy var nameField: UITextField = {
         let nameField = UITextField()
         nameField.layer.borderColor = UIColor.customDarkBlue.cgColor
@@ -61,7 +96,6 @@ class ProfileEditScreenController: UIViewController {
         nameField.leftView = paddingView
         return nameField
     }()
-    
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
@@ -73,7 +107,6 @@ class ProfileEditScreenController: UIViewController {
         label.clipsToBounds = true
         return label
     }()
-    
     private lazy var cityField: UITextField = {
         let cityField = UITextField()
         cityField.layer.borderColor = UIColor.customDarkBlue.cgColor
@@ -94,7 +127,6 @@ class ProfileEditScreenController: UIViewController {
         cityField.leftView = paddingView
         return cityField
     }()
-    
     private lazy var cityLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
@@ -106,7 +138,6 @@ class ProfileEditScreenController: UIViewController {
         label.clipsToBounds = true
         return label
     }()
-    
     private lazy var emailField: UITextField = {
         let emailField = UITextField()
         emailField.layer.borderColor = UIColor.customDarkBlue.cgColor
@@ -127,7 +158,6 @@ class ProfileEditScreenController: UIViewController {
         emailField.leftView = paddingView
         return emailField
     }()
-    
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
@@ -139,7 +169,6 @@ class ProfileEditScreenController: UIViewController {
         label.clipsToBounds = true
         return label
     }()
-    
     private lazy var phoneField: UITextField = {
         let phoneField = UITextField()
         phoneField.layer.borderColor = UIColor.customDarkBlue.cgColor
@@ -160,7 +189,6 @@ class ProfileEditScreenController: UIViewController {
         phoneField.leftView = paddingView
         return phoneField
     }()
-    
     private lazy var phoneLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
@@ -172,7 +200,6 @@ class ProfileEditScreenController: UIViewController {
         label.clipsToBounds = true
         return label
     }()
-    
     private lazy var dateOfBirthField: UITextField = {
         let dateOfBirthField = UITextField()
         dateOfBirthField.layer.borderColor = UIColor.customDarkBlue.cgColor
@@ -193,7 +220,6 @@ class ProfileEditScreenController: UIViewController {
         dateOfBirthField.leftView = paddingView
         return dateOfBirthField
     }()
-    
     private lazy var dateOfBirthLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
@@ -205,7 +231,6 @@ class ProfileEditScreenController: UIViewController {
         label.clipsToBounds = true
         return label
     }()
-    
     private lazy var showButton: UIButton = {
         let showButton = UIButton()
         showButton.layer.borderColor = UIColor.customDarkBlue.cgColor
@@ -262,26 +287,24 @@ class ProfileEditScreenController: UIViewController {
         
         view.layer.cornerRadius = LayoutConstants.cornerRadius
         view.backgroundColor = .customOrange
-        
         viewList.addSubviews(
-            nameField,nameLabel,
-            cityField,cityLabel,
-            emailField,emailLabel,
-            phoneField,phoneLabel,
-            dateOfBirthField,dateOfBirthLabel
-        )
+            nameField, nameLabel, cityField, cityLabel, emailField, emailLabel, phoneField, phoneLabel,
+            dateOfBirthField, dateOfBirthLabel)
         view.addSubviews(viewBackground, photoEditImageView, viewList, showButton)
         NSLayoutConstraint.activate([
             viewBackground.topAnchor.constraint(equalTo: view.topAnchor),
             viewBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             viewBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            viewBackground.heightAnchor.constraint(equalToConstant: 245),
+            viewBackground.heightAnchor.constraint(equalToConstant: SizeEditScreen.twoHfourtyFive),
             
-            photoEditImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            photoEditImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 135),
-            photoEditImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -135),
-            photoEditImageView.heightAnchor.constraint(equalToConstant: 120),
-            photoEditImageView.widthAnchor.constraint(equalToConstant: 120),
+            photoEditImageView.topAnchor.constraint(equalTo: view.topAnchor, 
+                                                    constant: SizeEditScreen.oneH),
+            photoEditImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                        constant: SizeEditScreen.oneHthirtyFive),
+            photoEditImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, 
+                                                         constant: -SizeEditScreen.oneHthirtyFive),
+            photoEditImageView.heightAnchor.constraint(equalToConstant: SizeEditScreen.oneHtwenty),
+            photoEditImageView.widthAnchor.constraint(equalToConstant: SizeEditScreen.oneHtwenty),
             
             viewList.topAnchor.constraint(equalTo: viewBackground.bottomAnchor,
                                           constant: LayoutConstants.defaultOffSet),
@@ -290,24 +313,25 @@ class ProfileEditScreenController: UIViewController {
             viewList.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                constant: -LayoutConstants.indentSixteen),
             viewList.bottomAnchor.constraint(equalTo: dateOfBirthField.bottomAnchor,
-                                             constant: 28),
+                                             constant: SizeEditScreen.twentyEight),
             
             nameField.topAnchor.constraint(equalTo: viewList.topAnchor,
-                                           constant: 28),
+                                           constant: SizeEditScreen.twentyEight),
             nameField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
                                                constant: LayoutConstants.defaultOffSet),
             nameField.trailingAnchor.constraint(equalTo: viewList.trailingAnchor,
                                                 constant: -LayoutConstants.defaultOffSet),
-            nameField.heightAnchor.constraint(equalToConstant: 48),
-            nameField.widthAnchor.constraint(equalToConstant: 318),
+            nameField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fourtyEight),
+            nameField.widthAnchor.constraint(equalToConstant: SizeEditScreen.threeHeighteen),
             nameField.bottomAnchor.constraint(equalTo: cityField.topAnchor,
                                               constant: -LayoutConstants.defaultOffSet),
             
-            nameLabel.topAnchor.constraint(equalTo: viewList.topAnchor, constant: LayoutConstants.indentSixteen),
-            nameLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, constant: 30),
+            nameLabel.topAnchor.constraint(equalTo: viewList.topAnchor, 
+                                           constant: LayoutConstants.indentSixteen),
+            nameLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
+                                               constant: SizeEditScreen.thirty),
             nameLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            nameLabel.widthAnchor.constraint(equalToConstant: 65),
-            
+            nameLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.sixtyFive),
             
             cityField.topAnchor.constraint(equalTo: nameField.bottomAnchor,
                                            constant: LayoutConstants.defaultOffSet),
@@ -317,13 +341,15 @@ class ProfileEditScreenController: UIViewController {
                                                 constant: -LayoutConstants.defaultOffSet),
             cityField.bottomAnchor.constraint(equalTo: emailField.topAnchor,
                                               constant: -LayoutConstants.defaultOffSet),
-            cityField.heightAnchor.constraint(equalToConstant: 48),
-            cityField.widthAnchor.constraint(equalToConstant: 318),
+            cityField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fourtyEight),
+            cityField.widthAnchor.constraint(equalToConstant: SizeEditScreen.threeHeighteen),
             
-            cityLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: LayoutConstants.indentEight),
-            cityLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, constant: 30),
+            cityLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, 
+                                           constant: LayoutConstants.indentEight),
+            cityLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
+                                               constant: SizeEditScreen.thirty),
             cityLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            cityLabel.widthAnchor.constraint(equalToConstant: 41),
+            cityLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.fourtyOne),
             
             emailField.topAnchor.constraint(equalTo: cityField.bottomAnchor,
                                             constant: LayoutConstants.defaultOffSet),
@@ -333,13 +359,15 @@ class ProfileEditScreenController: UIViewController {
                                                  constant: -LayoutConstants.defaultOffSet),
             emailField.bottomAnchor.constraint(equalTo: phoneField.topAnchor,
                                                constant: -LayoutConstants.defaultOffSet),
-            emailField.heightAnchor.constraint(equalToConstant: 48),
-            emailField.widthAnchor.constraint(equalToConstant: 318),
+            emailField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fourtyEight),
+            emailField.widthAnchor.constraint(equalToConstant: SizeEditScreen.threeHeighteen),
             
-            emailLabel.topAnchor.constraint(equalTo: cityField.bottomAnchor, constant: LayoutConstants.indentTen),
-            emailLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, constant: 30),
+            emailLabel.topAnchor.constraint(equalTo: cityField.bottomAnchor, 
+                                            constant: LayoutConstants.indentTen),
+            emailLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
+                                                constant: SizeEditScreen.thirty),
             emailLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            emailLabel.widthAnchor.constraint(equalToConstant: 43),
+            emailLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.fourtyThree),
             
             phoneField.topAnchor.constraint(equalTo: emailField.bottomAnchor,
                                             constant: LayoutConstants.defaultOffSet),
@@ -349,13 +377,15 @@ class ProfileEditScreenController: UIViewController {
                                                  constant: -LayoutConstants.defaultOffSet),
             phoneField.bottomAnchor.constraint(equalTo: dateOfBirthField.topAnchor,
                                                constant: -LayoutConstants.defaultOffSet),
-            phoneField.heightAnchor.constraint(equalToConstant: 48),
-            phoneField.widthAnchor.constraint(equalToConstant: 318),
+            phoneField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fourtyEight),
+            phoneField.widthAnchor.constraint(equalToConstant: SizeEditScreen.threeHeighteen),
             
-            phoneLabel.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: LayoutConstants.indentTen),
-            phoneLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, constant: 30),
+            phoneLabel.topAnchor.constraint(equalTo: emailField.bottomAnchor,
+                                            constant: LayoutConstants.indentTen),
+            phoneLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
+                                                constant: SizeEditScreen.thirty),
             phoneLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            phoneLabel.widthAnchor.constraint(equalToConstant: 57),
+            phoneLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.fiftySeven),
             
             dateOfBirthField.topAnchor.constraint(equalTo: phoneField.bottomAnchor,
                                                   constant: LayoutConstants.defaultOffSet),
@@ -363,25 +393,26 @@ class ProfileEditScreenController: UIViewController {
                                                       constant: LayoutConstants.defaultOffSet),
             dateOfBirthField.trailingAnchor.constraint(equalTo: viewList.trailingAnchor,
                                                        constant: -LayoutConstants.defaultOffSet),
-            dateOfBirthField.heightAnchor.constraint(equalToConstant: 48),
-            dateOfBirthField.widthAnchor.constraint(equalToConstant: 318),
-            
-            dateOfBirthLabel.topAnchor.constraint(equalTo: phoneField.bottomAnchor, constant: LayoutConstants.indentTen),
-            dateOfBirthLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, constant: 30),
+            dateOfBirthField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fourtyEight),
+            dateOfBirthField.widthAnchor.constraint(equalToConstant: SizeEditScreen.threeHeighteen),
+            dateOfBirthLabel.topAnchor.constraint(equalTo: phoneField.bottomAnchor,
+                                                  constant: LayoutConstants.indentTen),
+            dateOfBirthLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
+                                                      constant: SizeEditScreen.thirty),
             
             dateOfBirthLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            dateOfBirthLabel.widthAnchor.constraint(equalToConstant: 96),
+            dateOfBirthLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.nintySix),
             
             showButton.topAnchor.constraint(equalTo: viewList.bottomAnchor,
-                                            constant: 40),
+                                            constant: SizeEditScreen.fourty),
             showButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                 constant: LayoutConstants.defaultOffSet),
             showButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                  constant: -LayoutConstants.defaultOffSet),
             showButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                               constant: -108),
-            showButton.heightAnchor.constraint(equalToConstant: 60),
-            showButton.widthAnchor.constraint(equalToConstant: 350)
+                                               constant: -SizeEditScreen.oneHeight),
+            showButton.heightAnchor.constraint(equalToConstant: SizeEditScreen.sixty),
+            showButton.widthAnchor.constraint(equalToConstant: SizeEditScreen.threeHfifty)
         ])
     }
     

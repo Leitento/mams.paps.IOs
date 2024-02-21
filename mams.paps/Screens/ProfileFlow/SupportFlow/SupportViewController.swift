@@ -9,6 +9,30 @@ import UIKit
 
 final class SupportViewController: UIViewController {
     
-     weak var profileCoordinator: ProfileScreenCoordinator?
-
+    //MARK: - Properties
+    
+    weak var profileCoordinator: ProfileScreenCoordinator?
+    
+    //MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+    }
+    
+    //MARK: - Private Methods
+    
+   private func setupUI() {
+        view.backgroundColor = .white
+    }
 }

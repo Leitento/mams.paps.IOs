@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "notif.png",
+      "filename" : "notification.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

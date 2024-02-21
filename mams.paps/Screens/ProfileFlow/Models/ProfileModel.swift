@@ -31,6 +31,7 @@ struct ButtonsModel: Hashable {
 
 enum ButtonsTitles {
     static let favourites = "ProfileCell.favourite".localized
+    static let myAdds = "ProfileCell.myAdds".localized
     static let notifications = "ProfileCell.notification".localized
     static let contractOffer = "ProfileCell.contractOffer".localized
     static let aboutApp = "ProfileCell.aboutApp".localized
@@ -40,6 +41,7 @@ enum ButtonsTitles {
 
 enum Icon {
     static let favourite = UIImage(named: "favourite")
+    static let myAdds = UIImage(named: "adds")
     static let notification = UIImage(named: "notification")
     static let contractOffer = UIImage(named: "contractOffer")
     static let aboutApp = UIImage(named: "aboutApp")
@@ -51,6 +53,7 @@ extension ButtonsModel {
     static func makeButtons() -> [Self] {
         [
             ButtonsModel(icon: Icon.favourite, title: ButtonsTitles.favourites),
+            .init(icon: Icon.myAdds!, title: ButtonsTitles.myAdds),
             .init(icon: Icon.notification!, title: ButtonsTitles.notifications),
             .init(icon: Icon.contractOffer!, title: ButtonsTitles.contractOffer),
             .init(icon: Icon.aboutApp!, title: ButtonsTitles.aboutApp),

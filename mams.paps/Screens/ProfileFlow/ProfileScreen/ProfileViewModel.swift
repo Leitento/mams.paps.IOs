@@ -14,6 +14,7 @@ protocol ProfileViewModelProtocol {
     func didTappedEditProfile()
     
     func didTappedFavouriteButton()
+    func didTappedMyAddsButton()
     func didTappedNotificationButton()
     func didTappedContactOfferButton()
     func didTappedAboutAppButton()
@@ -64,6 +65,9 @@ extension ProfileViewModel: ProfileViewModelProtocol {
     func didTappedFavouriteButton() {
         coordinator?.pushFavouritesButton()
     }
+    func didTappedMyAddsButton() {
+        coordinator?.pushMyAddsButton()
+    }
     func didTappedNotificationButton() {
         coordinator?.pushNotificationButton()
     }
@@ -78,7 +82,5 @@ extension ProfileViewModel: ProfileViewModelProtocol {
     }
     func didTappedLogoutButton() {
         coordinator?.pushLogoutButton()
-//        parentCoordinator.showAuthorizationScreen()
-        //back on authorizationScreen
     }
 }
