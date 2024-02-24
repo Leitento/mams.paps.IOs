@@ -64,6 +64,13 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
         ])
     }
     
+    func presentPopup() {
+        let popupViewController = PopupViewController(callback: nil)
+        navigationController?.modalPresentationStyle = .popover
+        navigationController?.modalTransitionStyle = .coverVertical
+        navigationController?.present(popupViewController, animated: true)
+    }
+    
     func searchText(with searchText: String) {
         viewModel.reset()
         viewModel.setQueryText(with: searchText)

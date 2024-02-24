@@ -10,7 +10,7 @@ final class MapView: UIView {
         static let padding: CGFloat = 20.0
         static let searchBarHeight: CGFloat = 50.0
         static let filterButtonHeight: CGFloat = 50
-        static let filterButtonWidth: CGFloat = 150
+        static let filterButtonWidth: CGFloat = 172
         static let barButtonsCornerRadius: CGFloat = 24.0
         static let zoomButtonCornerRadius: CGFloat = 14.0
         static let circleButtonCornerRadius: CGFloat = buttonSize/2
@@ -222,7 +222,7 @@ final class MapView: UIView {
             
             filterButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Constants.padding),
             filterButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            filterButton.widthAnchor.constraint(equalToConstant: 200),
+            filterButton.widthAnchor.constraint(equalToConstant: Constants.filterButtonWidth),
             filterButton.heightAnchor.constraint(equalToConstant: Constants.filterButtonHeight),
             
             plusZoomButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize),
@@ -382,6 +382,7 @@ final class MapView: UIView {
     
     @objc private func filterButtonTapped(_ sender: UIButton) {
         // Здесь обрабатываем нажатие на кнопку Фильтры
+        controller.presentPopup()
         print("Filters button tapped")
     }
     

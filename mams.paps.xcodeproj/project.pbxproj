@@ -47,6 +47,11 @@
 		0965DA5F2B0FB5D400A457CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */; };
 		097F58F02B62DD99003D6861 /* UIView ++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F58EF2B62DD99003D6861 /* UIView ++.swift */; };
 		097F58F22B62E9B0003D6861 /* TabBarController ++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F58F12B62E9B0003D6861 /* TabBarController ++.swift */; };
+		098FBA662B88C864001DC698 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FBA652B88C864001DC698 /* PopupViewController.swift */; };
+		098FBA682B88C883001DC698 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FBA672B88C883001DC698 /* PopupView.swift */; };
+		098FBA6A2B88C891001DC698 /* PopupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FBA692B88C891001DC698 /* PopupCollectionViewCell.swift */; };
+		098FBA702B88D4AC001DC698 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FBA6F2B88D4AC001DC698 /* PopupMenu.swift */; };
+		098FBA722B893960001DC698 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098FBA712B893960001DC698 /* Configurable.swift */; };
 		09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC6BC42B740AA60029669E /* Coordinates.swift */; };
 		09AC6BC72B7412CE0029669E /* LocationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC6BC62B7412CE0029669E /* LocationServiceError.swift */; };
 		09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC06482B2C8AFB00D71BEB /* OnboardingCoordinator.swift */; };
@@ -115,6 +120,11 @@
 		0965DA5E2B0FB5D400A457CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		097F58EF2B62DD99003D6861 /* UIView ++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView ++.swift"; sourceTree = "<group>"; };
 		097F58F12B62E9B0003D6861 /* TabBarController ++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarController ++.swift"; sourceTree = "<group>"; };
+		098FBA652B88C864001DC698 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		098FBA672B88C883001DC698 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		098FBA692B88C891001DC698 /* PopupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCollectionViewCell.swift; sourceTree = "<group>"; };
+		098FBA6F2B88D4AC001DC698 /* PopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
+		098FBA712B893960001DC698 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		09AC6BC42B740AA60029669E /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		09AC6BC62B7412CE0029669E /* LocationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceError.swift; sourceTree = "<group>"; };
 		09DC06482B2C8AFB00D71BEB /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
@@ -164,11 +174,12 @@
 		091630DF2B10FAD8007E193E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				5A6AA9612B84910700918278 /* ImagePicker.swift */,
 				091540302B61892700B144C1 /* APIKeyStorage.swift */,
 				095BE7D42B1E058000C6220E /* Alert.swift */,
 				09EBCDB92B6F4B8F0093EFAF /* Array.swift */,
 				092E66F52B1B166100FBB04E /* AuthTextField.swift */,
+				098FBA712B893960001DC698 /* Configurable.swift */,
+				5A6AA9612B84910700918278 /* ImagePicker.swift */,
 				09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */,
 				091630E02B10FAF5007E193E /* Localized.swift */,
 				095BE7E72B1F07C200C6220E /* Reusable.swift */,
@@ -190,6 +201,7 @@
 				095480D92B792DF700D65C87 /* SuggestItem.swift */,
 				095480DD2B792E7E00D65C87 /* MapObjectTapListener.swift */,
 				0919F5EB2B811CB100D421F3 /* MapCameraListener.swift */,
+				098FBA642B88C800001DC698 /* Filters */,
 			);
 			path = MapScreen;
 			sourceTree = "<group>";
@@ -239,6 +251,17 @@
 				09AC6BC62B7412CE0029669E /* LocationServiceError.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		098FBA642B88C800001DC698 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				098FBA652B88C864001DC698 /* PopupViewController.swift */,
+				098FBA672B88C883001DC698 /* PopupView.swift */,
+				098FBA692B88C891001DC698 /* PopupCollectionViewCell.swift */,
+				098FBA6F2B88D4AC001DC698 /* PopupMenu.swift */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		09DC06472B2C8AFB00D71BEB /* Coordinators */ = {
@@ -534,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				098FBA682B88C883001DC698 /* PopupView.swift in Sources */,
 				091540312B61892700B144C1 /* APIKeyStorage.swift in Sources */,
 				097F58F22B62E9B0003D6861 /* TabBarController ++.swift in Sources */,
 				5ADDBD3C2B0FA24000CFA9C3 /* AppDelegate.swift in Sources */,
@@ -549,6 +573,7 @@
 				0919F5EC2B811CB100D421F3 /* MapCameraListener.swift in Sources */,
 				093D68102B369F270044AAE7 /* MapView.swift in Sources */,
 				095BE7D32B1E02CD00C6220E /* AuthorizationService.swift in Sources */,
+				098FBA662B88C864001DC698 /* PopupViewController.swift in Sources */,
 				09DC06512B2C8AFB00D71BEB /* AuthorizationCoordinator.swift in Sources */,
 				5A6AA95A2B848EFF00918278 /* ButtonsProfileCell.swift in Sources */,
 				094977912B2C79920089DB13 /* AuthorizationViewModel.swift in Sources */,
@@ -574,6 +599,7 @@
 				09638DA32B35705A005DF42D /* CoreDataService.swift in Sources */,
 				5A6AA9602B848F4800918278 /* ProfileCoordinator.swift in Sources */,
 				094977862B2C79700089DB13 /* MainScreenViewController.swift in Sources */,
+				098FBA702B88D4AC001DC698 /* PopupMenu.swift in Sources */,
 				093D680B2B369D6E0044AAE7 /* MapCoordinator.swift in Sources */,
 				5A6AA9592B848EFF00918278 /* ProfileHeaderView.swift in Sources */,
 				09AC6BC72B7412CE0029669E /* LocationServiceError.swift in Sources */,
@@ -583,6 +609,7 @@
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
 				5A6AA9622B84910800918278 /* ImagePicker.swift in Sources */,
 				09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */,
+				098FBA6A2B88C891001DC698 /* PopupCollectionViewCell.swift in Sources */,
 				094977882B2C79700089DB13 /* MainScreenView.swift in Sources */,
 				095480DE2B792E7E00D65C87 /* MapObjectTapListener.swift in Sources */,
 				094977852B2C79700089DB13 /* MainScreenCollectionViewCell.swift in Sources */,
@@ -590,6 +617,7 @@
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				5A6AA95D2B848EFF00918278 /* ProfileViewModel.swift in Sources */,
 				5A6AA95E2B848EFF00918278 /* SupportViewController.swift in Sources */,
+				098FBA722B893960001DC698 /* Configurable.swift in Sources */,
 				09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */,
 				0949778F2B2C79920089DB13 /* User.swift in Sources */,
 				095480D82B792DD300D65C87 /* MapUIState.swift in Sources */,
