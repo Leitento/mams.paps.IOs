@@ -55,3 +55,15 @@
 "SearchBar.Placeholder" = "Enter the text";
 
 "MapView.FilterButton" = "Filters";
+
+"PopupMenuItem.Playground" = "Playgrounds";
+
+"PopupMenuItem.Cafe" = "Cafe";
+
+"PopupMenuItem.Development" = "Development \nCourses";
+
+"PopupMenuItem.Schools" = "Kindergartens \nSchools";
+
+"PopupMenuItem.Medicine" = "Pharmacies \nClinics";
+
+"PopupMenuItem.Shops" = "Shops";

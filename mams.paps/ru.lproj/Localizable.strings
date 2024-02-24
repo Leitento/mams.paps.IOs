@@ -55,5 +55,18 @@
 
 "MapView.FilterButton" = "Фильтры";
 
+"PopupMenuItem.Playground" = "Детские площадки";
+
+"PopupMenuItem.Cafe" = "Кафе";
+
+"PopupMenuItem.Development" = "Развитие \nКурсы";
+
+"PopupMenuItem.Schools" = "Детские сады \nШколы";
+
+"PopupMenuItem.Medicine" = "Аптеки \nПоликлиники";
+
+"PopupMenuItem.Shops" = "Магазины";
+
+
 
 

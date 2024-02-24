@@ -2,7 +2,7 @@
 
 import UIKit
 
-final class MainScreenCollectionViewCell: UICollectionViewCell {
+final class PopupCollectionViewCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -30,14 +30,14 @@ final class MainScreenCollectionViewCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, constant: -10),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 35),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -35),
             
-            textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            textLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            textLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            textLabel.topAnchor.constraint(greaterThanOrEqualTo: imageView.bottomAnchor, constant: 7),
+            textLabel.heightAnchor.constraint(equalToConstant: 40),
+            textLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            textLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
@@ -61,8 +61,8 @@ final class MainScreenCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension MainScreenCollectionViewCell: Configurable {
-    func setup(with items: MainScreenMenuItem) {
+extension PopupCollectionViewCell: Configurable {
+    func setup(with items: PopupMenuItem) {
         imageView.image = UIImage(named: items.imageName)
         textLabel.text = items.text
     }
