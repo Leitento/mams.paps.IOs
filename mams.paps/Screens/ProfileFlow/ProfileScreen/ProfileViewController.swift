@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProfileViewControllerDelegate: AnyObject {
     func favouriteButtonTapped()
+    func myAddsButtonTapped()
     func notificationButtonTapped()
     func contactOfferButtonTapped()
     func aboutAppButtonTapped()
@@ -16,17 +17,15 @@ protocol ProfileViewControllerDelegate: AnyObject {
     func logoutButtonTapped()
 }
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController , UIScrollViewDelegate {
     
     enum Section: Hashable {
-        case header
         case banner
         case buttons
     }
     enum Cell: Hashable {
-        case header(profile: ProfileModel)
         case banner(banner: BannerModel)
-        case buttons
+        case buttons(button: ButtonsModel)
     }
     
     //MARK: - Private Properties
@@ -42,14 +41,24 @@ final class ProfileViewController: UIViewController {
     private var layoutConfiguration: UICollectionViewCompositionalLayoutConfiguration = {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.scrollDirection = .vertical
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(200)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        header.pinToVisibleBounds = true
+        config.boundarySupplementaryItems = [header]
+
         return config
     }()
     private lazy var layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
         guard let sections = self?.snapshot.sectionIdentifiers,
               let section = sections[safeIndex: sectionIndex] else { return nil }
         switch section {
-        case .header:
-            return self?.setupHeaderLayout()
         case .banner:
             return self?.setupBannerLayout()
         case .buttons:
@@ -60,13 +69,15 @@ final class ProfileViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(BannerProfileCell.self,
-                                forCellWithReuseIdentifier: BannerProfileCell.id)
+                                forCellWithReuseIdentifier: BannerProfileCell.identifier)
         collectionView.register(ButtonsProfileCell.self,
                                 forCellWithReuseIdentifier: ButtonsProfileCell.identifier)
         collectionView.register(ProfileHeaderView.self,
-                                forCellWithReuseIdentifier: ProfileHeaderView.id)
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: ProfileHeaderView.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
         return collectionView
     }()
     
@@ -112,6 +123,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupHeaderLayout() -> NSCollectionLayoutSection? {
+
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
@@ -120,7 +132,7 @@ final class ProfileViewController: UIViewController {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(150)
+            heightDimension: .estimated(150)
         )
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
@@ -129,10 +141,14 @@ final class ProfileViewController: UIViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 10,
+            top: 0,
             leading: 0,
             bottom: 0,
             trailing: 0
+        )
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(50)
         )
         return section
     }
@@ -166,14 +182,15 @@ final class ProfileViewController: UIViewController {
     private func setupButtonsLayout() -> NSCollectionLayoutSection? {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(1)
+            heightDimension: .estimated(66)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(368)
+            heightDimension: .estimated(66)
         )
+      
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
             subitems: [item]
@@ -183,7 +200,7 @@ final class ProfileViewController: UIViewController {
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 20,
             leading: 20,
-            bottom: 40,
+            bottom: 20,
             trailing: 20
         )
         return section
@@ -195,19 +212,9 @@ final class ProfileViewController: UIViewController {
             indexPath,
             itemIdentifier in
             switch itemIdentifier {
-            case .header(let profile):
+            case .banner:
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: ProfileHeaderView.id,
-                    for: indexPath) as?  ProfileHeaderView
-                else {
-                    return  UICollectionViewCell()
-                }
-                cell.configuredCell(profile: profile)
-                return  cell
-                
-            case .banner(let banner):
-                guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: BannerProfileCell.id,
+                    withReuseIdentifier: BannerProfileCell.identifier,
                     for: indexPath
                 ) as? BannerProfileCell
                 else {
@@ -215,14 +222,14 @@ final class ProfileViewController: UIViewController {
                 }
                 return cell
                 
-            case .buttons:
+            case .buttons(let model):
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ButtonsProfileCell.identifier,
                     for: indexPath) as? ButtonsProfileCell
                 else {
                     return UICollectionViewCell()
                 }
-                cell.delegate = self
+                cell.configuredCell(button: model)
                 return cell
             }
         }
@@ -230,11 +237,10 @@ final class ProfileViewController: UIViewController {
     
     private func makeHeaderProvider(profile: ProfileModel) -> (UICollectionView, String, IndexPath)
     -> UICollectionReusableView? {
-        
         return { collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionHeader else { return nil }
             guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind, withReuseIdentifier: ProfileHeaderView.id, for: indexPath) as? ProfileHeaderView
+                ofKind: kind, withReuseIdentifier: ProfileHeaderView.identifier, for: indexPath) as? ProfileHeaderView
             else { return nil}
             header.configuredCell(profile: profile)
             return header
@@ -243,12 +249,13 @@ final class ProfileViewController: UIViewController {
     
     private func makeSnapshot(profile: Profile) {
         var snapshot = Snapshot()
-        snapshot.appendSections([.header])
-        snapshot.appendItems([.header(profile: profile.profileModel)], toSection: .header)
         snapshot.appendSections([.banner])
         snapshot.appendItems([.banner(banner: profile.bannerModel)], toSection: .banner)
         snapshot.appendSections([.buttons])
-        snapshot.appendItems([.buttons], toSection: .buttons)
+        profile.buttonsModel.forEach {
+            snapshot.appendItems([.buttons(button: $0)], toSection: .buttons)
+        }
+        dataSource.supplementaryViewProvider = makeHeaderProvider(profile: profile.profileModel)
         dataSource.apply(snapshot)
     }
     
@@ -279,27 +286,6 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: ProfileViewControllerDelegate {
-    func favouriteButtonTapped() {
-        viewModel.didTappedFavouriteButton()
-    }
-    func notificationButtonTapped() {
-        viewModel.didTappedNotificationButton()
-    }
-    func contactOfferButtonTapped() {
-        viewModel.didTappedContactOfferButton()
-    }
-    func aboutAppButtonTapped() {
-        viewModel.didTappedAboutAppButton()
-    }
-    func supportButtonTapped() {
-        viewModel.didTappedSupportButton()
-    }
-    func logoutButtonTapped() {
-        viewModel.didTappedLogoutButton()
-    }
-}
-
 extension ProfileViewController {
     func createCustomNavigationBar() {
         navigationItem.hidesBackButton = true
@@ -312,13 +298,12 @@ extension ProfileViewController {
         let title = UILabel()
         title.textAlignment = .left
         title.font = .systemFont(ofSize: 20, weight: .medium)
-        title.text = "Профиль"
+        title.text = "Profile.header".localized
         title.textColor = .customGrey
         title.frame = CGRect(x: 20, y: 14, width: 114, height: 22)
         view.addSubview(title)
         return view
     }
-    
     func createEditButton(imageName: String, selector: Selector) -> UIBarButtonItem {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "edit"), for: .normal)
@@ -332,3 +317,15 @@ extension ProfileViewController {
     }
 }
 
+extension ProfileViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = dataSource.itemIdentifier(for: indexPath) else { return }
+        switch cell {
+        case .banner(let banner):
+            return
+        case .buttons(let button):
+            viewModel.didTappedButton(target: button.target)
+            
+        }
+    }
+}

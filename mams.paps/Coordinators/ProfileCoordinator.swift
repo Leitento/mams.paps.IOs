@@ -12,6 +12,7 @@ protocol ProfileCoordinatorProtocol: AnyObject {
     func pushProfileEditingButton()
     func pushBannerButton()
     func pushFavouritesButton()
+    func pushMyAddsButton()
     func pushNotificationButton()
     func pushContactOfferButton()
     func pushAboutAppButton()
@@ -44,7 +45,7 @@ final class ProfileScreenCoordinator {
         rootViewController = profileViewController
         let navigationController = UINavigationController(rootViewController: profileViewController)
         navigationController.tabBarItem = UITabBarItem(title: "Profile".localized,
-                                                       image: UIImage(named: "profileTabbarIcon"),
+                                                       image: UIImage(systemName: "person.crop.circle"),
                                                        tag: 4)
         self.navigationController =  navigationController
         return navigationController
@@ -81,6 +82,9 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
         print("showEventsScreen")
     }
     
+    func pushMyAddsButton() {
+        print("showMy Adds")
+    }
     func pushNotificationButton() {
         print("showServicesScreen")
         let viewController = NotificationViewController()
@@ -91,14 +95,12 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
     func pushContactOfferButton() {
         print("showUsefulScreen")
         let viewController = ContractOfferViewController()
-//        viewController.coordinator = self
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     func pushAboutAppButton() {
         print("showUsefulScreen")
         let viewController = AboutAppViewController()
-//        viewController.profileCoordinator = self
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -112,7 +114,6 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
     func pushLogoutButton() {
         print("showUsefulScreen")
         parentCoordinator?.showAuthorizationScreen()
-        //        parentCoordinator!.showAuthorizationScreen()
     }
 }
 

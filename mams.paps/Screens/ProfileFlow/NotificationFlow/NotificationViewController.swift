@@ -9,7 +9,24 @@ import UIKit
 
 final class NotificationViewController: UIViewController {
     
-     weak var profileCoordinator: ProfileScreenCoordinator?
+    //MARK: - Properties
+    
+    weak var profileCoordinator: ProfileScreenCoordinator?
+    
+    //MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+    }
+    
+    //MARK: - Private Methods
+    
+    private func setupUI() {
+        view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .customGreyButtons
+        createCustomNavBar(on: self, title: "Notification.navBar".localized)
+    }
 
     
 }

@@ -57,6 +57,8 @@
 		09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */; };
 		09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB92B6F4B8F0093EFAF /* Array.swift */; };
 		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
+		1FCDD5522B878F1700098A28 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */; };
+		1FCDD5542B89E71D00098A28 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDD5532B89E71D00098A28 /* Font.swift */; };
 		5A6AA9532B848EFF00918278 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA93E2B848EFF00918278 /* AboutAppViewController.swift */; };
 		5A6AA9542B848EFF00918278 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9402B848EFF00918278 /* NotificationViewController.swift */; };
 		5A6AA9552B848EFF00918278 /* ContractOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9422B848EFF00918278 /* ContractOfferViewController.swift */; };
@@ -124,6 +126,8 @@
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstans.swift; sourceTree = "<group>"; };
 		09EBCDB92B6F4B8F0093EFAF /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		1FCDD5532B89E71D00098A28 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6AA93E2B848EFF00918278 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		5A6AA9402B848EFF00918278 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */,
 				097F58F12B62E9B0003D6861 /* TabBarController ++.swift */,
 				097F58EF2B62DD99003D6861 /* UIView ++.swift */,
+				1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */,
+				1FCDD5532B89E71D00098A28 /* Font.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -557,6 +563,7 @@
 				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
 				0949778E2B2C79920089DB13 /* AuthorizationViewController.swift in Sources */,
 				09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */,
+				1FCDD5542B89E71D00098A28 /* Font.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
 				5A6AA9582B848EFF00918278 /* ProfileModel.swift in Sources */,
@@ -582,6 +589,7 @@
 				09638DA52B3583C0005DF42D /* KeychainService.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
 				5A6AA9622B84910800918278 /* ImagePicker.swift in Sources */,
+				1FCDD5522B878F1700098A28 /* CustomNavigationController.swift in Sources */,
 				09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */,
 				094977882B2C79700089DB13 /* MainScreenView.swift in Sources */,
 				095480DE2B792E7E00D65C87 /* MapObjectTapListener.swift in Sources */,
@@ -742,7 +750,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F72FD6J9GL;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mams.paps/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using location";
@@ -771,7 +779,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = F72FD6J9GL;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mams.paps/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using location";

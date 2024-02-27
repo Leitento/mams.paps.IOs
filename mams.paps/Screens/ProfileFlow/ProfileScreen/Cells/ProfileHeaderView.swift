@@ -9,9 +9,16 @@ import UIKit
 
 final class ProfileHeaderView: UICollectionViewCell {
     
-    //MARK: - Properties
+    //MARK: - Enum
     
-    static let id = "ProfileHeaderView"
+    enum SizeHeader {
+        ///22
+        static let topOffset: CGFloat = 22
+        ///120
+        static let imageSize: CGFloat = 120
+    }
+  
+    //MARK: - Properties
     
     private lazy var profileImage: UIImageView = {
         var profileImage = UIImageView()
@@ -21,16 +28,16 @@ final class ProfileHeaderView: UICollectionViewCell {
     }()
     private lazy var nameLabel: UILabel = {
         var nameLabel = UILabel()
-        nameLabel.text = "Фамилия Имя"
-        nameLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        nameLabel.text = "ProfileHeaderView.nameLabel".localized
+        nameLabel.font = Fonts.semibold20
         nameLabel.textColor = .black
         nameLabel.textAlignment = .left
         return nameLabel
     }()
     private lazy var cityLabel: UILabel = {
         var cityLabel = UILabel()
-        cityLabel.text = "Город"
-        cityLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        cityLabel.text = "ProfileHeaderView.cityLabel".localized
+        cityLabel.font = Fonts.medium14
         cityLabel.textColor = .black
         cityLabel.textAlignment = .left
         return cityLabel
@@ -48,7 +55,7 @@ final class ProfileHeaderView: UICollectionViewCell {
     private lazy var mailLabel: UILabel = {
         var mailLabel = UILabel()
         mailLabel.text = "mail.mail@mail.ru"
-        mailLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        mailLabel.font = Fonts.medium14
         mailLabel.textColor = .black
         mailLabel.textAlignment = .left
         return mailLabel
@@ -66,25 +73,21 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     //MARK: - Methods
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     func configuredCell(profile: ProfileModel) {
         nameLabel.text = "\(profile.name)" + " " + "\(profile.secondName)"
         cityLabel.text = "\(profile.city)"
         mailLabel.text = "\(profile.email)"
+        layer.cornerRadius = 30
+        layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     //MARK: - Private Mehtods
-    
-    func setupUI() {
-        self.layer.cornerRadius = LayoutConstants.cornerRadius
+        private func setupUI() {
         self.backgroundColor = .white
         addSubviews(nameLabel, profileImage, cityLabel, cityIcon, mailLabel, mailIcon)
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: topAnchor,
-                                           constant: 22),
+                                           constant: SizeHeader.topOffset),
             nameLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,
                                                constant: LayoutConstants.defaultOffSet),
             
@@ -94,8 +97,8 @@ final class ProfileHeaderView: UICollectionViewCell {
                                                   constant: LayoutConstants.defaultOffSet),
             profileImage.bottomAnchor.constraint(equalTo: bottomAnchor,
                                                  constant: -LayoutConstants.defaultOffSet),
-            profileImage.widthAnchor.constraint(equalToConstant: 120),
-            profileImage.heightAnchor.constraint(equalToConstant: 120),
+            profileImage.widthAnchor.constraint(equalToConstant: SizeHeader.imageSize),
+            profileImage.heightAnchor.constraint(equalToConstant: SizeHeader.imageSize),
             
             cityLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
                                            constant: LayoutConstants.indentTwelve),

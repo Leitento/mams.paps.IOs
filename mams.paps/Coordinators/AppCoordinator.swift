@@ -38,14 +38,14 @@ final class AppCoordinator {
     
     // MARK: - Private methods
     private func showOnboarding() -> UIViewController {
-        var coordinator = onboardingCoordinator()
+        let coordinator = onboardingCoordinator()
         addChildCoordinator(coordinator)
         setFlow(to: coordinator.start())
         return rootViewController
     }
     
     private func showTabBarOnMainScreen(for user: User?) -> UIViewController {
-        var coordinator = tabBarCoordinator()
+        let coordinator = tabBarCoordinator()
         addChildCoordinator(coordinator)
         setFlow(to: coordinator.start())
         return rootViewController

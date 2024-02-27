@@ -13,12 +13,7 @@ protocol ProfileViewModelProtocol {
     func didTappedGetProfile()
     func didTappedEditProfile()
     
-    func didTappedFavouriteButton()
-    func didTappedNotificationButton()
-    func didTappedContactOfferButton()
-    func didTappedAboutAppButton()
-    func didTappedSupportButton()
-    func didTappedLogoutButton()
+    func didTappedButton(target: ButtonsTarget)
 }
 
 final class ProfileViewModel {
@@ -61,24 +56,23 @@ extension ProfileViewModel: ProfileViewModelProtocol {
     func didTappedEditProfile() {
         coordinator?.pushProfileEditingButton()
     }
-    func didTappedFavouriteButton() {
-        coordinator?.pushFavouritesButton()
-    }
-    func didTappedNotificationButton() {
-        coordinator?.pushNotificationButton()
-    }
-    func didTappedContactOfferButton() {
-        coordinator?.pushContactOfferButton()
-    }
-    func didTappedAboutAppButton() {
-        coordinator?.pushAboutAppButton()
-    }
-    func didTappedSupportButton() {
-        coordinator?.pushSupportButton()
-    }
-    func didTappedLogoutButton() {
-        coordinator?.pushLogoutButton()
-//        parentCoordinator.showAuthorizationScreen()
-        //back on authorizationScreen
+   
+    func didTappedButton(target: ButtonsTarget) {
+        switch target {
+        case .favourites:
+            coordinator?.pushFavouritesButton()
+        case .myAdvertising:
+            coordinator?.pushMyAddsButton()
+        case .notifications:
+            coordinator?.pushNotificationButton()
+        case .contractOffer:
+            coordinator?.pushContactOfferButton()
+        case .aboutApp:
+            coordinator?.pushAboutAppButton()
+        case .support:
+            coordinator?.pushSupportButton()
+        case .logout:
+            coordinator?.pushLogoutButton()
+        }
     }
 }
