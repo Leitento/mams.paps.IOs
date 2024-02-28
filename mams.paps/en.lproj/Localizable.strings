@@ -1,0 +1,59 @@
+
+
+"AlertTitle.Error" = "Error";
+
+"Onboarding.NextButton" = "Next";
+
+"OnboardingFirstPage.Text" = "From parents to parents";
+
+"OnboardingSecondPage.Text" = "Сhildren will be interested";
+
+"OnboardingThirdPage.Text" = "Locations that are right for your family";
+
+"AuthorizationAlert.Title" = "Authorization error";
+
+"AuthorizationAlert.Message" = "Incorrect login or password";
+
+"Authorization.Welcome" = "Join the";
+
+"Authorization.Info" = "Receive notifications about great offers and earn discount points";
+
+"AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
+
+"AuthorizationError.EmptyLogin" = "Login cannot be empty";
+
+"AuthorizationError.EmptyPassword" = "Password cannot be empty";
+
+"Login.Placeholder" = "E-mail";
+
+"Password.Placeholder" = "Your password";
+
+"RestorePassword.Text" = "Forgot your password?";
+
+"SignUp.Text" = "Sign up";
+
+"ContinueButton.Text" = "Continue without registration";
+
+"logInButton.Text" = "Log In";
+
+"MainScreenMenuItem.Navigation" = "Navigator for parents";
+
+"MainScreenMenuItem.Events" = "Events and Activities";
+
+"MainScreenMenuItem.Services" = "Services and announcements";
+
+"MainScreenMenuItem.Useful" = "Useful";
+
+"MainScreen.Title" = "Main";
+
+"Map.Title" = "Map";
+
+"LocationServiceError.AuthorizationDenied" = "Location services authorization denied";
+
+"LocationServiceError.LocationUnavailable" = "Location services are currently unavailable";
+
+"SearchBar.Placeholder" = "Enter the text";
+
+"MapView.FilterButton" = "Filters";
+
+"WhatNearby.Title" = "What's nearby";
