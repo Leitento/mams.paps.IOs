@@ -3,7 +3,7 @@
 import UIKit
 
 protocol InfoLocationCoordinatorProtocol: AnyObject {
-    func switchToNextFlow(delegate: InfoFilterButtonDelegate)
+    func switchToNextFlow(delegate: InfoFilterButtonDelegate, sourceView: UIView)
     func presentChildViewController(_ viewController: UIViewController)
 }
 
@@ -46,11 +46,16 @@ extension InfoLocationCoordinator: CoordinatorProtocol, InfoLocationCoordinatorP
         createNavigationController()
     }
     
-     func switchToNextFlow(delegate: InfoFilterButtonDelegate) {
+    func switchToNextFlow(delegate: InfoFilterButtonDelegate, sourceView: UIView) {
         let infoCoordinator = InfoFilterLocationCoordinator(parentCoordinator: self, parentController: delegate)
-         let locationCoordinatorVC = infoCoordinator.start()
-         self.presentChildViewController(locationCoordinatorVC)
-        
+        let viewModel = InfoFilterModel()
+        let locationCoordinatorVC = InfoFilterController(viewModel: viewModel)
+        locationCoordinatorVC.modalPresentationStyle = .popover
+        locationCoordinatorVC.preferredContentSize = CGSize(width: 300, height: 300)
+        let locationPopoverVC = locationCoordinatorVC.popoverPresentationController
+        locationPopoverVC?.sourceView = sourceView
+        locationPopoverVC?.delegate = locationCoordinatorVC
+        self.presentChildViewController(locationCoordinatorVC)
     }
 
 }

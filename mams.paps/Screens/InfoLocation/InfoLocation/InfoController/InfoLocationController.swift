@@ -1,7 +1,7 @@
 import UIKit
 
 protocol  InfoFilterButtonDelegate:AnyObject {
-    func didSelectCities(_ categiry: Location)
+    func didSelectCategory(_ categiry: [Location])
 }
 
 
@@ -12,7 +12,6 @@ final class InfoLocationController: UIViewController {
     
     private var viewModel: InfoLocationModelProtocol
     private lazy var dataSource = makeDataSource()
-    private lazy var secondDataSource = secondMakeDataSource()
     
     private var infoFilterViewDelegate = InfoFilterView()
     private lazy var loader = ActivityIndicator()
@@ -22,13 +21,6 @@ final class InfoLocationController: UIViewController {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.backgroundColor = .systemBackground
         collectionView.register(InfoViewCell.self, forCellWithReuseIdentifier: InfoViewCell.identifier)
-        return collectionView
-    }()
-    
-    private lazy var secondCollectionView: UICollectionView =  {
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: secondCreateLayout())
-        collectionView.backgroundColor = .systemBackground
-        collectionView.register(InfoViewCellFilter.self, forCellWithReuseIdentifier: InfoViewCellFilter.identifier)
         return collectionView
     }()
     
@@ -73,28 +65,11 @@ final class InfoLocationController: UIViewController {
         }
     }
     
-    private func secondMakeDataSource() -> DataSource {
-        return DataSource(collectionView: secondCollectionView) { [weak self] collectionView, indexPath, itemIdentifier in
-            guard let self = self else { return UICollectionViewCell() }
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InfoViewCellFilter.identifier, for: indexPath) as! InfoViewCellFilter
-            let location = self.viewModel.locations[indexPath.row]
-            cell.configurationCellCollection(with: location)
-            return cell
-        }
-    }
-    
     private func makeSnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(viewModel.locations, toSection: 0)
         dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    
-    private func secondMakeSnapshot() {
-        var snapshot = Snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(viewModel.locations, toSection: 0)
-        secondDataSource.apply(snapshot, animatingDifferences: true)
     }
     
     private func bindingModel() {
@@ -106,9 +81,8 @@ final class InfoLocationController: UIViewController {
             case .loading:
                 self.loader.activityIndicatorEnabled(true)
             case .done:
-                self.loader.activityIndicatorEnabled(true)
+                self.loader.activityIndicatorEnabled(false)
                 self.makeSnapshot()
-                self.secondMakeSnapshot()
             case .error(error: let error):
                 print(error)
             }
@@ -138,31 +112,7 @@ final class InfoLocationController: UIViewController {
         let lauout = UICollectionViewCompositionalLayout(section: section)
         return lauout
     }
-    
-    private func secondCreateLayout() -> UICollectionViewLayout {
-        let spacing: CGFloat = LayoutConstants.spacing
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(52.0))
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize, subitems: [item])
-        group.interItemSpacing = .fixed(spacing)
-        let section  = NSCollectionLayoutSection(group: group)
         
-        section.contentInsets = NSDirectionalEdgeInsets.init(top: 0,
-                                                             leading: 0,
-                                                             bottom: 0,
-                                                             trailing: 0)
-        section.interGroupSpacing = 0
-        let lauout = UICollectionViewCompositionalLayout(section: section)
-        return lauout
-    }
-    
     private func setupCollectionView() {
         collectionView.backgroundColor = .customOrange
         if infoFilterView == nil {
@@ -187,8 +137,17 @@ final class InfoLocationController: UIViewController {
     }
     
     @objc func filterButtonTapped() {
-        viewModel.switchToNextFlow(delegate: self)
-
+//        viewModel.switchToNextFlow(delegate: self)
+        let viewModel = InfoFilterModel()
+        let locationCoordinatorVC = InfoFilterController(viewModel: viewModel)
+        locationCoordinatorVC.modalPresentationStyle = .popover
+        locationCoordinatorVC.preferredContentSize = CGSize(width: 300, height: 300)
+        let locationPopoverVC = locationCoordinatorVC.popoverPresentationController
+        locationPopoverVC?.permittedArrowDirections = .any
+        locationPopoverVC?.sourceView = infoFilterView
+        locationPopoverVC?.sourceRect = CGRect(x: infoFilterView.bounds.midX, y: infoFilterView.bounds.midY, width: 0, height: 0)
+        locationPopoverVC?.delegate = locationCoordinatorVC
+        present(locationCoordinatorVC, animated: true)
     }
 }
 
@@ -196,7 +155,7 @@ final class InfoLocationController: UIViewController {
 // MARK: - Extension
 
 extension InfoLocationController: InfoFilterButtonDelegate {
-    func didSelectCities(_ categiry: Location) {
-        
+    func didSelectCategory(_ category: [Location]) {
+        viewModel.didTapCategory(category)
     }
 }

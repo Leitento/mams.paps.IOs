@@ -28,7 +28,7 @@ final class InfoFilterModel {
     
     //MARK: - Properties
     
-    private weak var coordinator: InfoFilterLocationCoordinator?
+//    private weak var coordinator: InfoFilterLocationCoordinator?
     var locations: [Location] = []
     var stateChanger: ((State) -> Void)?
     var state: State = .loading {
@@ -41,12 +41,12 @@ final class InfoFilterModel {
     
     //MARK: - Life Cycle
     
-    init(coordinator: InfoFilterLocationCoordinator) {
-        self.coordinator = coordinator
-    }
-    deinit {
-        print("InfoFilterModel  \(#function)")
-    }
+//    init(coordinator: InfoFilterLocationCoordinator) {
+//        self.coordinator = coordinator
+//    }
+//    deinit {
+//        print("InfoFilterModel  \(#function)")
+//    }
 }
 
 //MARK: - Extension

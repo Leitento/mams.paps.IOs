@@ -29,7 +29,7 @@ final class InfoFilterLocationCoordinator {
     // MARK: - Private methods
     
     private func createNavigationController() -> UIViewController {
-        let viewModel = InfoFilterModel(coordinator: self)
+        let viewModel = InfoFilterModel()
         let infoLocationController = InfoFilterController(viewModel: viewModel)
         infoLocationController.delegate = parentController
         let navigationController = UINavigationController(rootViewController: infoLocationController)

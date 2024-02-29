@@ -7,6 +7,7 @@ protocol InfoLocationModelProtocol {
     var loadingHandler: ((Bool) -> Void)? { get set }
     func switchToNextFlow(delegate: InfoFilterButtonDelegate)
     func getLocation()
+    func didTapCategory(_ category: [Location])
 }
 
 final class InfoLocationModel {
@@ -47,7 +48,7 @@ final class InfoLocationModel {
 extension InfoLocationModel: InfoLocationModelProtocol {
     
     func switchToNextFlow(delegate: InfoFilterButtonDelegate) {
-        coordinator?.switchToNextFlow(delegate: delegate)
+//        coordinator?.switchToNextFlow(delegate: delegate)
     }
     
     func getLocation() {
@@ -67,6 +68,12 @@ extension InfoLocationModel: InfoLocationModelProtocol {
             }
             self.loadingHandler?(false)
         }
+    }
+    
+    func didTapCategory(_ category: [Location]) {
+        state = .done(locations: category)
+        print(category)
+        
     }
 }
 

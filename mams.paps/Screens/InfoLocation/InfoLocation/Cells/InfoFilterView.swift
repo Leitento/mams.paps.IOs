@@ -17,15 +17,25 @@ final class InfoFilterView: UIView {
         filter.setTitleColor(.black, for: .normal)
         filter.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         filter.contentHorizontalAlignment = .left
+//        let image = UIImage(systemName: "slider.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular))
+//        filter.setImage(image, for: .normal)
+//        
+//        var buttonConfig = UIButton.Configuration.tinted()
+//        buttonConfig.imagePadding = 60
+//        buttonConfig.imagePlacement = .trailing
+//        filter.configuration = buttonConfig
+
         filter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         return filter
     }()
     
-    private lazy var imageSlider: UIImageView = {
-        var image = UIImageView(image: Constants.sliderImage)
-        image.contentMode = .center
-        image.tintColor = .black
-        return image
+    private lazy var imageSlider: UIButton = {
+        let filter = UIButton()
+        
+        var image = UIImage(systemName: "slider.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular))
+        image = image?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        filter.setImage(image, for: .normal)
+        return filter
     }()
     
     private lazy var stackFilter: UIStackView = {

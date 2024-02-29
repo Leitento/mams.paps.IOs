@@ -39,11 +39,8 @@ final class InfoFilterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        setupTitleInNavigationBar(title: "WhatNearby.Title".localized,
-                                  textColor: .black,
-                                  backgroundColor: .white,
-                                  isLeftItem: true)
+        collectionView.delegate = self
+        collectionView.reloadData()
         bindingModel()
         viewModel.getLocation()
         setupCollectionView()
@@ -123,4 +120,21 @@ final class InfoFilterController: UIViewController {
     }
 }
 
+extension InfoFilterController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectionLocation = viewModel.locations[indexPath.row]
+        delegate?.didSelectCategory([selectionLocation])
+        dismiss(animated: true, completion: nil)
+    }
+}
 
+extension InfoFilterController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        popoverPresentationController.containerView?.backgroundColor = .black.withAlphaComponent(0.25)
+    }
+}
