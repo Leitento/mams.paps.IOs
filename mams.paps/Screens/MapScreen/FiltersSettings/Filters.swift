@@ -14,4 +14,9 @@ enum Filters {
 struct FilterOption {
     let name: String
     let iconName: String
+    let settings: [SettingsOption]
+}
+
+struct SettingsOption {
+    let name: String
 }

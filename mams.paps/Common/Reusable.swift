@@ -11,3 +11,9 @@ extension UICollectionViewCell: ReusableView {
         return String(describing: self)
     }
 }
+
+extension UITableViewCell: ReusableView {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}

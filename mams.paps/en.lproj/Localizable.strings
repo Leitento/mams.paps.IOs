@@ -76,6 +76,8 @@
 
 "Filter" = "Filter";
 
+"FilterSettingsView.Button" = "Show";
+
 "FilterCategoryLabel.Playground" = "Customize your game";
 
 "FilterCategoryLabel.Cafe" = "Customize cafe";
@@ -105,3 +107,36 @@
 "Covering" = "Covering";
 
 "LimitedMobilityEquipment" = "Equipment PLM";
+
+"EquipmentSettings.Playground" = "Playground";
+
+"EquipmentSettings.Slide" = "Slide";
+
+"EquipmentSettings.SwingsForBaby" = "Swings for Babies";
+
+"EquipmentSettings.SwingsForChildren" = "Swings for Children";
+
+"EquipmentSettings.WallBars" = "Wall Bars";
+
+"EquipmentSettings.ElaboratePlaygroundSet" = "Elaborate Playground Set";
+
+"SizeSettings.Small" = "Small";
+
+"SizeSettings.Medium" = "Medium";
+
+"SizeSettings.Large" = "Large";
+
+"CoveringSettings.Soft" = "Soft";
+
+"CoveringSettings.Pebbles" = "Pebbles";
+
+"CoveringSettings.Sand" = "Sand";
+
+"CoveringSettings.Asphalt" = "Asphalt";
+
+"BooleanSettings.Yes" = "Yes";
+
+"BooleanSettings.No" = "No";
+
+
+

@@ -75,6 +75,8 @@
 
 "Filter" = "Фильтр";
 
+"FilterSettingsView.Button" = "Показать";
+
 "FilterCategoryLabel.Playground" = "Настрой свою игру";
 
 "FilterCategoryLabel.Cafe" = "Настрой кафе";
@@ -104,6 +106,38 @@
 "Covering" = "Покрытие";
 
 "LimitedMobilityEquipment" = "Оборудование МГН";
+
+"EquipmentSettings.Playground" = "Песочница";
+
+"EquipmentSettings.Slide" = "Горка";
+
+"EquipmentSettings.SwingsForBaby" = "Качели для малышей";
+
+"EquipmentSettings.SwingsForChildren" = "Качели для детей постарше";
+
+"EquipmentSettings.WallBars" = "Шведская стенка";
+
+"EquipmentSettings.ElaboratePlaygroundSet" = "Сложный игровой комплекс";
+
+"SizeSettings.Small" = "Маленькая";
+
+"SizeSettings.Medium" = "Средняя";
+
+"SizeSettings.Large" = "Большая";
+
+"CoveringSettings.Soft" = "Мягкое";
+
+"CoveringSettings.Pebbles" = "Галька";
+
+"CoveringSettings.Sand" = "Песок";
+
+"CoveringSettings.Asphalt" = "Асфальт";
+
+"BooleanSettings.Yes" = "Есть";
+
+"BooleanSettings.No" = "Нет";
+
+
 
 
 

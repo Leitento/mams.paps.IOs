@@ -12,6 +12,9 @@
 		09086C072B93616D00292C2E /* FilterSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C062B93616D00292C2E /* FilterSettingsViewModel.swift */; };
 		09086C0B2B93863500292C2E /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C0A2B93863500292C2E /* FilterCategory.swift */; };
 		09086C0D2B93872B00292C2E /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C0C2B93872B00292C2E /* Filters.swift */; };
+		09086C0F2B94C65100292C2E /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C0E2B94C65100292C2E /* FiltersTableViewCell.swift */; };
+		09086C112B94E76900292C2E /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C102B94E76900292C2E /* SettingsTableViewCell.swift */; };
+		09086C132B94E9FD00292C2E /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C122B94E9FD00292C2E /* Checkbox.swift */; };
 		0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915402E2B5D17C000B144C1 /* MapViewModel.swift */; };
 		091540312B61892700B144C1 /* APIKeyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091540302B61892700B144C1 /* APIKeyStorage.swift */; };
 		091630E12B10FAF5007E193E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091630E02B10FAF5007E193E /* Localized.swift */; };
@@ -91,6 +94,9 @@
 		09086C062B93616D00292C2E /* FilterSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettingsViewModel.swift; sourceTree = "<group>"; };
 		09086C0A2B93863500292C2E /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
 		09086C0C2B93872B00292C2E /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		09086C0E2B94C65100292C2E /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
+		09086C102B94E76900292C2E /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		09086C122B94E9FD00292C2E /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		0915402E2B5D17C000B144C1 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		091540302B61892700B144C1 /* APIKeyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyStorage.swift; sourceTree = "<group>"; };
 		091630E02B10FAF5007E193E /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				09086C062B93616D00292C2E /* FilterSettingsViewModel.swift */,
 				09086C0A2B93863500292C2E /* FilterCategory.swift */,
 				09086C0C2B93872B00292C2E /* Filters.swift */,
+				09086C0E2B94C65100292C2E /* FiltersTableViewCell.swift */,
+				09086C102B94E76900292C2E /* SettingsTableViewCell.swift */,
 			);
 			path = FiltersSettings;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 				095BE7D42B1E058000C6220E /* Alert.swift */,
 				09EBCDB92B6F4B8F0093EFAF /* Array.swift */,
 				092E66F52B1B166100FBB04E /* AuthTextField.swift */,
+				09086C122B94E9FD00292C2E /* Checkbox.swift */,
 				098FBA712B893960001DC698 /* Configurable.swift */,
 				5A6AA9612B84910700918278 /* ImagePicker.swift */,
 				09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */,
@@ -604,15 +613,18 @@
 				094977992B2C799B0089DB13 /* OnboardingSlide.swift in Sources */,
 				5A6AA9532B848EFF00918278 /* AboutAppViewController.swift in Sources */,
 				095BE7E42B1F01C900C6220E /* RoundedBottomView.swift in Sources */,
+				09086C132B94E9FD00292C2E /* Checkbox.swift in Sources */,
 				0949778E2B2C79920089DB13 /* AuthorizationViewController.swift in Sources */,
 				09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
 				09086C0B2B93863500292C2E /* FilterCategory.swift in Sources */,
 				5A6AA9582B848EFF00918278 /* ProfileModel.swift in Sources */,
+				09086C112B94E76900292C2E /* SettingsTableViewCell.swift in Sources */,
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,
 				5A6AA9572B848EFF00918278 /* ProfileEditViewModel.swift in Sources */,
 				09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */,
+				09086C0F2B94C65100292C2E /* FiltersTableViewCell.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
 				0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */,
 				09086C0D2B93872B00292C2E /* Filters.swift in Sources */,
