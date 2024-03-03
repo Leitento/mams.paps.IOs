@@ -4,6 +4,7 @@ import UIKit
 
 final class PopupCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Private properties
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +22,7 @@ final class PopupCollectionViewCell: UICollectionViewCell {
         return textLabel
     }()
 
+    // MARK: - Private methods
     private func setupSubviews() {
         contentView.addSubview(imageView)
         contentView.addSubview(textLabel)
@@ -48,6 +50,7 @@ final class PopupCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderColor = UIColor.systemGray.cgColor
     }
     
+    // MARK: - Life Cycle
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -61,6 +64,7 @@ final class PopupCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Configurable
 extension PopupCollectionViewCell: Configurable {
     func setup(with items: PopupMenuItem) {
         imageView.image = UIImage(named: items.imageName)

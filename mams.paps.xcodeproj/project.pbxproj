@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09086C032B935C9300292C2E /* FilterSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C022B935C9300292C2E /* FilterSettingsViewController.swift */; };
+		09086C052B935C9E00292C2E /* FilterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C042B935C9E00292C2E /* FilterSettingsView.swift */; };
+		09086C072B93616D00292C2E /* FilterSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C062B93616D00292C2E /* FilterSettingsViewModel.swift */; };
+		09086C0B2B93863500292C2E /* FilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C0A2B93863500292C2E /* FilterCategory.swift */; };
+		09086C0D2B93872B00292C2E /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09086C0C2B93872B00292C2E /* Filters.swift */; };
 		0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915402E2B5D17C000B144C1 /* MapViewModel.swift */; };
 		091540312B61892700B144C1 /* APIKeyStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091540302B61892700B144C1 /* APIKeyStorage.swift */; };
 		091630E12B10FAF5007E193E /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091630E02B10FAF5007E193E /* Localized.swift */; };
@@ -81,6 +86,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09086C022B935C9300292C2E /* FilterSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettingsViewController.swift; sourceTree = "<group>"; };
+		09086C042B935C9E00292C2E /* FilterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettingsView.swift; sourceTree = "<group>"; };
+		09086C062B93616D00292C2E /* FilterSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSettingsViewModel.swift; sourceTree = "<group>"; };
+		09086C0A2B93863500292C2E /* FilterCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategory.swift; sourceTree = "<group>"; };
+		09086C0C2B93872B00292C2E /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		0915402E2B5D17C000B144C1 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		091540302B61892700B144C1 /* APIKeyStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyStorage.swift; sourceTree = "<group>"; };
 		091630E02B10FAF5007E193E /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
@@ -171,6 +181,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09086C012B935C6800292C2E /* FiltersSettings */ = {
+			isa = PBXGroup;
+			children = (
+				09086C022B935C9300292C2E /* FilterSettingsViewController.swift */,
+				09086C042B935C9E00292C2E /* FilterSettingsView.swift */,
+				09086C062B93616D00292C2E /* FilterSettingsViewModel.swift */,
+				09086C0A2B93863500292C2E /* FilterCategory.swift */,
+				09086C0C2B93872B00292C2E /* Filters.swift */,
+			);
+			path = FiltersSettings;
+			sourceTree = "<group>";
+		};
 		091630DF2B10FAD8007E193E /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +224,7 @@
 				095480DD2B792E7E00D65C87 /* MapObjectTapListener.swift */,
 				0919F5EB2B811CB100D421F3 /* MapCameraListener.swift */,
 				098FBA642B88C800001DC698 /* Filters */,
+				09086C012B935C6800292C2E /* FiltersSettings */,
 			);
 			path = MapScreen;
 			sourceTree = "<group>";
@@ -558,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				098FBA682B88C883001DC698 /* PopupView.swift in Sources */,
+				09086C032B935C9300292C2E /* FilterSettingsViewController.swift in Sources */,
 				091540312B61892700B144C1 /* APIKeyStorage.swift in Sources */,
 				097F58F22B62E9B0003D6861 /* TabBarController ++.swift in Sources */,
 				5ADDBD3C2B0FA24000CFA9C3 /* AppDelegate.swift in Sources */,
@@ -584,12 +608,14 @@
 				09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
+				09086C0B2B93863500292C2E /* FilterCategory.swift in Sources */,
 				5A6AA9582B848EFF00918278 /* ProfileModel.swift in Sources */,
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,
 				5A6AA9572B848EFF00918278 /* ProfileEditViewModel.swift in Sources */,
 				09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
 				0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */,
+				09086C0D2B93872B00292C2E /* Filters.swift in Sources */,
 				094977982B2C799B0089DB13 /* OnboardingViewController.swift in Sources */,
 				5A6AA95B2B848EFF00918278 /* BannerProfileCell.swift in Sources */,
 				5A6AA9552B848EFF00918278 /* ContractOfferViewController.swift in Sources */,
@@ -609,10 +635,12 @@
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
 				5A6AA9622B84910800918278 /* ImagePicker.swift in Sources */,
 				09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */,
+				09086C072B93616D00292C2E /* FilterSettingsViewModel.swift in Sources */,
 				098FBA6A2B88C891001DC698 /* PopupCollectionViewCell.swift in Sources */,
 				094977882B2C79700089DB13 /* MainScreenView.swift in Sources */,
 				095480DE2B792E7E00D65C87 /* MapObjectTapListener.swift in Sources */,
 				094977852B2C79700089DB13 /* MainScreenCollectionViewCell.swift in Sources */,
+				09086C052B935C9E00292C2E /* FilterSettingsView.swift in Sources */,
 				095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				5A6AA95D2B848EFF00918278 /* ProfileViewModel.swift in Sources */,

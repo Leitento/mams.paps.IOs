@@ -19,7 +19,7 @@ final class MapView: UIView {
         static let placeholderColor: UIColor = .gray.withAlphaComponent(0.6)
         static let buttonColor: UIColor = UIColor.gray.withAlphaComponent(0.2)
         static let buttonTintColor: UIColor = .black
-        static let filterButtonBackgroundColor: UIColor = UIColor(named: "darkBlue") ?? .systemBlue
+        static let filterButtonBackgroundColor: UIColor = UIColor(named: "customDarkBlue") ?? .systemBlue
     }
     
     private enum defaultPosition {
@@ -381,9 +381,7 @@ final class MapView: UIView {
     }
     
     @objc private func filterButtonTapped(_ sender: UIButton) {
-        // Здесь обрабатываем нажатие на кнопку Фильтры
         controller.presentPopup()
-        print("Filters button tapped")
     }
     
     @objc private func dismissKeyboard() {

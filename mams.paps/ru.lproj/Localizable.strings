@@ -59,13 +59,51 @@
 
 "PopupMenuItem.Cafe" = "Кафе";
 
-"PopupMenuItem.Development" = "Развитие \nКурсы";
+"PopupMenuItem.Development" = "Развитие";
 
-"PopupMenuItem.Schools" = "Детские сады \nШколы";
+"PopupMenuItem.Courses" = "Курсы";
 
-"PopupMenuItem.Medicine" = "Аптеки \nПоликлиники";
+"PopupMenuItem.Schools" = "Школы";
+
+"PopupMenuItem.Kindergartens" = "Детские сады";
+
+"PopupMenuItem.Pharmacies" = "Аптеки";
+
+"PopupMenuItem.Clinics" = "Поликлиники";
 
 "PopupMenuItem.Shops" = "Магазины";
+
+"Filter" = "Фильтр";
+
+"FilterCategoryLabel.Playground" = "Настрой свою игру";
+
+"FilterCategoryLabel.Cafe" = "Настрой кафе";
+
+"FilterCategoryLabel.Development" = "Настрой развивашки";
+
+"FilterCategoryLabel.Schools" = "Настрой школы";
+
+"FilterCategoryLabel.Medicine" = "Настрой медицину";
+
+"FilterCategoryLabel.Shops" = "Настрой магазины";
+
+"Rating" = "Рейтинг";
+
+"AgeGroup" = "Возрастная группа";
+
+"Equipment" = "Оборудование";
+
+"Size" = "Размер";
+
+"Toilet" = "Туалет";
+
+"Canopy" = "Навес";
+
+"Benches" = "Скамейки";
+
+"Covering" = "Покрытие";
+
+"LimitedMobilityEquipment" = "Оборудование МГН";
 
 
 

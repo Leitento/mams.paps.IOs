@@ -60,10 +60,48 @@
 
 "PopupMenuItem.Cafe" = "Cafe";
 
-"PopupMenuItem.Development" = "Development \nCourses";
+"PopupMenuItem.Development" = "Development";
 
-"PopupMenuItem.Schools" = "Kindergartens \nSchools";
+"PopupMenuItem.Courses" = "Courses";
 
-"PopupMenuItem.Medicine" = "Pharmacies \nClinics";
+"PopupMenuItem.Schools" = "Schools";
+
+"PopupMenuItem.Kindergartens" = "Kindergartens";
+
+"PopupMenuItem.Pharmacies" = "Pharmacies";
+
+"PopupMenuItem.Clinics" = "Clinics";
 
 "PopupMenuItem.Shops" = "Shops";
+
+"Filter" = "Filter";
+
+"FilterCategoryLabel.Playground" = "Customize your game";
+
+"FilterCategoryLabel.Cafe" = "Customize cafe";
+
+"FilterCategoryLabel.Development" = "Customize development";
+
+"FilterCategoryLabel.Schools" = "Customize schools";
+
+"FilterCategoryLabel.Medicine" = "Customize medicine";
+
+"FilterCategoryLabel.Shops" = "Customize shops";
+
+"Rating" = "Rating";
+
+"AgeGroup" = "Age group";
+
+"Equipment" = "Equipment";
+
+"Size" = "Size";
+
+"Toilet" = "Toilet";
+
+"Canopy" = "Canopy";
+
+"Benches" = "Benches";
+
+"Covering" = "Covering";
+
+"LimitedMobilityEquipment" = "Equipment PLM";

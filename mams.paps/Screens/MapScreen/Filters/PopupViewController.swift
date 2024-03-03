@@ -5,11 +5,11 @@ import UIKit
 final class PopupViewController: UIViewController {
     
     // MARK: - Private properties
-    private let callback: (() -> Void)?
+    private let callback: ((Int) -> Void)?
     private let popupView = PopupView()
     
     // MARK: - Life Cycle
-    init(callback: (() -> Void)?) {
+    init(callback: ((Int) -> Void)?) {
         self.callback = callback
         super.init(nibName: nil, bundle: nil)
     }
@@ -39,29 +39,10 @@ final class PopupViewController: UIViewController {
 
 // MARK: - PopupViewProtocol
 extension PopupViewController: PopupViewProtocol {
-    func firstCellDidTap() {
-        print("show filters for playgrounds")
+    func filterDidTap(with itemIndex: Int) {
+        dismiss(animated: true) { [weak self] in
+            guard let self else { return }
+            callback?(itemIndex)
+        }
     }
-    
-    func secondCellDidTap() {
-        print("show filters for cafe")
-    }
-    
-    func thirdCellDidTap() {
-        print("show filters for courses")
-    }
-    
-    func fourthCellDidTap() {
-        print("show filters for schools")
-    }
-    
-    func fifthCellDidTap() {
-        print("show filters for clinics")
-    }
-    
-    func sixthCellDidTap() {
-        print("show filters for shops")
-    }
-    
-    
 }

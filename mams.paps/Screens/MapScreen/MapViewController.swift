@@ -34,7 +34,7 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
             case .success(let coordinates):
                 self.currentLocation = coordinates
             case .failure(let error):
-                Alert.shared.showAlert(on: self, title: "Error", message: error.description)
+                Alert.shared.showAlert(on: self, title: "AlertTitle.Error".localized, message: error.description)
             }
         }
         setupView()
@@ -64,8 +64,16 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
         ])
     }
     
+    private func presentFilterSettings(itemIndex: Int) {
+        let filterSettingsViewModel = FiltersSettingsViewModel(selectedItemIndex: itemIndex)
+        let filterSettingsViewController = FilterSettingsViewController(viewModel: filterSettingsViewModel)
+        navigationController?.pushViewController(filterSettingsViewController, animated: true)
+    }
+    
     func presentPopup() {
-        let popupViewController = PopupViewController(callback: nil)
+        let popupViewController = PopupViewController { popupMenuItemIndex in
+            self.presentFilterSettings(itemIndex: popupMenuItemIndex)
+        }
         navigationController?.modalPresentationStyle = .popover
         navigationController?.modalTransitionStyle = .coverVertical
         navigationController?.present(popupViewController, animated: true)

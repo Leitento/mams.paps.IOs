@@ -3,12 +3,7 @@
 import UIKit
 
 protocol PopupViewProtocol: AnyObject {
-    func firstCellDidTap()
-    func secondCellDidTap()
-    func thirdCellDidTap()
-    func fourthCellDidTap()
-    func fifthCellDidTap()
-    func sixthCellDidTap()
+    func filterDidTap(with itemIndex: Int)
 }
 
 final class PopupView: UIView {
@@ -21,7 +16,6 @@ final class PopupView: UIView {
     weak var delegate: PopupViewProtocol?
     
     // MARK: - Private properties
-    
     private let popupMenu: [PopupMenuItem] = PopupMenuItem.make()
     
     private lazy var topView: UIView = {
@@ -190,29 +184,8 @@ extension PopupView: UICollectionViewDelegateFlowLayout {
                         didSelectItemAt indexPath: IndexPath) {
         if collectionView.cellForItem(at: indexPath) is PopupCollectionViewCell {
             
-            if indexPath.item == 0 {
-                delegate?.firstCellDidTap()
-            }
-            
-            if indexPath.item == 1 {
-                delegate?.secondCellDidTap()
-            }
-            
-            if indexPath.item == 2 {
-                delegate?.thirdCellDidTap()
-            }
-            
-            if indexPath.item == 3 {
-                delegate?.fourthCellDidTap()
-            }
-            
-            if indexPath.item == 4 {
-                delegate?.fifthCellDidTap()
-            }
-            
-            if indexPath.item == 5 {
-                delegate?.sixthCellDidTap()
-            }
+            delegate?.filterDidTap(with: indexPath.item)
+        
         }
     }
 }
