@@ -4,13 +4,13 @@ import UIKit
 
 final class FiltersTableViewCell: UITableViewCell {
     
+    // MARK: - Private properties
     private enum Constants {
         static let verticalPadding: CGFloat = 5.0
         static let horizontalPadding: CGFloat = 10.0
         static let iconSize: CGFloat = 28.0
     }
     
-    // MARK: - Private properties
     private lazy var filterIcon: UIImageView = {
         let filterIcon = UIImageView()
         filterIcon.contentMode = .scaleAspectFit

@@ -4,6 +4,7 @@ import UIKit
 
 final class SettingsTableViewCell: UITableViewCell {
     
+    // MARK: - Private properties
     private enum Constants {
         static let verticalPadding: CGFloat = 5.0
         static let horizontalPadding: CGFloat = 10.0
@@ -28,6 +29,7 @@ final class SettingsTableViewCell: UITableViewCell {
         return checkboxTitle
     }()
     
+    // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
@@ -38,6 +40,7 @@ final class SettingsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private methods
     private func addSubviews() {
         contentView.addSubviews(checkbox,
                                 checkboxTitle,
@@ -77,6 +80,7 @@ final class SettingsTableViewCell: UITableViewCell {
     }
 }
         
+// MARK: - Configurable
 extension SettingsTableViewCell: Configurable {
     func setup(with item: SettingsOption) {
         checkboxTitle.text = item.name

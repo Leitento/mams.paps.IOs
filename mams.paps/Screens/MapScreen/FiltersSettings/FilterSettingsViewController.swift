@@ -84,6 +84,7 @@ extension FilterSettingsViewController: UITableViewDataSource, UITableViewDelega
             }
             
             tableView.separatorStyle = .none
+            leftCell.backgroundColor = .white
             
             let filterOption = viewModel.getFilterOptions()[indexPath.row]
             leftCell.setup(with: filterOption)
@@ -109,6 +110,7 @@ extension FilterSettingsViewController: UITableViewDataSource, UITableViewDelega
                 bottom: 0,
                 right: 10
             )
+            rightCell.backgroundColor = .white
             
             let settingsOption = viewModel.getSettingsOption(for: selectedFilterIndex)[indexPath.row]
             rightCell.setup(with: settingsOption)
@@ -155,7 +157,7 @@ extension FilterSettingsViewController: UITableViewDataSource, UITableViewDelega
                 return
             }
             
-            cell.contentView.backgroundColor = .clear
+            cell.contentView.backgroundColor = .white
             cell.updateSelectedItems()
         }
     }

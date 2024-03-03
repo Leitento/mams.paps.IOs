@@ -79,31 +79,6 @@ final class FilterSettingsView: UIView {
         return button
     }()
     
-    func addTableView<T>(to view: UIView,
-                      withData data: [T],
-                      delegate: UITableViewDelegate,
-                      dataSource: UITableViewDataSource) {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = delegate
-        tableView.dataSource = dataSource
-        tableView.register(FiltersTableViewCell.self, forCellReuseIdentifier: FiltersTableViewCell.identifier)
-        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
-        tableView.backgroundColor = .clear
-        tableView.showsVerticalScrollIndicator = false
-        tableView.isScrollEnabled = false
-        tableView.tag = view.tag
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.cornerRadius),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.cornerRadius),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-    }
-    
     // MARK: - Life Cycle
     init() {
         super.init(frame: .zero)
@@ -191,6 +166,29 @@ final class FilterSettingsView: UIView {
     
     @objc private func showButtonTapped(_ sender: UIButton) {
         print("showButton tapped")
+    }
+    
+    // MARK: - Methods
+    func addTableView<T>(to view: UIView,
+                      withData data: [T],
+                      delegate: UITableViewDelegate,
+                      dataSource: UITableViewDataSource) {
+        let tableView = UITableView()
+        view.addSubviews(tableView, translatesAutoresizingMaskIntoConstraints: false)
+        tableView.delegate = delegate
+        tableView.dataSource = dataSource
+        tableView.register(FiltersTableViewCell.self, forCellReuseIdentifier: FiltersTableViewCell.identifier)
+        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        tableView.backgroundColor = .white
+        tableView.showsVerticalScrollIndicator = false
+        tableView.isScrollEnabled = false
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.cornerRadius),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.cornerRadius),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 }
 
