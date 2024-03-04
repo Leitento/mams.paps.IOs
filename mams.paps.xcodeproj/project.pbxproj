@@ -75,16 +75,16 @@
 		5A6AA9622B84910800918278 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9612B84910700918278 /* ImagePicker.swift */; };
 		5ADDBD3C2B0FA24000CFA9C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDBD3B2B0FA24000CFA9C3 /* AppDelegate.swift */; };
 		5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDBD3D2B0FA24000CFA9C3 /* SceneDelegate.swift */; };
+		CB2D027D2B95EE8500609783 /* InfoLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D027B2B95EE8400609783 /* InfoLocationController.swift */; };
+		CB2D027E2B95EE8500609783 /* InfoLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D027C2B95EE8400609783 /* InfoLocationModel.swift */; };
+		CB2D02822B95EEA200609783 /* InfoViewCellFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D027F2B95EEA200609783 /* InfoViewCellFilter.swift */; };
+		CB2D02832B95EEA200609783 /* InfoFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D02802B95EEA200609783 /* InfoFilterView.swift */; };
+		CB2D02842B95EEA200609783 /* InfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D02812B95EEA200609783 /* InfoViewCell.swift */; };
+		CB2D02872B95EEDE00609783 /* InfoFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D02852B95EEDE00609783 /* InfoFilterModel.swift */; };
+		CB2D02882B95EEDE00609783 /* InfoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2D02862B95EEDE00609783 /* InfoFilterController.swift */; };
 		CB6CB33E2B90DD2F00A94105 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3392B90DD2F00A94105 /* DataModels.swift */; };
 		CB6CB33F2B90DD2F00A94105 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB33B2B90DD2F00A94105 /* NetworkManager.swift */; };
 		CB6CB3402B90DD2F00A94105 /* PlaygroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB33D2B90DD2F00A94105 /* PlaygroundModel.swift */; };
-		CB6CB34D2B90DD4700A94105 /* InfoFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3442B90DD4700A94105 /* InfoFilterView.swift */; };
-		CB6CB34E2B90DD4700A94105 /* InfoViewCellFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3452B90DD4700A94105 /* InfoViewCellFilter.swift */; };
-		CB6CB34F2B90DD4700A94105 /* InfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3462B90DD4700A94105 /* InfoViewCell.swift */; };
-		CB6CB3502B90DD4700A94105 /* InfoFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3482B90DD4700A94105 /* InfoFilterModel.swift */; };
-		CB6CB3512B90DD4700A94105 /* InfoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3492B90DD4700A94105 /* InfoFilterController.swift */; };
-		CB6CB3522B90DD4700A94105 /* InfoLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB34B2B90DD4700A94105 /* InfoLocationModel.swift */; };
-		CB6CB3532B90DD4700A94105 /* InfoLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB34C2B90DD4700A94105 /* InfoLocationController.swift */; };
 		CB6CB3562B90DDAB00A94105 /* InfoLocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3542B90DDAA00A94105 /* InfoLocationCoordinator.swift */; };
 		CB6CB3572B90DDAB00A94105 /* InfoFilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3552B90DDAB00A94105 /* InfoFilterCoordinator.swift */; };
 		CB6CB35A2B90DDF400A94105 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6CB3582B90DDF300A94105 /* CustomNavBar.swift */; };
@@ -166,16 +166,16 @@
 		5ADDBD3D2B0FA24000CFA9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5ADDBD492B0FA24100CFA9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D5DBF145ECA2A819F25A4F7 /* Pods-mams.paps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mams.paps.debug.xcconfig"; path = "Target Support Files/Pods-mams.paps/Pods-mams.paps.debug.xcconfig"; sourceTree = "<group>"; };
+		CB2D027B2B95EE8400609783 /* InfoLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLocationController.swift; sourceTree = "<group>"; };
+		CB2D027C2B95EE8400609783 /* InfoLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLocationModel.swift; sourceTree = "<group>"; };
+		CB2D027F2B95EEA200609783 /* InfoViewCellFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewCellFilter.swift; sourceTree = "<group>"; };
+		CB2D02802B95EEA200609783 /* InfoFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFilterView.swift; sourceTree = "<group>"; };
+		CB2D02812B95EEA200609783 /* InfoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewCell.swift; sourceTree = "<group>"; };
+		CB2D02852B95EEDE00609783 /* InfoFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFilterModel.swift; sourceTree = "<group>"; };
+		CB2D02862B95EEDE00609783 /* InfoFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFilterController.swift; sourceTree = "<group>"; };
 		CB6CB3392B90DD2F00A94105 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		CB6CB33B2B90DD2F00A94105 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CB6CB33D2B90DD2F00A94105 /* PlaygroundModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundModel.swift; sourceTree = "<group>"; };
-		CB6CB3442B90DD4700A94105 /* InfoFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFilterView.swift; sourceTree = "<group>"; };
-		CB6CB3452B90DD4700A94105 /* InfoViewCellFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewCellFilter.swift; sourceTree = "<group>"; };
-		CB6CB3462B90DD4700A94105 /* InfoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewCell.swift; sourceTree = "<group>"; };
-		CB6CB3482B90DD4700A94105 /* InfoFilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFilterModel.swift; sourceTree = "<group>"; };
-		CB6CB3492B90DD4700A94105 /* InfoFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFilterController.swift; sourceTree = "<group>"; };
-		CB6CB34B2B90DD4700A94105 /* InfoLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLocationModel.swift; sourceTree = "<group>"; };
-		CB6CB34C2B90DD4700A94105 /* InfoLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLocationController.swift; sourceTree = "<group>"; };
 		CB6CB3542B90DDAA00A94105 /* InfoLocationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLocationCoordinator.swift; sourceTree = "<group>"; };
 		CB6CB3552B90DDAB00A94105 /* InfoFilterCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFilterCoordinator.swift; sourceTree = "<group>"; };
 		CB6CB3582B90DDF300A94105 /* CustomNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 		09EBCDA42B6F4A1A0093EFAF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				CB6CB3412B90DD4700A94105 /* InfoLocation */,
+				CB2D02762B95EDF000609783 /* InfoLocationFlow */,
 				5A6AA9382B848EFF00918278 /* ProfileFlow */,
 				094977922B2C799B0089DB13 /* Onboarding */,
 				094977892B2C79910089DB13 /* AuthorizationScreen */,
@@ -462,6 +462,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB2D02762B95EDF000609783 /* InfoLocationFlow */ = {
+			isa = PBXGroup;
+			children = (
+				CB2D02782B95EE0A00609783 /* LocationsScreen */,
+				CB2D02772B95EE0400609783 /* Cells */,
+			);
+			path = InfoLocationFlow;
+			sourceTree = "<group>";
+		};
+		CB2D02772B95EE0400609783 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CB2D02802B95EEA200609783 /* InfoFilterView.swift */,
+				CB2D02812B95EEA200609783 /* InfoViewCell.swift */,
+				CB2D027F2B95EEA200609783 /* InfoViewCellFilter.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CB2D02782B95EE0A00609783 /* LocationsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CB2D027B2B95EE8400609783 /* InfoLocationController.swift */,
+				CB2D027C2B95EE8400609783 /* InfoLocationModel.swift */,
+				CB2D027A2B95EE4E00609783 /* Filters */,
+			);
+			path = LocationsScreen;
+			sourceTree = "<group>";
+		};
+		CB2D027A2B95EE4E00609783 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				CB2D02862B95EEDE00609783 /* InfoFilterController.swift */,
+				CB2D02852B95EEDE00609783 /* InfoFilterModel.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
 		CB6CB3382B90DD2F00A94105 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,53 +523,6 @@
 				CB6CB33D2B90DD2F00A94105 /* PlaygroundModel.swift */,
 			);
 			path = DataModel;
-			sourceTree = "<group>";
-		};
-		CB6CB3412B90DD4700A94105 /* InfoLocation */ = {
-			isa = PBXGroup;
-			children = (
-				CB6CB3422B90DD4700A94105 /* InfoLocation */,
-			);
-			name = InfoLocation;
-			path = "../../../../mams.paps.IOs-main/mams.paps/Screens/InfoLocation";
-			sourceTree = "<group>";
-		};
-		CB6CB3422B90DD4700A94105 /* InfoLocation */ = {
-			isa = PBXGroup;
-			children = (
-				CB6CB3432B90DD4700A94105 /* Cells */,
-				CB6CB3472B90DD4700A94105 /* InfoFilterController */,
-				CB6CB34A2B90DD4700A94105 /* InfoController */,
-			);
-			path = InfoLocation;
-			sourceTree = "<group>";
-		};
-		CB6CB3432B90DD4700A94105 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				CB6CB3442B90DD4700A94105 /* InfoFilterView.swift */,
-				CB6CB3452B90DD4700A94105 /* InfoViewCellFilter.swift */,
-				CB6CB3462B90DD4700A94105 /* InfoViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		CB6CB3472B90DD4700A94105 /* InfoFilterController */ = {
-			isa = PBXGroup;
-			children = (
-				CB6CB3482B90DD4700A94105 /* InfoFilterModel.swift */,
-				CB6CB3492B90DD4700A94105 /* InfoFilterController.swift */,
-			);
-			path = InfoFilterController;
-			sourceTree = "<group>";
-		};
-		CB6CB34A2B90DD4700A94105 /* InfoController */ = {
-			isa = PBXGroup;
-			children = (
-				CB6CB34B2B90DD4700A94105 /* InfoLocationModel.swift */,
-				CB6CB34C2B90DD4700A94105 /* InfoLocationController.swift */,
-			);
-			path = InfoController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -659,7 +650,6 @@
 				091540312B61892700B144C1 /* APIKeyStorage.swift in Sources */,
 				097F58F22B62E9B0003D6861 /* TabBarController ++.swift in Sources */,
 				5ADDBD3C2B0FA24000CFA9C3 /* AppDelegate.swift in Sources */,
-				CB6CB3532B90DD4700A94105 /* InfoLocationController.swift in Sources */,
 				095BE7D52B1E058000C6220E /* Alert.swift in Sources */,
 				CB6CB3402B90DD2F00A94105 /* PlaygroundModel.swift in Sources */,
 				09638DAC2B35954F005DF42D /* TabBarCoordinator.swift in Sources */,
@@ -683,17 +673,21 @@
 				0949778E2B2C79920089DB13 /* AuthorizationViewController.swift in Sources */,
 				09AC6BC52B740AA60029669E /* Coordinates.swift in Sources */,
 				1FCDD5542B89E71D00098A28 /* Font.swift in Sources */,
+				CB2D02832B95EEA200609783 /* InfoFilterView.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
 				5A6AA9582B848EFF00918278 /* ProfileModel.swift in Sources */,
+				CB2D02842B95EEA200609783 /* InfoViewCell.swift in Sources */,
+				CB2D027E2B95EE8500609783 /* InfoLocationModel.swift in Sources */,
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,
 				5A6AA9572B848EFF00918278 /* ProfileEditViewModel.swift in Sources */,
 				09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */,
-				CB6CB3522B90DD4700A94105 /* InfoLocationModel.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
 				0915402F2B5D17C000B144C1 /* MapViewModel.swift in Sources */,
+				CB2D027D2B95EE8500609783 /* InfoLocationController.swift in Sources */,
 				094977982B2C799B0089DB13 /* OnboardingViewController.swift in Sources */,
 				5A6AA95B2B848EFF00918278 /* BannerProfileCell.swift in Sources */,
+				CB2D02872B95EEDE00609783 /* InfoFilterModel.swift in Sources */,
 				CB6CB35A2B90DDF400A94105 /* CustomNavBar.swift in Sources */,
 				CB6CB3572B90DDAB00A94105 /* InfoFilterCoordinator.swift in Sources */,
 				5A6AA9552B848EFF00918278 /* ContractOfferViewController.swift in Sources */,
@@ -711,29 +705,26 @@
 				09AC6BC72B7412CE0029669E /* LocationServiceError.swift in Sources */,
 				097F58F02B62DD99003D6861 /* UIView ++.swift in Sources */,
 				09DC064F2B2C8AFB00D71BEB /* ProtocolCoordinator.swift in Sources */,
-				CB6CB3502B90DD4700A94105 /* InfoFilterModel.swift in Sources */,
 				09638DA52B3583C0005DF42D /* KeychainService.swift in Sources */,
+				CB2D02822B95EEA200609783 /* InfoViewCellFilter.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
 				5A6AA9622B84910800918278 /* ImagePicker.swift in Sources */,
 				1FCDD5522B878F1700098A28 /* CustomNavigationController.swift in Sources */,
 				CB6CB3612B95CBF300A94105 /* UIColor Dark.swift in Sources */,
-				CB6CB34D2B90DD4700A94105 /* InfoFilterView.swift in Sources */,
 				09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */,
 				CB6CB35B2B90DDF400A94105 /* ActivityIndicator.swift in Sources */,
 				094977882B2C79700089DB13 /* MainScreenView.swift in Sources */,
 				095480DE2B792E7E00D65C87 /* MapObjectTapListener.swift in Sources */,
 				094977852B2C79700089DB13 /* MainScreenCollectionViewCell.swift in Sources */,
 				095BE7EB2B203DCF00C6220E /* AuthorizationError.swift in Sources */,
-				CB6CB3512B90DD4700A94105 /* InfoFilterController.swift in Sources */,
 				5ADDBD3E2B0FA24000CFA9C3 /* SceneDelegate.swift in Sources */,
 				5A6AA95D2B848EFF00918278 /* ProfileViewModel.swift in Sources */,
 				5A6AA95E2B848EFF00918278 /* SupportViewController.swift in Sources */,
 				09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */,
 				0949778F2B2C79920089DB13 /* User.swift in Sources */,
-				CB6CB34E2B90DD4700A94105 /* InfoViewCellFilter.swift in Sources */,
+				CB2D02882B95EEDE00609783 /* InfoFilterController.swift in Sources */,
 				CB6CB3562B90DDAB00A94105 /* InfoLocationCoordinator.swift in Sources */,
 				095480D82B792DD300D65C87 /* MapUIState.swift in Sources */,
-				CB6CB34F2B90DD4700A94105 /* InfoViewCell.swift in Sources */,
 				093D68112B369F270044AAE7 /* LocationService.swift in Sources */,
 				093D680F2B369F270044AAE7 /* MapViewController.swift in Sources */,
 			);
