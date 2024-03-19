@@ -36,9 +36,8 @@ final class TabBarCoordinator {
         let mapCoordinator = MapCoordinator(navigationController: UINavigationController(), parentCoordinator: self, locationService: LocationService())
         addChildCoordinator(mapCoordinator)
         
-        let eventsViewController = UIViewController()
-        eventsViewController.view.backgroundColor = .white
-        eventsViewController.tabBarItem = UITabBarItem(title: "Events", image: UIImage(systemName: "location.circle"), tag: 1)
+        let infoCoordinator = InfoLocationCoordinator(parentCoordinator: self)
+        addChildCoordinator(infoCoordinator)
         
         let servicesViewController = UIViewController()
         servicesViewController.view.backgroundColor = .white
@@ -52,7 +51,7 @@ final class TabBarCoordinator {
         let controllers =
         [
             mainScreenCoordinator.start(),
-            eventsViewController,
+            infoCoordinator.start(),
             mapCoordinator.start(),
             servicesViewController,
             profileCoordinator.start()

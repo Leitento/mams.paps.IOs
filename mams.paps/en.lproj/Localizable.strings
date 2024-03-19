@@ -157,3 +157,8 @@ in its classical representation, allows for the introduction of withdrawal of cu
 "ProfileHeaderView.cityLabel" = "City";
 
 "Profile.header" = "Profile"; 
+//MARK: - Location
+
+"MapView.FilterButton" = "Filters";
+
+"WhatNearby.Title" = "What's nearby";

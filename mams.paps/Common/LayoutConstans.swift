@@ -21,5 +21,7 @@ enum LayoutConstants {
     static let indentTwelve: CGFloat = 12
     static let indentSixteen: CGFloat = 16
     static let cornerRadius: CGFloat = 20
+    static let spacing: CGFloat = 20
+    static let spacing15: CGFloat = 15
 }
  

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "BCAE7BBF-2559-48A3-9DE2-438D958228AB"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE243A19-5DB5-4D78-A1D2-BDC7BB7006D8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "clearButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AE243A19-5DB5-4D78-A1D2-BDC7BB7006D8 - 49e0a1f10cc0726b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mams_paps.InfoFilterView.clearButtonTapped() -&gt; ()"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "AE243A19-5DB5-4D78-A1D2-BDC7BB7006D8 - 49e0a1f10cc07017"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mams_paps.InfoFilterView.clearButtonTapped() -&gt; ()"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFCDB087-8ED7-4C64-B6F1-0F1E625BD8D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "changeState(isHidden:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9188FF31-5EC5-4301-8402-6D1E38F2D88F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "changeState(isHidden:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03565DBC-FD1B-49BF-BD1F-DDDC56D8DF3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "filterLocations(category:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03565DBC-FD1B-49BF-BD1F-DDDC56D8DF3A - 8159012520cd9ffe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mams_paps.Location) -&gt; () in mams_paps.InfoLocationModel.filterLocations(category: mams_paps.Category) -&gt; Swift.Array&lt;mams_paps.Location&gt;"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "784">
+               </Location>
+               <Location
+                  uuid = "03565DBC-FD1B-49BF-BD1F-DDDC56D8DF3A - 8159012520cd9ffe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mams_paps.Location) -&gt; () in mams_paps.InfoLocationModel.filterLocations(category: mams_paps.Category) -&gt; Swift.Array&lt;mams_paps.Location&gt;"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  uuid = "03565DBC-FD1B-49BF-BD1F-DDDC56D8DF3A - 8159012520ce61ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mams_paps.Location) -&gt; () in mams_paps.InfoLocationModel.filterLocations(category: mams_paps.Category) -&gt; Swift.Array&lt;mams_paps.Location&gt;"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "552">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50EDAC76-0122-4ED3-A43C-EFEA868446DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "filterLocations(category:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "50EDAC76-0122-4ED3-A43C-EFEA868446DE - 37061e358669d052"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mams_paps.InfoLocationModel.filterLocations(category: mams_paps.Category) -&gt; Swift.Array&lt;mams_paps.Location&gt;"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "50EDAC76-0122-4ED3-A43C-EFEA868446DE - 8159012520cd9fd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mams_paps.Location) -&gt; () in mams_paps.InfoLocationModel.filterLocations(category: mams_paps.Category) -&gt; Swift.Array&lt;mams_paps.Location&gt;"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "484">
+               </Location>
+               <Location
+                  uuid = "50EDAC76-0122-4ED3-A43C-EFEA868446DE - 37061e35866a2f84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mams_paps.InfoLocationModel.filterLocations(category: mams_paps.Category) -&gt; Swift.Array&lt;mams_paps.Location&gt;"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "50EDAC76-0122-4ED3-A43C-EFEA868446DE - 8159012520ce618f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mams_paps.Location) -&gt; () in mams_paps.InfoLocationModel.filterLocations(category: mams_paps.Category) -&gt; Swift.Array&lt;mams_paps.Location&gt;"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "484">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07EBA4F4-1C5A-4284-9646-95845FCB0DAF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/Filters/InfoFilterController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "07EBA4F4-1C5A-4284-9646-95845FCB0DAF - ed751d1aa34095b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mams_paps.InfoFilterController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/Filters/InfoFilterController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  uuid = "07EBA4F4-1C5A-4284-9646-95845FCB0DAF - ed751d1aa34095b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mams_paps.InfoFilterController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/Filters/InfoFilterController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "574A28B2-13C9-4EA9-9C9D-B2501DB73D36"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "updateCollectionView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "574A28B2-13C9-4EA9-9C9D-B2501DB73D36 - 7fe89e3d7caefc00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mams_paps.InfoLocationController.updateCollectionView() -&gt; ()"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "574A28B2-13C9-4EA9-9C9D-B2501DB73D36 - 4d15b432af32e66c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SnapKit.ConstraintMaker) -&gt; () in mams_paps.InfoLocationController.updateCollectionView() -&gt; ()"
+                  moduleName = "mams.paps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uliafilippova/Desktop/Neotodologia/mams/mams.paps.IOs/mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4AAB8B7-C776-4F82-9355-89AED3D98F07"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "updateCollectionView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

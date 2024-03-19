@@ -141,3 +141,8 @@
 
 "Profile.header" = "Профиль"; 
 
+//MARK: - Location
+
+"MapView.FilterButton" = "Фильтры";
+
+"WhatNearby.Title" = "Что рядом";
