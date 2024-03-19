@@ -9,6 +9,7 @@ extension UINavigationBar {
         switch style {
         case .custom(let color, let titleColor):
             self.barTintColor = color
+//            self.isTranslucent = false
             self.titleTextAttributes = [NSAttributedString.Key.foregroundColor: titleColor]
         }
     }

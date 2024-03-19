@@ -6,7 +6,11 @@
 //
 
 import UIKit
+import SnapKit
 
+protocol InfoFilterControllerDelegate: AnyObject {
+    func hideFilterController()
+}
 
 final class InfoFilterController: UIViewController {
     
@@ -15,7 +19,10 @@ final class InfoFilterController: UIViewController {
     
     private var viewModel: InfoFilterLocationModelProtocol
     weak var delegate: InfoFilterButtonDelegate?
+    weak var delegateFilter: InfoFilterButtonLabelDelegate?
     private lazy var dataSource = makeDataSource()
+    private var infoFilterView: InfoFilterView?
+     var numberOfCells: Int?
     
     private lazy var collectionView: UICollectionView =  {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
@@ -59,20 +66,20 @@ final class InfoFilterController: UIViewController {
                 ()
             case .done( let categoryes):
                 self.makeSnapshot(categoryes: categoryes)
-            case .chooseCategory(let locations):
-                chooseCategory(locations: locations)
+                collectionView.delegate = self
+            case .chooseCategory(let categotyes):
+                chooseCategory(categotyes: categotyes)
+                collectionView.delegate = self
             case .error(error: let error):
                 print(error)
-
-
             }
         }
     }
     
     private func makeDataSource() -> DataSource {
-        return DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, itemIdentifier in
-            guard let self = self else { return UICollectionViewCell() }
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InfoViewCellFilter.identifier, for: indexPath) as! InfoViewCellFilter
+        return DataSource(collectionView: collectionView) {  collectionView, indexPath, itemIdentifier in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InfoViewCellFilter.identifier, for: indexPath) as? InfoViewCellFilter else {
+                return UICollectionViewCell() }
             cell.configurationCellCollection(with: itemIdentifier)
             return cell
         }
@@ -83,10 +90,15 @@ final class InfoFilterController: UIViewController {
         snapshot.appendSections([0])
         snapshot.appendItems(categoryes, toSection: 0)
         dataSource.apply(snapshot, animatingDifferences: true)
+        numberOfCells = dataSource.collectionView(collectionView, numberOfItemsInSection: 0)
     }
     
-    private func chooseCategory(locations: [Location]) {
-        delegate?.didSelectCategory(locations)
+    private func chooseCategory(categotyes: Category) {
+        delegate?.didSelectCategory(categotyes)
+        hideFilter()
+    }
+    
+    private func hideFilter() {
         willMove(toParent: nil)
         view.removeFromSuperview()
         removeFromParent()
@@ -134,10 +146,16 @@ extension InfoFilterController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
         viewModel.didTapCategory(category: item)
-        
+        delegateFilter?.renameFilterLabel(category: item.title)
     }
+    
 }
 
 
+extension InfoFilterController: InfoFilterControllerDelegate {
+    func hideFilterController() {
+        hideFilter()
+    }
+}
 
 

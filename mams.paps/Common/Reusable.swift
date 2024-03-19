@@ -11,3 +11,15 @@ extension UICollectionViewCell: ReusableView {
         return String(describing: self)
     }
 }
+
+protocol ReusableHeaderView: AnyObject {
+    static var identifierHeader: String { get }
+}
+
+extension UICollectionReusableView: ReusableHeaderView {
+    @objc static var identifierHeader: String {
+        return String(describing: self)
+    }
+}
+
+

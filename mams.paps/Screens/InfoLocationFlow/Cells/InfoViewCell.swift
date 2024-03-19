@@ -197,7 +197,7 @@ final class InfoViewCell: UICollectionViewCell {
     
     func configurationCellCollection(with location: Location) {
         self.addressLabel.text = location.address
-        self.categotyLabel.text = location.category?.title
+        self.categotyLabel.text = location.category.title
         self.descriptionLabel.text = location.description
         self.raitingLabel.text = String(describing: location.rating ?? 0)
     }

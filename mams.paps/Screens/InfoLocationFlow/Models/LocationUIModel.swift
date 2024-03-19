@@ -9,7 +9,7 @@ struct Location: Hashable {
     let description: String?
     let image: String?
     let ageCategory: AgeCategory?
-    let category: Category?
+    let category: Category
     let equipment: Equipment?
     let size: Size?
     let sunRainCanopy: Bool?
@@ -25,7 +25,7 @@ struct Location: Hashable {
          description: String?,
          image: String?,
          ageCategory: AgeCategory?,
-         category: Category?,
+         category: Category,
          equipment: Equipment?,
          size: Size?,
          sunRainCanopy: Bool?,
@@ -83,8 +83,10 @@ extension Location {
 }
 
 struct Category: Hashable {
+    let id: Int
     let title: String
-    init(title: String) {
+    init(id: Int, title: String) {
+        self.id = id
         self.title = title
     }
 //    let image: UIImage
@@ -92,6 +94,7 @@ struct Category: Hashable {
 
 extension Category {
     init(category: Categoryes) {
+        self.id = category.id
         self.title = category.title
     }
 }

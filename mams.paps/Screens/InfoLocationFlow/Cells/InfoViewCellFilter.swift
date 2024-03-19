@@ -18,20 +18,23 @@ final class InfoViewCellFilter: UICollectionViewCell {
     
     private lazy var imageArrrow: UIImageView = {
         let image = UIImageView(image: Constants.arrowImage)
+        image.tintColor = UIColor.customSkin
         image.contentMode = .scaleAspectFit
         return image
+    }()
+    
+    private lazy var border: UIView = {
+        let border = UIView(frame: frame)
+        border.backgroundColor = UIColor.customSkin
+        return border
     }()
     
     //MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        backgroundColor = .white
         setupCollectionCell()
-//        contentView.layer.borderWidth = 0.5
-//        contentView.layer.borderColor = UIColor.gray.cgColor
-        layer.borderWidth = 0.5
-          layer.borderColor = UIColor.gray.cgColor
-          layer.cornerRadius = 8
     }
     
     required init?(coder: NSCoder) {
@@ -43,18 +46,22 @@ final class InfoViewCellFilter: UICollectionViewCell {
     
     private func setupCollectionCell() {
         contentView.backgroundColor = .white
-        contentView.addSubviews(categotyLabel,imageArrrow, translatesAutoresizingMaskIntoConstraints: false)
+        contentView.addSubviews(border, categotyLabel, imageArrrow, translatesAutoresizingMaskIntoConstraints: false)
         NSLayoutConstraint.activate([
             imageArrrow.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageArrrow.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imageArrrow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.indent),
             imageArrrow.widthAnchor.constraint(equalToConstant: 22),
-//            imageArrrow.heightAnchor.constraint(equalToConstant: 24),
+
             
             categotyLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             categotyLabel.leadingAnchor.constraint(equalTo: imageArrrow.trailingAnchor, constant: LayoutConstants.indent),
             categotyLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -LayoutConstants.indent),
             
+            border.topAnchor.constraint(equalTo: contentView.topAnchor),
+            border.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: LayoutConstants.spacing15),
+            border.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -LayoutConstants.spacing15),
+            border.heightAnchor.constraint(equalToConstant: 0.5),
         ])
     }
     

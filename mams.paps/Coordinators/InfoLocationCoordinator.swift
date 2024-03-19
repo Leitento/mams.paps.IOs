@@ -26,7 +26,10 @@ final class InfoLocationCoordinator {
     // MARK: - Private methods
     
     private func createNavigationController() -> UIViewController {
-        let viewModel = InfoLocationModel(coordinator: self)
+        let mapper = CoreMapper()
+        let networkManager = CoreNetworkManager()
+        let apiService = LocationApiService(mapper: mapper, networkManager: networkManager)
+        let viewModel = InfoLocationModel(coordinator: self, apiService: apiService)
         let infoLocationController = InfoLocationController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: infoLocationController)
         navigationController.tabBarItem = UITabBarItem(title: "WhatNearby.Title".localized, image: UIImage(systemName: "location.circle"), tag: 1)

@@ -2,11 +2,6 @@ import Foundation
 import UIKit
 
 
-enum NetworkError: Error {
-    case noInternet
-    case noData
-    case somethingWentWrong
-}
 
 final class NetworkManager {
     
@@ -20,7 +15,7 @@ final class NetworkManager {
     //MARK: - Method
     
     func getLocation(completion: @escaping(Result<[Location], NetworkError>) -> Void ) {
-        guard let url = URL(string: "https://run.mocky.io/v3/3570b7c9-2e4d-46f2-b227-e449d06f856e") else {
+        guard let url = URL(string: "https://run.mocky.io/v3/f174e821-b423-4dfc-955a-42fa158b7f6c") else {
             completion(.failure(.noInternet))
             return
         }
@@ -51,7 +46,6 @@ final class NetworkManager {
                 let locations = decoderWModel.playgrounds.map {
                     Location(location: $0)
                 }
-//                print("DecoderWModel: \(decoderWModel)")
                 completion(.success(locations))
             } catch {
                 print("Error occurred: \(error)")

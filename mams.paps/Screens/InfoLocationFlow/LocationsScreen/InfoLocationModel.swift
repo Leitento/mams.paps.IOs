@@ -3,11 +3,11 @@ import Foundation
 
 protocol InfoLocationModelProtocol {
     var stateChanger: ((InfoLocationModel.State) -> Void)? { get set }
-    var locations: [Location] { get set }
-    var loadingHandler: ((Bool) -> Void)? { get set }
+//    var locations: [Location] { get set }
     func switchToNextFlow()
     func getLocation()
-    func didTapCategory(_ category: [Location])
+    func didTapCategory(_ category: Category)
+    func hideFilter()
 }
 
 final class InfoLocationModel {
@@ -16,8 +16,8 @@ final class InfoLocationModel {
 //        case initing
         case loading
         case done(locations: [Location])
-        case filtered(locations: [Location])
-        case showFilterView(locations: [Location])
+//        case filtered(locations: [Location])
+        case showFilterView(locations: [Category])
         case error(error: String)
     }
     
@@ -25,23 +25,61 @@ final class InfoLocationModel {
     //MARK: - Properties
     
     private weak var coordinator: InfoLocationCoordinator?
-    var locations: [Location] = []
+    private var locations: [Location] = []
+    private var categoryes: [Category] = []
     var stateChanger: ((State) -> Void)?
     var state: State = .loading {
         didSet {
             self.stateChanger?(state)
         }
     }
-    var loadingHandler: ((Bool) -> Void)?
-    
+    private let apiService: LocationApiServiceProtocol
+
     
     //MARK: - Life Cycle
     
-    init(coordinator: InfoLocationCoordinator) {
+    init(coordinator: InfoLocationCoordinator, apiService: LocationApiServiceProtocol) {
         self.coordinator = coordinator
+        self.apiService = apiService
     }
     deinit {
         print("InfoLocationModel  \(#function)")
+    }
+    
+    
+    private func getLocations() {
+        Task {  @MainActor [weak self] in
+            guard let self else { return }
+            do {
+                let locations = try await apiService.getLocations()
+                self.locations = locations
+                self.state = .done(locations: locations)
+            } catch {
+                self.state = .error(error: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func getCategoryes() {
+        Task {  @MainActor [weak self] in
+            guard let self else { return }
+            do {
+                let categoryes = try await apiService.getCategoryes()
+                self.categoryes = categoryes
+            } catch {
+                self.state = .error(error: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func filterLocations(category: Category) -> [Location] {
+        var filteredLocations: [Location] = []
+         locations.forEach { location in
+            if category.id == location.category.id {
+                filteredLocations.append(location)
+            }
+        }
+        return filteredLocations
     }
 }
 
@@ -50,50 +88,22 @@ final class InfoLocationModel {
 extension InfoLocationModel: InfoLocationModelProtocol {
     
     func switchToNextFlow() {
-        state = .showFilterView(locations: locations)
+        state = .showFilterView(locations: categoryes)
+    }
+    
+    func didTapCategory(_ category: Category) {
+        let locations = filterLocations(category: category)
+        state = .done(locations: locations)
+    }
+    
+    func hideFilter() {
+        getLocations()
     }
     
     func getLocation() {
-        NetworkManager.shared.getLocation() { [weak self] result in
-            guard let self = self else { return }
-            //                self.state = .loading
-            switch result {
-            case .success( let location):
-                DispatchQueue.main.async {
-                    self.locations = location
-                    self.state = .done(locations: location)
-                    print("3 \(location)")
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.state = .error(error: error.localizedDescription)
-                }
-            }
-            self.loadingHandler?(false)
-        }
+        getLocations()
+        getCategoryes()
     }
     
-//    func filterLocation() {
-//        NetworkManager.shared.getLocation() { [weak self] result in
-//            guard let self = self else { return }
-//            //                self.state = .loading
-//            switch result {
-//            case .success( let location):
-//                DispatchQueue.main.async {
-//                    self.locations = location
-//                    self.state = .filtered(locations: location)
-//                }
-//            case .failure(let error):
-//                DispatchQueue.main.async {
-//                    self.state = .error(error: error.localizedDescription)
-//                }
-//            }
-//            self.loadingHandler?(false)
-//        }
-//    }
-    
-    func didTapCategory(_ category: [Location]) {
-        state = .filtered(locations: category)
-    }
 }
 

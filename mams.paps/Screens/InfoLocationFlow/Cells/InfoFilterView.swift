@@ -1,17 +1,20 @@
 import UIKit
 
 
+
+
 final class InfoFilterView: UIView {
     
     //MARK: - Properties
     
     enum Constants {
-        static let sliderImage = UIImage(systemName: "slider.horizontal.3")
+        static let sliderImage =  "slider.horizontal.3"
+        static let imageClear = "xmark"
     }
-      
-    weak var delegate: InfoLocationController?
+
+    weak var delegate: InfoLocationControllerDelegate?
     
-     lazy var filterButton: UIButton = {
+      lazy var filterButton: UIButton = {
         let filter = UIButton()
         filter.setTitle("Выберите категорию", for: .normal)
         filter.setTitleColor(.black, for: .normal)
@@ -20,18 +23,28 @@ final class InfoFilterView: UIView {
         filter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         return filter
     }()
-    
+        
     private lazy var imageSlider: UIButton = {
         let filter = UIButton()
-        
-        var image = UIImage(systemName: "slider.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular))
+        var image = UIImage( systemName: Constants.sliderImage, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular))
         image = image?.withTintColor(.black, renderingMode: .alwaysOriginal)
         filter.setImage(image, for: .normal)
+        filter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
+        return filter
+    }()
+    
+    private lazy var imageClear: UIButton = {
+        let filter = UIButton()
+        var image = UIImage(systemName: Constants.imageClear, withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular))
+        image = image?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+        filter.setImage(image, for: .normal)
+        filter.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
+        filter.isHidden = true
         return filter
     }()
     
     private lazy var stackFilter: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [filterButton, imageSlider])
+        let stack = UIStackView(arrangedSubviews: [filterButton, imageSlider , imageClear])
         stack.axis = .horizontal
         stack.alignment = .fill
         stack.distribution = .fill
@@ -51,6 +64,7 @@ final class InfoFilterView: UIView {
         super.init(frame: .zero)
         backgroundColor = .customOrange
         setupSearchBar()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -66,15 +80,40 @@ final class InfoFilterView: UIView {
             stackFilter.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: LayoutConstants.spacing),
             stackFilter.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             stackFilter.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: LayoutConstants.spacing),
-            stackFilter.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -LayoutConstants.spacing)
+            stackFilter.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -LayoutConstants.spacing),
+            
+            
         ])
     }
     
+    func updateCategoty(categoty: String) {
+        filterButton.setTitle(categoty, for: .normal)
+    }
+        
+    private func changeState(isHidden: Bool) {
+        imageSlider.isHidden = isHidden
+        imageClear.isHidden = !isHidden
+        filterButton.isEnabled = !isHidden
+    }
+    
     @objc private func filterButtonTapped() {
-        if let delegate = delegate {
-            delegate.filterButtonTapped()
-        } else {
-            print("Delegate is nil")
-        }
+        
+        delegate?.showFilter()
+        changeState(isHidden: true)
+    }
+    
+    @objc private func clearButtonTapped() {
+        delegate?.hideResultFilter()
+        changeState(isHidden: false)
+        filterButton.setTitle("Выберите категорию", for: .normal)
     }
 }
+
+
+extension InfoFilterView: InfoFilterButtonLabelDelegate {
+    func renameFilterLabel(category: String) {
+        filterButton.setTitle(category, for: .normal)
+            print(category)
+    }
+}
+
