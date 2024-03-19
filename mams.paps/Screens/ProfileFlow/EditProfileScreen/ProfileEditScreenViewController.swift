@@ -29,8 +29,6 @@ final class ProfileEditScreenController: UIViewController {
         static let phoneLabelWidth: CGFloat = 57
         ///60
         static let buttonHeight: CGFloat = 60
-        ///65
-        static let nameLabelWidth: CGFloat = 65
         ///96
         static let dateOfBirthLabelWidth: CGFloat = 96
         ///100
@@ -102,7 +100,7 @@ final class ProfileEditScreenController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = " " + "Ваше Имя"
+        label.text = " " + "Имя"
         label.font = Fonts.regular12
         label.textColor = .customDarkBlue
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -334,7 +332,7 @@ final class ProfileEditScreenController: UIViewController {
             nameLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
                                                constant: SizeEditScreen.labelLeading),
             nameLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            nameLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.nameLabelWidth),
+            nameLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.labelLeading),
             
             
             cityField.topAnchor.constraint(equalTo: nameField.bottomAnchor,

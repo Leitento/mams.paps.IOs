@@ -32,13 +32,13 @@ extension CoreMapper: CoreMapperProtocol {
         } catch let error as DecodingError {
             switch error {
             case .typeMismatch(let any, let context):
-                print("typeMismatch: (any), (context)")
+                print("typeMismatch: \(any), \(context)")
             case .valueNotFound(let any, let context):
-                print("valueNotFound: (any), (context)")
+                print("valueNotFound: \(any), \(context)")
             case .keyNotFound(let codingKey, let context):
-                print("keyNotFound: (codingKey), (context)")
+                print("keyNotFound: \(codingKey), \(context)")
             case .dataCorrupted(let context):
-                print("dataCorrupted: (context)")
+                print("dataCorrupted: \(context)")
             @unknown default:
                 assertionFailure()
             }
