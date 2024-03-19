@@ -31,21 +31,37 @@ final class ProfileViewModel {
             self.stateChanger?(state)
         }
     }
-    
+    private let profileApiService: ProfileAPIServiceProtocol
     //MARK: - Life Cycle
     
-    init(coordinator: ProfileCoordinatorProtocol) {
+    init(coordinator: ProfileCoordinatorProtocol, profileApiService: ProfileAPIServiceProtocol) {
         self.coordinator = coordinator
+        self.profileApiService = profileApiService
     }
     
     //MARK: - Private Methods
     
     private func getProfile() {
-        let profileModel = ProfileModel(name: "name", secondName: "secName", city: "city", email: "mail@gmail.com")
-        let bannerModel = BannerModel(banner: UIImage(systemName: "banner"))
-        let buttonsModel = ButtonsModel.makeButtons()
-        let profile =  Profile(profileModel: profileModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
-        state = .loaded(profile: profile)
+        Task { @MainActor [weak self] in
+            guard let self else { return } 
+            do {
+                let userModel = try await profileApiService.getProfile()
+                let bannerModel = BannerModel(banner: UIImage(systemName: "banner"))
+                let buttonsModel = ButtonsModel.makeButtons()
+                let profile =  Profile(profileModel: userModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
+                state = .loaded(profile: profile)
+            } catch {
+                state = .error
+            }
+            
+           
+        }
+//        let profileModel = ProfileModel(id: 123 ,name: "name", secondName: "secName", city: "city",
+//        email: "mail@gmail.com", telephone: "8(900) 99-99-999", dateOfBirth: "12.12.12", avatar: "url")
+//        let bannerModel = BannerModel(banner: UIImage(systemName: "banner"))
+//        let buttonsModel = ButtonsModel.makeButtons()
+//        let profile =  Profile(profileModel: profileModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
+//        state = .loaded(profile: profile)
     }
 }
 

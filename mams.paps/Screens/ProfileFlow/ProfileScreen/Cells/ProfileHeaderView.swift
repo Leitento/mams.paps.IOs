@@ -22,7 +22,6 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     private lazy var profileImage: UIImageView = {
         var profileImage = UIImageView()
-        profileImage.image = UIImage(systemName: "person.circle")
         profileImage.layer.cornerRadius = LayoutConstants.cornerRadius
         return profileImage
     }()
@@ -77,6 +76,16 @@ final class ProfileHeaderView: UICollectionViewCell {
         nameLabel.text = "\(profile.name)" + " " + "\(profile.secondName)"
         cityLabel.text = "\(profile.city)"
         mailLabel.text = "\(profile.email)"
+        ImageDownloader.shared.getImage(url: profile.avatar) { image in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                guard let image else {
+                    profileImage.image = UIImage(systemName: "person.circle")
+                    return
+                }
+                profileImage.image = image
+            }
+        }
         layer.cornerRadius = 30
         layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }

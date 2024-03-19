@@ -40,7 +40,10 @@ final class ProfileScreenCoordinator {
     // MARK: - Private methods
     
     private func createNavigationController() -> UIViewController {
-        let viewModel = ProfileViewModel(coordinator: self)
+        let mapper = CoreMapper()
+        let networkManager = CoreNetworkManager()
+        let profileApiService = ProfileAPIService(mapper: mapper, networkManager: networkManager)
+        let viewModel = ProfileViewModel(coordinator: self, profileApiService: profileApiService)
         let profileViewController = ProfileViewController(viewModel: viewModel)
         rootViewController = profileViewController
         let navigationController = UINavigationController(rootViewController: profileViewController)

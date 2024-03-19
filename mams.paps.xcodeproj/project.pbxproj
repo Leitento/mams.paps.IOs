@@ -57,14 +57,16 @@
 		09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */; };
 		09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB92B6F4B8F0093EFAF /* Array.swift */; };
 		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
+		1F3253AF2BA984DC004C64C7 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253AE2BA984DC004C64C7 /* ProfileModel.swift */; };
+		1F3253B22BA9866D004C64C7 /* ProfileAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253B12BA9866D004C64C7 /* ProfileAPIService.swift */; };
+		1F3253B42BA98BCD004C64C7 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253B32BA98BCD004C64C7 /* ImageDownloader.swift */; };
 		1FCDD5522B878F1700098A28 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */; };
 		1FCDD5542B89E71D00098A28 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDD5532B89E71D00098A28 /* Font.swift */; };
 		5A6AA9532B848EFF00918278 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA93E2B848EFF00918278 /* AboutAppViewController.swift */; };
 		5A6AA9542B848EFF00918278 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9402B848EFF00918278 /* NotificationViewController.swift */; };
 		5A6AA9552B848EFF00918278 /* ContractOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9422B848EFF00918278 /* ContractOfferViewController.swift */; };
 		5A6AA9562B848EFF00918278 /* ProfileEditScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9442B848EFF00918278 /* ProfileEditScreenViewController.swift */; };
-		5A6AA9572B848EFF00918278 /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9452B848EFF00918278 /* ProfileEditViewModel.swift */; };
-		5A6AA9582B848EFF00918278 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9472B848EFF00918278 /* ProfileModel.swift */; };
+		5A6AA9582B848EFF00918278 /* ProfileUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9472B848EFF00918278 /* ProfileUIModel.swift */; };
 		5A6AA9592B848EFF00918278 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA94A2B848EFF00918278 /* ProfileHeaderView.swift */; };
 		5A6AA95A2B848EFF00918278 /* ButtonsProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA94B2B848EFF00918278 /* ButtonsProfileCell.swift */; };
 		5A6AA95B2B848EFF00918278 /* BannerProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA94C2B848EFF00918278 /* BannerProfileCell.swift */; };
@@ -151,6 +153,9 @@
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstans.swift; sourceTree = "<group>"; };
 		09EBCDB92B6F4B8F0093EFAF /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		1F3253AE2BA984DC004C64C7 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		1F3253B12BA9866D004C64C7 /* ProfileAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIService.swift; sourceTree = "<group>"; };
+		1F3253B32BA98BCD004C64C7 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		1FCDD5532B89E71D00098A28 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +163,7 @@
 		5A6AA9402B848EFF00918278 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		5A6AA9422B848EFF00918278 /* ContractOfferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractOfferViewController.swift; sourceTree = "<group>"; };
 		5A6AA9442B848EFF00918278 /* ProfileEditScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditScreenViewController.swift; sourceTree = "<group>"; };
-		5A6AA9452B848EFF00918278 /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
-		5A6AA9472B848EFF00918278 /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		5A6AA9472B848EFF00918278 /* ProfileUIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUIModel.swift; sourceTree = "<group>"; };
 		5A6AA94A2B848EFF00918278 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		5A6AA94B2B848EFF00918278 /* ButtonsProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsProfileCell.swift; sourceTree = "<group>"; };
 		5A6AA94C2B848EFF00918278 /* BannerProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerProfileCell.swift; sourceTree = "<group>"; };
@@ -332,6 +336,14 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		1F3253B02BA9865D004C64C7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1F3253B12BA9866D004C64C7 /* ProfileAPIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		3A75278FF3BAD3E4C4757FDD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +356,7 @@
 		5A6AA9382B848EFF00918278 /* ProfileFlow */ = {
 			isa = PBXGroup;
 			children = (
+				1F3253B02BA9865D004C64C7 /* Network */,
 				5A6AA93D2B848EFF00918278 /* AboutApp */,
 				5A6AA93F2B848EFF00918278 /* NotificationFlow */,
 				5A6AA9412B848EFF00918278 /* ContractScreen */,
@@ -383,7 +396,6 @@
 			isa = PBXGroup;
 			children = (
 				5A6AA9442B848EFF00918278 /* ProfileEditScreenViewController.swift */,
-				5A6AA9452B848EFF00918278 /* ProfileEditViewModel.swift */,
 			);
 			path = EditProfileScreen;
 			sourceTree = "<group>";
@@ -391,7 +403,7 @@
 		5A6AA9462B848EFF00918278 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5A6AA9472B848EFF00918278 /* ProfileModel.swift */,
+				5A6AA9472B848EFF00918278 /* ProfileUIModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -536,6 +548,7 @@
 				CB62AA5C2B99A5050085AFCF /* EnterPoint.swift */,
 				CB62AA5E2B99A8AB0085AFCF /* NetworkError.swift */,
 				CB6CB33C2B90DD2F00A94105 /* Models */,
+				1F3253B32BA98BCD004C64C7 /* ImageDownloader.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -544,6 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				CB6CB33D2B90DD2F00A94105 /* LocationModel.swift */,
+				1F3253AE2BA984DC004C64C7 /* ProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -678,9 +692,12 @@
 				095BE7D52B1E058000C6220E /* Alert.swift in Sources */,
 				CB6CB3402B90DD2F00A94105 /* LocationModel.swift in Sources */,
 				09638DAC2B35954F005DF42D /* TabBarCoordinator.swift in Sources */,
+				1F3253B22BA9866D004C64C7 /* ProfileAPIService.swift in Sources */,
 				5A6AA9562B848EFF00918278 /* ProfileEditScreenViewController.swift in Sources */,
 				CB62AAAE2BA474A50085AFCF /* old.swift in Sources */,
 				095BE7E82B1F07C200C6220E /* Reusable.swift in Sources */,
+				1F3253B42BA98BCD004C64C7 /* ImageDownloader.swift in Sources */,
+				1F3253AF2BA984DC004C64C7 /* ProfileModel.swift in Sources */,
 				094977872B2C79700089DB13 /* MainScreenViewModel.swift in Sources */,
 				095480DA2B792DF700D65C87 /* SuggestItem.swift in Sources */,
 				CB6CB33E2B90DD2F00A94105 /* LocationUIModel.swift in Sources */,
@@ -704,11 +721,10 @@
 				CB2D02832B95EEA200609783 /* InfoFilterView.swift in Sources */,
 				09DC06502B2C8AFB00D71BEB /* MainScreenCoordinator.swift in Sources */,
 				09DC064D2B2C8AFB00D71BEB /* OnboardingCoordinator.swift in Sources */,
-				5A6AA9582B848EFF00918278 /* ProfileModel.swift in Sources */,
+				5A6AA9582B848EFF00918278 /* ProfileUIModel.swift in Sources */,
 				CB2D02842B95EEA200609783 /* InfoViewCell.swift in Sources */,
 				CB2D027E2B95EE8500609783 /* InfoLocationModel.swift in Sources */,
 				09638DA12B356FCF005DF42D /* UserModel.xcdatamodeld in Sources */,
-				5A6AA9572B848EFF00918278 /* ProfileEditViewModel.swift in Sources */,
 				CB62AA5F2B99A8AB0085AFCF /* NetworkError.swift in Sources */,
 				09DC064E2B2C8AFB00D71BEB /* AppCoordinator.swift in Sources */,
 				094977902B2C79920089DB13 /* AuthorizationView.swift in Sources */,
@@ -921,6 +937,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ruspersonal.mams-paps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -950,6 +970,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ruspersonal.mams-paps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
