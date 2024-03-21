@@ -76,6 +76,8 @@
 
 "ProfileEditScreen.nameText" = "Vladimir";
 
+"ProfileEditScreen.surnameText" = "Astreyko";
+
 "ProfileEditScreen.cityText" = "Moscow";
 
 "ProfileEditScreen.emailText" = "mail@mail.ru";
@@ -89,6 +91,8 @@
 "ProfileEditScreen.navBar" = "Edit profile";
 
 "ProfileEditScreenLabel.namelabel" = "Name";
+
+"ProfileEditScreenLabel.surname" = "Surname";
 
  "ProfileEditScreenLabel.cityLabel" = "City";
 

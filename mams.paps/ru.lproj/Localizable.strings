@@ -75,6 +75,8 @@
 
 "ProfileEditScreen.nameText" = "Владимир";
 
+"ProfileEditScreen.surnameText" = "Астрейко";
+
 "ProfileEditScreen.cityText" = "Москва";
 
 "ProfileEditScreen.emailText" = "mail@mail.ru";
@@ -88,6 +90,8 @@
 "ProfileEditScreen.navBar" = "Редактирование профиля";
 
 "ProfileEditScreenLabel.namelabel" = "Имя";
+
+"ProfileEditScreenLabel.surname" = "Фамилия";
 
 "ProfileEditScreenLabel.cityLabel" = "Город";
 
