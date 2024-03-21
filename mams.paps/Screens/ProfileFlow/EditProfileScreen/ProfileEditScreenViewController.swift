@@ -320,9 +320,6 @@ final class ProfileEditScreenController: UIViewController {
                                               constant: LayoutConstants.indentSixteen),
             viewList.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                constant: -LayoutConstants.indentSixteen),
-            viewList.bottomAnchor.constraint(equalTo: dateOfBirthField.bottomAnchor,
-                                             constant: SizeEditScreen.verticalOffset),
-            
             nameField.topAnchor.constraint(equalTo: viewList.topAnchor,
                                            constant: SizeEditScreen.verticalOffset),
             nameField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
@@ -400,12 +397,12 @@ final class ProfileEditScreenController: UIViewController {
                                                        constant: -LayoutConstants.defaultOffSet),
             dateOfBirthField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fieldHeight),
             dateOfBirthField.widthAnchor.constraint(equalToConstant: SizeEditScreen.fieldWidth),
-            
+            dateOfBirthField.bottomAnchor.constraint(equalTo: viewList.bottomAnchor,
+                                                     constant: -28),
             dateOfBirthLabel.topAnchor.constraint(equalTo: phoneField.bottomAnchor,
                                                   constant: LayoutConstants.indentTen),
             dateOfBirthLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
                                                       constant: SizeEditScreen.labelLeading),
-            
             dateOfBirthLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
             dateOfBirthLabel.widthAnchor.constraint(equalToConstant: dateOfBirthLabel.frame.width),
             showButton.topAnchor.constraint(equalTo: viewList.bottomAnchor,
@@ -414,8 +411,6 @@ final class ProfileEditScreenController: UIViewController {
                                                 constant: LayoutConstants.defaultOffSet),
             showButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                  constant: -LayoutConstants.defaultOffSet),
-            showButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                               constant: -SizeEditScreen.buttonBottomOffset),
             showButton.heightAnchor.constraint(equalToConstant: SizeEditScreen.buttonHeight),
             showButton.widthAnchor.constraint(equalToConstant: SizeEditScreen.buttonWidth)
         ])
