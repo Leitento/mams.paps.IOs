@@ -47,7 +47,7 @@ final class ProfileScreenCoordinator {
         let profileViewController = ProfileViewController(viewModel: viewModel)
         rootViewController = profileViewController
         let navigationController = UINavigationController(rootViewController: profileViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "Profile".localized,
+        navigationController.tabBarItem = UITabBarItem(title: "Profile.tabbar".localized,
                                                        image: UIImage(systemName: "person.crop.circle"),
                                                        tag: 4)
         self.navigationController =  navigationController

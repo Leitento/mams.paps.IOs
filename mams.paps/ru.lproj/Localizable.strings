@@ -87,6 +87,16 @@
 
 "ProfileEditScreen.navBar" = "Редактирование профиля";
 
+"ProfileEditScreenLabel.namelabel" = "Имя";
+
+"ProfileEditScreenLabel.cityLabel" = "Город";
+
+"ProfileEditScreenLabel.emailLabel" = "Почта";
+
+"ProfileEditScreenLabel.telephoneLabel" = "Телефон";
+
+"ProfileEditScreenLabel.dateOfBirthLabel" = "Дата рождения";
+
 //MARK: - Profile Photo Edit Alert
 
 "ProfilePhotoEditAlert.addphoto" = "Добавить фото";
@@ -140,6 +150,11 @@
 "ProfileHeaderView.cityLabel" = "Город";
 
 "Profile.header" = "Профиль"; 
+
+
+// MARK: - Tabbar Profile
+
+"Profile.tabbar" = "Профиль";
 
 //MARK: - Location
 
