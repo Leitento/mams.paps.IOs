@@ -25,6 +25,7 @@ final class ButtonsProfileCell: UICollectionViewCell {
     }()
     private lazy var label: UILabel = {
         let label = UILabel()
+        label.textColor = .customGreyButtons
         return label
     }()
     

@@ -19,7 +19,7 @@ enum EnterPoint {
         case .categoryes:
             return URLRequest(url: URL(string: "https://run.mocky.io/v3/cf1d1b0d-19f9-43ee-85bc-df4cb98718a6")!)
         case .profile:
-            return URLRequest(url: URL(string: "https://run.mocky.io/v3/67c96135-95b7-419e-9188-d6acb1407aa6")!)
+            return URLRequest(url: URL(string: "https://run.mocky.io/v3/18b0a10a-c679-46e9-a9bd-288b06924b80")!)
         }
     }
 }

@@ -19,18 +19,10 @@ final class ProfileEditScreenController: UIViewController {
         static let labelLeading: CGFloat = 30
         ///40
         static let buttonTopOffset: CGFloat = 40
-        ///41
-        static let cityLabelWidth: CGFloat = 41
-        ///43
-        static let emailLabelWidth: CGFloat = 43
         ///48
         static let fieldHeight: CGFloat = 48
-        ///57
-        static let phoneLabelWidth: CGFloat = 57
         ///60
         static let buttonHeight: CGFloat = 60
-        ///96
-        static let dateOfBirthLabelWidth: CGFloat = 96
         ///100
         static let imageTopOffset: CGFloat = 100
         ///108
@@ -65,12 +57,14 @@ final class ProfileEditScreenController: UIViewController {
     
     private lazy var photoEditImageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .label
+        imageView.clipsToBounds = true
         return imageView
     }()
     
     private lazy var nameText = "ProfileEditScreen.nameText".localized
+    private lazy var surnameText = "ProfileEditScreen.surnameText".localized
     private lazy var cityText =  "ProfileEditScreen.cityText".localized
     private lazy var emailText = "ProfileEditScreen.emailText".localized
     private lazy var phoneText =  "ProfileEditScreen.phoneText".localized
@@ -90,7 +84,9 @@ final class ProfileEditScreenController: UIViewController {
         nameField.leftViewMode = .always
         nameField.textColor = .customGreyButtons
         nameField.backgroundColor = .white
-        nameField.attributedPlaceholder = NSAttributedString.init(string: "Владимир", attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
+        nameField.attributedPlaceholder = NSAttributedString.init(
+                     string: "ProfileEditScreen.nameText".localized,
+                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
         nameField.addTarget(self, action: #selector(nameTextChanged), for: .editingChanged)
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         nameField.leftView = paddingView
@@ -100,12 +96,49 @@ final class ProfileEditScreenController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = " " + "Имя"
+        label.text = " " + "ProfileEditScreenLabel.namelabel".localized + " "
         label.font = Fonts.regular12
         label.textColor = .customDarkBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.clipsToBounds = true
+        label.sizeToFit()
+        return label
+    }()
+    
+    private lazy var surnameField: UITextField = {
+        let surnameField = UITextField()
+        surnameField.layer.borderColor = UIColor.customDarkBlue.cgColor
+        surnameField.layer.borderWidth = 2
+        surnameField.keyboardType = .emailAddress
+        surnameField.font = Fonts.regular16
+        surnameField.autocapitalizationType = .none
+        surnameField.clearButtonMode = UITextField.ViewMode.whileEditing
+        surnameField.returnKeyType = .done
+        surnameField.layer.cornerRadius = LayoutConstants.cornerRadius
+        surnameField.textAlignment = .left
+        surnameField.leftViewMode = .always
+        surnameField.textColor = .customGreyButtons
+        surnameField.backgroundColor = .white
+        surnameField.attributedPlaceholder = NSAttributedString.init(
+                     string: "ProfileEditScreen.surnameText".localized,
+                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
+        surnameField.addTarget(self, action: #selector(surnameTextChanged), for: .editingChanged)
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        surnameField.leftView = paddingView
+        return surnameField
+    }()
+    
+    private lazy var surnameLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.text = " " + "ProfileEditScreenLabel.surname".localized + " "
+        label.font = Fonts.regular12
+        label.textColor = .customDarkBlue
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.contentMode = .scaleAspectFit
+        label.clipsToBounds = true
+        label.sizeToFit()
         return label
     }()
     
@@ -123,7 +156,9 @@ final class ProfileEditScreenController: UIViewController {
         cityField.leftViewMode = .always
         cityField.textColor = .customGreyButtons
         cityField.backgroundColor = .white
-        cityField.attributedPlaceholder = NSAttributedString.init(string: "Москва", attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
+        cityField.attributedPlaceholder = NSAttributedString.init(
+                     string: "ProfileEditScreen.cityText".localized,
+                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
         cityField.addTarget(self, action: #selector(cityTextChanged), for: .editingChanged)
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         cityField.leftView = paddingView
@@ -133,12 +168,13 @@ final class ProfileEditScreenController: UIViewController {
     private lazy var cityLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = " " + "Город"
+        label.text = " " + "ProfileEditScreenLabel.cityLabel".localized + " "
         label.font = Fonts.regular12
         label.textColor = .customDarkBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.clipsToBounds = true
+        label.sizeToFit()
         return label
     }()
     
@@ -156,7 +192,9 @@ final class ProfileEditScreenController: UIViewController {
         emailField.leftViewMode = .always
         emailField.textColor = .customGreyButtons
         emailField.backgroundColor = .white
-        emailField.attributedPlaceholder = NSAttributedString.init(string: "mail@gmail.com", attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
+        emailField.attributedPlaceholder = NSAttributedString.init(
+                     string: "ProfileEditScreen.emailText".localized,
+                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
         emailField.addTarget(self, action: #selector(emailTextChanged), for: .editingChanged)
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         emailField.leftView = paddingView
@@ -166,12 +204,13 @@ final class ProfileEditScreenController: UIViewController {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = " " + "Почта"
+        label.text = " " + "ProfileEditScreenLabel.emailLabel".localized + " "
         label.font = Fonts.regular12
         label.textColor = .customDarkBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.clipsToBounds = true
+        label.sizeToFit()
         return label
     }()
     
@@ -189,7 +228,9 @@ final class ProfileEditScreenController: UIViewController {
         phoneField.leftViewMode = .always
         phoneField.textColor = .customGreyButtons
         phoneField.backgroundColor = .white
-        phoneField.attributedPlaceholder = NSAttributedString.init(string: "+7 (XXX) XXX-XX-XX", attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
+        phoneField.attributedPlaceholder = NSAttributedString.init(
+                     string:  "ProfileEditScreen.phoneText".localized,
+                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
         phoneField.addTarget(self, action: #selector(phoneTextChanged), for: .editingChanged)
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         phoneField.leftView = paddingView
@@ -199,12 +240,13 @@ final class ProfileEditScreenController: UIViewController {
     private lazy var phoneLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = " " + "Телефон"
+        label.text = " " + "ProfileEditScreenLabel.telephoneLabel".localized + " "
         label.font = Fonts.regular12
         label.textColor = .customDarkBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.clipsToBounds = true
+        label.sizeToFit()
         return label
     }()
     
@@ -222,7 +264,9 @@ final class ProfileEditScreenController: UIViewController {
         dateOfBirthField.leftViewMode = .always
         dateOfBirthField.textColor = .customGreyButtons
         dateOfBirthField.backgroundColor = .white
-        dateOfBirthField.attributedPlaceholder = NSAttributedString.init(string: "XX/XX/XXXX", attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
+        dateOfBirthField.attributedPlaceholder = NSAttributedString.init(
+                 string: "ProfileEditScreen.dateOfBirthText".localized,
+                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons])
         dateOfBirthField.addTarget(self, action: #selector(dateOfBirthTextChanged), for: .editingChanged)
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         dateOfBirthField.leftView = paddingView
@@ -232,12 +276,13 @@ final class ProfileEditScreenController: UIViewController {
     private lazy var dateOfBirthLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
-        label.text = " " + "Дата рождения"
+        label.text = " " + "ProfileEditScreenLabel.dateOfBirthLabel".localized + " "
         label.font = Fonts.regular12
         label.textColor = .customDarkBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.clipsToBounds = true
+        label.sizeToFit()
         return label
     }()
     
@@ -292,7 +337,7 @@ final class ProfileEditScreenController: UIViewController {
         createCustomNavBar(on: self, title: "ProfileEditScreen.navBar".localized)
         view.layer.cornerRadius = LayoutConstants.cornerRadius
         view.backgroundColor = .customOrange
-        viewList.addSubviews(nameField, nameLabel, cityField, cityLabel, emailField, emailLabel, phoneField,
+        viewList.addSubviews(nameField, nameLabel,surnameField, surnameLabel, cityField, cityLabel, emailField, emailLabel, phoneField,
                              phoneLabel, dateOfBirthField, dateOfBirthLabel)
         view.addSubviews(viewBackground, photoEditImageView, viewList, showButton)
         NSLayoutConstraint.activate([
@@ -313,9 +358,6 @@ final class ProfileEditScreenController: UIViewController {
                                               constant: LayoutConstants.indentSixteen),
             viewList.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                constant: -LayoutConstants.indentSixteen),
-            viewList.bottomAnchor.constraint(equalTo: dateOfBirthField.bottomAnchor,
-                                             constant: SizeEditScreen.verticalOffset),
-            
             nameField.topAnchor.constraint(equalTo: viewList.topAnchor,
                                            constant: SizeEditScreen.verticalOffset),
             nameField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
@@ -324,7 +366,7 @@ final class ProfileEditScreenController: UIViewController {
                                                 constant: -LayoutConstants.defaultOffSet),
             nameField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fieldHeight),
             nameField.widthAnchor.constraint(equalToConstant: SizeEditScreen.fieldWidth),
-            nameField.bottomAnchor.constraint(equalTo: cityField.topAnchor,
+            nameField.bottomAnchor.constraint(equalTo: surnameField.topAnchor,
                                               constant: -LayoutConstants.defaultOffSet),
             
             nameLabel.topAnchor.constraint(equalTo: viewList.topAnchor, 
@@ -332,10 +374,27 @@ final class ProfileEditScreenController: UIViewController {
             nameLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
                                                constant: SizeEditScreen.labelLeading),
             nameLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            nameLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.labelLeading),
+            nameLabel.widthAnchor.constraint(equalToConstant: nameLabel.frame.width),
             
+            surnameField.topAnchor.constraint(equalTo: nameField.bottomAnchor,
+                                              constant: LayoutConstants.defaultOffSet),
+            surnameField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
+                                                  constant: LayoutConstants.defaultOffSet),
+            surnameField.trailingAnchor.constraint(equalTo: viewList.trailingAnchor,
+                                                   constant: -LayoutConstants.defaultOffSet),
+            surnameField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fieldHeight),
+            surnameField.widthAnchor.constraint(equalToConstant: SizeEditScreen.fieldWidth),
+            surnameField.bottomAnchor.constraint(equalTo: cityField.topAnchor,
+                                                 constant: -LayoutConstants.defaultOffSet),
             
-            cityField.topAnchor.constraint(equalTo: nameField.bottomAnchor,
+            surnameLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor,
+                                           constant: LayoutConstants.indentEight),
+            surnameLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
+                                               constant: SizeEditScreen.labelLeading),
+            surnameLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
+            surnameLabel.widthAnchor.constraint(equalToConstant: surnameLabel.frame.width),
+            
+            cityField.topAnchor.constraint(equalTo: surnameField.bottomAnchor,
                                            constant: LayoutConstants.defaultOffSet),
             cityField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
                                                constant: LayoutConstants.defaultOffSet),
@@ -346,13 +405,12 @@ final class ProfileEditScreenController: UIViewController {
             cityField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fieldHeight),
             cityField.widthAnchor.constraint(equalToConstant: SizeEditScreen.fieldWidth),
             
-            cityLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, 
+            cityLabel.topAnchor.constraint(equalTo: surnameField.bottomAnchor,
                                            constant: LayoutConstants.indentEight),
             cityLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
                                                constant: SizeEditScreen.labelLeading),
             cityLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            cityLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.cityLabelWidth),
-            
+            cityLabel.widthAnchor.constraint(equalToConstant: cityLabel.frame.width),
             emailField.topAnchor.constraint(equalTo: cityField.bottomAnchor,
                                             constant: LayoutConstants.defaultOffSet),
             emailField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
@@ -369,8 +427,7 @@ final class ProfileEditScreenController: UIViewController {
             emailLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
                                                 constant: SizeEditScreen.labelLeading),
             emailLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            emailLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.emailLabelWidth),
-            
+            emailLabel.widthAnchor.constraint(equalToConstant: emailLabel.frame.width),
             phoneField.topAnchor.constraint(equalTo: emailField.bottomAnchor,
                                             constant: LayoutConstants.defaultOffSet),
             phoneField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
@@ -387,8 +444,7 @@ final class ProfileEditScreenController: UIViewController {
             phoneLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
                                                 constant: SizeEditScreen.labelLeading),
             phoneLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            phoneLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.phoneLabelWidth),
-            
+            phoneLabel.widthAnchor.constraint(equalToConstant: phoneLabel.frame.width),
             dateOfBirthField.topAnchor.constraint(equalTo: phoneField.bottomAnchor,
                                                   constant: LayoutConstants.defaultOffSet),
             dateOfBirthField.leadingAnchor.constraint(equalTo: viewList.leadingAnchor,
@@ -397,23 +453,20 @@ final class ProfileEditScreenController: UIViewController {
                                                        constant: -LayoutConstants.defaultOffSet),
             dateOfBirthField.heightAnchor.constraint(equalToConstant: SizeEditScreen.fieldHeight),
             dateOfBirthField.widthAnchor.constraint(equalToConstant: SizeEditScreen.fieldWidth),
-            
+            dateOfBirthField.bottomAnchor.constraint(equalTo: viewList.bottomAnchor,
+                                                     constant: -SizeEditScreen.verticalOffset),
             dateOfBirthLabel.topAnchor.constraint(equalTo: phoneField.bottomAnchor,
                                                   constant: LayoutConstants.indentTen),
             dateOfBirthLabel.leadingAnchor.constraint(equalTo: viewList.leadingAnchor, 
                                                       constant: SizeEditScreen.labelLeading),
-            
             dateOfBirthLabel.heightAnchor.constraint(equalToConstant: LayoutConstants.defaultOffSet),
-            dateOfBirthLabel.widthAnchor.constraint(equalToConstant: SizeEditScreen.dateOfBirthLabelWidth),
-            
+            dateOfBirthLabel.widthAnchor.constraint(equalToConstant: dateOfBirthLabel.frame.width),
             showButton.topAnchor.constraint(equalTo: viewList.bottomAnchor,
                                             constant: SizeEditScreen.buttonTopOffset),
             showButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                 constant: LayoutConstants.defaultOffSet),
             showButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                  constant: -LayoutConstants.defaultOffSet),
-            showButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                               constant: -SizeEditScreen.buttonBottomOffset),
             showButton.heightAnchor.constraint(equalToConstant: SizeEditScreen.buttonHeight),
             showButton.widthAnchor.constraint(equalToConstant: SizeEditScreen.buttonWidth)
         ])
@@ -452,5 +505,8 @@ final class ProfileEditScreenController: UIViewController {
     }
     @objc private func dateOfBirthTextChanged(_ textField: UITextField) {
         dateOfBirthText = textField.text ?? ""
+    }
+    @objc private func surnameTextChanged(_ textField: UITextField) {
+        surnameText = textField.text ?? ""
     }
 }

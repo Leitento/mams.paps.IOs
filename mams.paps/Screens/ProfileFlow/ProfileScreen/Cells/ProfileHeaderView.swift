@@ -14,15 +14,19 @@ final class ProfileHeaderView: UICollectionViewCell {
     enum SizeHeader {
         ///22
         static let topOffset: CGFloat = 22
+        ///60
+        static let imageMaskCircle: CGFloat = 60
         ///120
         static let imageSize: CGFloat = 120
     }
   
-    //MARK: - Properties
+    //MARK: - Private Properties
     
     private lazy var profileImage: UIImageView = {
         var profileImage = UIImageView()
-        profileImage.layer.cornerRadius = LayoutConstants.cornerRadius
+//        profileImage.layer.cornerRadius = LayoutConstants.cornerRadius
+        profileImage.layer.cornerRadius = SizeHeader.imageMaskCircle
+        profileImage.clipsToBounds = true
         return profileImage
     }()
     private lazy var nameLabel: UILabel = {
