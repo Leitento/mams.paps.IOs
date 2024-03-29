@@ -52,7 +52,7 @@ final class InfoLocationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-                        countLocationsView.isHidden = true
+        countLocationsView.isHidden = true
         setupCollectionView()
         infoFilterView.delegate = self
         bindingModel()
