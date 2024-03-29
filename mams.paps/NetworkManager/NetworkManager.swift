@@ -15,7 +15,7 @@ final class NetworkManager {
     //MARK: - Method
     
     func getLocation(completion: @escaping(Result<[Location], NetworkError>) -> Void ) {
-        guard let url = URL(string: "https://run.mocky.io/v3/f174e821-b423-4dfc-955a-42fa158b7f6c") else {
+        guard let url = URL(string: "https://mocki.io/v1/0ece1421-7975-4422-b951-5f03af7d3d2a") else {
             completion(.failure(.noInternet))
             return
         }

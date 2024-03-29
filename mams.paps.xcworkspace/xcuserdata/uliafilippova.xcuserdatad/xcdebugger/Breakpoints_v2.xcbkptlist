@@ -14,8 +14,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "clearButtonTapped()"
             landmarkType = "7">
             <Locations>
@@ -62,8 +62,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "changeState(isHidden:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/Cells/InfoFilterView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "changeState(isHidden:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "filterLocations(category:)"
             landmarkType = "7">
             <Locations>
@@ -157,8 +157,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "filterLocations(category:)"
             landmarkType = "7">
             <Locations>
@@ -235,8 +235,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/Filters/InfoFilterController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -283,8 +283,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "updateCollectionView()"
             landmarkType = "7">
             <Locations>
@@ -331,8 +331,8 @@
             filePath = "mams.paps/Screens/InfoLocationFlow/LocationsScreen/InfoLocationController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "updateCollectionView()"
             landmarkType = "7">
          </BreakpointContent>
