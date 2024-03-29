@@ -58,18 +58,14 @@ extension InfoFilterModel: InfoFilterLocationModelProtocol {
     //MARK: - Private Methods
     
     func getLocation() {
-        
-//        let categoryes = categoryes.compactMap { $0.category }
         state = .done(locations: categoryes)
     }
     
     func didTapCategory(category: Category) {
         selectedCategory = category
-//        let locations = filterLocation(category: category)
         state = .chooseCategory(categoryes: category)
     }
     
     func switchNextFlow() {
-        
     }
 }

@@ -7,7 +7,7 @@ struct Location: Hashable {
     let address: String
     let rating: Double?
     let description: String?
-    let image: String?
+    let image: String
     let ageCategory: AgeCategory?
     let category: Category
     let equipment: Equipment?
@@ -23,7 +23,7 @@ struct Location: Hashable {
          address: String,
          rating: Double?,
          description: String?,
-         image: String?,
+         image: String,
          ageCategory: AgeCategory?,
          category: Category,
          equipment: Equipment?,
@@ -53,6 +53,10 @@ struct Location: Hashable {
     }
 }
 
+
+//MARK: - Extension
+
+
 extension Location {
     init(location: InfoPlayground) {
         self.id = location.id
@@ -60,7 +64,7 @@ extension Location {
         self.address = location.adress
         self.rating = location.rating
         self.description = location.description
-        self.image = location.comment //  костыль, пока картинки нету
+        self.image = location.image
         self.ageCategory = AgeCategory(ageCategory: location.ageCategory!)
         self.category = Category.init(category: location.category)
         self.equipment = Equipment.init(sandbox: (location.equipment != nil),
@@ -78,7 +82,6 @@ extension Location {
         self.accessability = location.benches
         self.toilet = location.toilet
         self.comment = location.comment
-        
     }
 }
 
@@ -89,7 +92,6 @@ struct Category: Hashable {
         self.id = id
         self.title = title
     }
-//    let image: UIImage
 }
 
 extension Category {
@@ -119,7 +121,6 @@ extension AgeCategory {
         self.threeToSix = ageCategory.threeToSix ?? false
         self.sixPlus = ageCategory.sixPlus ?? false
     }
-    
 }
 
 struct Equipment: Hashable {

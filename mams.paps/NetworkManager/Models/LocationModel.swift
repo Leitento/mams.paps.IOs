@@ -11,6 +11,7 @@ struct InfoPlayground: Codable {
     let id: Int
     let adress: String
     let rating: Double
+    let image: String
     let ageCategory: AgeCategorys?
     let category: Categoryes
     let equipment: Equipments?

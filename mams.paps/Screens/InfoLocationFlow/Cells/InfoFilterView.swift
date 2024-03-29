@@ -50,10 +50,18 @@ final class InfoFilterView: UIView {
         stack.distribution = .fill
         stack.spacing = 0
         stack.backgroundColor = .white
-        stack.layer.masksToBounds = true
+        stack.layer.masksToBounds = false
         stack.layer.cornerRadius = 20
         stack.layoutMargins = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         stack.isLayoutMarginsRelativeArrangement = true
+        stack.layer.shadowColor = UIColor.gray.cgColor
+        stack.layer.shadowOffset = CGSize(width: 0, height: 1)
+        stack.layer.shadowRadius = 20
+        
+         let shadowSize: CGFloat = 5
+         let contactRect = CGRect(x: shadowSize, y: stack.bounds.height  , width: stack.bounds.width  , height: shadowSize)
+         
+         layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath
         return stack
     }()
     
@@ -62,9 +70,10 @@ final class InfoFilterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        backgroundColor = .customOrange
+        backgroundColor = .clear
         setupSearchBar()
-        
+        clipsToBounds = true
+        layer.masksToBounds = true
     }
     
     required init?(coder: NSCoder) {
@@ -78,16 +87,18 @@ final class InfoFilterView: UIView {
         addSubviews(stackFilter, translatesAutoresizingMaskIntoConstraints: false)
         NSLayoutConstraint.activate([
             stackFilter.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: LayoutConstants.spacing),
-            stackFilter.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            stackFilter.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -1),
             stackFilter.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: LayoutConstants.spacing),
             stackFilter.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -LayoutConstants.spacing),
-            
-            
         ])
     }
     
     func updateCategoty(categoty: String) {
         filterButton.setTitle(categoty, for: .normal)
+    }
+    
+    func hideShadow(hideShadow: Float ) {
+        stackFilter.layer.shadowOpacity = hideShadow
     }
         
     private func changeState(isHidden: Bool) {
@@ -109,6 +120,8 @@ final class InfoFilterView: UIView {
     }
 }
 
+
+//MARK: - Extension
 
 extension InfoFilterView: InfoFilterButtonLabelDelegate {
     func renameFilterLabel(category: String) {
