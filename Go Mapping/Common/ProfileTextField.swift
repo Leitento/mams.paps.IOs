@@ -24,10 +24,7 @@ final class ProfileTextField: UITextField {
          self.backgroundColor = .white
          let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
          self.leftView = paddingView
-         self.attributedPlaceholder = NSAttributedString.init(
-            string: placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.customGreyButtons]
-         )
+         self.text = placeholder
     }
     
     required init?(coder: NSCoder) {
