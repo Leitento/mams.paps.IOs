@@ -9,7 +9,7 @@ import UIKit
 
 protocol ProfileCoordinatorProtocol: AnyObject {
     func showProfileScreen()
-    func pushProfileEditingButton()
+    func pushProfileEditingButton(profile: Profile)
     func pushBannerButton()
     func pushFavouritesButton()
     func pushMyAddsButton()
@@ -71,9 +71,9 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
         print("showProfileScreen")
     }
     
-    func pushProfileEditingButton() {
+    func pushProfileEditingButton(profile: Profile) {
         print("showProfileEditingButton")
-        let viewControler = ProfileEditScreenController()
+        let viewControler = ProfileEditScreenController(profile: profile)
         navigationController?.pushViewController(viewControler, animated: true)
     }
     

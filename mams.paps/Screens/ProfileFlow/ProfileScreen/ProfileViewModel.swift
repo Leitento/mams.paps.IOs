@@ -24,6 +24,8 @@ final class ProfileViewModel {
     }
     
     //MARK: - Properties
+    
+    private var profile: Profile?
     private weak var coordinator: ProfileCoordinatorProtocol?
     var stateChanger: ((State) -> Void)?
     var state: State = .loading {
@@ -48,7 +50,8 @@ final class ProfileViewModel {
                 let userModel = try await profileApiService.getProfile()
                 let bannerModel = BannerModel(banner: UIImage(systemName: "banner"))
                 let buttonsModel = ButtonsModel.makeButtons()
-                let profile =  Profile(profileModel: userModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
+                let profile =  Profile(profileUser: userModel, bannerModel: bannerModel, buttonsModel: buttonsModel)
+                self.profile = profile
                 state = .loaded(profile: profile)
             } catch {
                 state = .error
@@ -56,7 +59,7 @@ final class ProfileViewModel {
             
            
         }
-//        let profileModel = ProfileModel(id: 123 ,name: "name", secondName: "secName", city: "city",
+//        let profileModel = ProfileUser(id: 123 ,name: "name", secondName: "secName", city: "city",
 //        email: "mail@gmail.com", telephone: "8(900) 99-99-999", dateOfBirth: "12.12.12", avatar: "url")
 //        let bannerModel = BannerModel(banner: UIImage(systemName: "banner"))
 //        let buttonsModel = ButtonsModel.makeButtons()
@@ -70,7 +73,8 @@ extension ProfileViewModel: ProfileViewModelProtocol {
         getProfile()
     }
     func didTappedEditProfile() {
-        coordinator?.pushProfileEditingButton()
+        guard let profile else { return }
+        coordinator?.pushProfileEditingButton(profile: profile)
     }
    
     func didTappedButton(target: ButtonsTarget) {

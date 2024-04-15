@@ -12,11 +12,8 @@ final class ProfileHeaderView: UICollectionViewCell {
     //MARK: - Enum
     
     enum SizeHeader {
-        ///22
         static let topOffset: CGFloat = 22
-        ///60
         static let imageMaskCircle: CGFloat = 60
-        ///120
         static let imageSize: CGFloat = 120
     }
   
@@ -24,12 +21,11 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     private lazy var profileImage: UIImageView = {
         var profileImage = UIImageView()
-//        profileImage.layer.cornerRadius = LayoutConstants.cornerRadius
         profileImage.layer.cornerRadius = SizeHeader.imageMaskCircle
         profileImage.clipsToBounds = true
         return profileImage
     }()
-    private lazy var nameLabel: UILabel = {
+   var nameLabel: UILabel = {
         var nameLabel = UILabel()
         nameLabel.text = "ProfileHeaderView.nameLabel".localized
         nameLabel.font = Fonts.semibold20
@@ -37,7 +33,7 @@ final class ProfileHeaderView: UICollectionViewCell {
         nameLabel.textAlignment = .left
         return nameLabel
     }()
-    private lazy var cityLabel: UILabel = {
+     var cityLabel: UILabel = {
         var cityLabel = UILabel()
         cityLabel.text = "ProfileHeaderView.cityLabel".localized
         cityLabel.font = Fonts.medium14
@@ -55,7 +51,7 @@ final class ProfileHeaderView: UICollectionViewCell {
         mailIcon.image = UIImage(named: "mailIcon")
         return mailIcon
     }()
-    private lazy var mailLabel: UILabel = {
+     var mailLabel: UILabel = {
         var mailLabel = UILabel()
         mailLabel.text = "mail.mail@mail.ru"
         mailLabel.font = Fonts.medium14
@@ -76,7 +72,7 @@ final class ProfileHeaderView: UICollectionViewCell {
     
     //MARK: - Methods
     
-    func configuredCell(profile: ProfileModel) {
+    func configuredCell(profile: ProfileUser) {
         nameLabel.text = "\(profile.name)" + " " + "\(profile.secondName)"
         cityLabel.text = "\(profile.city)"
         mailLabel.text = "\(profile.email)"

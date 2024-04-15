@@ -1,5 +1,5 @@
 //
-//  ProfileModel.swift
+//  ProfileUser.swift
 //  mams.paps
 //
 //  Created by Юлия Кагирова on 19.03.2024.

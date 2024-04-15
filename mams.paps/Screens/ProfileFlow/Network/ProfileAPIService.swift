@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ProfileAPIServiceProtocol {
-    func getProfile() async throws -> ProfileModel //rename userModel
+    func getProfile() async throws -> ProfileUser 
 }
 
 final class ProfileAPIService {
@@ -23,10 +23,10 @@ final class ProfileAPIService {
 }
 
 extension ProfileAPIService: ProfileAPIServiceProtocol {
-    func getProfile() async throws -> ProfileModel {
+    func getProfile() async throws -> ProfileUser {
         let data = try await networkManager.getRequest(enterPoint: .profile)
         let profile = try await mapper.map(from: data, jsonType: ProfileEditJson.self)
-        return ProfileModel(profile: profile)
+        return ProfileUser(profile: profile)
     }
     
     

@@ -73,18 +73,6 @@
 
 //MARK: - Profile Edit Screen
 
-"ProfileEditScreen.nameText" = "Владимир";
-
-"ProfileEditScreen.surnameText" = "Астрейко";
-
-"ProfileEditScreen.cityText" = "Москва";
-
-"ProfileEditScreen.emailText" = "mail@mail.ru";
-
-"ProfileEditScreen.phoneText" = "+7 (900) 000-00-00";
-
-"ProfileEditScreen.dateOfBirthText" = "XX/XX/XXXX";
-
 "ProfileEditScreen.showButton" = "Показать";
 
 "ProfileEditScreen.navBar" = "Редактирование профиля";

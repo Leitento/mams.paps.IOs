@@ -1,5 +1,5 @@
 //
-//  ProfileModel.swift
+//  ProfileUser.swift
 //  mams.paps
 //
 //  Created by Юлия Кагирова on 21.12.2023.
@@ -8,12 +8,12 @@
 import UIKit
 
 struct Profile: Hashable {
-    let profileModel: ProfileModel
+    let profileUser: ProfileUser
     let bannerModel: BannerModel
     let buttonsModel: [ButtonsModel]
 }
 
-struct ProfileModel: Hashable {
+struct ProfileUser: Hashable {
     let id: Int
     let name: String
     let secondName: String
@@ -98,7 +98,7 @@ extension ButtonsModel {
     }
 }
 
-extension ProfileModel {
+extension ProfileUser {
     init(profile: ProfileEditJson) {
         self.id = profile.id
         self.name = profile.name
