@@ -132,14 +132,17 @@ final class InfoFilterController: UIViewController {
         collectionView.backgroundColor = .customOrange
         view.addSubviews(collectionView, translatesAutoresizingMaskIntoConstraints: false)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 26),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            
         ])
     }
 }
+
+
+//MARK: - Extension
+
 
 extension InfoFilterController: UICollectionViewDelegate {
     
@@ -148,7 +151,6 @@ extension InfoFilterController: UICollectionViewDelegate {
         viewModel.didTapCategory(category: item)
         delegateFilter?.renameFilterLabel(category: item.title)
     }
-    
 }
 
 

@@ -3,7 +3,6 @@ import Foundation
 
 protocol InfoLocationModelProtocol {
     var stateChanger: ((InfoLocationModel.State) -> Void)? { get set }
-//    var locations: [Location] { get set }
     func switchToNextFlow()
     func getLocation()
     func didTapCategory(_ category: Category)
@@ -13,10 +12,8 @@ protocol InfoLocationModelProtocol {
 final class InfoLocationModel {
     
     enum State {
-//        case initing
         case loading
-        case done(locations: [Location])
-//        case filtered(locations: [Location])
+        case done(locations: [Location], hideCountLocationsView: Bool)
         case showFilterView(locations: [Category])
         case error(error: String)
     }
@@ -47,13 +44,13 @@ final class InfoLocationModel {
     }
     
     
-    private func getLocations() {
+    private func getLocations(hideCountLocationsView: Bool) {
         Task {  @MainActor [weak self] in
             guard let self else { return }
             do {
                 let locations = try await apiService.getLocations()
                 self.locations = locations
-                self.state = .done(locations: locations)
+                self.state = .done(locations: locations, hideCountLocationsView: hideCountLocationsView)
             } catch {
                 self.state = .error(error: error.localizedDescription)
             }
@@ -93,15 +90,15 @@ extension InfoLocationModel: InfoLocationModelProtocol {
     
     func didTapCategory(_ category: Category) {
         let locations = filterLocations(category: category)
-        state = .done(locations: locations)
+        state = .done(locations: locations, hideCountLocationsView: false)
     }
     
     func hideFilter() {
-        getLocations()
+        getLocations(hideCountLocationsView: true)
     }
     
     func getLocation() {
-        getLocations()
+        getLocations(hideCountLocationsView: true)
         getCategoryes()
     }
     

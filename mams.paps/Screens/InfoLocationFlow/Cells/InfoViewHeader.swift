@@ -14,11 +14,9 @@ final class InfoViewHeader:UIView {
     
     //MARK: - Properties
     
-        
     private lazy var categoryCount:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Eжегодный прогноз на 5 дней"
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         return label
     }()
@@ -49,7 +47,9 @@ final class InfoViewHeader:UIView {
     }
     
     func updateHeaderCount(withCount numLocation: Int) {
-        self.categoryCount.text = "Найдено: \(numLocation.description) варианта"
+        let likesFormater = NSLocalizedString("CountKey", comment: "")
+        let finalFormat = String(format: likesFormater, numLocation)
+        self.categoryCount.text = finalFormat
     }
 }
 

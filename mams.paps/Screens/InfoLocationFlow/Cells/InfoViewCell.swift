@@ -23,7 +23,6 @@ final class InfoViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.layer.masksToBounds = true
         image.layer.cornerRadius = LayoutConstants.cornerRadius
-        image.image = UIImage(named: "DeleteLater")
         return image
     }()
     
@@ -50,7 +49,6 @@ final class InfoViewCell: UICollectionViewCell {
         description.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         description.numberOfLines = 2
         description.lineBreakMode = .byTruncatingTail
-        //        description.text = "Длинный текст, который должен перенестись на вторую строку в случае необходимости"
         return description
     }()
     
@@ -194,12 +192,21 @@ final class InfoViewCell: UICollectionViewCell {
         ])
     }
     
-    
     func configurationCellCollection(with location: Location) {
         self.addressLabel.text = location.address
         self.categotyLabel.text = location.category.title
         self.descriptionLabel.text = location.description
         self.raitingLabel.text = String(describing: location.rating ?? 0)
+        ImageDownloader.shared.getImage(url: location.image) { image in
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                guard let image else {
+                    imagePlayGround.image = UIImage(systemName: "person.circle")
+                    return
+                }
+                imagePlayGround.image = image
+            }
+        }
     }
     
     @objc private func showAlertActionSheet() {

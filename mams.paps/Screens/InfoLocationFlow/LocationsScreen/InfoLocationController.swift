@@ -25,15 +25,19 @@ final class InfoLocationController: UIViewController {
     private lazy var dataSource = makeDataSource()
     private lazy var loader = ActivityIndicator()
     private lazy var infoFilterView = InfoFilterView()
-    private lazy var infoViewHeader = InfoViewHeader()
+    private lazy var countLocationsView = InfoViewHeader()
 
     private lazy var collectionView: UICollectionView =  {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionView.register(InfoViewCell.self, forCellWithReuseIdentifier: InfoViewCell.identifier)
         return collectionView
     }()
-
-
+    
+    private lazy var fullScreenView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .customOrange
+        return view
+    }()
 
     typealias DataSource = UICollectionViewDiffableDataSource <Int, Location>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Location>
@@ -48,7 +52,7 @@ final class InfoLocationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        infoViewHeader.isHidden = true
+        countLocationsView.isHidden = true
         setupCollectionView()
         infoFilterView.delegate = self
         bindingModel()
@@ -83,7 +87,7 @@ final class InfoLocationController: UIViewController {
     }
     
     private func updateHeader(withCount count: Int) {
-        infoViewHeader.updateHeaderCount(withCount: count)
+        countLocationsView.updateHeaderCount(withCount: count)
     }
 
     private func bindingModel() {
@@ -92,21 +96,24 @@ final class InfoLocationController: UIViewController {
             switch state {
             case .loading:
                 self.loader.activityIndicatorEnabled(true)
-            case .done(let locations):
+            case .done(let locations, let hideCountLocationsView):
                 self.loader.activityIndicatorEnabled(false)
                 self.makeSnapshot(locations: locations)
+                countLocationsView.isHidden = hideCountLocationsView
+                infoFilterView.hideShadow(hideShadow: 0)
                 updateCollectionView()
                 view.backgroundColor = .white
                 tabBarController?.tabBar.barTintColor = .white
                 collectionView.backgroundColor = .customOrange
-                infoFilterView.backgroundColor = .customOrange
+                fullScreenView.backgroundColor = .customOrange
                 updateCellContentViewBackground(color: .white)
             case .showFilterView(let locations):
                 self.showFilterView(locations: locations)
+                infoFilterView.hideShadow(hideShadow: 0.5)
                 view.backgroundColor = .white.darken(by: 0.25)
                 tabBarController?.tabBar.barTintColor = .white.darken(by: 0.25)
                 collectionView.backgroundColor = .customOrange.darken(by: 0.25)
-                infoFilterView.backgroundColor = .customOrange.darken(by: 0.25)
+                fullScreenView.backgroundColor = .customOrange.darken(by: 0.25)
                 updateCellContentViewBackground(color: .white.darken(by: 0.25))
             case .error(error: let error):
                 print(error)
@@ -147,14 +154,14 @@ final class InfoLocationController: UIViewController {
     }
     
     private func updateCollectionView() {
-        if  infoViewHeader.isHidden {
+        if countLocationsView.isHidden {
             collectionView.snp.remakeConstraints { update in
                 update.top.equalTo(infoFilterView.snp.bottom)
                 update.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
             }
         } else {
             collectionView.snp.remakeConstraints { update in
-                update.top.equalTo(infoViewHeader.snp.bottom)
+                update.top.equalTo(countLocationsView.snp.bottom)
                 update.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
             }
         }
@@ -162,18 +169,23 @@ final class InfoLocationController: UIViewController {
 
     private func setupCollectionView() {
         collectionView.backgroundColor = .white
-        view.addSubviews(collectionView, loader,infoViewHeader, infoFilterView,
+        view.addSubviews(fullScreenView, collectionView, loader, countLocationsView, infoFilterView,
                          translatesAutoresizingMaskIntoConstraints: true)
-        infoFilterView.clipsToBounds = true
-        infoFilterView.layer.masksToBounds = true
         loader.snp.makeConstraints { make in
             make.center.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        fullScreenView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(collectionView.snp.top)
+            make.leading.trailing.equalToSuperview()
+        }
+        
         infoFilterView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
         }
-        infoViewHeader.snp.makeConstraints { make in
+        countLocationsView.snp.makeConstraints { make in
             make.top.equalTo(infoFilterView.snp.bottom)
             make.leading.trailing.equalToSuperview()
         }
@@ -197,19 +209,13 @@ final class InfoLocationController: UIViewController {
         infoFilterController.view.layer.masksToBounds = true
 
         infoFilterController.view.translatesAutoresizingMaskIntoConstraints = false
-        let heightView = CGFloat((infoFilterController.numberOfCells ?? 0) * 52)
+        let heightView = CGFloat((infoFilterController.numberOfCells ?? 0) * 52 + 26)
         NSLayoutConstraint.activate([
             infoFilterController.view.leadingAnchor.constraint(equalTo: infoFilterView.leadingAnchor, constant: LayoutConstants.spacing),
             infoFilterController.view.trailingAnchor.constraint(equalTo: infoFilterView.trailingAnchor, constant: -LayoutConstants.spacing),
-            infoFilterController.view.topAnchor.constraint(equalTo: infoFilterView.bottomAnchor),
+            infoFilterController.view.topAnchor.constraint(equalTo: infoFilterView.bottomAnchor, constant: -30),
             infoFilterController.view.heightAnchor.constraint(equalToConstant: heightView)
         ])
-//        infoFilterController.view.snp.makeConstraints { make in
-//            make.leading.equalTo(infoFilterView).offset(LayoutConstants.spacing)
-//            make.trailing.equalTo(infoFilterView).offset(-LayoutConstants.spacing)
-//            make.top.equalTo(infoFilterView.snp.bottom).offset(-26)
-//            make.height.equalTo(infoFilterController.view.snp.height).offset(26)
-//        }
         infoFilterController.didMove(toParent: self)
     }
 }
@@ -220,9 +226,8 @@ final class InfoLocationController: UIViewController {
 extension InfoLocationController: InfoFilterButtonDelegate {
 
     func didSelectCategory(_ category: Category) {
-        infoViewHeader.isHidden = false
+        countLocationsView.isHidden = false
         viewModel.didTapCategory(category)
-        
     }
 }
 
@@ -241,7 +246,7 @@ extension InfoLocationController: InfoLocationControllerDelegate {
     func hideResultFilter() {
         viewModel.hideFilter()
         delegate?.hideFilterController()
-        infoViewHeader.isHidden = true
+        
     }
 
     func showFilter() {
