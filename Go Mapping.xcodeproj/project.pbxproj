@@ -173,7 +173,7 @@
 		5A6AA95F2B848F4700918278 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		5A6AA9612B84910700918278 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5AA93B9F2B14DE8100E2908A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5ADDBD382B0FA23F00CFA9C3 /* mams.paps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mams.paps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ADDBD382B0FA23F00CFA9C3 /* Go Mapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Mapping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADDBD3B2B0FA24000CFA9C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ADDBD3D2B0FA24000CFA9C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5ADDBD492B0FA24100CFA9C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -440,7 +440,7 @@
 		5ADDBD2F2B0FA23E00CFA9C3 = {
 			isa = PBXGroup;
 			children = (
-				5ADDBD3A2B0FA23F00CFA9C3 /* mams.paps */,
+				5ADDBD3A2B0FA23F00CFA9C3 /* Go Mapping */,
 				5ADDBD392B0FA23F00CFA9C3 /* Products */,
 				3A75278FF3BAD3E4C4757FDD /* Pods */,
 				9E730660B972E7574BFC95B9 /* Frameworks */,
@@ -450,12 +450,12 @@
 		5ADDBD392B0FA23F00CFA9C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ADDBD382B0FA23F00CFA9C3 /* mams.paps.app */,
+				5ADDBD382B0FA23F00CFA9C3 /* Go Mapping.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5ADDBD3A2B0FA23F00CFA9C3 /* mams.paps */ = {
+		5ADDBD3A2B0FA23F00CFA9C3 /* Go Mapping */ = {
 			isa = PBXGroup;
 			children = (
 				CB6CB33A2B90DD2F00A94105 /* NetworkManager */,
@@ -471,7 +471,7 @@
 				091630EC2B10FC2F007E193E /* Localizable.strings */,
 				09638D9F2B356FCF005DF42D /* UserModel.xcdatamodeld */,
 			);
-			path = mams.paps;
+			path = "Go Mapping";
 			sourceTree = "<group>";
 		};
 		5ADDBD4F2B0FA25400CFA9C3 /* App */ = {
@@ -566,9 +566,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5ADDBD372B0FA23F00CFA9C3 /* mams.paps */ = {
+		5ADDBD372B0FA23F00CFA9C3 /* Go Mapping */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5ADDBD4C2B0FA24100CFA9C3 /* Build configuration list for PBXNativeTarget "mams.paps" */;
+			buildConfigurationList = 5ADDBD4C2B0FA24100CFA9C3 /* Build configuration list for PBXNativeTarget "Go Mapping" */;
 			buildPhases = (
 				E4A27C130950B27486B98D0A /* [CP] Check Pods Manifest.lock */,
 				5ADDBD342B0FA23F00CFA9C3 /* Sources */,
@@ -580,13 +580,13 @@
 			);
 			dependencies = (
 			);
-			name = mams.paps;
+			name = "Go Mapping";
 			packageProductDependencies = (
 				09638DA72B3584B7005DF42D /* KeychainAccess */,
 				CBF5AC982BA8831B0070602A /* SnapKit */,
 			);
 			productName = mams.paps;
-			productReference = 5ADDBD382B0FA23F00CFA9C3 /* mams.paps.app */;
+			productReference = 5ADDBD382B0FA23F00CFA9C3 /* Go Mapping.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -604,7 +604,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5ADDBD332B0FA23E00CFA9C3 /* Build configuration list for PBXProject "mams.paps" */;
+			buildConfigurationList = 5ADDBD332B0FA23E00CFA9C3 /* Build configuration list for PBXProject "Go Mapping" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = ru;
 			hasScannedForEncodings = 0;
@@ -622,7 +622,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5ADDBD372B0FA23F00CFA9C3 /* mams.paps */,
+				5ADDBD372B0FA23F00CFA9C3 /* Go Mapping */,
 			);
 		};
 /* End PBXProject section */
@@ -932,9 +932,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N4T632DPGK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mams.paps/Info.plist;
+				INFOPLIST_FILE = "Go Mapping/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -965,9 +965,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N4T632DPGK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = mams.paps/Info.plist;
+				INFOPLIST_FILE = "Go Mapping/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow using location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -993,7 +993,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5ADDBD332B0FA23E00CFA9C3 /* Build configuration list for PBXProject "mams.paps" */ = {
+		5ADDBD332B0FA23E00CFA9C3 /* Build configuration list for PBXProject "Go Mapping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ADDBD4A2B0FA24100CFA9C3 /* Debug */,
@@ -1002,7 +1002,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5ADDBD4C2B0FA24100CFA9C3 /* Build configuration list for PBXNativeTarget "mams.paps" */ = {
+		5ADDBD4C2B0FA24100CFA9C3 /* Build configuration list for PBXNativeTarget "Go Mapping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ADDBD4D2B0FA24100CFA9C3 /* Debug */,
