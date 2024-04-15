@@ -235,7 +235,7 @@ final class ProfileViewController: UIViewController , UIScrollViewDelegate {
         }
     }
     
-    private func makeHeaderProvider(profile: ProfileModel) -> (UICollectionView, String, IndexPath)
+    private func makeHeaderProvider(profile: ProfileUser) -> (UICollectionView, String, IndexPath)
     -> UICollectionReusableView? {
         return { collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionHeader else { return nil }
@@ -255,7 +255,7 @@ final class ProfileViewController: UIViewController , UIScrollViewDelegate {
         profile.buttonsModel.forEach {
             snapshot.appendItems([.buttons(button: $0)], toSection: .buttons)
         }
-        dataSource.supplementaryViewProvider = makeHeaderProvider(profile: profile.profileModel)
+        dataSource.supplementaryViewProvider = makeHeaderProvider(profile: profile.profileUser)
         dataSource.apply(snapshot)
     }
     

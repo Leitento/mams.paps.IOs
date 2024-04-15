@@ -74,19 +74,21 @@
 
 //MARK: - Profile Edit Screen
 
-"ProfileEditScreen.nameText" = "Vladimir";
-
-"ProfileEditScreen.cityText" = "Moscow";
-
-"ProfileEditScreen.emailText" = "mail@mail.ru";
-
-"ProfileEditScreen.phoneText" = "+7 (900) 000-00-00";
-
-"ProfileEditScreen.dateOfBirthText" = "XX/XX/XXXX";
-
 "ProfileEditScreen.showButton" = "Show";
 
 "ProfileEditScreen.navBar" = "Edit profile";
+
+"ProfileEditScreenLabel.namelabel" = "Name";
+
+"ProfileEditScreenLabel.surname" = "Surname";
+
+ "ProfileEditScreenLabel.cityLabel" = "City";
+
+ "ProfileEditScreenLabel.emailLabel" = "Email";
+
+ "ProfileEditScreenLabel.telephoneLabel" = "Telephone";
+
+ "ProfileEditScreenLabel.dateOfBirthLabel" = "Date Of Birth";
 
 //MARK: - Profile Photo Edit Alert
 
@@ -106,7 +108,7 @@
 
 "ContractOffer.termin1" = "Diverse and rich experience tells us that the beginning of the daily work of forming
 position helps improve the quality of both self-sufficient and externally dependent conceptual solutions.
- It should not be forgotten, however, that the further development of various forms of activity, in its
+It should not be forgotten, however, that the further development of various forms of activity, in its
 classical presentation allows for the introduction of withdrawal of current assets.";
 
 "ContractOffer.termin2" = "Banal but irrefutable conclusions, as well as basic scenarios of user behavior, are
@@ -148,7 +150,7 @@ in its classical representation, allows for the introduction of withdrawal of cu
 
 //MARK: - Profile Flow Notification
 
-"Notification.navBar" = "Уведомления";
+"Notification.navBar" = "Notifications";
 
 //MARK: - Profile Flow Header View
 
@@ -157,6 +159,12 @@ in its classical representation, allows for the introduction of withdrawal of cu
 "ProfileHeaderView.cityLabel" = "City";
 
 "Profile.header" = "Profile"; 
+
+
+// MARK: - Tabbar Profile
+
+"Profile.tabbar" = "Profile";
+
 //MARK: - Location
 
 "MapView.FilterButton" = "Filters";

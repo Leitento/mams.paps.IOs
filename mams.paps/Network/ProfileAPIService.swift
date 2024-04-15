@@ -1,4 +1,3 @@
-//
 //  ProfileAPIService.swift
 //  mams.paps
 //
@@ -8,7 +7,7 @@
 import Foundation
 
 protocol ProfileAPIServiceProtocol {
-    func getProfile() async throws -> ProfileUser 
+    func getProfile() async throws -> ProfileModel //rename userModel
 }
 
 final class ProfileAPIService {
@@ -23,10 +22,10 @@ final class ProfileAPIService {
 }
 
 extension ProfileAPIService: ProfileAPIServiceProtocol {
-    func getProfile() async throws -> ProfileUser {
+    func getProfile() async throws -> ProfileModel {
         let data = try await networkManager.getRequest(enterPoint: .profile)
         let profile = try await mapper.map(from: data, jsonType: ProfileEditJson.self)
-        return ProfileUser(profile: profile)
+        return ProfileModel(profile: profile)//(profile: profile)
     }
     
     

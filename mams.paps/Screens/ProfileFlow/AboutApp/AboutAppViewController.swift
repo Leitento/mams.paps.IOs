@@ -94,8 +94,7 @@ final class AboutAppViewController: UIViewController, UIScrollViewDelegate {
     //MARK: - Private Methods
     
     private func setupUI() {
-        createCustomNavBar(on: self, title: "AboutApp.navBar".localized)
-        navigationController?.navigationBar.tintColor = .customGreyButtons
+        setCustomBackBarItem(title: "AboutApp.navBar".localized)
         view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.backgroundColor = .customOrange

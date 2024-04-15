@@ -73,19 +73,21 @@
 
 //MARK: - Profile Edit Screen
 
-"ProfileEditScreen.nameText" = "Владимир";
-
-"ProfileEditScreen.cityText" = "Москва";
-
-"ProfileEditScreen.emailText" = "mail@mail.ru";
-
-"ProfileEditScreen.phoneText" = "+7 (900) 000-00-00";
-
-"ProfileEditScreen.dateOfBirthText" = "XX/XX/XXXX";
-
 "ProfileEditScreen.showButton" = "Показать";
 
 "ProfileEditScreen.navBar" = "Редактирование профиля";
+
+"ProfileEditScreenLabel.namelabel" = "Имя";
+
+"ProfileEditScreenLabel.surname" = "Фамилия";
+
+"ProfileEditScreenLabel.cityLabel" = "Город";
+
+"ProfileEditScreenLabel.emailLabel" = "Почта";
+
+"ProfileEditScreenLabel.telephoneLabel" = "Телефон";
+
+"ProfileEditScreenLabel.dateOfBirthLabel" = "Дата рождения";
 
 //MARK: - Profile Photo Edit Alert
 
@@ -140,6 +142,11 @@
 "ProfileHeaderView.cityLabel" = "Город";
 
 "Profile.header" = "Профиль"; 
+
+
+// MARK: - Tabbar Profile
+
+"Profile.tabbar" = "Профиль";
 
 //MARK: - Location
 

@@ -24,8 +24,8 @@ final class NotificationViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
-        navigationController?.navigationBar.tintColor = .customGreyButtons
-        createCustomNavBar(on: self, title: "Notification.navBar".localized)
+        setCustomBackBarItem(title: "Notification.navBar".localized)
+
     }
 
     

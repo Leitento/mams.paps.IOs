@@ -9,7 +9,7 @@ import UIKit
 
 protocol ProfileCoordinatorProtocol: AnyObject {
     func showProfileScreen()
-    func pushProfileEditingButton()
+    func pushProfileEditingButton(profile: Profile)
     func pushBannerButton()
     func pushFavouritesButton()
     func pushMyAddsButton()
@@ -47,7 +47,7 @@ final class ProfileScreenCoordinator {
         let profileViewController = ProfileViewController(viewModel: viewModel)
         rootViewController = profileViewController
         let navigationController = UINavigationController(rootViewController: profileViewController)
-        navigationController.tabBarItem = UITabBarItem(title: "Profile".localized,
+        navigationController.tabBarItem = UITabBarItem(title: "Profile.tabbar".localized,
                                                        image: UIImage(systemName: "person.crop.circle"),
                                                        tag: 4)
         self.navigationController =  navigationController
@@ -71,9 +71,9 @@ extension ProfileScreenCoordinator: ProfileCoordinatorProtocol {
         print("showProfileScreen")
     }
     
-    func pushProfileEditingButton() {
+    func pushProfileEditingButton(profile: Profile) {
         print("showProfileEditingButton")
-        let viewControler = ProfileEditScreenController()
+        let viewControler = ProfileEditScreenController(profile: profile)
         navigationController?.pushViewController(viewControler, animated: true)
     }
     

@@ -27,9 +27,21 @@ extension UIViewController {
         
         if isLeftItem {
             navigationItem.leftBarButtonItem = titleBarButtonItem
+            
         } else {
             navigationItem.rightBarButtonItem = titleBarButtonItem
         }
         
         navigationController?.navigationBar.applyStyle(.custom(color: backgroundColor, titleColor: textColor))
-    }}
+    }
+    
+    func setCustomBackBarItem(title: String) {
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(
+            title: title,
+            style: .done,
+            target: self,
+            action: nil)
+        navigationController?.navigationBar.scrollEdgeAppearance = .none
+        navigationController?.navigationBar.tintColor = .customGreyButtons
+    }
+}

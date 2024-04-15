@@ -57,10 +57,10 @@
 		09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */; };
 		09EBCDBB2B6F4B8F0093EFAF /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBCDB92B6F4B8F0093EFAF /* Array.swift */; };
 		0CB5BAC79F576D0E0387A64F /* Pods_mams_paps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */; };
+		1F160D232BCD6805003A7E87 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F160D222BCD6805003A7E87 /* ProfileTextField.swift */; };
 		1F3253AF2BA984DC004C64C7 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253AE2BA984DC004C64C7 /* ProfileModel.swift */; };
 		1F3253B22BA9866D004C64C7 /* ProfileAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253B12BA9866D004C64C7 /* ProfileAPIService.swift */; };
 		1F3253B42BA98BCD004C64C7 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3253B32BA98BCD004C64C7 /* ImageDownloader.swift */; };
-		1FCDD5522B878F1700098A28 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */; };
 		1FCDD5542B89E71D00098A28 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCDD5532B89E71D00098A28 /* Font.swift */; };
 		5A6AA9532B848EFF00918278 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA93E2B848EFF00918278 /* AboutAppViewController.swift */; };
 		5A6AA9542B848EFF00918278 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AA9402B848EFF00918278 /* NotificationViewController.swift */; };
@@ -153,10 +153,10 @@
 		09DC064C2B2C8AFB00D71BEB /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
 		09EBCDB82B6F4B8F0093EFAF /* LayoutConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstans.swift; sourceTree = "<group>"; };
 		09EBCDB92B6F4B8F0093EFAF /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		1F160D222BCD6805003A7E87 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		1F3253AE2BA984DC004C64C7 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		1F3253B12BA9866D004C64C7 /* ProfileAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIService.swift; sourceTree = "<group>"; };
 		1F3253B32BA98BCD004C64C7 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		1FCDD5532B89E71D00098A28 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		38FBB3B9131C3AEAB6A31DD7 /* Pods_mams_paps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mams_paps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6AA93E2B848EFF00918278 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
@@ -234,13 +234,13 @@
 				095BE7E32B1F01C900C6220E /* RoundedBottomView.swift */,
 				097F58F12B62E9B0003D6861 /* TabBarController ++.swift */,
 				097F58EF2B62DD99003D6861 /* UIView ++.swift */,
-				1FCDD5512B878F1700098A28 /* CustomNavigationController.swift */,
 				CB6CB3592B90DDF300A94105 /* ActivityIndicator.swift */,
 				CB6CB3582B90DDF300A94105 /* CustomNavBar.swift */,
 				CB6CB35C2B90DE2A00A94105 /* AlertActionSheet.swift */,
 				CB6CB35E2B90DEC600A94105 /* UIResponder.swift */,
 				1FCDD5532B89E71D00098A28 /* Font.swift */,
 				CB6CB3602B95CBF300A94105 /* UIColor Dark.swift */,
+				1F160D222BCD6805003A7E87 /* ProfileTextField.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -749,6 +749,7 @@
 				093D680B2B369D6E0044AAE7 /* MapCoordinator.swift in Sources */,
 				5A6AA9592B848EFF00918278 /* ProfileHeaderView.swift in Sources */,
 				09AC6BC72B7412CE0029669E /* LocationServiceError.swift in Sources */,
+				1F160D232BCD6805003A7E87 /* ProfileTextField.swift in Sources */,
 				097F58F02B62DD99003D6861 /* UIView ++.swift in Sources */,
 				09DC064F2B2C8AFB00D71BEB /* ProtocolCoordinator.swift in Sources */,
 				09638DA52B3583C0005DF42D /* KeychainService.swift in Sources */,
@@ -756,7 +757,6 @@
 				CB62AA592B99A49F0085AFCF /* Mapper.swift in Sources */,
 				092E66F62B1B166100FBB04E /* AuthTextField.swift in Sources */,
 				5A6AA9622B84910800918278 /* ImagePicker.swift in Sources */,
-				1FCDD5522B878F1700098A28 /* CustomNavigationController.swift in Sources */,
 				CB6CB3612B95CBF300A94105 /* UIColor Dark.swift in Sources */,
 				09EBCDBA2B6F4B8F0093EFAF /* LayoutConstans.swift in Sources */,
 				CB62AA5B2B99A4C90085AFCF /* CoreNetworkManager.swift in Sources */,
