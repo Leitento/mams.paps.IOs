@@ -3,51 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>top-level-items</key>
-	<array>
-		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
-				<dict>
-					<key>EndingColumnNumber</key>
-					<string>50</string>
-					<key>EndingLineNumber</key>
-					<string>10</string>
-					<key>StartingColumnNumber</key>
-					<string>38</string>
-					<key>StartingLineNumber</key>
-					<string>10</string>
-					<key>Timestamp</key>
-					<string>733140070.3232909</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
-					<dict>
-						<key>relative-path</key>
-						<string>mams.paps.IOs/mams.paps/Screens/ProfileFlow/Network/ProfileAPIService.swift</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string></string>
-				<key>leading</key>
-				<string>
-protocol ProfileAPIServiceProtocol {
-    func getProfile() async throws -&gt; ProfileUser</string>
-				<key>trailing</key>
-				<string> 
-}
-
-</string>
-			</dict>
-			<key>type</key>
-			<string>bookmark</string>
-		</dict>
-	</array>
+	<array/>
 </dict>
 </plist>

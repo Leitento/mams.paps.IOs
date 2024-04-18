@@ -34,12 +34,6 @@ final class SupportViewController: UIViewController {
     
    private func setupUI() {
         view.backgroundColor = .white
-       setupTitleInNavigationBar(
-           title: "Support.navBar".localized,
-           textColor: .customGreyButtons,
-           backgroundColor: .white,
-           isLeftItem: true
-       )
-       
+       setCustomBackBarItem(title: "Support.navBar".localized)
     }
 }
