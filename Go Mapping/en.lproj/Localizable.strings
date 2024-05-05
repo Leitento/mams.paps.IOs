@@ -1,0 +1,172 @@
+
+
+"AlertTitle.Error" = "Error";
+
+"Onboarding.NextButton" = "Next";
+
+"OnboardingFirstPage.Text" = "From parents to parents";
+
+"OnboardingSecondPage.Text" = "Сhildren will be interested";
+
+"OnboardingThirdPage.Text" = "Locations that are right for your family";
+
+"AuthorizationAlert.Title" = "Authorization error";
+
+"AuthorizationAlert.Message" = "Incorrect login or password";
+
+"Authorization.Welcome" = "Join the";
+
+"Authorization.Info" = "Receive notifications about great offers and earn discount points";
+
+"AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
+
+"AuthorizationError.EmptyLogin" = "Login cannot be empty";
+
+"AuthorizationError.EmptyPassword" = "Password cannot be empty";
+
+"Login.Placeholder" = "E-mail";
+
+"Password.Placeholder" = "Your password";
+
+"RestorePassword.Text" = "Forgot your password?";
+
+"SignUp.Text" = "Sign up";
+
+"ContinueButton.Text" = "Continue without registration";
+
+"logInButton.Text" = "Log In";
+
+"MainScreenMenuItem.Navigation" = "Navigator for parents";
+
+"MainScreenMenuItem.Events" = "Events and Activities";
+
+"MainScreenMenuItem.Services" = "Services and announcements";
+
+"MainScreenMenuItem.Useful" = "Useful";
+
+"MainScreen.Title" = "Main";
+
+"Map.Title" = "Map";
+
+"LocationServiceError.AuthorizationDenied" = "Location services authorization denied";
+
+"LocationServiceError.LocationUnavailable" = "Location services are currently unavailable";
+
+"SearchBar.Placeholder" = "Enter the text";
+
+"MapView.FilterButton" = "Filters";
+
+//MARK: - Profile Cell
+
+"ProfileCell.favourite" = " Favourites";
+
+"ProfileCell.myAdds" = "My adds";
+
+"ProfileCell.notification" = "Notifications";
+
+"ProfileCell.contractOffer" = "Contract Offer";
+
+"ProfileCell.aboutApp" = "About App";
+
+"ProfileCell.support" = "Support GoMapping";
+
+"ProfileCell.logout" = "Logout";
+
+//MARK: - Profile Edit Screen
+
+"ProfileEditScreen.showButton" = "Show";
+
+"ProfileEditScreen.navBar" = "Edit profile";
+
+"ProfileEditScreenLabel.namelabel" = "Name";
+
+"ProfileEditScreenLabel.surname" = "Surname";
+
+ "ProfileEditScreenLabel.cityLabel" = "City";
+
+ "ProfileEditScreenLabel.emailLabel" = "Email";
+
+ "ProfileEditScreenLabel.telephoneLabel" = "Telephone";
+
+ "ProfileEditScreenLabel.dateOfBirthLabel" = "Date Of Birth";
+
+//MARK: - Profile Photo Edit Alert
+
+"ProfilePhotoEditAlert.addphoto" = "Add photo";
+
+"ProfilePhotoEditAlert.edit" = "Edit photo";
+
+"ProfilePhotoEditAlert.delete" = "Delete photo";
+
+"ProfilePhotoEditAlert.cancel" = "Cancel";
+
+"ProfilePhotoEditAlert.error" = "Error";
+
+//MARK: - Profile Flow Contract Offer
+
+"ContractOffer.label" = "1. Terms and Definitions";
+
+"ContractOffer.termin1" = "Diverse and rich experience tells us that the beginning of the daily work of forming
+position helps improve the quality of both self-sufficient and externally dependent conceptual solutions.
+It should not be forgotten, however, that the further development of various forms of activity, in its
+classical presentation allows for the introduction of withdrawal of current assets.";
+
+"ContractOffer.termin2" = "Banal but irrefutable conclusions, as well as basic scenarios of user behavior, are
+described in as much detail as possible. The clarity of our position is obvious: the boundary of personnel training
+requires us to analyze the personnel training system corresponding
+urgent needs.";
+
+"ContractOffer.termin3" = "Preliminary conclusions are disappointing: today's economic agenda allows important tasks
+ to be achieved to develop the economic feasibility of decisions made. Diverse and rich experience tells us that a new
+ model of organizational activity creates the preconditions for the progress of the professional community.";
+
+"ContractOffer.termin4" = "Suddenly, conclusions made on the basis of Internet analytics call us to new achievements,
+ which, in turn, should be associatively distributed across industries. As well as the actions of representatives of
+ the opposition, overcoming the prevailing difficult economic situation, are associatively distributed across industries.
+ Our case is not as clear-cut as it might be seem: the current structure of the organization does not give us any choice
+ other than to determine the progress of professional communities. But the cohesion of a team of professionals does not
+ give us any choice other than to determine the analysis of existing patterns of behavior.";
+
+"ContractOffer.navBar" = "Contract offer";
+
+//MARK: - Profile Flow About App
+
+"AboutApp.description" = "Go Maping - this varied and rich experience tells us that the start of daily work
+on the formation of a position helps to improve the quality of both self-sufficient and externally dependent conceptual
+decisions.";
+
+"AboutApp.description2" = "It should not be forgotten, however, that the further development of various forms of activity,
+in its classical representation, allows for the introduction of withdrawal of current assets.";
+
+"AboutApp.version" = "Version 1.0 Build 0001";
+
+"AboutApp.allRightsReserved" = "©2024 Go Maping";
+
+"AboutApp.navBar" = "About App";
+
+//MARK: - Profile Flow Support 
+
+"Support.navBar" = "Support Go Maping";
+
+//MARK: - Profile Flow Notification
+
+"Notification.navBar" = "Notifications";
+
+//MARK: - Profile Flow Header View
+
+"ProfileHeaderView.nameLabel" = "Name surname";
+
+"ProfileHeaderView.cityLabel" = "City";
+
+"Profile.header" = "Profile"; 
+
+
+// MARK: - Tabbar Profile
+
+"Profile.tabbar" = "Profile";
+
+//MARK: - Location
+
+"MapView.FilterButton" = "Filters";
+
+"WhatNearby.Title" = "What's nearby";
