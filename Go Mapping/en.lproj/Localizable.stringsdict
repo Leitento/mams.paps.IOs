@@ -13,17 +13,13 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>d</string>
 			<key>zero</key>
-			<string>Fond %d option</string>
+			<string>Найдено %d вариантов</string>
 			<key>one</key>
-			<string>Fond %d option</string>
-			<key>two</key>
-			<string>Fond %d options</string>
+			<string>Найдено %d вариант</string>
 			<key>few</key>
-			<string>Fond %d options</string>
+			<string>Найдено %d варианта</string>
 			<key>many</key>
-			<string>Fond %d options</string>
-			<key>other</key>
-			<string>Fond %d options</string>
+			<string>Найдено %d варианта</string>
 		</dict>
 	</dict>
 </dict>

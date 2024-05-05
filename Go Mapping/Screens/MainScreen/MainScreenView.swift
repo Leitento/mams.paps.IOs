@@ -181,34 +181,24 @@ final class MainScreenView: UIView {
             topView.topAnchor.constraint(equalTo: topAnchor),
             topView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            topView.heightAnchor.constraint(equalTo: widthAnchor, 
-                                            multiplier: Constants.aspectRatioMultiplier,
-                                            constant: Constants.padding),
+            topView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.aspectRatioMultiplier, constant: Constants.padding),
             
-            usernameStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, 
-                                                   constant: Constants.padding),
-            usernameStackView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, 
-                                                       constant: Constants.padding),
+            usernameStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.padding),
+            usernameStackView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: Constants.padding),
             usernameStackView.heightAnchor.constraint(equalToConstant: Constants.itemHeight),
-            usernameStackView.trailingAnchor.constraint(greaterThanOrEqualTo: locationStackView.leadingAnchor,
-                                                        constant: -Constants.padding),
             
-            locationStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, 
-                                                   constant: Constants.padding),
-            locationStackView.trailingAnchor.constraint(equalTo: topView.trailingAnchor,
-                                                        constant: -Constants.padding),
+            locationStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constants.padding),
+            locationStackView.leadingAnchor.constraint(equalTo: usernameStackView.trailingAnchor, constant: -Constants.padding),
+            locationStackView.trailingAnchor.constraint(greaterThanOrEqualTo: topView.trailingAnchor, constant: -Constants.padding),
             locationStackView.heightAnchor.constraint(equalToConstant: Constants.itemHeight),
-            
-            userNameIcon.widthAnchor.constraint(equalToConstant: Constants.itemHeight),
-            userNameIcon.heightAnchor.constraint(equalToConstant: Constants.itemHeight),
             
             locationIcon.widthAnchor.constraint(equalToConstant: Constants.padding),
             locationArrowIcon.widthAnchor.constraint(equalToConstant: 9),
-            locationArrowIcon.heightAnchor.constraint(equalTo: locationStackView.heightAnchor,
-                                                      multiplier: 0.5),
+            locationArrowIcon.heightAnchor.constraint(equalTo: locationStackView.heightAnchor, multiplier: 0.5),
+            userNameIcon.widthAnchor.constraint(equalToConstant: Constants.itemHeight),
+            userNameIcon.heightAnchor.constraint(equalToConstant: Constants.itemHeight),
             
-            imageView.topAnchor.constraint(equalTo: locationStackView.bottomAnchor, 
-                                           constant: Constants.padding),
+            imageView.topAnchor.constraint(equalTo: locationStackView.bottomAnchor, constant: Constants.padding),
             imageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
             imageView.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -34),
             
@@ -231,16 +221,12 @@ final class MainScreenView: UIView {
 // MARK: - UICollectionViewDataSource
 extension MainScreenView: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, 
-                        numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         mainMenu.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, 
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: MainScreenCollectionViewCell.identifier,
-            for: indexPath) as? MainScreenCollectionViewCell else {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainScreenCollectionViewCell.identifier, for: indexPath) as? MainScreenCollectionViewCell else {
             return UICollectionViewCell()
         }
         cell.setup(with: mainMenu[indexPath.row])
@@ -259,38 +245,24 @@ extension MainScreenView: UICollectionViewDelegateFlowLayout {
         return floor(finalWidth)
     }
     
-    func collectionView(_ collectionView: UICollectionView, 
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = itemWidth(for: frame.width, 
-                              spacing: Constants.padding)
-        return CGSize(width: width,
-                      height: (collectionView.frame.height - 3 * Constants.padding) / 2)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = itemWidth(for: frame.width, spacing: Constants.padding)
+        return CGSize(width: width, height: (collectionView.frame.height - 3 * Constants.padding) / 2)
     }
 
-    func collectionView(_ collectionView: UICollectionView, 
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: Constants.padding, 
-                     left: Constants.padding,
-                     bottom: Constants.padding,
-                     right: Constants.padding)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: Constants.padding, left: Constants.padding, bottom: Constants.padding, right: Constants.padding)
     }
 
-    func collectionView(_ collectionView: UICollectionView, 
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.padding
     }
 
-    func collectionView(_ collectionView: UICollectionView, 
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.padding
     }
     
-    func collectionView(_ collectionView: UICollectionView, 
-                        didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.cellForItem(at: indexPath) is MainScreenCollectionViewCell {
             if indexPath.item == 0 {
                 delegate?.firstCellDidTap()

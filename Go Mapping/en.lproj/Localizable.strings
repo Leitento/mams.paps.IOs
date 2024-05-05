@@ -1,172 +1,155 @@
 
+"AlertTitle.Error" = "Ошибка";
 
-"AlertTitle.Error" = "Error";
+"Onboarding.NextButton" = "Далее";
 
-"Onboarding.NextButton" = "Next";
+"OnboardingFirstPage.Text" = "От родителей родителям";
 
-"OnboardingFirstPage.Text" = "From parents to parents";
+"OnboardingSecondPage.Text" = "Детям будет интересно";
 
-"OnboardingSecondPage.Text" = "Сhildren will be interested";
+"OnboardingThirdPage.Text" = "Локации, которые подходят именно вашей семье";
 
-"OnboardingThirdPage.Text" = "Locations that are right for your family";
+"AuthorizationAlert.Title" = "Ошибка авторизации";
 
-"AuthorizationAlert.Title" = "Authorization error";
+"AuthorizationAlert.Message" = "Неправильный логин или пароль";
 
-"AuthorizationAlert.Message" = "Incorrect login or password";
+"Authorization.Welcome" = "Присоединяйся к";
 
-"Authorization.Welcome" = "Join the";
+"Authorization.Info" = "Получай уведомления о выгодных предложениях и копи баллы на скидку";
 
-"Authorization.Info" = "Receive notifications about great offers and earn discount points";
+"AuthorizationError.InvalidCredentials" = "Неправильный логин или пароль";
 
-"AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
+"AuthorizationError.EmptyLogin" = "Логин не может быть пустым";
 
-"AuthorizationError.EmptyLogin" = "Login cannot be empty";
+"AuthorizationError.EmptyPassword" = "Пароль не может быть пустым";
 
-"AuthorizationError.EmptyPassword" = "Password cannot be empty";
+"Login.Placeholder" = "Электронная почта";
 
-"Login.Placeholder" = "E-mail";
+"Password.Placeholder" = "Ваш пароль";
 
-"Password.Placeholder" = "Your password";
+"RestorePassword.Text" = "Забыли пароль?";
 
-"RestorePassword.Text" = "Forgot your password?";
+"SignUp.Text" = "Регистрация";
 
-"SignUp.Text" = "Sign up";
+"ContinueButton.Text" = "Продолжить без регистрации";
 
-"ContinueButton.Text" = "Continue without registration";
+"logInButton.Text" = "Войти";
 
-"logInButton.Text" = "Log In";
+"MainScreenMenuItem.Navigation" = "Навигатор для родителей";
 
-"MainScreenMenuItem.Navigation" = "Navigator for parents";
+"MainScreenMenuItem.Events" = "События и мероприятия";
 
-"MainScreenMenuItem.Events" = "Events and Activities";
+"MainScreenMenuItem.Services" = "Услуги и объявления";
 
-"MainScreenMenuItem.Services" = "Services and announcements";
+"MainScreenMenuItem.Useful" = "Полезное";
 
-"MainScreenMenuItem.Useful" = "Useful";
+"MainScreen.Title" = "Главная";
 
-"MainScreen.Title" = "Main";
+"Map.Title" = "Карта";
 
-"Map.Title" = "Map";
+"LocationServiceError.AuthorizationDenied" = "Доступ к службам геолокации запрещен";
 
-"LocationServiceError.AuthorizationDenied" = "Location services authorization denied";
+"LocationServiceError.LocationUnavailable" = "Службы геолокации в данный момент недоступны";
 
-"LocationServiceError.LocationUnavailable" = "Location services are currently unavailable";
+"SearchBar.Placeholder" = "Введите текст";
 
-"SearchBar.Placeholder" = "Enter the text";
+"MapView.FilterButton" = "Фильтры";
 
-"MapView.FilterButton" = "Filters";
+//MARK: - Profile Cell Buttons
 
-//MARK: - Profile Cell
+"ProfileCell.favourite" = "Избранное";
 
-"ProfileCell.favourite" = " Favourites";
+"ProfileCell.myAdds" = "Мои объявления";
 
-"ProfileCell.myAdds" = "My adds";
+"ProfileCell.notification" = "Уведомления";
 
-"ProfileCell.notification" = "Notifications";
+"ProfileCell.contractOffer" = "Публичная оферта";
 
-"ProfileCell.contractOffer" = "Contract Offer";
+"ProfileCell.aboutApp" = "О приложении";
 
-"ProfileCell.aboutApp" = "About App";
+"ProfileCell.support" = "Поддержка Go Mapping";
 
-"ProfileCell.support" = "Support GoMapping";
-
-"ProfileCell.logout" = "Logout";
+"ProfileCell.logout" = "Выйти из аккаунта";
 
 //MARK: - Profile Edit Screen
 
-"ProfileEditScreen.showButton" = "Show";
+"ProfileEditScreen.showButton" = "Показать";
 
-"ProfileEditScreen.navBar" = "Edit profile";
+"ProfileEditScreen.navBar" = "Редактирование профиля";
 
-"ProfileEditScreenLabel.namelabel" = "Name";
+"ProfileEditScreenLabel.namelabel" = "Имя";
 
-"ProfileEditScreenLabel.surname" = "Surname";
+"ProfileEditScreenLabel.surname" = "Фамилия";
 
- "ProfileEditScreenLabel.cityLabel" = "City";
+"ProfileEditScreenLabel.cityLabel" = "Город";
 
- "ProfileEditScreenLabel.emailLabel" = "Email";
+"ProfileEditScreenLabel.emailLabel" = "Почта";
 
- "ProfileEditScreenLabel.telephoneLabel" = "Telephone";
+"ProfileEditScreenLabel.telephoneLabel" = "Телефон";
 
- "ProfileEditScreenLabel.dateOfBirthLabel" = "Date Of Birth";
+"ProfileEditScreenLabel.dateOfBirthLabel" = "Дата рождения";
 
 //MARK: - Profile Photo Edit Alert
 
-"ProfilePhotoEditAlert.addphoto" = "Add photo";
+"ProfilePhotoEditAlert.addphoto" = "Добавить фото";
 
-"ProfilePhotoEditAlert.edit" = "Edit photo";
+"ProfilePhotoEditAlert.edit" = "Изменить фото";
 
-"ProfilePhotoEditAlert.delete" = "Delete photo";
+"ProfilePhotoEditAlert.delete" = "Удалить фото";
 
-"ProfilePhotoEditAlert.cancel" = "Cancel";
+"ProfilePhotoEditAlert.cancel" = "Отмена";
 
-"ProfilePhotoEditAlert.error" = "Error";
+"ProfilePhotoEditAlert.error" = "Ошибка";
 
 //MARK: - Profile Flow Contract Offer
 
-"ContractOffer.label" = "1. Terms and Definitions";
+"ContractOffer.label" = "1. Термины и определения";
 
-"ContractOffer.termin1" = "Diverse and rich experience tells us that the beginning of the daily work of forming
-position helps improve the quality of both self-sufficient and externally dependent conceptual solutions.
-It should not be forgotten, however, that the further development of various forms of activity, in its
-classical presentation allows for the introduction of withdrawal of current assets.";
+"ContractOffer.termin1" = "Разнообразный и богатый опыт говорит нам, что начало повседневной работы по формированию позиции способствует повышению качества как самодостаточных, так и внешне зависимых концептуальных решений. Не следует, однако, забывать, что дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение вывода текущих активов.";
 
-"ContractOffer.termin2" = "Banal but irrefutable conclusions, as well as basic scenarios of user behavior, are
-described in as much detail as possible. The clarity of our position is obvious: the boundary of personnel training
-requires us to analyze the personnel training system corresponding
-urgent needs.";
+"ContractOffer.termin2" = "Банальные, но неопровержимые выводы, а также базовые сценарии поведения пользователей описаны максимально подробно. Ясность нашей позиции очевидна: граница обучения кадров требует от нас анализа системы обучения кадров, соответствующей насущным потребностям.";
 
-"ContractOffer.termin3" = "Preliminary conclusions are disappointing: today's economic agenda allows important tasks
- to be achieved to develop the economic feasibility of decisions made. Diverse and rich experience tells us that a new
- model of organizational activity creates the preconditions for the progress of the professional community.";
+"ContractOffer.termin3" = "Предварительные выводы неутешительны: экономическая повестка сегодняшнего дня позволяет выполнить важные задания по разработке экономической целесообразности принимаемых решений. Разнообразный и богатый опыт говорит нам, что новая модель организационной деятельности создаёт предпосылки для прогресса профессионального сообщества.";
 
-"ContractOffer.termin4" = "Suddenly, conclusions made on the basis of Internet analytics call us to new achievements,
- which, in turn, should be associatively distributed across industries. As well as the actions of representatives of
- the opposition, overcoming the prevailing difficult economic situation, are associatively distributed across industries.
- Our case is not as clear-cut as it might be seem: the current structure of the organization does not give us any choice
- other than to determine the progress of professional communities. But the cohesion of a team of professionals does not
- give us any choice other than to determine the analysis of existing patterns of behavior.";
+"ContractOffer.termin4" = "Внезапно, сделанные на базе интернет-аналитики выводы призывают нас к новым свершениям, которые, в свою очередь, должны быть ассоциативно распределены по отраслям. А также действия представителей оппозиции, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям. Наше дело не так однозначно, как может показаться: сложившаяся структура организации не даёт нам иного выбора, кроме определения прогресса профессионального сообщества. Но сплочённость команды профессионалов не даёт нам иного выбора, кроме определения анализа существующих паттернов поведения.";
 
-"ContractOffer.navBar" = "Contract offer";
+"ContractOffer.navBar" = "Публичная оферта";
 
 //MARK: - Profile Flow About App
 
-"AboutApp.description" = "Go Maping - this varied and rich experience tells us that the start of daily work
-on the formation of a position helps to improve the quality of both self-sufficient and externally dependent conceptual
-decisions.";
+"AboutApp.description1" = "Go Maping - это разнообразный и богатый опыт говорит нам, что начало повседневной работы по формированию позиции способствует повышению качества как самодостаточных, так и внешне зависимых концептуальных решений.";
 
-"AboutApp.description2" = "It should not be forgotten, however, that the further development of various forms of activity,
-in its classical representation, allows for the introduction of withdrawal of current assets.";
+"AboutApp.description2" = "Не следует, однако, забывать, что дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение вывода текущих активов.";
 
-"AboutApp.version" = "Version 1.0 Build 0001";
+"AboutApp.version" = "Версия 1.0 Сборка 0001";
 
 "AboutApp.allRightsReserved" = "©2024 Go Maping";
 
-"AboutApp.navBar" = "About App";
+"AboutApp.navBar" = "О приложении";
 
-//MARK: - Profile Flow Support 
+//MARK: - Profile Flow Support
 
-"Support.navBar" = "Support Go Maping";
+"Support.navBar" = "Поддержка Go Maping";
 
 //MARK: - Profile Flow Notification
 
-"Notification.navBar" = "Notifications";
+"Notification.navBar" = "Уведомления";
 
 //MARK: - Profile Flow Header View
 
-"ProfileHeaderView.nameLabel" = "Name surname";
+"ProfileHeaderView.nameLabel" = "Фамилия Имя";
 
-"ProfileHeaderView.cityLabel" = "City";
+"ProfileHeaderView.cityLabel" = "Город";
 
-"Profile.header" = "Profile"; 
+"Profile.header" = "Профиль"; 
 
 
 // MARK: - Tabbar Profile
 
-"Profile.tabbar" = "Profile";
+"Profile.tabbar" = "Профиль";
 
 //MARK: - Location
 
-"MapView.FilterButton" = "Filters";
+"MapView.FilterButton" = "Фильтры";
 
-"WhatNearby.Title" = "What's nearby";
+"WhatNearby.Title" = "Что рядом";
