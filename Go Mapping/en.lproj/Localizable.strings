@@ -1,155 +1,254 @@
 
-"AlertTitle.Error" = "Ошибка";
 
-"Onboarding.NextButton" = "Далее";
+"AlertTitle.Error" = "Error";
 
-"OnboardingFirstPage.Text" = "От родителей родителям";
+"Onboarding.NextButton" = "Next";
 
-"OnboardingSecondPage.Text" = "Детям будет интересно";
+"OnboardingFirstPage.Text" = "From parents to parents";
 
-"OnboardingThirdPage.Text" = "Локации, которые подходят именно вашей семье";
+"OnboardingSecondPage.Text" = "Сhildren will be interested";
 
-"AuthorizationAlert.Title" = "Ошибка авторизации";
+"OnboardingThirdPage.Text" = "Locations that are right for your family";
 
-"AuthorizationAlert.Message" = "Неправильный логин или пароль";
+"AuthorizationAlert.Title" = "Authorization error";
 
-"Authorization.Welcome" = "Присоединяйся к";
+"AuthorizationAlert.Message" = "Incorrect login or password";
 
-"Authorization.Info" = "Получай уведомления о выгодных предложениях и копи баллы на скидку";
+"Authorization.Welcome" = "Join the";
 
-"AuthorizationError.InvalidCredentials" = "Неправильный логин или пароль";
+"Authorization.Info" = "Receive notifications about great offers and earn discount points";
 
-"AuthorizationError.EmptyLogin" = "Логин не может быть пустым";
+"AuthorizationError.InvalidCredentials" = "Invalid credentials. Please check your login and password";
 
-"AuthorizationError.EmptyPassword" = "Пароль не может быть пустым";
+"AuthorizationError.EmptyLogin" = "Login cannot be empty";
 
-"Login.Placeholder" = "Электронная почта";
+"AuthorizationError.EmptyPassword" = "Password cannot be empty";
 
-"Password.Placeholder" = "Ваш пароль";
+"Login.Placeholder" = "E-mail";
 
-"RestorePassword.Text" = "Забыли пароль?";
+"Password.Placeholder" = "Your password";
 
-"SignUp.Text" = "Регистрация";
+"RestorePassword.Text" = "Forgot your password?";
 
-"ContinueButton.Text" = "Продолжить без регистрации";
+"SignUp.Text" = "Sign up";
 
-"logInButton.Text" = "Войти";
+"ContinueButton.Text" = "Continue without registration";
 
-"MainScreenMenuItem.Navigation" = "Навигатор для родителей";
+"logInButton.Text" = "Log In";
 
-"MainScreenMenuItem.Events" = "События и мероприятия";
+"MainScreenMenuItem.Navigation" = "Navigator for parents";
 
-"MainScreenMenuItem.Services" = "Услуги и объявления";
+"MainScreenMenuItem.Events" = "Events and Activities";
 
-"MainScreenMenuItem.Useful" = "Полезное";
+"MainScreenMenuItem.Services" = "Services and announcements";
 
-"MainScreen.Title" = "Главная";
+"MainScreenMenuItem.Useful" = "Useful";
 
-"Map.Title" = "Карта";
+"MainScreen.Title" = "Main";
 
-"LocationServiceError.AuthorizationDenied" = "Доступ к службам геолокации запрещен";
+"Map.Title" = "Map";
 
-"LocationServiceError.LocationUnavailable" = "Службы геолокации в данный момент недоступны";
+"LocationServiceError.AuthorizationDenied" = "Location services authorization denied";
 
-"SearchBar.Placeholder" = "Введите текст";
+"LocationServiceError.LocationUnavailable" = "Location services are currently unavailable";
 
-"MapView.FilterButton" = "Фильтры";
+"SearchBar.Placeholder" = "Enter the text";
 
-//MARK: - Profile Cell Buttons
+"MapView.FilterButton" = "Filters";
 
-"ProfileCell.favourite" = "Избранное";
+"PopupMenuItem.Playground" = "Playgrounds";
 
-"ProfileCell.myAdds" = "Мои объявления";
+"PopupMenuItem.Cafe" = "Cafe";
 
-"ProfileCell.notification" = "Уведомления";
+"PopupMenuItem.Development" = "Development";
 
-"ProfileCell.contractOffer" = "Публичная оферта";
+"PopupMenuItem.Courses" = "Courses";
 
-"ProfileCell.aboutApp" = "О приложении";
+"PopupMenuItem.Schools" = "Schools";
 
-"ProfileCell.support" = "Поддержка Go Mapping";
+"PopupMenuItem.Kindergartens" = "Kindergartens";
 
-"ProfileCell.logout" = "Выйти из аккаунта";
+"PopupMenuItem.Pharmacies" = "Pharmacies";
+
+"PopupMenuItem.Clinics" = "Clinics";
+
+"PopupMenuItem.Shops" = "Shops";
+
+"Filter" = "Filter";
+
+"FilterSettingsView.Button" = "Show";
+
+"FilterCategoryLabel.Playground" = "Customize your game";
+
+"FilterCategoryLabel.Cafe" = "Customize cafe";
+
+"FilterCategoryLabel.Development" = "Customize development";
+
+"FilterCategoryLabel.Schools" = "Customize schools";
+
+"FilterCategoryLabel.Medicine" = "Customize medicine";
+
+"FilterCategoryLabel.Shops" = "Customize shops";
+
+"Rating" = "Rating";
+
+"AgeGroup" = "Age group";
+
+"Equipment" = "Equipment";
+
+"Size" = "Size";
+
+"Toilet" = "Toilet";
+
+"Canopy" = "Canopy";
+
+"Benches" = "Benches";
+
+"Covering" = "Covering";
+
+"LimitedMobilityEquipment" = "Equipment PLM";
+
+"EquipmentSettings.Playground" = "Playground";
+
+"EquipmentSettings.Slide" = "Slide";
+
+"EquipmentSettings.SwingsForBaby" = "Swings for Babies";
+
+"EquipmentSettings.SwingsForChildren" = "Swings for Children";
+
+"EquipmentSettings.WallBars" = "Wall Bars";
+
+"EquipmentSettings.ElaboratePlaygroundSet" = "Elaborate Playground Set";
+
+"SizeSettings.Small" = "Small";
+
+"SizeSettings.Medium" = "Medium";
+
+"SizeSettings.Large" = "Large";
+
+"CoveringSettings.Soft" = "Soft";
+
+"CoveringSettings.Pebbles" = "Pebbles";
+
+"CoveringSettings.Sand" = "Sand";
+
+"CoveringSettings.Asphalt" = "Asphalt";
+
+"BooleanSettings.Yes" = "Yes";
+
+"BooleanSettings.No" = "No";
+
+//MARK: - Profile Cell
+
+"ProfileCell.favourite" = " Favourites";
+
+"ProfileCell.myAdds" = "My adds";
+
+"ProfileCell.notification" = "Notifications";
+
+"ProfileCell.contractOffer" = "Contract Offer";
+
+"ProfileCell.aboutApp" = "About App";
+
+"ProfileCell.support" = "Support GoMapping";
+
+"ProfileCell.logout" = "Logout";
 
 //MARK: - Profile Edit Screen
 
-"ProfileEditScreen.showButton" = "Показать";
+"ProfileEditScreen.showButton" = "Show";
 
-"ProfileEditScreen.navBar" = "Редактирование профиля";
+"ProfileEditScreen.navBar" = "Edit profile";
 
-"ProfileEditScreenLabel.namelabel" = "Имя";
+"ProfileEditScreenLabel.namelabel" = "Name";
 
-"ProfileEditScreenLabel.surname" = "Фамилия";
+"ProfileEditScreenLabel.surname" = "Surname";
 
-"ProfileEditScreenLabel.cityLabel" = "Город";
+ "ProfileEditScreenLabel.cityLabel" = "City";
 
-"ProfileEditScreenLabel.emailLabel" = "Почта";
+ "ProfileEditScreenLabel.emailLabel" = "Email";
 
-"ProfileEditScreenLabel.telephoneLabel" = "Телефон";
+ "ProfileEditScreenLabel.telephoneLabel" = "Telephone";
 
-"ProfileEditScreenLabel.dateOfBirthLabel" = "Дата рождения";
+ "ProfileEditScreenLabel.dateOfBirthLabel" = "Date Of Birth";
 
 //MARK: - Profile Photo Edit Alert
 
-"ProfilePhotoEditAlert.addphoto" = "Добавить фото";
+"ProfilePhotoEditAlert.addphoto" = "Add photo";
 
-"ProfilePhotoEditAlert.edit" = "Изменить фото";
+"ProfilePhotoEditAlert.edit" = "Edit photo";
 
-"ProfilePhotoEditAlert.delete" = "Удалить фото";
+"ProfilePhotoEditAlert.delete" = "Delete photo";
 
-"ProfilePhotoEditAlert.cancel" = "Отмена";
+"ProfilePhotoEditAlert.cancel" = "Cancel";
 
-"ProfilePhotoEditAlert.error" = "Ошибка";
+"ProfilePhotoEditAlert.error" = "Error";
 
 //MARK: - Profile Flow Contract Offer
 
-"ContractOffer.label" = "1. Термины и определения";
+"ContractOffer.label" = "1. Terms and Definitions";
 
-"ContractOffer.termin1" = "Разнообразный и богатый опыт говорит нам, что начало повседневной работы по формированию позиции способствует повышению качества как самодостаточных, так и внешне зависимых концептуальных решений. Не следует, однако, забывать, что дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение вывода текущих активов.";
+"ContractOffer.termin1" = "Diverse and rich experience tells us that the beginning of the daily work of forming
+position helps improve the quality of both self-sufficient and externally dependent conceptual solutions.
+It should not be forgotten, however, that the further development of various forms of activity, in its
+classical presentation allows for the introduction of withdrawal of current assets.";
 
-"ContractOffer.termin2" = "Банальные, но неопровержимые выводы, а также базовые сценарии поведения пользователей описаны максимально подробно. Ясность нашей позиции очевидна: граница обучения кадров требует от нас анализа системы обучения кадров, соответствующей насущным потребностям.";
+"ContractOffer.termin2" = "Banal but irrefutable conclusions, as well as basic scenarios of user behavior, are
+described in as much detail as possible. The clarity of our position is obvious: the boundary of personnel training
+requires us to analyze the personnel training system corresponding
+urgent needs.";
 
-"ContractOffer.termin3" = "Предварительные выводы неутешительны: экономическая повестка сегодняшнего дня позволяет выполнить важные задания по разработке экономической целесообразности принимаемых решений. Разнообразный и богатый опыт говорит нам, что новая модель организационной деятельности создаёт предпосылки для прогресса профессионального сообщества.";
+"ContractOffer.termin3" = "Preliminary conclusions are disappointing: today's economic agenda allows important tasks
+ to be achieved to develop the economic feasibility of decisions made. Diverse and rich experience tells us that a new
+ model of organizational activity creates the preconditions for the progress of the professional community.";
 
-"ContractOffer.termin4" = "Внезапно, сделанные на базе интернет-аналитики выводы призывают нас к новым свершениям, которые, в свою очередь, должны быть ассоциативно распределены по отраслям. А также действия представителей оппозиции, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям. Наше дело не так однозначно, как может показаться: сложившаяся структура организации не даёт нам иного выбора, кроме определения прогресса профессионального сообщества. Но сплочённость команды профессионалов не даёт нам иного выбора, кроме определения анализа существующих паттернов поведения.";
+"ContractOffer.termin4" = "Suddenly, conclusions made on the basis of Internet analytics call us to new achievements,
+ which, in turn, should be associatively distributed across industries. As well as the actions of representatives of
+ the opposition, overcoming the prevailing difficult economic situation, are associatively distributed across industries.
+ Our case is not as clear-cut as it might be seem: the current structure of the organization does not give us any choice
+ other than to determine the progress of professional communities. But the cohesion of a team of professionals does not
+ give us any choice other than to determine the analysis of existing patterns of behavior.";
 
-"ContractOffer.navBar" = "Публичная оферта";
+"ContractOffer.navBar" = "Contract offer";
 
 //MARK: - Profile Flow About App
 
-"AboutApp.description1" = "Go Maping - это разнообразный и богатый опыт говорит нам, что начало повседневной работы по формированию позиции способствует повышению качества как самодостаточных, так и внешне зависимых концептуальных решений.";
+"AboutApp.description" = "Go Maping - this varied and rich experience tells us that the start of daily work
+on the formation of a position helps to improve the quality of both self-sufficient and externally dependent conceptual
+decisions.";
 
-"AboutApp.description2" = "Не следует, однако, забывать, что дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает внедрение вывода текущих активов.";
+"AboutApp.description2" = "It should not be forgotten, however, that the further development of various forms of activity,
+in its classical representation, allows for the introduction of withdrawal of current assets.";
 
-"AboutApp.version" = "Версия 1.0 Сборка 0001";
+"AboutApp.version" = "Version 1.0 Build 0001";
 
 "AboutApp.allRightsReserved" = "©2024 Go Maping";
 
-"AboutApp.navBar" = "О приложении";
+"AboutApp.navBar" = "About App";
 
 //MARK: - Profile Flow Support
 
-"Support.navBar" = "Поддержка Go Maping";
+"Support.navBar" = "Support Go Maping";
 
 //MARK: - Profile Flow Notification
 
-"Notification.navBar" = "Уведомления";
+"Notification.navBar" = "Notifications";
 
 //MARK: - Profile Flow Header View
 
-"ProfileHeaderView.nameLabel" = "Фамилия Имя";
+"ProfileHeaderView.nameLabel" = "Name surname";
 
-"ProfileHeaderView.cityLabel" = "Город";
+"ProfileHeaderView.cityLabel" = "City";
 
-"Profile.header" = "Профиль"; 
+"Profile.header" = "Profile";
 
 
 // MARK: - Tabbar Profile
 
-"Profile.tabbar" = "Профиль";
+"Profile.tabbar" = "Profile";
 
 //MARK: - Location
 
-"MapView.FilterButton" = "Фильтры";
+"MapView.FilterButton" = "Filters";
 
-"WhatNearby.Title" = "Что рядом";
+"WhatNearby.Title" = "What's nearby";

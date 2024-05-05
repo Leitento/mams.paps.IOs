@@ -1,4 +1,5 @@
 
+
 "AlertTitle.Error" = "Ошибка";
 
 "Onboarding.NextButton" = "Далее";
@@ -54,6 +55,88 @@
 "SearchBar.Placeholder" = "Введите текст";
 
 "MapView.FilterButton" = "Фильтры";
+
+"PopupMenuItem.Playground" = "Детские площадки";
+
+"PopupMenuItem.Cafe" = "Кафе";
+
+"PopupMenuItem.Development" = "Развитие";
+
+"PopupMenuItem.Courses" = "Курсы";
+
+"PopupMenuItem.Schools" = "Школы";
+
+"PopupMenuItem.Kindergartens" = "Детские сады";
+
+"PopupMenuItem.Pharmacies" = "Аптеки";
+
+"PopupMenuItem.Clinics" = "Поликлиники";
+
+"PopupMenuItem.Shops" = "Магазины";
+
+"Filter" = "Фильтр";
+
+"FilterSettingsView.Button" = "Показать";
+
+"FilterCategoryLabel.Playground" = "Настрой свою игру";
+
+"FilterCategoryLabel.Cafe" = "Настрой кафе";
+
+"FilterCategoryLabel.Development" = "Настрой развивашки";
+
+"FilterCategoryLabel.Schools" = "Настрой школы";
+
+"FilterCategoryLabel.Medicine" = "Настрой медицину";
+
+"FilterCategoryLabel.Shops" = "Настрой магазины";
+
+"Rating" = "Рейтинг";
+
+"AgeGroup" = "Возрастная группа";
+
+"Equipment" = "Оборудование";
+
+"Size" = "Размер";
+
+"Toilet" = "Туалет";
+
+"Canopy" = "Навес";
+
+"Benches" = "Скамейки";
+
+"Covering" = "Покрытие";
+
+"LimitedMobilityEquipment" = "Оборудование МГН";
+
+"EquipmentSettings.Playground" = "Песочница";
+
+"EquipmentSettings.Slide" = "Горка";
+
+"EquipmentSettings.SwingsForBaby" = "Качели для малышей";
+
+"EquipmentSettings.SwingsForChildren" = "Качели для детей постарше";
+
+"EquipmentSettings.WallBars" = "Шведская стенка";
+
+"EquipmentSettings.ElaboratePlaygroundSet" = "Сложный игровой комплекс";
+
+"SizeSettings.Small" = "Маленькая";
+
+"SizeSettings.Medium" = "Средняя";
+
+"SizeSettings.Large" = "Большая";
+
+"CoveringSettings.Soft" = "Мягкое";
+
+"CoveringSettings.Pebbles" = "Галька";
+
+"CoveringSettings.Sand" = "Песок";
+
+"CoveringSettings.Asphalt" = "Асфальт";
+
+"BooleanSettings.Yes" = "Есть";
+
+"BooleanSettings.No" = "Нет";
 
 //MARK: - Profile Cell Buttons
 
@@ -141,7 +224,7 @@
 
 "ProfileHeaderView.cityLabel" = "Город";
 
-"Profile.header" = "Профиль"; 
+"Profile.header" = "Профиль";
 
 
 // MARK: - Tabbar Profile

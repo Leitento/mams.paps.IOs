@@ -34,7 +34,7 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
             case .success(let coordinates):
                 self.currentLocation = coordinates
             case .failure(let error):
-                Alert.shared.showAlert(on: self, title: "Error", message: error.description)
+                Alert.shared.showAlert(on: self, title: "AlertTitle.Error".localized, message: error.description)
             }
         }
         setupView()
@@ -62,6 +62,21 @@ final class MapViewController: UIViewController, MapViewControllerDelegate {
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+    
+    private func presentFilterSettings(itemIndex: Int) {
+        let filterSettingsViewModel = FiltersSettingsViewModel(selectedItemIndex: itemIndex)
+        let filterSettingsViewController = FilterSettingsViewController(viewModel: filterSettingsViewModel)
+        navigationController?.pushViewController(filterSettingsViewController, animated: true)
+    }
+    
+    func presentPopup() {
+        let popupViewController = PopupViewController { popupMenuItemIndex in
+            self.presentFilterSettings(itemIndex: popupMenuItemIndex)
+        }
+        navigationController?.modalPresentationStyle = .popover
+        navigationController?.modalTransitionStyle = .coverVertical
+        navigationController?.present(popupViewController, animated: true)
     }
     
     func searchText(with searchText: String) {

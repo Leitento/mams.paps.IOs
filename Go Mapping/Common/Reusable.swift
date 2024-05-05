@@ -12,6 +12,12 @@ extension UICollectionViewCell: ReusableView {
     }
 }
 
+extension UITableViewCell: ReusableView {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
+
 protocol ReusableHeaderView: AnyObject {
     static var identifierHeader: String { get }
 }

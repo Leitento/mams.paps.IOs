@@ -2,10 +2,6 @@
 
 import UIKit
 
-protocol Configurable: AnyObject {
-    func setup(with mainMenuItem: MainScreenMenuItem)
-}
-
 final class MainScreenCollectionViewCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {

@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CountKey</key>
+	<key>StringKey</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@VARIABLE@</string>
@@ -15,11 +15,11 @@
 			<key>zero</key>
 			<string>Найдено %d вариантов</string>
 			<key>one</key>
-			<string>Найдено %d вариант</string>
+			<string>Найден %d вариант</string>
 			<key>few</key>
-			<string>Найдено %d варианта</string>
+			<string>Найдено %d вариантов</string>
 			<key>many</key>
-			<string>Найдено %d варианта</string>
+			<string>Найдено %d вариантов</string>
 		</dict>
 	</dict>
 </dict>
